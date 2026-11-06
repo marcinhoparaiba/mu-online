@@ -16,3 +16,9 @@ button:disabled{opacity:.6;cursor:wait}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{animation:none!important;transition:none!important}}
 
 .ranking-category-tabs,#ranking-tabs{display:flex;flex-wrap:wrap;gap:5px}.ranking-category-tabs button,#ranking-tabs button{flex:1 1 110px;white-space:normal}.data-table caption{text-align:left;color:var(--gold2);padding:12px 0}
+
+/* Identidade MuBanneD: obsidiana, rubi e dourado envelhecido; estrutura clássica preservada. */
+:root{--bg:#0c0a0d;--panel:#181416;--panel2:#241a1e;--edge:#493b3e;--gold:#c6a36d;--gold2:#e7c996;--deep:#100c10;--muted:#b8aeb0}
+body{background:radial-gradient(ellipse at 60% -15%,#46212d 0%,transparent 45%),radial-gradient(ellipse at bottom left,#201419,transparent 56%),var(--bg)}
+.masthead{background:linear-gradient(125deg,#100d10 5%,#3b1c27b5 53%,#100c10 100%)}
+.thin-bar{background:#0c090c;border-bottom-color:#443037}.panel{border-color:var(--edge);background:linear-gradient(145deg,#231b20,#171316 76%)}.panel-title{background:linear-gradient(#422a32,#251b20)}.simple-panel{border-color:var(--edge);background:#1b1519}.btn-outline{background:#261c21}.logo-medallion{background:radial-gradient(circle,#4c3036 10%,#110c10 70%)}

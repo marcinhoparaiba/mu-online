@@ -1,0 +1,4 @@
+const token=location.hash.slice(1);history.replaceState(null,'',location.pathname);
+const form=document.getElementById('reset-form'),status=document.getElementById('reset-status');
+if(!/^[a-f0-9]{64}$/.test(token)){form.hidden=true;status.textContent='Link inválido. Solicite a recuperação na página de login.';}
+form.addEventListener('submit',async e=>{e.preventDefault();const v=Object.fromEntries(new FormData(form));if(v.password!==v.confirm){status.textContent='A confirmação da senha não confere.';return;}const button=form.querySelector('button');button.disabled=true;try{const r=await fetch('/api/auth/reset',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({token,password:v.password})});const d=await r.json();if(!r.ok)throw Error(d.error||'Não foi possível alterar a senha.');form.reset();form.hidden=true;status.textContent=d.message;}catch(error){status.textContent=error.message;}finally{button.disabled=false;}});

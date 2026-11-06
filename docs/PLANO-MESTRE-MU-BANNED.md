@@ -4,7 +4,7 @@ Continuar o projeto existente em HTML, CSS, JavaScript e Node.js sem dependênci
 
 ## Etapas e critérios de conclusão
 
-1. **Site e conta:** cadastro, login, troca de senha com revogação de sessões, atendimento, notícias, acessibilidade e testes HTTP. Implementados e testados; revisão visual de navegador ainda pendente.
+1. **Site e conta:** cadastro, login, troca de senha com revogação de sessões, atendimento, notícias, acessibilidade e testes HTTP. Implementados e testados; revisão visual em Chromium concluída em desktop, 390 px e 320 px.
 2. **Regras do editor e ranking:** +0..+15 para comuns, transparência a partir de +12, exclusivos bloqueados; 13 categorias públicas com estado vazio. Implementados no protótipo. O editor não toca no jogo.
 3. **Fórum inicial:** categorias, tópicos, respostas, busca, conta compartilhada, moderação e auditoria. Implementados no backend local e na interface inicial; testes aprovados. Fórum completo inclui funcionalidades adicionais a implementar depois.
 4. **Base clássica custom:** obter arquivos autorizados, inventariar e instalar em Windows isolado; validar cliente, banco e as quatro classes. Bloqueada pelo acesso aos arquivos.
@@ -14,3 +14,7 @@ Continuar o projeto existente em HTML, CSS, JavaScript e Node.js sem dependênci
 8. **Lançamento:** banco transacional, HTTPS, recuperação de contas, backups restauráveis, teste de carga, auditoria e beta. Nenhum lançamento aconteceu.
 
 Cada etapa deve gerar commit descritivo no GitHub após testes. Não tratar commits como publicação de servidor. Preservar Home clássica.
+
+## Ampliação web em 06/11/2026
+
+Comunidade ampliada e loja local implementadas e testadas. Ver `COMUNIDADE-E-PERMISSOES.md`, `LOJA.md`, `RECUPERACAO-DE-CONTA.md` e `PENDENCIAS.md`. A conclusão local dessas funções não equivale a publicação ou integração com o GameServer. Restam serviços externos de produção e recursos de plataforma expressamente listados.

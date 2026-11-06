@@ -1,33 +1,27 @@
-# Pendências
+# Pendências reais — atualizado em 06/11/2026
 
-## Arquivos e acesso
+## Jogo: bloqueado pelo acesso ao pacote
 
-Receber e auditar o pacote Source, Client, GetMainLab e MuServer baixado pelo usuário. Não exigir o patch Beta 15 da base 1.0M descartada. Anexos do fórum ainda não disponíveis no ambiente; tentativa HTTP direta retornou 403. Revisar condições de uso e disponibilidade de fontes antes de depender de modificações internas.
+As pastas Source, Client, GetMainLab e MuServer estão no PC do usuário. Ainda não chegaram a este ambiente. O arquivo `muserver97d` criado no GitHub é vazio; não contém o pacote. Não executar o script de limpeza e não desativar antivírus.
 
-## Compatibilidade do jogo
+Após receber: inventário e licença; fontes, projetos de compilação e ferramentas; identificação da versão técnica; revisão SQL e banco isolado; compatibilidade de cliente/servidor; armazenamento e protocolo de itens; suporte a +15 e renderização transparente +12..+15; editor real com titularidade, serial, opções, concorrência e auditoria. Sem DL. Não exigir patch de 1.0M descartada.
 
-Suporte real a +15 precisa de confirmação: o anúncio enumera mixes até +13. Renderização transparente exige implementação no cliente; regra web não altera BMD, main.exe nem protocolo. Verificar BK, SM, ME e MG; DL não faz parte do perfil vigente. Não definir SQL/portas por suposição.
+## Serviços externos e operação pública
 
-## Web
+- E-mail: código de recuperação pronto, mas sem credenciais/remetente/domínio de envio. Nenhum e-mail real enviado. Ver `RECUPERACAO-DE-CONTA.md`.
+- Loja: catálogo gerenciável e pedidos em rascunho prontos localmente; pagamentos e entrega desativados. Sem produtos oficiais, preços ou política comercial aprovados; não inventar. Ver `LOJA.md`.
+- Hospedagem, domínio, HTTPS, monitoramento, banco transacional, teste de carga e política final de privacidade/retencão ainda necessários antes de produção. Não publicar automaticamente. JSON local serve somente para teste de uma instância.
+- Cliente, launcher e assets do jogo exigem arquivos autorizados e testes de distribuição.
 
-Ampliar fórum inicial com perfis, editor rico, reputação, notificações, mensagens privadas e moderação de respostas; substituir JSON por armazenamento transacional antes de produção; recuperação de acesso e e-mail; ampliar revisão visual para os demais módulos; histórico persistente de edição quando a integração existir; proteção adicional e limites de carga. Rankings públicos ficam vazios até fonte real.
+## Fórum: complemento de plataforma
 
-## Conteúdo
+Implementados: categorias, sete cargos, permissões, perfis, líderes, reputação, mensagens, notificações internas, acompanhamento, favoritos, denúncias, moderação de respostas, auditoria, calendário e formatação limitada segura. Testados com dados sintéticos.
+Não implementados: anexos com varredura e armazenamento, editor WYSIWYG completo, login social/2FA, push/e-mail de notificações, presença distribuída e traduções completas. Não declarar réplica literal de todas as funções privadas do Invision Community; somente recursos públicos do site de referência foram consultados.
 
-A pasta mu-banned-home-recuperada ainda não foi entregue. O prompt mestre foi recebido e serve de especificação; não contém os componentes ou assets da Hostinger. Não copiar branding/arte do MuAwaY.
+## Conteúdo e balanceamento
 
-## Produção
+Home recuperada da Hostinger não foi entregue. Sets 01 a 09 são coleções; somente 01 e 02 aparecem identificados na captura. Modelos, nomes, atributos e elegibilidade aguardam arquivos. Não presumir fórmulas de PvP iguais ao MuAwaY. Arte da intro é original; não publicar conteúdo de terceiros sem autorização.
 
-Domínio, hospedagem, HTTPS, backups, restauração, monitoramento, cliente para download e beta fechado ainda pendentes. Nenhum custo ou compra foi realizado.
+## Referências audiovisuais
 
-## Coleções 01 a 09
-
-Conferir aparência e nomes completos de cada coleção e modelo autorizado. Somente 01 e 02 aparecem identificados na captura; 03–09 vêm da descrição do usuário. Não classificar automaticamente sets antigos como customs exclusivos de Donate; decidir a elegibilidade pelo catálogo real.
-
-## Arquivos recebidos
-
-Foram recebidos somente Configs.ini de inicialização e batch de limpeza. Eles não incluem GameServer, cliente nem schema SQL e não comprovam versão. A limpeza não foi executada. Ver `AUDITORIA-ARQUIVOS-RECEBIDOS.md`.
-
-## Vídeo MU ADT
-
-Link registrado e páginas oficiais pesquisadas. Acesso ao vídeo/transcrição bloqueado no ambiente; zero minutos analisados. Não há inventário completo de tudo que aparece na gravação.
+Vídeos informados ficaram sem acesso a reprodução/transcrição neste ambiente; não afirmar que foram assistidos. Ver relatórios em `pesquisa-muaway/`.

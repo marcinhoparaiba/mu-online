@@ -2,6 +2,7 @@ import { roles, can, roleName, participationTitle } from './community-policy.js'
 export function createCommunityService({ store, transact, uid, json, fail, body, limit, revokeSessions = () => {} }) {
   store.community ??= { profiles: {}, notifications: [], messages: [], reports: [], audit: [] };
   const c = store.community;
+  c.events ??= [];
   const text = (v, min, max) => typeof v === 'string' && v.trim().length >= min && v.trim().length <= max;
   const deny = (status, message) => { throw Object.assign(new Error(message), { status }); };
   const visible = () => (store.forum?.topics || []).filter(t => !t.hidden);
@@ -34,10 +35,25 @@ export function createCommunityService({ store, transact, uid, json, fail, body,
       json(res,200,{metric,...paginate(store.users.map(profile).filter(u=>u[metric]>0).sort((a,b)=>b[metric]-a[metric]||a.username.localeCompare(b.username)),url)});return true;
     }
     if(m==='GET' && p==='/api/community/activity') { json(res,200,paginate(visible().flatMap(t=>t.posts.filter(p=>!p.hidden).map(p=>({topicId:t.id,title:t.title,author:profile(store.users.find(u=>u.id===p.authorId)||{id:p.authorId,username:'Conta indisponível',role:'player'}),at:p.createdAt}))).sort((a,b)=>b.at.localeCompare(a.at)),url));return true; }
+    if(m==='GET' && p==='/api/community/events'){json(res,200,paginate(c.events.slice().sort((a,b)=>a.startsAt.localeCompare(b.startsAt)).map(e=>({...e,attendees:undefined,going:e.attendees.length,joined:e.attendees.includes(user?.id)})),url));return true;}
     const member=/^\/api\/community\/members\/([a-f0-9]{32})$/.exec(p);
     if(m==='GET' && member) {const u=store.users.find(u=>u.id===member[1]);if(!u)fail(res,404,'Membro não encontrado.');else json(res,200,{member:profile(u)});return true;}
     if(!user){fail(res,401,'Entre na sua conta para continuar.');return true;}
     if(m==='POST' && !limit(req,'community-write',40)){fail(res,429,'Aguarde um minuto.');return true;}
+    if(m==='POST' && p==='/api/community/events'){
+      if(!can(user,'official')){fail(res,403,'Somente a equipe de publicação agenda eventos.');return true;}
+      const x=await body(req);const start=typeof x.startsAt==='string'?Date.parse(x.startsAt):NaN,end=typeof x.endsAt==='string'?Date.parse(x.endsAt):NaN;
+      if(!text(x.title,4,120)||!text(x.description,10,3000)||!Number.isFinite(start)||!Number.isFinite(end)||end<=start||!text(x.reason,5,500)){fail(res,400,'Título, descrição, datas válidas (fim após início) e motivo obrigatórios.');return true;}
+      await transact(()=>{const event={id:uid(),title:x.title.trim(),description:x.description.trim(),startsAt:new Date(start).toISOString(),endsAt:new Date(end).toISOString(),by:user.id,status:'scheduled',attendees:[]};c.events.push(event);audit(user,'event-created',event.id,x.reason.trim());});json(res,201,{ok:true});return true;
+    }
+    if(m==='POST' && p==='/api/community/events/join'){
+      const x=await body(req);if(typeof x.enabled!=='boolean'){fail(res,400,'Preferência inválida.');return true;}
+      await transact(()=>{const e=c.events.find(e=>e.id===x.id);if(!e)deny(404,'Evento não encontrado.');if(e.status!=='scheduled'||Date.parse(e.endsAt)<Date.now())deny(409,'Evento encerrado ou cancelado.');e.attendees=e.attendees.filter(id=>id!==user.id);if(x.enabled)e.attendees.push(user.id);});json(res,200,{ok:true});return true;
+    }
+    if(m==='POST' && p==='/api/community/events/cancel'){
+      if(!can(user,'official')){fail(res,403,'Permissão de publicação necessária.');return true;}const x=await body(req);if(!text(x.reason,5,500)){fail(res,400,'Informe motivo.');return true;}
+      await transact(()=>{const e=c.events.find(e=>e.id===x.id);if(!e)deny(404,'Evento não encontrado.');e.status='cancelled';audit(user,'event-cancelled',e.id,x.reason.trim());});json(res,200,{ok:true});return true;
+    }
     if(m==='POST' && p==='/api/community/profile') {
       const x=await body(req);if(!text(x.bio,0,1000)||!text(x.signature,0,300)){fail(res,400,'Biografia até 1000 e assinatura até 300 caracteres.');return true;}
       await transact(()=>{c.profiles[user.id]={...(c.profiles[user.id]||{}),bio:x.bio.trim(),signature:x.signature.trim()};});json(res,200,{member:profile(user)});return true;
@@ -45,6 +61,7 @@ export function createCommunityService({ store, transact, uid, json, fail, body,
     if(m==='GET' && p==='/api/community/notifications'){json(res,200,{...paginate(c.notifications.filter(n=>n.userId===user.id).slice().reverse(),url),unread:c.notifications.filter(n=>n.userId===user.id&&!n.read).length});return true;}
     if(m==='POST' && p==='/api/community/notifications/read'){const x=await body(req);await transact(()=>{c.notifications.filter(n=>n.userId===user.id&&(!x.id||n.id===x.id)).forEach(n=>n.read=true);});json(res,200,{ok:true});return true;}
     if(m==='GET' && p==='/api/community/messages'){json(res,200,paginate(c.messages.filter(n=>n.from===user.id||n.to===user.id).slice().reverse().map(n=>({...n,fromName:store.users.find(u=>u.id===n.from)?.username,toName:store.users.find(u=>u.id===n.to)?.username})),url));return true;}
+    if(m==='GET' && p==='/api/community/messages/preferences'){json(res,200,{blocked:!!c.profiles[user.id]?.messagesBlocked});return true;}
     if(m==='POST' && p==='/api/community/messages'){
       const x=await body(req);if(!text(x.body,1,3000)||!text(x.username,3,25)){fail(res,400,'Informe destinatário e mensagem de até 3000 caracteres.');return true;}
       if(!limit(req,'private-message',10)){fail(res,429,'Limite de mensagens por minuto atingido.');return true;}

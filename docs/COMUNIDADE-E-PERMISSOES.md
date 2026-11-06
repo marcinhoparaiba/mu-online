@@ -25,3 +25,7 @@ Notificações têm limite de 200 por membro. Mensagens privadas só são retorn
 ## Limites restantes
 
 Armazenamento local em instância única; migração transacional, e-mail de recuperação/verificação, autenticação de dois fatores, anexos com análise de arquivos, notificações push, presença distribuída e traduções completas não foram implementados. Não anunciar paridade integral com plataforma de terceiros. Comércio não tem custódia, cobrança ou intermediação financeira.
+
+## Calendário, presença e editor
+
+Calendário local suporta agenda, cancelamento auditado e interesse por conta, sem inscrição de personagens. Datas são armazenadas em UTC e exibidas no fuso do navegador. Membros ativos são contas autenticadas vistas nos últimos 15 minutos, não conexões ao jogo. Formatação limitada de mensagens: negrito, itálico, código e citação; HTML é escapado antes de aplicar tags conhecidas. Não há anexos nem incorporação de HTML.

@@ -28,7 +28,7 @@ try{
   assert.equal(game.json.editor.maxLevel,15);assert.equal(game.json.editor.transparentFrom,12);
   const catalog=await call('/catalog/collections');assert.equal(catalog.json.collections.length,9);assert.equal(catalog.json.liveInventory,false);assert.ok(catalog.json.collections.every(c=>c.modelsAvailable===false&&c.statsVerified===false));
   const rankings=await call('/rankings');assert.equal(rankings.json.categories.length,13);assert.equal(rankings.json.source,'unavailable');assert.ok(rankings.json.categories.every(c=>c.entries.length===0));
-  for(const file of ['server.mjs','tests/smoke.mjs','game-server/config.mjs','package.json'])assert.equal((await fetch(url+'/'+file)).status,404);
+  for(const file of ['server.mjs','tests/smoke.mjs','game-server/config.mjs','package.json','shop-service.mjs','community-service.mjs','recovery-service.mjs','scripts/data-backup.mjs'])assert.equal((await fetch(url+'/'+file)).status,404);
   assert.equal((await fetch(url+'/public.js')).status,200);
   assert.equal((await fetch(url+'/',{headers:{cookie:'mu_session=%E0%A4%A'}})).status,200);
   const crossOrigin=await fetch(url+'/api/auth/logout',{method:'POST',headers:{origin:'https://other.example','Content-Type':'application/json'},body:'{}'});assert.equal(crossOrigin.status,403);
@@ -120,8 +120,42 @@ try{
   assert.equal((await call('/community/leaders?metric=reputation')).json.entries[0].username,'GamerTeste');
   const audit=await call('/admin/forum/audit',undefined,cook);assert.ok(audit.json.entries.some(e=>e.action==='hide'&&e.reason==='Ocultando para teste'));
   const persisted=JSON.parse(await readFile(path.join(dir,'db.json'),'utf8'));assert.equal(persisted.forum.topics.length,1);assert.equal(persisted.forum.topics[0].posts.length,4);
+  
+  
+  assert.equal((await call('/community/events',{title:'Não autorizado'},player)).status,403);
+  const startsAt=new Date(Date.now()+86400000).toISOString(),endsAt=new Date(Date.now()+90000000).toISOString();
+  assert.equal((await call('/community/events',{title:'Evento de teste',description:'Descrição local de teste',startsAt,endsAt,reason:'Calendário de teste'},cook)).status,201);
+  const event=(await call('/community/events')).json.entries[0];assert.ok(!('attendees' in event));
+  assert.equal((await call('/community/events/join',{id:event.id,enabled:true},player)).status,200);
+  assert.equal((await call('/community/events/join',{id:event.id,enabled:true},player)).status,200);
+  assert.equal((await call('/community/events')).json.entries[0].going,1);
+  assert.equal((await call('/community/events/cancel',{id:event.id,reason:'Cancelado para teste'},cook)).status,200);
+  assert.equal((await call('/community/events/join',{id:event.id,enabled:true},player)).status,409);
+  const online=await call('/community/online');assert.ok(online.json.members.some(u=>u.username==='GamerTeste'));assert.ok(!JSON.stringify(online.json).includes('gamer@example.com'));
+  assert.equal((await call('/shop/catalog')).json.paymentsEnabled,false);
+  assert.equal((await call('/shop/cart')).status,401);
+  assert.equal((await call('/admin/shop/products',{name:'Produto indevido'},player)).status,403);
+  const product=await call('/admin/shop/products',{name:'Cosmético de teste',description:'Produto sintético somente para testes',category:'cosmeticos',priceCents:1234,active:true,reason:'Teste do catálogo'},cook);assert.equal(product.status,200);
+  const productId=product.json.product.id;
+  assert.equal((await call('/shop/cart',{productId,quantity:2,totalCents:1},player)).json.totalCents,2468);
+  assert.equal((await call('/shop/cart',{productId,quantity:21},player)).status,400);
+  assert.equal((await call('/shop/cart',undefined,cook)).json.lines.length,0);
+  const draft=await call('/shop/orders',{idempotencyKey:'test-order-key-123456'},player);assert.equal(draft.status,201);assert.equal(draft.json.order.totalCents,2468);assert.equal(draft.json.order.paymentStatus,'disabled');
+  const retried=await call('/shop/orders',{idempotencyKey:'test-order-key-123456'},player);assert.equal(retried.json.order.id,draft.json.order.id);
+  assert.equal((await call('/shop/orders',undefined,player)).json.orders.length,1);
+  assert.equal((await call('/shop/orders',undefined,cook)).json.orders.length,0);
+  assert.equal((await call('/shop/orders/cancel',{id:draft.json.order.id},cook)).status,404);
+  assert.equal((await call('/shop/orders/cancel',{id:draft.json.order.id},player)).status,200);
+  assert.equal((await call('/shop/checkout',{},player)).status,503);
+  assert.equal((await call('/shop/cart',{productId,quantity:1},player)).status,200);
+  assert.equal((await call('/admin/shop/products',{id:productId,name:'Cosmético de teste',description:'Oculto para teste',category:'cosmeticos',priceCents:9999,active:false,reason:'Teste de indisponibilidade'},cook)).status,200);
+  assert.equal((await call('/shop/orders',{idempotencyKey:'test-order-key-987654'},player)).status,409);
+  assert.equal((await call('/shop/catalog')).json.products.length,0);
+  assert.equal((await call('/admin/shop/audit',undefined,cook)).json.entries.length,2);
   const publicTopic=JSON.stringify((await call('/forum/topics/'+topicId)).json);assert.ok(!publicTopic.includes('salt'));assert.ok(!publicTopic.includes('gamer@example.com'));
-  for(const file of ['forum.html','forum.js','forum.css','item-policy.js','ranking-categories.js'])assert.equal((await fetch(url+'/'+file)).status,200);
+  assert.equal((await call('/auth/forgot',{email:'nobody@example.invalid'})).status,503);
+  assert.equal((await call('/auth/reset',{token:'invalid',password:'valid-new-password'})).status,400);
+  for(const file of ['shop.html','shop.css','shop.js','reset.html','reset.js','community-policy.js','forum.html','forum.js','forum.css','item-policy.js','ranking-categories.js'])assert.equal((await fetch(url+'/'+file)).status,200);
   assert.equal((await fetch(url+'/forum-service.mjs')).status,404);
 
  });

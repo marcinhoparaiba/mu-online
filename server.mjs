@@ -2,6 +2,8 @@
  *  IMPORTANT: this is a starter single-instance service, not a payments server or GameServer.
  */
 import http from 'node:http';
+import { createRecoveryService, recoveryMailer } from './recovery-service.mjs';
+import { createShopService } from './shop-service.mjs';
 import { can } from './community-policy.js';
 import { createCommunityService } from './community-service.mjs';
 import { createForumService } from './forum-service.mjs';
@@ -30,7 +32,7 @@ if(adminEmail && adminPass?.length>=12 && !store.users.some(u=>u.role==='admin')
 const json=(res,status,data,extra={})=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer',...extra});res.end(JSON.stringify(data))};
 const fail=(res,status,error)=>json(res,status,{error});
 const cookie=req=>{const values={};for(const part of (req.headers.cookie||'').split(';')){const at=part.indexOf('=');if(at<0)continue;try{values[decodeURIComponent(part.slice(0,at).trim())]=decodeURIComponent(part.slice(at+1));}catch{}}return values};
-const auth=req=>{const tok=cookie(req).mu_session;if(!tok)return null;const ses=sessions.get(tok);if(!ses)return null;if(ses.expires<Date.now()){sessions.delete(tok);return null}return store.users.find(u=>u.id===ses.userId&&(!u.suspendedUntil||Date.parse(u.suspendedUntil)<=Date.now()))||null};
+const auth=req=>{const tok=cookie(req).mu_session;if(!tok)return null;const ses=sessions.get(tok);if(!ses)return null;if(ses.expires<Date.now()){sessions.delete(tok);return null}ses.lastSeen=Date.now();return store.users.find(u=>u.id===ses.userId&&(!u.suspendedUntil||Date.parse(u.suspendedUntil)<=Date.now()))||null};
 const sessionCookie=(token,req)=>`mu_session=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Strict; Max-Age=604800${process.env.MU_HTTPS==='true'?' ; Secure':''}`;
 async function body(req){
  if(!/^application\/json(?:\s*;|\s*$)/i.test(req.headers['content-type']||''))throw Object.assign(new Error('Use Content-Type application/json.'),{status:415});
@@ -46,13 +48,20 @@ function limit(req,action,max=40){const ip=req.socket.remoteAddress||'unknown';c
 const validEmail=v=>typeof v==='string'&&v.length<=160&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 const validNick=v=>typeof v==='string'&&v.length>=3&&v.length<=25&&/^[a-zA-ZÀ-ÿ0-9_-]+$/.test(v);
 const validMessage=v=>typeof v==='string'&&v.trim().length>0&&v.trim().length<=1500;
-const community=createCommunityService({store,transact,uid,json,fail,body,limit,revokeSessions:id=>{for(const [token,s] of sessions)if(s.userId===id)sessions.delete(token)}});
+const revokeSessions=id=>{for(const [token,s] of sessions)if(s.userId===id)sessions.delete(token)};
+const recoveryService=createRecoveryService({store,transact,uid,json,fail,body,limit,hash,revokeSessions,mailer:recoveryMailer()});
+const community=createCommunityService({store,transact,uid,json,fail,body,limit,revokeSessions});
+const shopService=createShopService({store,transact,uid,json,fail,body,limit});
 const forumService=createForumService({store,transact,uid,json,fail,body,limit,notify:community.notify,profile:community.profile});
 async function route(req,res,url){const u=auth(req);const m=req.method;const p=url.pathname;
+ if(m==='GET'&&p==='/api/community/online'){const ids=new Set([...sessions.values()].filter(s=>s.expires>Date.now()&&s.lastSeen>Date.now()-900000).map(s=>s.userId));return json(res,200,{members:store.users.filter(u=>ids.has(u.id)&&(!u.suspendedUntil||Date.parse(u.suspendedUntil)<=Date.now())).map(u=>({id:u.id,username:u.username,role:u.role})),windowMinutes:15});}
+ if(await recoveryService(req,res,url))return;
+ if(await shopService(req,res,url,u))return;
  if(await community.service(req,res,url,u))return;
  if(await forumService(req,res,url,u))return;
+ 
  if(m==='GET'&&p==='/api/game/status')return json(res,200,publicGameStatus());
- if(m==='GET'&&p==='/api/health')return json(res,200,{ok:true,service:'mu-legacy-portal',gameServer:'not_connected'});
+ if(m==='GET'&&p==='/api/health')return json(res,200,{ok:true,service:'mubanned-editavel',gameServer:'not_connected'});
  if(m==='GET'&&p==='/api/news')return json(res,200,{articles:store.articles.slice().reverse().slice(0,20)});
  if(m==='GET'&&p==='/api/catalog/collections')return json(res,200,{source:'reference',liveInventory:false,collections:classicCollections});
  if(m==='GET'&&p==='/api/rankings')return json(res,200,{source:'unavailable',categories:rankingCategories.map(c=>({...c,entries:[]})),message:'O GameServer ainda não está conectado.'});
@@ -61,8 +70,7 @@ async function route(req,res,url){const u=auth(req);const m=req.method;const p=u
   if(!limit(req,'password',5))return fail(res,429,'Muitas tentativas. Tente novamente em um minuto.');
   const x=await body(req);
   if(typeof x.currentPassword!=='string'||x.currentPassword.length>256||typeof x.password!=='string'||x.password.length<10||x.password.length>256)return fail(res,400,'Informe a senha atual e uma nova senha de 10 a 256 caracteres.');
-  if(!timingSafeEqual(Buffer.from(hash(x.currentPassword,u.salt),'hex'),Buffer.from(u.hash,'hex')))return fail(res,401,'Senha atual incorreta.');
-  await transact(()=>{u.salt=uid();u.hash=hash(x.password,u.salt)});
+  await transact(()=>{if(!timingSafeEqual(Buffer.from(hash(x.currentPassword,u.salt),'hex'),Buffer.from(u.hash,'hex')))throw Object.assign(new Error('Senha atual incorreta.'),{status:401});u.salt=uid();u.hash=hash(x.password,u.salt);store.recoveryTokens=store.recoveryTokens.filter(t=>t.userId!==u.id)});
   for(const [token,value] of sessions)if(value.userId===u.id)sessions.delete(token);
   const token=uid();sessions.set(token,{userId:u.id,expires:Date.now()+604800000});
   return json(res,200,{ok:true},{'Set-Cookie':sessionCookie(token,req)});
@@ -115,9 +123,10 @@ async function route(req,res,url){const u=auth(req);const m=req.method;const p=u
  }
  return fail(res,404,'Rota não encontrada.');
 }
-const publicFiles=new Set(['index.html','portal.html','staff.html','public.css','public.js','styles.css','app.js','staff.css','staff.js','chat-live.js','item-policy.js','ranking-categories.js','forum.html','forum.js','forum.css','intro.html','intro.css','intro.js','assets/intro-hero.webp','classic-collections.js','community-policy.js']);
+const publicFiles=new Set(['index.html','portal.html','staff.html','public.css','public.js','styles.css','app.js','staff.css','staff.js','chat-live.js','item-policy.js','ranking-categories.js','forum.html','forum.js','forum.css','intro.html','intro.css','intro.js','assets/intro-hero.webp','classic-collections.js','community-policy.js','shop.html','shop.css','shop.js','reset.html','reset.js','forum-format.js']);
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.webp':'image/webp'};
 const httpServer=http.createServer(async(req,res)=>{try{
+ res.setHeader('Referrer-Policy','no-referrer');res.setHeader('X-Frame-Options','DENY');
  const url=new URL(req.url||'/',`http://${req.headers.host||'localhost'}`);
  if(req.method!=='GET'&&req.method!=='HEAD'&&req.headers.origin){const origin=new URL(req.headers.origin);const host=req.headers.host;if(origin.host!==host)return fail(res,403,'Origem não autorizada.');}
  if(url.pathname.startsWith('/api/'))return await route(req,res,url);

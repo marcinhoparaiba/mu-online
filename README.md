@@ -41,7 +41,7 @@ O GitHub Pages **não executa Node.js**, então cadastro, login e chat humano **
 ## Segurança e limites
 
 - A API guarda senhas com scrypt + salt; sessões em cookies HttpOnly SameSite Strict; requisições JSON limitadas; rate limit básico e verificação de origem para POST.
-- O armazenamento JSON é suficiente **somente para protótipos e baixíssimo tráfego em instância única**. Produção pública requer banco transacional, TLS, configuração anti-CSRF mais forte, logs, monitoramento, backup, proteção contra brute force distribuído, recuperação de senha e autenticação aprimorada.
+- O armazenamento JSON é suficiente **somente para protótipos e baixíssimo tráfego em instância única**. Produção pública requer banco transacional, TLS, configuração anti-CSRF mais forte, logs, monitoramento, backup, proteção contra brute force distribuído, envio real de recuperação, verificação de e-mail e autenticação aprimorada.
 - Chat web permite conversa real entre visitante e moderador, quando o servidor Node estiver de pé; não há respostas automáticas fingindo ser humano.
 - GameServer, inventários reais, Donate, QR Code, Pix e entregas de recompensas **não estão integrados nem operacionais**.
 - Status de servidor e rankings exibidos na web são claramente marcados como projeto/demonstração.
@@ -97,3 +97,12 @@ O diretório de destino deve existir e estar fora do projeto. O arquivo inclui d
 Para testar a recuperação, pare o servidor e execute `node scripts/data-backup.mjs restore ../mu-site-backup.json .data/restored.json`. A restauração exige um destino novo e confere SHA-256 e a estrutura básica antes de gravar. Não sobrescreve o armazenamento existente. Confira a cópia com uma instância isolada usando `MU_DATA_FILE`; preserve o arquivo anterior antes de qualquer troca manual. No Windows, restrinja o acesso pela conta do sistema: permissões POSIX não substituem ACLs.
 
 O backup é uma leitura do arquivo JSON substituído atomicamente pelo servidor; alterações posteriores não entram na cópia. Não inclui sessões em memória, configurações externas ou banco do jogo. SHA-256 detecta corrupção, não autentica uma cópia recebida de terceiros. Não restaure backups de procedência desconhecida.
+
+## Comunidade ampliada e loja
+
+`forum.html`: categorias agrupadas, sete cargos com permissões, perfis, membros/equipe, líderes reais do fórum, atividade, favoritos, acompanhamento, notificações, mensagens privadas, denúncias, auditoria e calendário. Veja `docs/COMUNIDADE-E-PERMISSOES.md`.
+`shop.html`: catálogo, carrinho e rascunhos de pedidos com a conta web. Veja `docs/LOJA.md`. Pagamentos e entrega de itens permanecem desativados. O catálogo começa vazio e pode ser administrado por cargo autorizado.
+
+## Recuperação de acesso e páginas informativas
+
+`index.html#recuperar` e `reset.html` oferecem o fluxo de recuperação com envio opcional configurado no servidor. Sem provedor, a interface informa indisponibilidade. Veja `docs/RECUPERACAO-DE-CONTA.md`. `#privacidade` descreve o uso de dados no projeto e `#informacoes` registra somente parâmetros confirmados ou explicitamente pendentes.
