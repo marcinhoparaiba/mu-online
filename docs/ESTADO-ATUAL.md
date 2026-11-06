@@ -18,7 +18,7 @@
 
 ## Ainda não funciona
 
-- Jogo e cliente 1.0M, banco do jogo, contas vinculadas, itens e rankings reais.
+- Jogo e cliente clássico custom, banco do jogo, contas vinculadas, itens e rankings reais.
 - Transparência no cliente, suporte real a +15 na distribuição escolhida e combate equilibrado.
 - Fórum avançado (perfis, reputação, mensagens, notificações e editor rico), campanhas, torneios, guilds e casamento integrados.
 - Produção: JSON local é apenas armazenamento para teste em instância única. Não afirmar que está pronto para operação pública.
@@ -27,8 +27,12 @@
 
 `npm run check`: scripts JavaScript sem erro de sintaxe.
 `npm test`: limites do editor, exclusivos, conta, senha, sessões, chat, notícias, 13 categorias, ausência de integração e segurança HTTP aprovados.
-Sem teste visual em navegador nesta etapa; sem acesso ao jogo.
+Revisão posterior em Chromium aprovada em 1440×960, 390×844 e 320×760 para intro, site, editor e fórum; sem acesso ao jogo.
 
 ## Etapa do fórum
 
-`npm run check` e `npm test` aprovados após inclusão do fórum. Testes verificam anonimato, categoria restrita à equipe, resposta, busca, fechamento e reabertura, ocultação e restauração, trilha de moderação e persistência no arquivo de teste. Revisão visual em navegador continua pendente.
+`npm run check` e `npm test` aprovados após inclusão do fórum. Testes verificam anonimato, categoria restrita à equipe, resposta, busca, fechamento e reabertura, ocultação e restauração, trilha de moderação e persistência no arquivo de teste. Revisão visual em Chromium aprovada em desktop e telas pequenas para os fluxos principais.
+
+## Intro e catálogo
+
+Apresentação separada em `intro.html`, arte original, responsividade, navegação, redução de movimento e prévia +11/+12. Home preservada em `index.html`. Coleções 01–09 em `portal.html#colecoes` e API de referência; sem modelos ou atributos inventados. Perfil vigente clássico sem DL. Nenhum GameServer foi instalado, conectado ou publicado.

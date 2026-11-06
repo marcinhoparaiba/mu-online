@@ -43,13 +43,13 @@ O GitHub Pages **não executa Node.js**, então cadastro, login e chat humano **
 - A API guarda senhas com scrypt + salt; sessões em cookies HttpOnly SameSite Strict; requisições JSON limitadas; rate limit básico e verificação de origem para POST.
 - O armazenamento JSON é suficiente **somente para protótipos e baixíssimo tráfego em instância única**. Produção pública requer banco transacional, TLS, configuração anti-CSRF mais forte, logs, monitoramento, backup, proteção contra brute force distribuído, recuperação de senha e autenticação aprimorada.
 - Chat web permite conversa real entre visitante e moderador, quando o servidor Node estiver de pé; não há respostas automáticas fingindo ser humano.
-- GameServer, Dark Lord real, inventários reais, Donate, QR Code, Pix e entregas de recompensas **não estão integrados nem operacionais**.
+- GameServer, inventários reais, Donate, QR Code, Pix e entregas de recompensas **não estão integrados nem operacionais**.
 - Status de servidor e rankings exibidos na web são claramente marcados como projeto/demonstração.
 - Não há custos de desenvolvimento nem créditos do Lovable. Hospedagem pública dinâmica e parceiros financeiros podem gerar custos ou limites.
 
 ## Regras desejadas para o futuro GameServer
 
-- BK, SM, ME, MG e DL com Command.
+- BK, SM, ME e MG, sem Dark Lord.
 - Edição de itens comuns pertencentes ao jogador de +0 a +15; customs exclusivos de eventos oficiais ou Donate bloqueados no editor comum. Transparência visual de +12 a +15; +0 a +11 normais.
 - Transparência visual nos itens +12..+15, não nos itens +0..+11.
 - Força do mesmo item relativa ao +11=100: +12=102, +13=105, +14=108, +15=111 (hipótese, não fórmula validada).
@@ -65,7 +65,7 @@ Nenhum cliente comercial de MU, asset do MuAwaY, logomarca oficial ou servidor p
 
 Com Node.js 20+, execute `npm start`. Valide com `npm run check` e `npm test`; não há dependências para instalar. A página Minha conta permite trocar a senha e encerra outras sessões. O chat permite iniciar novo atendimento após o encerramento. Arquivos do backend e de testes não são servidos como conteúdo público.
 
-Base escolhida para avaliação: **DarksTeam 1.0M (0.99.60/62T Beta 15), com Dark Lord**. Consulte `game-server/README.md`. Os arquivos da base ainda precisam ser obtidos e validados: nenhum binário de GameServer está incluído. `GET /api/game/status` e `GET /api/rankings` retornam o estado indisponível real. Os 13 rankings retornam estado vazio, sem nomes fictícios na página pública.
+Base escolhida para avaliação: **97d+99i+1.0 custom, sem Dark Lord**. Consulte `game-server/README.md`. Os arquivos da base ainda precisam ser obtidos e validados: nenhum binário de GameServer está incluído. `GET /api/game/status` e `GET /api/rankings` retornam o estado indisponível real. Os 13 rankings retornam estado vazio, sem nomes fictícios na página pública.
 
 Publicação dinâmica, domínio, cliente de download, GameServer, banco de produção e pagamentos dependem de configuração externa. A referência visual recuperada da Hostinger ainda não foi entregue neste repositório.
 
@@ -76,3 +76,11 @@ Consulte `docs/ESTADO-ATUAL.md`, `docs/DECISOES-DO-PROJETO.md` e `docs/PLANO-MES
 ## Fórum inicial
 
 Abra `http://localhost:3000/forum.html` com o backend iniciado. Use a conta do site para criar tópicos e responder. Anúncios e eventos são categorias de publicação restrita à equipe; administrador pode fechar/reabrir ou ocultar/restaurar tópicos, com motivo e auditoria. Busca e páginas são suportadas. Mensagens usam texto simples, escapado na interface. O fórum completo e operação em produção ainda exigem os itens listados em `docs/PENDENCIAS.md`.
+
+## Apresentação e coleções clássicas
+
+Abra `http://localhost:3000/intro.html` para a apresentação original em preto, rubi e dourado. A Home clássica segue em `index.html`; nenhuma troca automática foi feita. A intro tem três seções, redução de efeitos, navegação por teclado e prévia do limiar +11/+12. A imagem foi gerada originalmente para o projeto, sem arte extraída de outros jogos, e convertida para WebP (~155 KiB). Não há botão de download ou anúncio de versão mobile inexistente.
+
+O perfil vigente voltou para **97d+99i+1.0 custom, sem Dark Lord**, por decisão do usuário. `portal.html#colecoes` registra os Sets Especiais 01 a 09 como referência; modelos, atributos e permissão de edição ainda não foram validados. `GET /api/catalog/collections` é somente catálogo de referência, sem inventário real.
+
+Revisão opcional de navegador: `npm run test:browser`, com Node.js 22+ e Chromium. Defina `CHROME_BIN` se o navegador não estiver em `/usr/bin/chromium`; `MU_REVIEW_DIR` define onde guardar capturas. Sem essa variável, as capturas temporárias são removidas ao final.

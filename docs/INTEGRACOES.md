@@ -7,8 +7,9 @@
 | Suporte | Local | `/api/chat/*`, `/api/admin/chats`, `/api/admin/reply`, `/api/admin/close-chat` |
 | Fórum inicial | Local | `/api/forum/categories`, `/api/forum/topics`, `/api/forum/topics/:id`, `/api/forum/topics/:id/replies` |
 | Moderação | Local | `/api/admin/forum/topics/:id` e `/api/admin/forum/audit`; apenas administrador |
-| Perfil do jogo | Informativo | `/api/game/status`; 1.0M escolhida, `connected: false` |
+| Perfil do jogo | Informativo | `/api/game/status`; 97d+99i custom escolhida, `connected: false` |
 | Ranking | Indisponível | `/api/rankings`; 13 categorias com `entries: []`, sem scraping |
+| Coleções clássicas | Referência | `/api/catalog/collections`; 01..09, sem inventário ou atributos reais |
 | Editor real | Desativado | `item-policy.js` valida apenas nível e bloqueio de exclusivos; não é integração de inventário |
 | Banco do jogo | Ausente | Banco e schema ainda não revisados |
 | Pagamentos | Desativados | Sem credenciais, cobranças ou entregas |

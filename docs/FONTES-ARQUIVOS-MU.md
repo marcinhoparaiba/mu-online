@@ -25,3 +25,7 @@ A melhor fonte depende do objetivo. Para a base 1.0M já aprovada, começar pela
 Antes de implementar transparência e +15 no jogo, confirmar: pacote/cliente combinados, formato binário dos itens, bits de nível, opções, serial, locks de baú, renderização e disponibilidade de fonte ou extensão suportada. Pacotes com cliente diferente não devem ser misturados só porque o anúncio diz clássico.
 
 Não houve compra, contato com terceiros, instalação de binários ou publicação de servidor nesta pesquisa.
+
+## Decisão posterior à pesquisa
+
+O usuário revogou a escolha de 1.0M com Dark Lord e decidiu manter 97d+99i+1.0 custom sem DL. A comparação acima permanece como registro de pesquisa; nenhuma alternativa foi instalada ou substituiu essa decisão.

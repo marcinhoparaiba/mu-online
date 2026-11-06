@@ -1,6 +1,10 @@
-# Base 1.0M do MuBanneD
+# Perfil clássico custom do MuBanneD
 
-Base escolhida pelo usuário: DarksTeam 0.99.60/62T (1.0M), Beta 15. A escolha substitui o requisito inicial de 97d+99i.
+**Decisão vigente: 97d+99i+1.0 custom, com BK, SM, ME e MG, sem Dark Lord.** A escolha anterior de 1.0M com DL foi revogada. O pacote concreto ainda precisa de avaliação. O nome comercial custom não identifica sozinho o executável ou protocolo.
+
+# Histórico da avaliação anterior de 1.0M
+
+Candidata anterior, sem aprovação vigente para uso: DarksTeam 0.99.60/62T (1.0M), Beta 15. A escolha substitui o requisito inicial de 97d+99i.
 
 Fonte de distribuição consultada: https://darksteam.net/threads/darksteam-muserver-0-99-60-62t-1-0m-beta-15.21354/
 
@@ -8,7 +12,7 @@ O tópico lista pacote de servidor, patch de cliente e patch Beta 15. Os binári
 
 ## Configuração própria
 
-- Classes previstas: BK, SM, ME, MG e DL. Prioridade de testes: BK e DL.
+- Classes vigentes: BK, SM, ME e MG; não implementar DL.
 - Editor comum: +0 a +15. Customs exclusivos bloqueados em qualquer nível.
 - +0 a +11 normais; +12 a +15 transparentes. O módulo `item-policy.js` especifica a regra, mas a renderização real deve ser implementada no cliente.
 - Não há intermediação financeira entre jogadores. Donate ainda desativado.

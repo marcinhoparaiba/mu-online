@@ -3,6 +3,7 @@
  */
 import http from 'node:http';
 import { createForumService } from './forum-service.mjs';
+import { classicCollections } from './classic-collections.js';
 import { rankingCategories } from './ranking-categories.js';
 import { publicGameStatus } from './game-server/config.mjs';
 import path from 'node:path';
@@ -40,6 +41,7 @@ async function route(req,res,url){const u=auth(req);const m=req.method;const p=u
  if(m==='GET'&&p==='/api/game/status')return json(res,200,publicGameStatus());
  if(m==='GET'&&p==='/api/health')return json(res,200,{ok:true,service:'mu-legacy-portal',gameServer:'not_connected'});
  if(m==='GET'&&p==='/api/news')return json(res,200,{articles:store.articles.slice().reverse().slice(0,20)});
+ if(m==='GET'&&p==='/api/catalog/collections')return json(res,200,{source:'reference',liveInventory:false,collections:classicCollections});
  if(m==='GET'&&p==='/api/rankings')return json(res,200,{source:'unavailable',categories:rankingCategories.map(c=>({...c,entries:[]})),message:'O GameServer ainda não está conectado.'});
  if(m==='POST'&&p==='/api/auth/password'){
   if(!u)return fail(res,401,'Entre na sua conta para alterar a senha.');
@@ -100,8 +102,8 @@ async function route(req,res,url){const u=auth(req);const m=req.method;const p=u
  }
  return fail(res,404,'Rota não encontrada.');
 }
-const publicFiles=new Set(['index.html','portal.html','staff.html','public.css','public.js','styles.css','app.js','staff.css','staff.js','chat-live.js','item-policy.js','ranking-categories.js','forum.html','forum.js','forum.css']);
-const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon'};
+const publicFiles=new Set(['index.html','portal.html','staff.html','public.css','public.js','styles.css','app.js','staff.css','staff.js','chat-live.js','item-policy.js','ranking-categories.js','forum.html','forum.js','forum.css','intro.html','intro.css','intro.js','assets/intro-hero.webp','classic-collections.js']);
+const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.webp':'image/webp'};
 const httpServer=http.createServer(async(req,res)=>{try{
  const url=new URL(req.url||'/',`http://${req.headers.host||'localhost'}`);
  if(req.method!=='GET'&&req.method!=='HEAD'&&req.headers.origin){const origin=new URL(req.headers.origin);const host=req.headers.host;if(origin.host!==host)return fail(res,403,'Origem não autorizada.');}

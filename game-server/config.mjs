@@ -2,11 +2,11 @@
 import { itemPolicy } from '../item-policy.js';
 export const gameProfile = Object.freeze({
   name: 'MuBanneD - Editavel',
-  version: '1.0M',
-  distribution: 'DarksTeam 0.99.60/62T Beta 15',
+  version: '97d+99i+1.0 custom',
+  distribution: '97d+99i custom — pacote ainda em avaliação',
   status: 'awaiting_compatible_base',
-  darkLord: { required: true, verified: false },
-  classes: ['BK', 'SM', 'ME', 'MG', 'DL'],
+  darkLord: { required: false, verified: false },
+  classes: ['BK', 'SM', 'ME', 'MG'],
   editor: { ...itemPolicy, enabled: false },
   specialItems: { maxLevel: 15, enabled: false },
   payments: { enabled: false },
@@ -22,6 +22,6 @@ export function publicGameStatus() {
     classes: gameProfile.classes,
     darkLord: gameProfile.darkLord,
     editor: gameProfile.editor,
-    message: 'Base 1.0M escolhida; arquivos e integração com Dark Lord ainda não validados.',
+    message: 'Perfil clássico 97d+99i com customs escolhido; arquivos e integração ainda não validados.',
   };
 }

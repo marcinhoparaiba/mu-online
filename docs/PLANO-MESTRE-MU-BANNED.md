@@ -7,7 +7,7 @@ Continuar o projeto existente em HTML, CSS, JavaScript e Node.js sem dependênci
 1. **Site e conta:** cadastro, login, troca de senha com revogação de sessões, atendimento, notícias, acessibilidade e testes HTTP. Implementados e testados; revisão visual de navegador ainda pendente.
 2. **Regras do editor e ranking:** +0..+15 para comuns, transparência a partir de +12, exclusivos bloqueados; 13 categorias públicas com estado vazio. Implementados no protótipo. O editor não toca no jogo.
 3. **Fórum inicial:** categorias, tópicos, respostas, busca, conta compartilhada, moderação e auditoria. Implementados no backend local e na interface inicial; testes aprovados. Fórum completo inclui funcionalidades adicionais a implementar depois.
-4. **Base 1.0M:** obter arquivos autorizados, inventariar e instalar em Windows isolado; validar cliente, banco e DL. Bloqueada pelo acesso aos arquivos.
+4. **Base clássica custom:** obter arquivos autorizados, inventariar e instalar em Windows isolado; validar cliente, banco e as quatro classes. Bloqueada pelo acesso aos arquivos.
 5. **Integração:** contas vinculadas, personagens, baú, editor com locks/auditoria e rankings reais. Depende da etapa 4.
 6. **Eventos e comunidade:** PvP Legend, resultados auditáveis, vidas não compráveis, guilds de 20 membros e casamento. Implementar módulos locais antes da ponte com o jogo.
 7. **Donate:** campanhas sem cobrança real, pacote superior com dois kits elegíveis inclusive classes repetidas; validar provedor antes de pagamentos e entrega.

@@ -24,8 +24,9 @@ try{
   assert.equal((await call('/auth/login',{email:'gamer@example.com',password:'test-password-long-987'})).status,401);
   assert.equal((await call('/auth/login',{email:'gamer@example.com',password:'replacement-password-123'})).status,200);
   assert.equal((await call('/auth/password',{currentPassword:'x',password:'replacement-password-123'})).status,401);
-  const game=await call('/game/status');assert.equal(game.json.version,'1.0M');assert.equal(game.json.connected,false);assert.equal(game.json.darkLord.verified,false);
+  const game=await call('/game/status');assert.equal(game.json.version,'97d+99i+1.0 custom');assert.equal(game.json.connected,false);assert.equal(game.json.darkLord.required,false);assert.equal(game.json.classes.length,4);assert.ok(!game.json.classes.includes('DL'));
   assert.equal(game.json.editor.maxLevel,15);assert.equal(game.json.editor.transparentFrom,12);
+  const catalog=await call('/catalog/collections');assert.equal(catalog.json.collections.length,9);assert.equal(catalog.json.liveInventory,false);assert.ok(catalog.json.collections.every(c=>c.modelsAvailable===false&&c.statsVerified===false));
   const rankings=await call('/rankings');assert.equal(rankings.json.categories.length,13);assert.equal(rankings.json.source,'unavailable');assert.ok(rankings.json.categories.every(c=>c.entries.length===0));
   for(const file of ['server.mjs','tests/smoke.mjs','game-server/config.mjs','package.json'])assert.equal((await fetch(url+'/'+file)).status,404);
   assert.equal((await fetch(url+'/public.js')).status,200);
