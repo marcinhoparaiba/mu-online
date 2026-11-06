@@ -5,7 +5,7 @@ Portal original inspirado na **estrutura dos sites clássicos de MU**, sem copia
 ## Telas implementadas
 
 - `index.html`: portal público no estilo de site de MMORPG clássico, home, notícias, cadastro, login, downloads, ranking, eventos, loja, guildas, ajuda e chat.
-- `portal.html`: painel de jogo demonstrativo com personagens, editor +0 a +11, rankings, sorteios +13, premiação +15, prévia de itens **somente de simulação**.
+- `portal.html`: painel de jogo demonstrativo com personagens, editor +0 a +15, rankings, sorteios +13, premiação +15, prévia de itens **somente de simulação**.
 - `staff.html`: área de **moderador/administrador**, com atendimento de chat e gestão de notícias.
 - `server.mjs`: backend Node nativo para cadastro e login em banco JSON local, sessões HttpOnly, mensagens de suporte e notícias, somente para uma instância de teste.
 
@@ -88,3 +88,12 @@ Revisão opcional de navegador: `npm run test:browser`, com Node.js 22+ e Chromi
 ## Material recebido e referências
 
 `docs/AUDITORIA-ARQUIVOS-RECEBIDOS.md` analisa o inicializador `Configs.ini` e o batch de limpeza, preservados sem execução em `game-server/reference/`. Nenhum pacote completo ou banco do jogo foi recebido. `docs/pesquisa-muaway/REFERENCIA-MUADT.md` documenta a consulta às páginas do MU ADT; o vídeo do YouTube não pôde ser assistido neste ambiente.
+
+## Backup e recuperação local
+
+Use `node scripts/data-backup.mjs backup .data/store.json ../mu-site-backup.json`.
+O diretório de destino deve existir e estar fora do projeto. O arquivo inclui dados privados e não é criptografado: mantenha-o protegido e nunca publique no GitHub.
+
+Para testar a recuperação, pare o servidor e execute `node scripts/data-backup.mjs restore ../mu-site-backup.json .data/restored.json`. A restauração exige um destino novo e confere SHA-256 e a estrutura básica antes de gravar. Não sobrescreve o armazenamento existente. Confira a cópia com uma instância isolada usando `MU_DATA_FILE`; preserve o arquivo anterior antes de qualquer troca manual. No Windows, restrinja o acesso pela conta do sistema: permissões POSIX não substituem ACLs.
+
+O backup é uma leitura do arquivo JSON substituído atomicamente pelo servidor; alterações posteriores não entram na cópia. Não inclui sessões em memória, configurações externas ou banco do jogo. SHA-256 detecta corrupção, não autentica uma cópia recebida de terceiros. Não restaure backups de procedência desconhecida.

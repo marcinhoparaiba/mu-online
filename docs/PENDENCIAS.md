@@ -2,7 +2,7 @@
 
 ## Arquivos e acesso
 
-Obter GameServer clássico custom, patch Beta 15, cliente compatível e documentação de banco. Anexos do fórum ainda não disponíveis no ambiente; tentativa HTTP direta retornou 403. Revisar condições de uso e disponibilidade de fontes antes de depender de modificações internas.
+Receber e auditar o pacote Source, Client, GetMainLab e MuServer baixado pelo usuário. Não exigir o patch Beta 15 da base 1.0M descartada. Anexos do fórum ainda não disponíveis no ambiente; tentativa HTTP direta retornou 403. Revisar condições de uso e disponibilidade de fontes antes de depender de modificações internas.
 
 ## Compatibilidade do jogo
 

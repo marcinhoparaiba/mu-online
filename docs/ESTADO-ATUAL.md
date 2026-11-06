@@ -36,3 +36,8 @@ Revisão posterior em Chromium aprovada em 1440×960, 390×844 e 320×760 para i
 ## Intro e catálogo
 
 Apresentação separada em `intro.html`, arte original, responsividade, navegação, redução de movimento e prévia +11/+12. Home preservada em `index.html`. Coleções 01–09 em `portal.html#colecoes` e API de referência; sem modelos ou atributos inventados. Perfil vigente clássico sem DL. Nenhum GameServer foi instalado, conectado ou publicado.
+
+## Recuperação e validação HTTP — 06/11/2026
+
+Ferramenta local de backup com SHA-256 e restauração para destino novo, preservando os bytes originais, sem sobrescrever arquivos. Backups fora da árvore do projeto e gravação restrita no POSIX. Não é backup do GameServer.
+A API agora rejeita JSON primitivo, listas, conteúdo malformado e tipo de conteúdo incorreto; excesso de tamanho retorna 413 sem destruir o socket antes da resposta. Os testes cobrem esses casos e restauração/corrupção de backup.

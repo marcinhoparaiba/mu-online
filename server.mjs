@@ -30,7 +30,16 @@ const fail=(res,status,error)=>json(res,status,{error});
 const cookie=req=>{const values={};for(const part of (req.headers.cookie||'').split(';')){const at=part.indexOf('=');if(at<0)continue;try{values[decodeURIComponent(part.slice(0,at).trim())]=decodeURIComponent(part.slice(at+1));}catch{}}return values};
 const auth=req=>{const tok=cookie(req).mu_session;if(!tok)return null;const ses=sessions.get(tok);if(!ses)return null;if(ses.expires<Date.now()){sessions.delete(tok);return null}return store.users.find(u=>u.id===ses.userId)||null};
 const sessionCookie=(token,req)=>`mu_session=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Strict; Max-Age=604800${process.env.MU_HTTPS==='true'?' ; Secure':''}`;
-async function body(req){return await new Promise((resolve,reject)=>{let data='',size=0;req.on('data',chunk=>{size+=chunk.length;if(size>LIMIT){reject(Object.assign(new Error('Mensagem muito grande.'),{status:413}));req.destroy();return;}data+=chunk});req.on('end',()=>{try{resolve(JSON.parse(data||'{}'))}catch{reject(Object.assign(new Error('JSON inválido.'),{status:400}))}});req.on('error',reject)})}
+async function body(req){
+ if(!/^application\/json(?:\s*;|\s*$)/i.test(req.headers['content-type']||''))throw Object.assign(new Error('Use Content-Type application/json.'),{status:415});
+ return await new Promise((resolve,reject)=>{
+  const chunks=[];let size=0,oversized=false;
+  req.on('data',chunk=>{size+=chunk.length;if(size>LIMIT){if(!oversized){oversized=true;chunks.length=0;reject(Object.assign(new Error('Mensagem muito grande.'),{status:413}));}return;}if(!oversized)chunks.push(chunk)});
+  req.on('end',()=>{if(oversized)return;let value;try{value=JSON.parse(Buffer.concat(chunks).toString('utf8')||'{}')}catch{return reject(Object.assign(new Error('JSON inválido.'),{status:400}))}
+   if(value===null||typeof value!=='object'||Array.isArray(value))return reject(Object.assign(new Error('Envie um objeto JSON.'),{status:400}));resolve(value);
+  });req.on('error',reject);req.on('aborted',()=>reject(Object.assign(new Error('Requisição interrompida.'),{status:400})));
+ });
+}
 function limit(req,action,max=40){const ip=req.socket.remoteAddress||'unknown';const k=ip+':'+action;let v=rate.get(k),now=Date.now();if(!v||now-v.since>60000)v={count:0,since:now};v.count++;rate.set(k,v);return v.count<=max}
 const validEmail=v=>typeof v==='string'&&v.length<=160&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 const validNick=v=>typeof v==='string'&&v.length>=3&&v.length<=25&&/^[a-zA-ZÀ-ÿ0-9_-]+$/.test(v);

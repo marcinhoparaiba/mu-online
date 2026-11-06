@@ -35,6 +35,12 @@ try{
   const forbidden=await call('/admin/chats');assert.equal(forbidden.status,403);
   const chat=await call('/chat/start',{name:'GamerTeste',message:'Posso falar com um moderador?'});assert.equal(chat.status,201);
   const adminSession=await call('/auth/login',{email:admin,password});assert.equal(adminSession.status,200);const cook=adminSession.cookie.split(';')[0];
+  for(const payload of ['null','[]','42','"texto"','{']) {
+    const r=await fetch(url+'/api/admin/news',{method:'POST',headers:{'Content-Type':'application/json',cookie:cook},body:payload});assert.equal(r.status,400);
+  }
+  const tooBig=await fetch(url+'/api/admin/news',{method:'POST',headers:{'Content-Type':'application/json',cookie:cook},body:JSON.stringify({body:'x'.repeat(17000)})});assert.equal(tooBig.status,413);assert.match((await tooBig.json()).error,/grande/);
+  const wrongType=await fetch(url+'/api/admin/news',{method:'POST',headers:{'Content-Type':'text/plain',cookie:cook},body:'{}'});assert.equal(wrongType.status,415);
+
   const response=await call('/admin/reply',{chat_id:chat.json.chat_id,message:'Olá! Estamos respondendo pelo painel da equipe.'},cook);assert.equal(response.status,200);
   const transcript=await call('/chat/'+chat.json.chat_id+'?token='+chat.json.token);assert.equal(transcript.status,200);assert.equal(transcript.json.messages.length,2);
   assert.equal((await call('/chat/'+chat.json.chat_id+'?token=wrong')).status,404);
