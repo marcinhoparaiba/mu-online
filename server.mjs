@@ -1,4 +1,4 @@
-/** MU Legacy Arena local backend. Node >=20, zero external dependencies.
+/** MuBanneD - Editavel local backend. Node >=20, zero external dependencies.
  *  IMPORTANT: this is a starter single-instance service, not a payments server or GameServer.
  */
 import http from 'node:http';
@@ -93,4 +93,4 @@ const httpServer=http.createServer(async(req,res)=>{try{
  let bytes;try{bytes=await readFile(target)}catch{res.writeHead(404);return res.end();}
  res.writeHead(200,{'Content-Type':mime[extension],'X-Content-Type-Options':'nosniff','Cache-Control':'no-cache','Content-Security-Policy':"frame-ancestors 'none'"});res.end(req.method==='HEAD'?undefined:bytes);
 }catch(e){console.error(e);if(!res.headersSent)fail(res,e.status||500,e.status?e.message:'Erro interno.');}});
-httpServer.listen(PORT,()=>console.log(`MU Legacy Arena disponível em http://localhost:${PORT}. Chat/admin ativos somente neste servidor Node.`));
+httpServer.listen(PORT,()=>console.log(`MuBanneD - Editavel disponível em http://localhost:${PORT}. Chat/admin ativos somente neste servidor Node.`));

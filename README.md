@@ -1,4 +1,4 @@
-# MU Legacy Arena — site e suporte, sem Lovable
+# MuBanneD - Editavel — site e suporte, sem Lovable
 
 Portal original inspirado na **estrutura dos sites clássicos de MU**, sem copiar código, logos, textos nem imagens proprietários do MuAwaY. Projeto desenvolvido diretamente em HTML, CSS, JavaScript e Node.js, sem serviços pagos e sem dependências npm.
 
