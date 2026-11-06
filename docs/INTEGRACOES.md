@@ -5,6 +5,8 @@
 | Conta web | Local | `/api/auth/register`, `/login`, `/me`, `/logout`, `/password` sob `/api/auth` |
 | Notícias | Local | `/api/news`, `/api/admin/news`, `/api/admin/remove-news` |
 | Suporte | Local | `/api/chat/*`, `/api/admin/chats`, `/api/admin/reply`, `/api/admin/close-chat` |
+| Fórum inicial | Local | `/api/forum/categories`, `/api/forum/topics`, `/api/forum/topics/:id`, `/api/forum/topics/:id/replies` |
+| Moderação | Local | `/api/admin/forum/topics/:id` e `/api/admin/forum/audit`; apenas administrador |
 | Perfil do jogo | Informativo | `/api/game/status`; 1.0M escolhida, `connected: false` |
 | Ranking | Indisponível | `/api/rankings`; 13 categorias com `entries: []`, sem scraping |
 | Editor real | Desativado | `item-policy.js` valida apenas nível e bloqueio de exclusivos; não é integração de inventário |

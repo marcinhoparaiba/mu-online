@@ -10,7 +10,7 @@ Suporte real a +15 precisa de confirmação: o anúncio enumera mixes até +13. 
 
 ## Web
 
-Implementar fórum em etapas; substituir JSON por armazenamento transacional antes de produção; recuperação de acesso e e-mail; revisão visual desktop/mobile; histórico persistente de edição quando a integração existir; proteção adicional e limites de carga. Rankings públicos ficam vazios até fonte real.
+Ampliar fórum inicial com perfis, editor rico, reputação, notificações, mensagens privadas e moderação de respostas; substituir JSON por armazenamento transacional antes de produção; recuperação de acesso e e-mail; revisão visual desktop/mobile; histórico persistente de edição quando a integração existir; proteção adicional e limites de carga. Rankings públicos ficam vazios até fonte real.
 
 ## Conteúdo
 

@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
-import { mkdtemp,rm } from 'node:fs/promises';
+import { mkdtemp,rm,readFile } from 'node:fs/promises';
 import os from 'node:os';import path from 'node:path';
 const dir=await mkdtemp(path.join(os.tmpdir(),'mu-legacy-test-'));
 const port=32000+Math.floor(Math.random()*15000);
@@ -42,5 +42,33 @@ try{
   assert.equal((await call('/chat/start',{name:'GamerTeste',message:'Novo atendimento'})).status,201);
   const news=await call('/admin/news',{title:'Novo evento PvP oficial',body:'Os eventos do projeto serão definidos em breve.'},cook);assert.equal(news.status,201);
   const published=await call('/news');assert.equal(published.json.articles.length,1);
+  assert.equal((await call('/forum/categories')).json.categories.length,5);
+  assert.equal((await call('/forum/topics',{categoryId:'duvidas',title:'Tópico visitante',body:'Mensagem de teste do visitante'})).status,401);
+  const player=changed.cookie.split(';')[0];
+  assert.equal((await call('/forum/topics',{categoryId:'anuncios',title:'Anúncio proibido',body:'Jogador não pode anunciar como equipe'},player)).status,403);
+  const topic=await call('/forum/topics',{categoryId:'duvidas',title:'Como jogar com Dark Lord?',body:'<script>alert(1)</script> Pergunta de teste.'},player);assert.equal(topic.status,201);
+  const topicId=topic.json.topic.id;
+  assert.equal((await call('/forum/topics/'+topicId)).json.posts[0].body,'<script>alert(1)</script> Pergunta de teste.');
+  assert.equal((await call('/forum/topics?q=Dark')).json.total,1);
+  assert.equal((await call('/forum/topics/'+topicId+'/replies',{body:'Resposta de teste'},player)).status,201);
+  assert.equal((await call('/forum/topics/'+topicId)).json.posts.length,2);
+  assert.equal((await call('/admin/forum/topics/'+topicId,{action:'lock',reason:'Teste de permissão'},player)).status,403);
+  assert.equal((await call('/admin/forum/topics/'+topicId,{action:'lock',reason:'Encerrado por teste'},cook)).status,200);
+  assert.equal((await call('/forum/topics/'+topicId+'/replies',{body:'Tentativa em tópico fechado'},player)).status,409);
+  assert.equal((await call('/admin/forum/topics/'+topicId,{action:'unlock',reason:'Reabrindo para teste'},cook)).status,200);
+  assert.equal((await call('/forum/topics/'+topicId+'/replies',{body:'Resposta após reabertura'},player)).status,201);
+  assert.equal((await call('/admin/forum/topics/'+topicId,{action:'hide',reason:'Ocultando para teste'},cook)).status,200);
+  assert.equal((await call('/forum/topics/'+topicId)).status,404);
+  assert.equal((await call('/forum/topics?q=Dark')).json.total,0);
+  assert.equal((await call('/forum/topics/'+topicId,undefined,cook)).status,200);
+  assert.equal((await call('/admin/forum/topics/'+topicId,{action:'restore',reason:'Restaurando para teste'},cook)).status,200);
+  assert.equal((await call('/forum/topics/'+topicId)).json.posts.length,3);
+  assert.equal((await call('/admin/forum/audit')).status,403);
+  const audit=await call('/admin/forum/audit',undefined,cook);assert.ok(audit.json.entries.some(e=>e.action==='hide'&&e.reason==='Ocultando para teste'));
+  const persisted=JSON.parse(await readFile(path.join(dir,'db.json'),'utf8'));assert.equal(persisted.forum.topics.length,1);assert.equal(persisted.forum.topics[0].posts.length,3);
+  const publicTopic=JSON.stringify((await call('/forum/topics/'+topicId)).json);assert.ok(!publicTopic.includes('salt'));assert.ok(!publicTopic.includes('gamer@example.com'));
+  for(const file of ['forum.html','forum.js','forum.css','item-policy.js','ranking-categories.js'])assert.equal((await fetch(url+'/'+file)).status,200);
+  assert.equal((await fetch(url+'/forum-service.mjs')).status,404);
+
  });
 }finally{child.kill();await rm(dir,{force:true,recursive:true})}

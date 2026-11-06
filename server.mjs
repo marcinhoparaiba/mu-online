@@ -2,6 +2,7 @@
  *  IMPORTANT: this is a starter single-instance service, not a payments server or GameServer.
  */
 import http from 'node:http';
+import { createForumService } from './forum-service.mjs';
 import { rankingCategories } from './ranking-categories.js';
 import { publicGameStatus } from './game-server/config.mjs';
 import path from 'node:path';
@@ -33,7 +34,9 @@ function limit(req,action,max=40){const ip=req.socket.remoteAddress||'unknown';c
 const validEmail=v=>typeof v==='string'&&v.length<=160&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 const validNick=v=>typeof v==='string'&&v.length>=3&&v.length<=25&&/^[a-zA-ZÀ-ÿ0-9_-]+$/.test(v);
 const validMessage=v=>typeof v==='string'&&v.trim().length>0&&v.trim().length<=1500;
+const forumService=createForumService({store,transact,uid,json,fail,body,limit});
 async function route(req,res,url){const u=auth(req);const m=req.method;const p=url.pathname;
+ if(await forumService(req,res,url,u))return;
  if(m==='GET'&&p==='/api/game/status')return json(res,200,publicGameStatus());
  if(m==='GET'&&p==='/api/health')return json(res,200,{ok:true,service:'mu-legacy-portal',gameServer:'not_connected'});
  if(m==='GET'&&p==='/api/news')return json(res,200,{articles:store.articles.slice().reverse().slice(0,20)});
@@ -97,7 +100,7 @@ async function route(req,res,url){const u=auth(req);const m=req.method;const p=u
  }
  return fail(res,404,'Rota não encontrada.');
 }
-const publicFiles=new Set(['index.html','portal.html','staff.html','public.css','public.js','styles.css','app.js','staff.css','staff.js','chat-live.js','item-policy.js','ranking-categories.js']);
+const publicFiles=new Set(['index.html','portal.html','staff.html','public.css','public.js','styles.css','app.js','staff.css','staff.js','chat-live.js','item-policy.js','ranking-categories.js','forum.html','forum.js','forum.css']);
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon'};
 const httpServer=http.createServer(async(req,res)=>{try{
  const url=new URL(req.url||'/',`http://${req.headers.host||'localhost'}`);

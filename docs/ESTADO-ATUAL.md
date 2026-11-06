@@ -6,6 +6,7 @@
 - Minha conta e troca de senha, invalidando outros acessos.
 - Chat entre visitante e equipe; encerramento e novo atendimento.
 - Publicação de notícias e permissões de administrador.
+- Fórum inicial: categorias, tópicos, respostas, busca paginada e moderação com motivo e auditoria; usa conta do site.
 - Site preservado, navegação e 13 categorias de ranking sem dados inventados.
 - Servidor HTTP com lista explícita de arquivos públicos; backend, testes e módulos privados não são entregues pelo site.
 
@@ -19,7 +20,7 @@
 
 - Jogo e cliente 1.0M, banco do jogo, contas vinculadas, itens e rankings reais.
 - Transparência no cliente, suporte real a +15 na distribuição escolhida e combate equilibrado.
-- Fórum completo, campanhas, torneios, guilds e casamento integrados.
+- Fórum avançado (perfis, reputação, mensagens, notificações e editor rico), campanhas, torneios, guilds e casamento integrados.
 - Produção: JSON local é apenas armazenamento para teste em instância única. Não afirmar que está pronto para operação pública.
 
 ## Validação desta etapa
@@ -27,3 +28,7 @@
 `npm run check`: scripts JavaScript sem erro de sintaxe.
 `npm test`: limites do editor, exclusivos, conta, senha, sessões, chat, notícias, 13 categorias, ausência de integração e segurança HTTP aprovados.
 Sem teste visual em navegador nesta etapa; sem acesso ao jogo.
+
+## Etapa do fórum
+
+`npm run check` e `npm test` aprovados após inclusão do fórum. Testes verificam anonimato, categoria restrita à equipe, resposta, busca, fechamento e reabertura, ocultação e restauração, trilha de moderação e persistência no arquivo de teste. Revisão visual em navegador continua pendente.

@@ -72,3 +72,7 @@ Publicação dinâmica, domínio, cliente de download, GameServer, banco de prod
 ## Estado e decisões
 
 Consulte `docs/ESTADO-ATUAL.md`, `docs/DECISOES-DO-PROJETO.md` e `docs/PLANO-MESTRE-MU-BANNED.md`. Esses documentos refletem as decisões recentes; documentos anteriores ficam como histórico e não substituem essas regras.
+
+## Fórum inicial
+
+Abra `http://localhost:3000/forum.html` com o backend iniciado. Use a conta do site para criar tópicos e responder. Anúncios e eventos são categorias de publicação restrita à equipe; administrador pode fechar/reabrir ou ocultar/restaurar tópicos, com motivo e auditoria. Busca e páginas são suportadas. Mensagens usam texto simples, escapado na interface. O fórum completo e operação em produção ainda exigem os itens listados em `docs/PENDENCIAS.md`.

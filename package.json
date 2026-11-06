@@ -10,6 +10,6 @@
   "scripts": {
     "start": "node server.mjs",
     "test": "node --test tests/*.mjs",
-    "check": "node --check server.mjs && node --check public.js && node --check app.js && node --check staff.js && node --check chat-live.js"
+    "check": "node --check server.mjs && node --check public.js && node --check app.js && node --check staff.js && node --check chat-live.js && node --check forum-service.mjs && node --check forum.js && node --check item-policy.js && node --check ranking-categories.js"
   }
 }
