@@ -49,6 +49,13 @@ try{
   await navigate('index.html#ranking');
   assert.equal(await evaluate("document.querySelectorAll('[data-full-rank]').length"),13);
   assert.equal(await evaluate('document.documentElement.scrollWidth<=innerWidth'),true,'site horizontal overflow '+label);
+  await navigate('index.html');
+  await waitFor("document.querySelectorAll('.classic-rank-slot').length===5");
+  assert.equal(await evaluate('document.documentElement.scrollWidth<=innerWidth'),true,'classic home overflow '+label);
+  assert.equal(await evaluate("getComputedStyle(document.querySelector('.classic-side-menu')).display"),'grid');
+  assert.equal(await evaluate("fetch('/classic-home.css').then(r=>r.ok)"),true);
+  assert.equal(await evaluate("document.querySelector('.hero').compareDocumentPosition(document.querySelector('.ranking-panel')) & Node.DOCUMENT_POSITION_FOLLOWING"),4);
+  assert.equal(await evaluate("document.querySelector('.ranking-panel').compareDocumentPosition(document.getElementById('news-cards')) & Node.DOCUMENT_POSITION_FOLLOWING"),4);
   await navigate('portal.html#editor');
   await evaluate("document.getElementById('level-slider').value=15;document.getElementById('level-slider').dispatchEvent(new Event('input',{bubbles:true}))");
   assert.equal(await evaluate("document.querySelector('.preview-panel h3').textContent.endsWith('+15')"),true);

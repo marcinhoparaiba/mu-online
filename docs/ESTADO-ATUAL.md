@@ -81,3 +81,8 @@ Os cinco conjuntos de fontes compilaram para objetos Win32 com v143/SDK 26100 em
 ## Exportação de eventos para agenda — 06/11/2026
 
 Calendário da comunidade permite baixar cada evento como .ics, com horários UTC, identificação estável e status de cancelamento. Não exporta participantes. Arquivo é uma cópia manual, sem sincronização automática. Funciona no backend web local, sem SQL ou GameServer. Veja CALENDARIO-AGENDA.md.
+
+
+## Home clássica conforme referência visual — 06/11/2026
+
+Home reorganizada em duas colunas, largura central de 940 px, navegação e painéis prateados, menu lateral, banner com arte original e classificação acima das notícias. Referência: captura enviada pelo titular de muaway.net/home. Identidade MuBanneD mantida; sem importação de logos ou assets de terceiros. CSS isolado em classic-home.css. Ver HOME-CLASSICA-2026-11-06.md.

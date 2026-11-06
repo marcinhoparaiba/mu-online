@@ -123,7 +123,7 @@ async function route(req,res,url){const u=auth(req);const m=req.method;const p=u
  }
  return fail(res,404,'Rota não encontrada.');
 }
-const publicFiles=new Set(['index.html','portal.html','staff.html','public.css','public.js','styles.css','app.js','staff.css','staff.js','chat-live.js','item-policy.js','ranking-categories.js','forum.html','forum.js','forum.css','intro.html','intro.css','intro.js','assets/intro-hero.webp','classic-collections.js','community-policy.js','shop.html','shop.css','shop.js','reset.html','reset.js','forum-format.js']);
+const publicFiles=new Set(['index.html','portal.html','staff.html','public.css','classic-home.css','public.js','styles.css','app.js','staff.css','staff.js','chat-live.js','item-policy.js','ranking-categories.js','forum.html','forum.js','forum.css','intro.html','intro.css','intro.js','assets/intro-hero.webp','classic-collections.js','community-policy.js','shop.html','shop.css','shop.js','reset.html','reset.js','forum-format.js']);
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.webp':'image/webp'};
 const httpServer=http.createServer(async(req,res)=>{try{
  res.setHeader('Referrer-Policy','no-referrer');res.setHeader('X-Frame-Options','DENY');
