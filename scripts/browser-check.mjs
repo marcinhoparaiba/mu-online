@@ -50,7 +50,7 @@ try{
   await navigate('portal.html#colecoes');
   assert.equal(await evaluate("document.querySelectorAll('#app article').length"),9);
   await navigate('forum.html');
-  assert.equal(await evaluate("document.querySelectorAll('#forum-categories a').length"),5);
+  assert.equal(await evaluate("document.querySelectorAll('#forum-categories a').length"),24);
   assert.equal(await evaluate('document.documentElement.scrollWidth<=innerWidth'),true,'forum overflow '+label);
   console.log('PASS',label,width+'x'+height,'intro, editor +15, rankings, fórum');
  }

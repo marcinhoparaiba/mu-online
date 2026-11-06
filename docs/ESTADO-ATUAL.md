@@ -41,3 +41,9 @@ Apresentação separada em `intro.html`, arte original, responsividade, navegaç
 
 Ferramenta local de backup com SHA-256 e restauração para destino novo, preservando os bytes originais, sem sobrescrever arquivos. Backups fora da árvore do projeto e gravação restrita no POSIX. Não é backup do GameServer.
 A API agora rejeita JSON primitivo, listas, conteúdo malformado e tipo de conteúdo incorreto; excesso de tamanho retorna 413 sem destruir o socket antes da resposta. Os testes cobrem esses casos e restauração/corrupção de backup.
+
+## Comunidade ampliada — 06/11/2026
+
+24 categorias agrupadas; notícias, avisos, eventos, campanhas, manutenção, comunidade internacional, suporte, seis áreas de tutoriais, compra/venda/troca de itens, design e convivência. Sete cargos com permissões explícitas (administrador, subadministrador, GM, moderador, colaborador, designer, membro). Títulos por participação não concedem poder.
+Perfis, biografia e assinatura em texto; membros, equipe, líderes por participação/reputação e atividade; curtidas sem autocurtida e sem duplicação; edição própria até 15 minutos; favoritos, acompanhamento e notificações; mensagens privadas com bloqueio de recebimento; denúncias e resolução; suspensão de conta web e mudanças de cargo com auditoria e revogação de sessões. Moderação: fechar, ocultar, fixar, mover, marcar respondido e moderar respostas. Comércio e área livre de design não somam participação.
+Tudo persiste somente no JSON local; não concede cargos no jogo. Nenhuma conta de jogador real ou conteúdo do fórum de referência foi importado.

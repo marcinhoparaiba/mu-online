@@ -1,78 +1,95 @@
+import { can, roleName } from './community-policy.js';
 const $ = id => document.getElementById(id);
 const escape = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-let user = null, categories = [], currentTopic = null, revision = 0;
-async function api(path, options = {}) {
-  const response = await fetch('/api' + path, { credentials: 'same-origin', ...options, headers: { 'Content-Type': 'application/json', ...options.headers } });
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(data.error || 'Fórum indisponível. Verifique se o servidor web está funcionando.');
-  return data;
+let user=null,categories=[],currentTopic=null,revision=0;
+async function api(path,options={}){const r=await fetch('/api'+path,{credentials:'same-origin',...options,headers:{'Content-Type':'application/json',...options.headers}});const d=await r.json().catch(()=>({}));if(!r.ok)throw Error(d.error||'Serviço indisponível. Verifique o servidor web.');return d;}
+const post=(p,data)=>api(p,{method:'POST',body:JSON.stringify(data)});
+const date=value=>value?new Date(value).toLocaleString('pt-BR'):'';
+const notice=text=>{ $('toast').textContent=text;$('toast').classList.add('show');setTimeout(()=>$('toast').classList.remove('show'),4500); };
+const loginLink='<p class="muted-note">Use sua conta do site para participar. <a href="index.html#entrar">Entrar</a> ou <a href="index.html#cadastro">criar conta</a>.</p>';
+const memberLink=a=>`<a href="#member/${a.id}">${escape(a.username)}</a> <span class="role-badge role-${escape(a.role)}">${escape(roleName(a.role))}</span>`;
+const meta=t=>`${memberLink(t.author)} · ${escape(date(t.createdAt))} · ${t.replies} resposta(s)${t.locked?' · Fechado':''}${t.pinned?' · Fixado':''}${t.answered?' · Respondido':''}`;
+const cards=topics=>topics.map(t=>`<article class="topic-card"><h2><a href="#topic/${t.id}">${escape(t.title)}</a></h2><div class="forum-meta">${meta(t)}</div></article>`).join('')||'<p class="simple-panel">Nenhum tópico encontrado.</p>';
+function pages(d,prefix){if(d.pages<2)return '';return `<nav class="forum-pages" aria-label="Páginas">${d.page>1?`<a class="btn-outline" href="#${prefix}${d.page-1}">ANTERIOR</a>`:''}<span>${d.page} / ${d.pages}</span>${d.page<d.pages?`<a class="btn-outline" href="#${prefix}${d.page+1}">PRÓXIMA</a>`:''}</nav>`;}
+const field=(name,label,max=1000,value='',min=0)=>`<label>${label}<textarea class="entry" name="${name}" maxlength="${max}" minlength="${min}" ${min?'required':''}>${escape(value)}</textarea></label>`;
+function newTopicForm(category){if(!user)return loginLink;const available=categories.filter(c=>!c.staffOnly||can(user,'official'));return `<details class="simple-panel forum-form"><summary>Criar tópico</summary><form id="topic-form" class="form-grid"><label>Categoria<select class="entry" name="categoryId">${available.map(c=>`<option value="${c.id}" ${c.id===category?'selected':''}>${escape(c.group)} · ${escape(c.name)}</option>`).join('')}</select></label><label>Título<input class="entry" name="title" required minlength="4" maxlength="120"></label>${field('body','Mensagem',6000,'',10)}<p class="dim tiny">Texto simples. Não informe senhas nem dados pessoais.</p><button class="btn-gold">PUBLICAR TÓPICO</button></form></details>`;}
+function postCard(p,t){return `<article class="forum-post ${p.hidden?'hidden-post':''}" id="post-${p.id}"><header>${memberLink(p.author)} <span class="forum-meta">${escape(date(p.createdAt))}${p.editedAt?' · Editado':''}${p.hidden?' · Oculto':''}</span></header><p>${escape(p.body)}</p>${p.author.signature?`<p class="signature">${escape(p.author.signature)}</p>`:''}<div class="forum-actions"><span>${p.likes} curtida(s)</span>${user?`<button class="btn-outline" data-post-action="like" data-post-id="${p.id}" data-enabled="${!p.liked}" ${p.author.id===user.id?'disabled':''}>${p.liked?'RETIRAR CURTIDA':'CURTIR'}</button><button class="btn-outline" data-quote="${p.id}">CITAR</button><button class="btn-outline" data-report="${p.id}">DENUNCIAR</button>`:''}</div>${user?.id===p.author.id&&!t.locked&&!p.hidden?`<details><summary>Editar minha mensagem (até 15 minutos)</summary><form class="form-grid" data-edit-post="${p.id}">${field('body','Mensagem',6000,p.body,1)}<button class="btn-outline">SALVAR EDIÇÃO</button></form></details>`:''}${can(user,'moderate')?`<details><summary>Moderar resposta</summary><form class="form-grid" data-moderate-post="${p.id}"><input type="hidden" name="action" value="${p.hidden?'restore':'hide'}">${field('reason','Motivo',500,'',5)}<button class="btn-outline">${p.hidden?'RESTAURAR':'OCULTAR'} RESPOSTA</button></form></details>`:''}</article>`;}
+function moderation(t){return !can(user,'moderate')?'':`<details class="simple-panel"><summary>Moderação do tópico</summary><form id="moderation-form" class="form-grid"><label>Ação<select class="entry" name="action">${[['lock','Fechar'],['unlock','Reabrir'],['hide','Ocultar'],['restore','Restaurar'],['pin','Fixar'],['unpin','Desafixar'],['answer','Marcar respondido'],['unanswer','Remover respondido'],['move','Mover categoria']].map(([id,name])=>`<option value="${id}">${name}</option>`).join('')}</select></label><label>Categoria para mover<select class="entry" name="categoryId">${categories.map(c=>`<option value="${c.id}" ${c.id===t.categoryId?'selected':''}>${escape(c.name)}</option>`).join('')}</select></label>${field('reason','Motivo',500,'',5)}<button class="btn-outline">APLICAR E REGISTRAR</button></form></details>`;}
+function requireLogin(){if(!user)throw Error('Entre na sua conta do site para acessar esta área.');}
+async function render(){
+ const ticket=++revision,[kind='',id='',pageValue='1']=location.hash.slice(1).split('/'),page=Math.max(1,parseInt(pageValue,10)||1),content=$('forum-content');content.setAttribute('aria-busy','true');currentTopic=null;
+ try{
+ let html='';const query='?page='+page;
+ if(kind==='topic'){
+  if(!/^[a-f0-9]{32}$/.test(id))throw Error('Endereço inválido.');const d=await api(`/forum/topics/${id}${query}`);if(ticket!==revision)return;currentTopic=d.topic;const t=d.topic;
+  html=`<a href="#category/${t.categoryId}">← Voltar à categoria</a><h1>${escape(t.title)}</h1><p class="forum-meta">${meta(t)}${t.hidden?' · Oculto':''}</p>${user?`<div class="forum-actions"><button class="btn-outline" data-topic-action="follow" data-enabled="${!d.following}">${d.following?'DEIXAR DE SEGUIR':'SEGUIR TÓPICO'}</button><button class="btn-outline" data-topic-action="bookmark" data-enabled="${!d.bookmarked}">${d.bookmarked?'REMOVER FAVORITO':'SALVAR FAVORITO'}</button></div>`:''}${d.posts.map(p=>postCard(p,t)).join('')}${pages(d,`topic/${id}/`)}${t.locked||t.hidden?'<p class="muted-note">Tópico fechado ou oculto para novas respostas.</p>':user?`<form id="reply-form" class="simple-panel form-grid forum-form">${field('body','Sua resposta',6000,'',1)}<button class="btn-gold">RESPONDER</button></form>`:loginLink}${moderation(t)}`;
+ }else if(kind==='members'||kind==='staff'||kind==='leaders'){
+  const metric=id==='reputation'?'reputation':'posts';const d=await api(kind==='leaders'?`/community/leaders${query}&metric=${metric}`:`/community/members${query}${kind==='staff'?'&staff=true':''}${kind==='members'&&id?'&q='+encodeURIComponent(decodeURIComponent(id)):''}`);
+  html=`<h1>${kind==='leaders'?'Líderes da comunidade':kind==='staff'?'Equipe e hierarquia':'Membros'}</h1>${kind==='leaders'?'<div class="forum-actions"><a href="#leaders/posts">Por participação</a><a href="#leaders/reputation">Por reputação</a></div><p class="muted-note">Contagens reais do fórum; comércio e área livre de design não somam participação. Títulos não concedem permissões.</p>':''}${kind==='members'?'<form id="member-search" class="form-grid"><label>Buscar membro<input class="entry" name="q" maxlength="100"></label><button class="btn-outline">BUSCAR</button></form>':''}${d.entries.map((u,i)=>`<article class="simple-panel"><h2>${kind==='leaders'?(page-1)*20+i+1+'. ':''}${memberLink(u)}</h2><p>${escape(u.title)} · ${u.posts} postagens · ${u.reputation} de reputação</p></article>`).join('')||'<p class="simple-panel">Nenhum membro nesta lista.</p>'}${pages(d,`${kind}/${id}/`)}`;
+ }else if(kind==='member'){
+  const d=await api('/community/members/'+id),u=d.member;
+  html=`<h1>${memberLink(u)}</h1><section class="simple-panel"><p>${escape(u.title)} · ${u.posts} postagens · ${u.reputation} de reputação</p><p>Membro desde ${escape(date(u.createdAt))}</p><p class="preserve-text">${escape(u.bio)||'Este membro ainda não publicou uma biografia.'}</p><p class="signature">${escape(u.signature)}</p></section>${user?.id===u.id?`<form id="profile-form" class="simple-panel form-grid"><h2>Meu perfil</h2>${field('bio','Biografia',1000,u.bio)}${field('signature','Assinatura',300,u.signature)}<button class="btn-gold">SALVAR PERFIL</button></form>`:user?`<a class="btn-outline" href="#messages/${encodeURIComponent(u.username)}">ENVIAR MENSAGEM</a>`:''}`;
+ }else if(kind==='notifications'){
+  requireLogin();const d=await api('/community/notifications'+query);html=`<h1>Notificações · ${d.unread} não lida(s)</h1><form id="read-notifications"><button class="btn-outline">MARCAR TODAS COMO LIDAS</button></form>${d.entries.map(n=>`<article class="simple-panel"><p>${n.read?'':'● '}${escape(n.message)}</p>${n.topicId?`<a href="#topic/${n.topicId}">ABRIR TÓPICO</a>`:'<a href="#messages">ABRIR MENSAGENS</a>'}<small>${escape(date(n.at))}</small></article>`).join('')||'<p>Nenhuma notificação.</p>'}${pages(d,'notifications//')}`;
+ }else if(kind==='messages'){
+  requireLogin();const d=await api('/community/messages'+query);html=`<h1>Mensagens privadas</h1><p class="muted-note">Nunca envie sua senha. Mensagens ficam armazenadas no servidor do site; não possuem criptografia ponta a ponta.</p><form id="message-form" class="simple-panel form-grid"><label>Destinatário (nome de usuário)<input class="entry" name="username" value="${escape(decodeURIComponent(id))}" required minlength="3" maxlength="25"></label>${field('body','Mensagem',3000,'',1)}<button class="btn-gold">ENVIAR MENSAGEM</button></form><form id="message-preferences" class="simple-panel form-grid"><label><input type="checkbox" name="blocked"> Bloquear recebimento de novas mensagens privadas</label><button class="btn-outline">SALVAR PREFERÊNCIA</button></form>${d.entries.map(n=>`<article class="forum-post"><header>${escape(n.fromName)} → ${escape(n.toName)} · ${escape(date(n.at))}</header><p>${escape(n.body)}</p></article>`).join('')||'<p>Nenhuma mensagem.</p>'}${pages(d,'messages//')}`;
+ }else if(kind==='activity'){
+  const d=await api('/community/activity'+query);html=`<h1>Atividade recente</h1>${d.entries.map(e=>`<article class="simple-panel"><a href="#topic/${e.topicId}">${escape(e.title)}</a><p>${memberLink(e.author)} · ${escape(date(e.at))}</p></article>`).join('')||'<p>Nenhuma atividade publicada.</p>'}${pages(d,'activity//')}`;
+ }else if(kind==='bookmarks'){
+  requireLogin();const d=await api('/forum/bookmarks');html='<h1>Meus favoritos</h1>'+cards(d.topics);
+ }else if(kind==='hierarchy'){
+  const d=await api('/community/roles');html=`<h1>Cargos e hierarquia</h1><p class="muted-note">Cargos são atribuídos pela administração. Reputação e volume de mensagens nunca promovem alguém à equipe.</p>${d.roles.map(r=>`<section class="simple-panel"><h2>${escape(r.name)}</h2><p>${escape(r.permissions.map(p=>({users:'Gestão de cargos e suspensões',moderate:'Moderação do fórum',official:'Comunicados oficiais',support:'Atendimento',catalog:'Gestão do catálogo'}[p])).join(' · ')||'Participação na comunidade')}</p></section>`).join('')}`;
+ }else if(kind==='reports'||kind==='audit'||kind==='manage'){
+  if(!can(user,'moderate')&&!can(user,'users'))throw Error('Área restrita à equipe.');
+  if(kind==='manage'){
+   if(!can(user,'users'))throw Error('Somente administradores gerenciam cargos.');const [d,r]=await Promise.all([api('/community/members'+query),api('/community/roles')]);
+   html=`<h1>Cargos e suspensões</h1>${d.entries.map(u=>`<details class="simple-panel"><summary>${escape(u.username)} · ${escape(u.roleName)}</summary><form class="form-grid" data-manage-user="${u.id}"><label>Ação<select class="entry" name="action"><option value="role">Alterar cargo</option><option value="suspend">Suspender conta do site</option><option value="restore">Remover suspensão</option></select></label><label>Cargo<select class="entry" name="role">${r.roles.map(r=>`<option value="${r.id}" ${u.role===r.id?'selected':''}>${escape(r.name)}</option>`).join('')}</select></label><label>Dias de suspensão<input class="entry" name="days" type="number" min="1" max="365" value="1"></label>${field('reason','Motivo',500,'',5)}<button class="btn-outline">APLICAR E REGISTRAR</button></form></details>`).join('')}${pages(d,'manage//')}`;
+  }else{const d=await api('/admin/community/'+kind+query);html=`<h1>${kind==='reports'?'Denúncias':'Auditoria de cargos e denúncias'}</h1><a href="#forum-audit">AUDITORIA DE TÓPICOS</a>${d.entries.map(e=>`<article class="simple-panel"><p>${escape(e.reason||e.action)} · ${escape(e.status||e.action)} · ${escape(date(e.at))}</p>${e.topicId?`<a href="#topic/${e.topicId}">ABRIR CONTEÚDO</a>`:''}${kind==='reports'&&e.status==='open'?`<form class="form-grid" data-resolve-report="${e.id}">${field('reason','Resolução',500,'',5)}<button class="btn-outline">CONCLUIR DENÚNCIA</button></form>`:''}</article>`).join('')||'<p>Nenhum registro.</p>'}${pages(d,`${kind}//`)}`;}
+ }else if(kind==='forum-audit'){
+  if(!can(user,'moderate'))throw Error('Área restrita.');const d=await api('/admin/forum/audit'+query);html=`<h1>Auditoria de tópicos</h1>${d.entries.map(e=>`<article class="simple-panel"><a href="#topic/${e.topicId}">${escape(e.action)}</a><p>${escape(e.reason||'')} · ${escape(date(e.at))}</p></article>`).join('')}${pages({...d,pages:Math.ceil(d.total/50)},'forum-audit//')}`;
+ }else if(kind==='rules'){
+  html='<h1>Regras da comunidade</h1>'+['Respeite os participantes: assédio, ameaças, discriminação e divulgação de dados pessoais são proibidos.','Não faça flood, spam, falsificação de identidade ou propaganda enganosa. Use a categoria apropriada.','Nunca informe senhas. A equipe não solicita credenciais em mensagens ou atendimento.','O comércio do fórum se destina a itens do jogo. Não existe carteira, custódia nem intermediação de dinheiro entre jogadores.','Denúncias são analisadas pela equipe. Ações de moderação exigem motivo e mantêm histórico.','Curtidas e títulos reconhecem participação e não concedem poderes administrativos.'].map(t=>`<p class="simple-panel">${t}</p>`).join('');
+ }else if(!kind){
+  html='<h1>Comunidade MuBanneD</h1><p class="muted-note">Seu ponto de encontro para notícias, suporte, comércio de itens e criações. <a href="#rules">Leia as regras</a>.</p>'+[...new Set(categories.map(c=>c.group))].map(group=>`<section class="forum-group"><h2>${escape(group)}</h2>${categories.filter(c=>c.group===group).map(c=>`<a class="board-card" href="#category/${c.id}"><strong>${escape(c.name)}</strong><span>${c.topics} tópico(s)${c.staffOnly?' · Publicação oficial':''}${!c.countsPosts?' · Não conta participação':''}</span></a>`).join('')}</section>`).join('')+newTopicForm('');
+ }else{
+  const category=kind==='category'?id:'',q=kind==='search'?decodeURIComponent(id):'';
+  if(category&&!categories.some(c=>c.id===category))throw Error('Categoria não encontrada.');const d=await api('/forum/topics?'+new URLSearchParams({category,q,page:String(page)}));html=`<h1>${escape(q?'Busca: '+q:categories.find(c=>c.id===category)?.name||'Todos os tópicos')}</h1><p>${d.total} tópico(s)</p>${cards(d.topics)}${pages(d,`${kind}/${encodeURIComponent(id)}/`)}${newTopicForm(category)}`;
+ }
+ if(ticket!==revision)return;document.title=(kind==='topic'?currentTopic.title:'Comunidade')+' | MuBanneD';content.innerHTML=html;
+ $('forum-categories').innerHTML=[...new Set(categories.map(c=>c.group))].map(group=>`<details ${kind==='category'&&categories.some(c=>c.group===group&&c.id===id)?'open':''}><summary>${escape(group)}</summary>${categories.filter(c=>c.group===group).map(c=>`<a href="#category/${c.id}" ${c.id===id?'aria-current="page"':''}>${escape(c.name)}</a>`).join('')}</details>`).join('');
+ }catch(e){if(ticket===revision)content.innerHTML=`<section class="simple-panel"><h1>Não foi possível abrir esta área</h1><p>${escape(e.message)}</p><a href="index.html#entrar">Entrar</a> · <button class="btn-outline" id="retry-forum">TENTAR NOVAMENTE</button></section>`;}
+ finally{if(ticket===revision)content.setAttribute('aria-busy','false');}
 }
-const post = (path, data) => api(path, { method: 'POST', body: JSON.stringify(data) });
-const date = value => new Date(value).toLocaleString('pt-BR');
-const meta = topic => `${escape(topic.author.username)} · ${escape(date(topic.createdAt))} · ${topic.replies} resposta(s)${topic.locked ? ' · Fechado' : ''}`;
-const loginLink = '<p class="muted-note">Use sua conta do site para participar. <a href="index.html#entrar">Entrar</a> ou <a href="index.html#cadastro">criar conta</a>.</p>';
-function newTopicForm(categoryId) {
-  if (!user) return loginLink;
-  const available = categories.filter(c => !c.staffOnly || user.role === 'admin');
-  if (!available.length) return '';
-  return `<details class="simple-panel forum-form"><summary>Criar tópico</summary><form id="topic-form" class="form-grid"><label>Categoria<select name="categoryId">${available.map(c => `<option value="${c.id}" ${c.id === categoryId ? 'selected' : ''}>${escape(c.name)}</option>`).join('')}</select></label><label>Título<input class="entry" name="title" required minlength="4" maxlength="120"></label><label>Mensagem<textarea class="entry" name="body" required minlength="10" maxlength="6000"></textarea></label><p class="dim tiny">Texto simples. HTML não será executado.</p><button class="btn-gold">PUBLICAR TÓPICO</button></form></details>`;
-}
-function pages(data, prefix) {
-  if (data.pages < 2) return '';
-  return `<nav class="forum-pages" aria-label="Páginas">${data.page > 1 ? `<a class="btn-outline" href="#${prefix}${data.page - 1}">ANTERIOR</a>` : ''}<span>Página ${data.page} de ${data.pages}</span>${data.page < data.pages ? `<a class="btn-outline" href="#${prefix}${data.page + 1}">PRÓXIMA</a>` : ''}</nav>`;
-}
-async function render() {
-  const ticket = ++revision;
-  const [kind, id = '', pageValue = '1'] = location.hash.slice(1).split('/');
-  const page = Math.max(1, Number.parseInt(pageValue, 10) || 1);
-  const content = $('forum-content');
-  content.setAttribute('aria-busy', 'true');
-  currentTopic = null;
-  try {
-    if (kind === 'topic') {
-      if (!/^[a-f0-9]{32}$/.test(id)) throw new Error('Endereço de tópico inválido.');
-      const data = await api(`/forum/topics/${id}?page=${page}`);
-      if (ticket !== revision) return;
-      currentTopic = data.topic;
-      const topic = data.topic;
-      document.title = topic.title + ' | Fórum MuBanneD';
-      content.innerHTML = `<a href="#category/${topic.categoryId}">← Voltar à categoria</a><h1>${escape(topic.title)}</h1><p class="forum-meta">${meta(topic)}${topic.hidden ? ' · Oculto' : ''}</p>${data.posts.map(p => `<article class="forum-post"><header><strong>${escape(p.author.username)}</strong> · ${p.author.role === 'admin' ? 'Equipe' : 'Membro'} <span class="forum-meta">${escape(date(p.createdAt))}</span></header><p>${escape(p.body)}</p></article>`).join('')}${pages(data, `topic/${id}/`)}${topic.locked || topic.hidden ? '<p class="muted-note">Tópico fechado ou oculto para novas respostas.</p>' : user ? '<form id="reply-form" class="simple-panel form-grid forum-form"><label>Sua resposta<textarea class="entry" name="body" required maxlength="6000"></textarea></label><button class="btn-gold">RESPONDER</button></form>' : loginLink}${user?.role === 'admin' ? `<details class="simple-panel"><summary>Moderação</summary><form id="moderation-form" class="form-grid"><label>Ação<select class="entry" name="action"><option value="${topic.locked ? 'unlock' : 'lock'}">${topic.locked ? 'Reabrir' : 'Fechar'} tópico</option><option value="${topic.hidden ? 'restore' : 'hide'}">${topic.hidden ? 'Restaurar' : 'Ocultar'} tópico</option></select></label><label>Motivo<textarea class="entry" name="reason" required minlength="5" maxlength="500"></textarea></label><button class="btn-outline">APLICAR E REGISTRAR</button></form></details>` : ''}`;
-    } else {
-      const categoryId = kind === 'category' ? id : '';
-      if (categoryId && !categories.some(c => c.id === categoryId)) throw new Error('Categoria não encontrada.');
-      const query = kind === 'search' ? decodeURIComponent(id) : '';
-      const data = await api('/forum/topics?' + new URLSearchParams({ category: categoryId, q: query, page: String(page) }));
-      if (ticket !== revision) return;
-      document.title = 'Fórum | MuBanneD - Editavel';
-      content.innerHTML = `<h1>${escape(query ? `Busca: ${query}` : categories.find(c => c.id === categoryId)?.name || 'Comunidade MuBanneD')}</h1><p class="dim">${data.total} tópico(s)</p>${data.topics.map(t => `<a class="topic-card" href="#topic/${t.id}"><h2>${escape(t.title)}</h2><div class="forum-meta">${meta(t)}</div></a>`).join('') || '<div class="simple-panel">Nenhum tópico encontrado.</div>'}${pages(data, `${kind || 'all'}/${encodeURIComponent(id)}/`)}${newTopicForm(categoryId)}`;
-    }
-    $('forum-categories').innerHTML = categories.map(c => `<a href="#category/${c.id}" ${kind === 'category' && c.id === id ? 'aria-current="page"' : ''}>${escape(c.name)}${c.staffOnly ? ' · Equipe' : ''}</a>`).join('');
-  } catch (error) {
-    if (ticket === revision) content.innerHTML = `<section class="simple-panel"><h1>Não foi possível abrir o fórum</h1><p>${escape(error.message)}</p><button class="btn-outline" id="retry-forum">TENTAR NOVAMENTE</button></section>`;
-  } finally { if (ticket === revision) content.setAttribute('aria-busy', 'false'); }
-}
-document.addEventListener('submit', async event => {
-  const form = event.target;
-  if (form.id === 'search-form') { event.preventDefault(); location.hash = 'search/' + encodeURIComponent($('forum-search').value.trim()); return; }
-  if (!['topic-form', 'reply-form', 'moderation-form'].includes(form.id)) return;
-  event.preventDefault();
-  const button = form.querySelector('button'); button.disabled = true;
-  try {
-    const values = Object.fromEntries(new FormData(form));
-    if (form.id === 'topic-form') { const data = await post('/forum/topics', values); location.hash = 'topic/' + data.topic.id; }
-    if (form.id === 'reply-form') { await post(`/forum/topics/${currentTopic.id}/replies`, values); await render(); }
-    if (form.id === 'moderation-form') { await post(`/admin/forum/topics/${currentTopic.id}`, values); await render(); }
-  } catch (error) { $('toast').textContent = error.message; $('toast').classList.add('show'); setTimeout(() => $('toast').classList.remove('show'), 5000); }
-  finally { button.disabled = false; }
+document.addEventListener('submit',async e=>{
+ const f=e.target;if(f.id==='search-form'){e.preventDefault();location.hash='search/'+encodeURIComponent($('forum-search').value.trim());return;}
+ if(f.id==='member-search'){e.preventDefault();location.hash='members/'+encodeURIComponent(new FormData(f).get('q'));return;}
+ if(!['topic-form','reply-form','moderation-form','profile-form','message-form','message-preferences','read-notifications'].includes(f.id)&&!f.dataset.editPost&&!f.dataset.moderatePost&&!f.dataset.manageUser&&!f.dataset.resolveReport)return;
+ e.preventDefault();const b=f.querySelector('button');b.disabled=true;const v=Object.fromEntries(new FormData(f));
+ try{
+  if(f.id==='topic-form'){const d=await post('/forum/topics',v);location.hash='topic/'+d.topic.id;}
+  else if(f.id==='reply-form')await post(`/forum/topics/${currentTopic.id}/replies`,v);
+  else if(f.id==='moderation-form')await post(`/admin/forum/topics/${currentTopic.id}`,v);
+  else if(f.id==='profile-form')await post('/community/profile',v);
+  else if(f.id==='message-form'){await post('/community/messages',v);notice('Mensagem enviada.');}
+  else if(f.id==='message-preferences'){await post('/community/messages/preferences',{blocked:v.blocked==='on'});notice('Preferência salva.');}
+  else if(f.id==='read-notifications')await post('/community/notifications/read',{});
+  else if(f.dataset.editPost)await post(`/forum/topics/${currentTopic.id}/posts/${f.dataset.editPost}/edit`,v);
+  else if(f.dataset.moderatePost)await post(`/admin/forum/topics/${currentTopic.id}/posts/${f.dataset.moderatePost}`,v);
+  else if(f.dataset.manageUser)await post('/admin/community/users',{...v,userId:f.dataset.manageUser,days:Number(v.days)});
+  else if(f.dataset.resolveReport)await post('/admin/community/reports',{...v,id:f.dataset.resolveReport});
+  if(f.id!=='topic-form')await render();
+ }catch(error){notice(error.message);}finally{b.disabled=false;}
 });
-document.addEventListener('click', event => { if (event.target.closest('#retry-forum')) start(); });
-window.addEventListener('hashchange', render);
-async function start() {
-  try {
-    const [me, data] = await Promise.all([api('/auth/me'), api('/forum/categories')]);
-    user = me.user; categories = data.categories;
-    $('forum-session').textContent = user ? `Olá, ${user.username} · ${user.role === 'admin' ? 'Equipe' : 'Membro'}` : 'Visitante · Entre na sua conta para participar';
-    await render();
-  } catch (error) { $('forum-session').textContent = 'Fórum desconectado'; $('forum-content').innerHTML = `<div class="simple-panel"><h1>Fórum indisponível</h1><p>${escape(error.message)}</p><button id="retry-forum" class="btn-outline">TENTAR NOVAMENTE</button></div>`; }
-}
+document.addEventListener('click',async e=>{
+ if(e.target.closest('#retry-forum'))return start();const a=e.target.closest('[data-topic-action],[data-post-action],[data-report],[data-quote]');if(!a)return;
+ try{
+  if(a.dataset.topicAction)await post(`/forum/topics/${currentTopic.id}/${a.dataset.topicAction}`,{enabled:a.dataset.enabled==='true'});
+  else if(a.dataset.postAction)await post(`/forum/topics/${currentTopic.id}/posts/${a.dataset.postId}/like`,{enabled:a.dataset.enabled==='true'});
+  else if(a.dataset.quote){const p=$('post-'+a.dataset.quote);const input=document.querySelector('#reply-form textarea');if(input){input.value='> '+p.querySelector('p').textContent.replace(/\n/g,'\n> ')+'\n\n';input.focus();}return;}
+  else if(a.dataset.report){const reason=prompt('Descreva o motivo da denúncia (5 a 1000 caracteres):');if(!reason)return;await post('/community/reports',{topicId:currentTopic.id,postId:a.dataset.report,reason});notice('Denúncia enviada à equipe.');return;}
+  await render();
+ }catch(error){notice(error.message);}
+});
+window.addEventListener('hashchange',render);
+async function start(){try{const [me,d]=await Promise.all([api('/auth/me'),api('/forum/categories')]);user=me.user;categories=d.categories;$('forum-session').textContent=user?`Olá, ${user.username} · ${roleName(user.role)}`:'Visitante · Entre para participar';$('forum-tools').innerHTML=`<a href="#members">Membros</a><a href="#staff">Equipe</a><a href="#hierarchy">Cargos</a><a href="#leaders/posts">Líderes</a><a href="#activity">Atividade</a><a href="#rules">Regras</a>${user?`<a href="#member/${user.id}">Meu perfil</a><a href="#notifications">Notificações</a><a href="#messages">Mensagens</a><a href="#bookmarks">Favoritos</a>`:''}${can(user,'moderate')?'<a href="#reports">Denúncias</a><a href="#audit">Auditoria</a>':''}${can(user,'users')?'<a href="#manage">Gerenciar cargos</a>':''}`;await render();}catch(error){$('forum-session').textContent='Fórum desconectado';$('forum-content').innerHTML=`<div class="simple-panel"><h1>Fórum indisponível</h1><p>${escape(error.message)}</p><button id="retry-forum">TENTAR NOVAMENTE</button></div>`;}}
 start();

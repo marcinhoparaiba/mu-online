@@ -2,6 +2,8 @@
  *  IMPORTANT: this is a starter single-instance service, not a payments server or GameServer.
  */
 import http from 'node:http';
+import { can } from './community-policy.js';
+import { createCommunityService } from './community-service.mjs';
 import { createForumService } from './forum-service.mjs';
 import { classicCollections } from './classic-collections.js';
 import { rankingCategories } from './ranking-categories.js';
@@ -20,7 +22,7 @@ try{store=JSON.parse(await readFile(DB,'utf8'));}catch(e){if(e.code!=='ENOENT')t
 const uid=()=>randomBytes(16).toString('hex');
 const hash=(password,salt)=>scryptSync(password,salt,64).toString('hex');
 const addUser=(email,username,password,role='player')=>{const salt=uid();const u={id:uid(),email:String(email).toLowerCase(),username,role,salt,hash:hash(password,salt),created_at:new Date().toISOString()};store.users.push(u);return u};
-const publicUser=u=>u?{id:u.id,username:u.username,role:u.role}:null;
+const publicUser=u=>u?{id:u.id,username:u.username,role:u.role,permissions:['users','moderate','official','support','catalog'].filter(p=>can(u,p))}:null;
 const save=async()=>{await mkdir(path.dirname(DB),{recursive:true});const tmp=DB+'.tmp';await writeFile(tmp,JSON.stringify(store,null,2),{mode:0o600});await rename(tmp,DB)};
 let queue=Promise.resolve();function transact(fn){const job=queue.then(async()=>{const ret=await fn();await save();return ret});queue=job.catch(()=>{});return job;}
 const adminEmail=process.env.MU_ADMIN_EMAIL?.toLowerCase(),adminPass=process.env.MU_ADMIN_PASSWORD;
@@ -28,7 +30,7 @@ if(adminEmail && adminPass?.length>=12 && !store.users.some(u=>u.role==='admin')
 const json=(res,status,data,extra={})=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer',...extra});res.end(JSON.stringify(data))};
 const fail=(res,status,error)=>json(res,status,{error});
 const cookie=req=>{const values={};for(const part of (req.headers.cookie||'').split(';')){const at=part.indexOf('=');if(at<0)continue;try{values[decodeURIComponent(part.slice(0,at).trim())]=decodeURIComponent(part.slice(at+1));}catch{}}return values};
-const auth=req=>{const tok=cookie(req).mu_session;if(!tok)return null;const ses=sessions.get(tok);if(!ses)return null;if(ses.expires<Date.now()){sessions.delete(tok);return null}return store.users.find(u=>u.id===ses.userId)||null};
+const auth=req=>{const tok=cookie(req).mu_session;if(!tok)return null;const ses=sessions.get(tok);if(!ses)return null;if(ses.expires<Date.now()){sessions.delete(tok);return null}return store.users.find(u=>u.id===ses.userId&&(!u.suspendedUntil||Date.parse(u.suspendedUntil)<=Date.now()))||null};
 const sessionCookie=(token,req)=>`mu_session=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Strict; Max-Age=604800${process.env.MU_HTTPS==='true'?' ; Secure':''}`;
 async function body(req){
  if(!/^application\/json(?:\s*;|\s*$)/i.test(req.headers['content-type']||''))throw Object.assign(new Error('Use Content-Type application/json.'),{status:415});
@@ -44,8 +46,10 @@ function limit(req,action,max=40){const ip=req.socket.remoteAddress||'unknown';c
 const validEmail=v=>typeof v==='string'&&v.length<=160&&/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 const validNick=v=>typeof v==='string'&&v.length>=3&&v.length<=25&&/^[a-zA-ZÀ-ÿ0-9_-]+$/.test(v);
 const validMessage=v=>typeof v==='string'&&v.trim().length>0&&v.trim().length<=1500;
-const forumService=createForumService({store,transact,uid,json,fail,body,limit});
+const community=createCommunityService({store,transact,uid,json,fail,body,limit,revokeSessions:id=>{for(const [token,s] of sessions)if(s.userId===id)sessions.delete(token)}});
+const forumService=createForumService({store,transact,uid,json,fail,body,limit,notify:community.notify,profile:community.profile});
 async function route(req,res,url){const u=auth(req);const m=req.method;const p=url.pathname;
+ if(await community.service(req,res,url,u))return;
  if(await forumService(req,res,url,u))return;
  if(m==='GET'&&p==='/api/game/status')return json(res,200,publicGameStatus());
  if(m==='GET'&&p==='/api/health')return json(res,200,{ok:true,service:'mu-legacy-portal',gameServer:'not_connected'});
@@ -75,7 +79,7 @@ async function route(req,res,url){const u=auth(req);const m=req.method;const p=u
  }
  if(m==='POST'&&p==='/api/auth/login'){
   if(!limit(req,'login',9))return fail(res,429,'Muitas tentativas.');const x=await body(req);const candidate=typeof x.email==='string'?store.users.find(v=>v.email===x.email.toLowerCase()):null;
-  let ok=false;if(candidate && typeof x.password==='string' && x.password.length<=256){try{ok=timingSafeEqual(Buffer.from(hash(x.password,candidate.salt),'hex'),Buffer.from(candidate.hash,'hex'))}catch{}}
+  let ok=false;if(candidate && (!candidate.suspendedUntil||Date.parse(candidate.suspendedUntil)<=Date.now()) && typeof x.password==='string' && x.password.length<=256){try{ok=timingSafeEqual(Buffer.from(hash(x.password,candidate.salt),'hex'),Buffer.from(candidate.hash,'hex'))}catch{}}
   if(!ok)return fail(res,401,'Credenciais incorretas.');const token=uid();sessions.set(token,{userId:candidate.id,expires:Date.now()+604800000});return json(res,200,{user:publicUser(candidate)},{'Set-Cookie':sessionCookie(token,req)});
  }
  if(m==='POST'&&p==='/api/auth/logout'){const tok=cookie(req).mu_session;if(tok)sessions.delete(tok);return json(res,200,{ok:true},{'Set-Cookie':'mu_session=; Path=/; HttpOnly; SameSite=Strict; Max-Age=0'});}
@@ -85,13 +89,13 @@ async function route(req,res,url){const u=auth(req);const m=req.method;const p=u
   await transact(()=>{store.chats.push(chat);return chat});return json(res,201,{chat_id:chat.id,token:chat.token});
  }
  const getChat=/^\/api\/chat\/([a-f0-9]{32})$/.exec(p);
- if(m==='GET'&&getChat){const c=store.chats.find(t=>t.id===getChat[1]);if(!c||!(u?.role==='admin'||c.token===url.searchParams.get('token')))return fail(res,404,'Conversa não encontrada.');return json(res,200,{chat:{id:c.id,status:c.status,name:c.name},messages:c.messages});}
+ if(m==='GET'&&getChat){const c=store.chats.find(t=>t.id===getChat[1]);if(!c||!(can(u,'support')||c.token===url.searchParams.get('token')))return fail(res,404,'Conversa não encontrada.');return json(res,200,{chat:{id:c.id,status:c.status,name:c.name},messages:c.messages});}
  if(m==='POST'&&p==='/api/chat/message'){
   if(!limit(req,'chatmsg',30))return fail(res,429,'Mensagens demais.');const x=await body(req);const c=store.chats.find(t=>t.id===x.chat_id);if(!c||c.token!==x.token)return fail(res,404,'Conversa não encontrada.');if(c.status!=='open')return fail(res,409,'Conversa encerrada.');if(!validMessage(x.message))return fail(res,400,'Mensagem inválida.');
   await transact(()=>{c.messages.push({sender:'user',body:x.message.trim(),created_at:new Date().toISOString()});return null});return json(res,200,{ok:true});
  }
  if(p.startsWith('/api/admin/')){
-  if(!u||u.role!=='admin')return fail(res,403,'Acesso restrito à equipe.');
+  if(!can(u,p.includes('news')?'official':'support'))return fail(res,403,'Acesso restrito à equipe.');
   if(m==='GET'&&p==='/api/admin/chats')return json(res,200,{chats:store.chats.map(c=>({id:c.id,name:c.name,status:c.status,count:c.messages.length,last_message_at:c.messages.at(-1)?.created_at})).reverse()});
   if(m==='GET'&&p==='/api/admin/stats')return json(res,200,{accounts:store.users.length,openChats:store.chats.filter(c=>c.status==='open').length,news:store.articles.length});
   if(m==='POST'&&p==='/api/admin/reply'){
@@ -111,7 +115,7 @@ async function route(req,res,url){const u=auth(req);const m=req.method;const p=u
  }
  return fail(res,404,'Rota não encontrada.');
 }
-const publicFiles=new Set(['index.html','portal.html','staff.html','public.css','public.js','styles.css','app.js','staff.css','staff.js','chat-live.js','item-policy.js','ranking-categories.js','forum.html','forum.js','forum.css','intro.html','intro.css','intro.js','assets/intro-hero.webp','classic-collections.js']);
+const publicFiles=new Set(['index.html','portal.html','staff.html','public.css','public.js','styles.css','app.js','staff.css','staff.js','chat-live.js','item-policy.js','ranking-categories.js','forum.html','forum.js','forum.css','intro.html','intro.css','intro.js','assets/intro-hero.webp','classic-collections.js','community-policy.js']);
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon','.webp':'image/webp'};
 const httpServer=http.createServer(async(req,res)=>{try{
  const url=new URL(req.url||'/',`http://${req.headers.host||'localhost'}`);
