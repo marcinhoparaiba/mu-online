@@ -35,3 +35,8 @@ O bloqueio de acesso às pastas foi superado nesta máquina. Permanecem: pacote 
 ## Recuperação do pacote e proteção do Windows — 06/11/2026
 
 O FIRETEAM.rar foi localizado e extraído em área privada, mas Main.exe e o criador de launcher foram bloqueados pelo Microsoft Defender (Trojan:Win32/Phonzy.A!ml). A proteção foi preservada. Há consultas SQL em arquivos .txt numa pasta MuServer alternativa; não foram executadas e sua compatibilidade não está validada. Outros dois RARs aguardam senha válida. Consulte RECUPERACAO-PACOTE-LOCAL-2026-11-06.md. Não declarar cliente utilizável ou integração concluída.
+
+
+## Material extraído e guia SQL — 06/11/2026
+
+O usuário confirmou que já tem os conjuntos extraídos. Usar as pastas existentes; senhas dos RARs alternativos não bloqueiam essa inspeção. O guia do pacote indica SQL Server 2008 R2, dois bancos e cinco DSNs, mas ainda há divergência com os REG e não há schema validado. Consulte REQUISITOS-SQL-DO-PACOTE.md. A detecção do Defender continua sendo um bloqueio real; nenhum serviço ou banco foi iniciado.

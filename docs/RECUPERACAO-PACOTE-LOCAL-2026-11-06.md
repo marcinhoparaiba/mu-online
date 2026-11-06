@@ -29,3 +29,7 @@ Os manifestos completos, cópias e logs de extração ficam somente na área pri
 ## Continuidade
 
 Preservar site, intro, loja, fórum, classes BK/SM/ME/MG sem DL e todas as decisões de edição e transparência. Não iniciar serviços do pacote nem banco de jogadores. Resolver proveniência/licença, detecções, versão do executável base e dependências antes de compilar ou preparar execução isolada. Toolset v141/SDK 22621 ainda não encontrados na instalação auditada. Não é necessário desativar a proteção para continuar a leitura dos fontes e a evolução independente do site.
+
+## Correção de escopo após confirmação do titular
+
+Já existem conjuntos extraídos do MuServer alternativo e do Cliente 97d KrovaX. Usá-los diretamente; outra senha só seria necessária para recuperar algo exclusivo dos RARs. Não tratar a senha como bloqueio geral. Requisitos do tutorial SQL e diferenças locais: REQUISITOS-SQL-DO-PACOTE.md.
