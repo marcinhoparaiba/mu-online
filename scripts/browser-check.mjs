@@ -53,6 +53,10 @@ try{
   await waitFor("document.querySelectorAll('.classic-rank-slot').length===5");
   assert.equal(await evaluate('document.documentElement.scrollWidth<=innerWidth'),true,'classic home overflow '+label);
   assert.equal(await evaluate("getComputedStyle(document.querySelector('.classic-side-menu')).display"),'grid');
+  assert.equal(await evaluate("document.querySelectorAll('.primary-nav a').length"),8);
+  await evaluate("document.querySelector('.classic-news summary').click()");
+  assert.equal(await evaluate("document.querySelector('.classic-news').open"),true);
+
   assert.equal(await evaluate("fetch('/classic-home.css').then(r=>r.ok)"),true);
   assert.equal(await evaluate("document.querySelector('.hero').compareDocumentPosition(document.querySelector('.ranking-panel')) & Node.DOCUMENT_POSITION_FOLLOWING"),4);
   assert.equal(await evaluate("document.querySelector('.ranking-panel').compareDocumentPosition(document.getElementById('news-cards')) & Node.DOCUMENT_POSITION_FOLLOWING"),4);
