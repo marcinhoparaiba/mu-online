@@ -1,0 +1,6 @@
+"use client";
+import {useState} from "react";
+import Link from "next/link";
+type Player={name:string;class:string;resets:number;level:number;master_level:number};
+const tabs=["Reset Semanal","MR Semanal","PK Semanal","Hero Semanal","Mata-Mata","Pega-Pega","Maratona Jogadores","Maratona Guilds","Esconde-Esconde","O Corajoso","Pega o GM","Caça ao Tesouro","Quiz"];
+export function ClassicRanking({players}:{players:Player[]}){const [tab,setTab]=useState(0);const ranked=[...players].sort((a,b)=>tab===1?b.master_level-a.master_level:b.resets-a.resets).slice(0,5);return <section className="reference-ranking"><h2>🏆　Classificação</h2><div className="rank-tabs" role="tablist" aria-label="Classificação">{tabs.map((t,i)=><button key={t} role="tab" aria-selected={i===tab} aria-controls="rank-results" id={'rank-tab-'+i} onClick={()=>setTab(i)}>{t}</button>)}</div><div className="rank-cards" role="tabpanel" id="rank-results" aria-labelledby={'rank-tab-'+tab}>{ranked.map((p,i)=><Link href={'/ranking?tab='+encodeURIComponent(tabs[tab])} key={p.name}><strong><span>{i+1}° - </span>{p.name}</strong><div className="rank-avatar" aria-hidden="true">♜<small>{p.class}</small></div></Link>)}</div>{tab>1&&<p className="rank-empty">Resultados de {tabs[tab]} aguardando integração do servidor.</p>}</section>}
