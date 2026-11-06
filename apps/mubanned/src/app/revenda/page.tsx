@@ -1,0 +1,1 @@
+import Link from "next/link";export default function Page(){return <section className="reference-news"><h2>Revenda</h2><p className="p-5">O programa de revenda ainda não está disponível. Consulte a administração pelo suporte.</p><Link href="/suporte">Falar com a equipe →</Link></section>}

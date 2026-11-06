@@ -1,0 +1,2 @@
+import {requireUser} from "@/lib/auth";import {AccountSection} from "@/components/AccountSection";
+export default async function Page(){await requireUser();return <AccountSection title="♟ Personagens" description="Gerencie os personagens vinculados a esta conta. Visualize informações e execute ações em cada personagem."><div className="account-value">Nenhum personagem vinculado.<p className="mt-3 text-sm text-ash">Seus personagens aparecerão após a integração com o GameServer. Não há personagens de demonstração associados à sua conta.</p></div></AccountSection>}

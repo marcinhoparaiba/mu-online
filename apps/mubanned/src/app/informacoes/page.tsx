@@ -1,0 +1,4 @@
+import Link from "next/link";
+import {Container,Panel,PageHeader} from "@/components/ui";
+export const metadata={title:'Informações do servidor'};
+export default function Page(){return <Container><PageHeader title='Informações do servidor'/><Panel><p className="leading-7">MuBanneD - Editavel é um projeto inspirado na experiência clássica 97D + 99i. O portal reúne conta do jogador, rankings, calendário de eventos, mercado e suporte. O GameServer ainda não está conectado: status e rankings exibidos são de demonstração.</p><Link href="/suporte" className="btn btn-gold mt-6">Falar com o suporte</Link></Panel></Container>}

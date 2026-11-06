@@ -1,0 +1,1 @@
+export function AccountSection({title,description,children}:{title:string;description:string;children:React.ReactNode}){return <section className="account-section"><div className="account-explanation"><h2>{title}</h2><p>{description}</p></div><div className="account-fields">{children}</div></section>}

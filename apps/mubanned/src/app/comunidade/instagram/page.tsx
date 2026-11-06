@@ -1,0 +1,1 @@
+import Link from "next/link";export default function Page(){return <section className="reference-news"><h2>Instagram</h2><p className="p-5">O canal oficial de Instagram será divulgado pela administração. Não há endereço configurado no momento.</p><Link href="/suporte">Falar com a equipe →</Link></section>}
