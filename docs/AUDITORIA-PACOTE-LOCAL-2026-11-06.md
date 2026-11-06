@@ -65,3 +65,7 @@ Próxima etapa: obter pacote estável e proveniência/condições de uso; confer
 `npm run check` e `npm test` passaram: oito testes Node. Foi corrigida a conversão de file URL Windows e o teste usa junction em Windows para verificar rejeição de backup dentro do projeto. Nenhuma regra de backup foi enfraquecida.
 
 `python -m unittest discover -s tests -p test_package_audit.py -v`: três testes passaram, cobrindo cabeçalho PE malformado, preservação/ausência de conteúdo privado no inventário e rejeição de saída dentro do pacote. O utilitário recusa sobrescrever inventário existente e nunca executa os arquivos examinados.
+
+## Evidência posterior
+
+A causa da indisponibilidade dos executáveis foi identificada por detecções do Microsoft Defender. RAR original e consultas em .txt foram localizados. Leia RECUPERACAO-PACOTE-LOCAL-2026-11-06.md, que atualiza estes pontos sem invalidar as restrições de execução.

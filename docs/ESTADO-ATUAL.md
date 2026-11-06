@@ -61,3 +61,8 @@ Site ganhou privacidade, informações do projeto, acesso à recuperação e nav
 ## Auditoria local do pacote — 06/11/2026
 
 O pacote Windows foi inspecionado estaticamente nesta máquina. Auditoria e bloqueios estão em AUDITORIA-PACOTE-LOCAL-2026-11-06.md. Backup privado parcial do material legível validado por SHA-256; um executável de launcher teve leitura recusada, e Main.exe não estava presente na verificação final. Nenhum binário executado, nenhuma compilação ou restauração SQL efetuada. Web preservada, oito testes Node e três testes Python aprovados.
+
+
+## Recuperação do pacote e proteção do Windows — 06/11/2026
+
+O FIRETEAM.rar foi localizado e extraído em área privada, mas Main.exe e o criador de launcher foram bloqueados pelo Microsoft Defender (Trojan:Win32/Phonzy.A!ml). A proteção foi preservada. Há consultas SQL em arquivos .txt numa pasta MuServer alternativa; não foram executadas e sua compatibilidade não está validada. Outros dois RARs aguardam senha válida. Consulte RECUPERACAO-PACOTE-LOCAL-2026-11-06.md. Não declarar cliente utilizável ou integração concluída.

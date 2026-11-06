@@ -24,3 +24,8 @@ Loja: `/api/shop/{catalog,cart,orders}`; catálogo/auditoria privados em `/api/a
 ## Auditoria local do pacote — 06/11/2026
 
 O pacote local foi inventariado; banco do jogo continua sem schema validado, sem conexão e sem importação. Fontes parciais de plugins não habilitam o editor real. Não copiar credenciais da conta web para o jogo. Relatório: AUDITORIA-PACOTE-LOCAL-2026-11-06.md.
+
+
+## Recuperação do pacote e proteção do Windows — 06/11/2026
+
+O FIRETEAM.rar foi localizado e extraído em área privada, mas Main.exe e o criador de launcher foram bloqueados pelo Microsoft Defender (Trojan:Win32/Phonzy.A!ml). A proteção foi preservada. Há consultas SQL em arquivos .txt numa pasta MuServer alternativa; não foram executadas e sua compatibilidade não está validada. Outros dois RARs aguardam senha válida. Consulte RECUPERACAO-PACOTE-LOCAL-2026-11-06.md. Não declarar cliente utilizável ou integração concluída.
