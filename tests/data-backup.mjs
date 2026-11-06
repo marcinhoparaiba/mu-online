@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { mkdtemp, readFile, writeFile, rm, symlink, stat } from 'node:fs/promises';
 import path from 'node:path';
+import { fileURLToPath } from 'node:url';
 import os from 'node:os';
 import { backup, restore } from '../scripts/data-backup.mjs';
 
@@ -23,9 +24,9 @@ test('backup e restauração preservam bytes, fórum e dados sem sobrescrever ar
     await assert.rejects(stat(path.join(dir, 'must-not-exist.json')), { code: 'ENOENT' });
     await writeFile(source, '{"users":[]}');
     await assert.rejects(backup(source, path.join(dir, 'invalid.json')), /Formato/);
-    await assert.rejects(backup(target, new URL('../private-backup.json', import.meta.url).pathname), /fora da pasta/);
+    await assert.rejects(backup(target, fileURLToPath(new URL('../private-backup.json', import.meta.url))), /fora da pasta/);
     const link = path.join(dir, 'project-link');
-    await symlink(path.resolve('.'), link, 'dir');
+    await symlink(path.resolve('.'), link, process.platform === 'win32' ? 'junction' : 'dir');
     await assert.rejects(backup(target, path.join(link, 'private-backup.json')), /fora da pasta/);
   } finally { await rm(dir, { recursive: true, force: true }); }
 });
