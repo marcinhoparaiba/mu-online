@@ -2,6 +2,8 @@
  *  IMPORTANT: this is a starter single-instance service, not a payments server or GameServer.
  */
 import http from 'node:http';
+import { rankingCategories } from './ranking-categories.js';
+import { publicGameStatus } from './game-server/config.mjs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { readFile, writeFile, mkdir, rename } from 'node:fs/promises';
@@ -23,7 +25,7 @@ const adminEmail=process.env.MU_ADMIN_EMAIL?.toLowerCase(),adminPass=process.env
 if(adminEmail && adminPass?.length>=12 && !store.users.some(u=>u.role==='admin')){addUser(adminEmail,process.env.MU_ADMIN_NICK||'Administrador',adminPass,'admin');await save();console.log('Conta administrativa inicial configurada por ambiente.');}
 const json=(res,status,data,extra={})=>{res.writeHead(status,{'Content-Type':'application/json; charset=utf-8','Cache-Control':'no-store','X-Content-Type-Options':'nosniff','Referrer-Policy':'no-referrer',...extra});res.end(JSON.stringify(data))};
 const fail=(res,status,error)=>json(res,status,{error});
-const cookie=req=>Object.fromEntries((req.headers.cookie||'').split(';').map(v=>v.trim().split('=').map(decodeURIComponent)).filter(x=>x.length===2));
+const cookie=req=>{const values={};for(const part of (req.headers.cookie||'').split(';')){const at=part.indexOf('=');if(at<0)continue;try{values[decodeURIComponent(part.slice(0,at).trim())]=decodeURIComponent(part.slice(at+1));}catch{}}return values};
 const auth=req=>{const tok=cookie(req).mu_session;if(!tok)return null;const ses=sessions.get(tok);if(!ses)return null;if(ses.expires<Date.now()){sessions.delete(tok);return null}return store.users.find(u=>u.id===ses.userId)||null};
 const sessionCookie=(token,req)=>`mu_session=${encodeURIComponent(token)}; Path=/; HttpOnly; SameSite=Strict; Max-Age=604800${process.env.MU_HTTPS==='true'?' ; Secure':''}`;
 async function body(req){return await new Promise((resolve,reject)=>{let data='',size=0;req.on('data',chunk=>{size+=chunk.length;if(size>LIMIT){reject(Object.assign(new Error('Mensagem muito grande.'),{status:413}));req.destroy();return;}data+=chunk});req.on('end',()=>{try{resolve(JSON.parse(data||'{}'))}catch{reject(Object.assign(new Error('JSON inválido.'),{status:400}))}});req.on('error',reject)})}
@@ -32,14 +34,30 @@ const validEmail=v=>typeof v==='string'&&v.length<=160&&/^[^\s@]+@[^\s@]+\.[^\s@
 const validNick=v=>typeof v==='string'&&v.length>=3&&v.length<=25&&/^[a-zA-ZÀ-ÿ0-9_-]+$/.test(v);
 const validMessage=v=>typeof v==='string'&&v.trim().length>0&&v.trim().length<=1500;
 async function route(req,res,url){const u=auth(req);const m=req.method;const p=url.pathname;
+ if(m==='GET'&&p==='/api/game/status')return json(res,200,publicGameStatus());
  if(m==='GET'&&p==='/api/health')return json(res,200,{ok:true,service:'mu-legacy-portal',gameServer:'not_connected'});
  if(m==='GET'&&p==='/api/news')return json(res,200,{articles:store.articles.slice().reverse().slice(0,20)});
+ if(m==='GET'&&p==='/api/rankings')return json(res,200,{source:'unavailable',categories:rankingCategories.map(c=>({...c,entries:[]})),message:'O GameServer ainda não está conectado.'});
+ if(m==='POST'&&p==='/api/auth/password'){
+  if(!u)return fail(res,401,'Entre na sua conta para alterar a senha.');
+  if(!limit(req,'password',5))return fail(res,429,'Muitas tentativas. Tente novamente em um minuto.');
+  const x=await body(req);
+  if(typeof x.currentPassword!=='string'||x.currentPassword.length>256||typeof x.password!=='string'||x.password.length<10||x.password.length>256)return fail(res,400,'Informe a senha atual e uma nova senha de 10 a 256 caracteres.');
+  if(!timingSafeEqual(Buffer.from(hash(x.currentPassword,u.salt),'hex'),Buffer.from(u.hash,'hex')))return fail(res,401,'Senha atual incorreta.');
+  await transact(()=>{u.salt=uid();u.hash=hash(x.password,u.salt)});
+  for(const [token,value] of sessions)if(value.userId===u.id)sessions.delete(token);
+  const token=uid();sessions.set(token,{userId:u.id,expires:Date.now()+604800000});
+  return json(res,200,{ok:true},{'Set-Cookie':sessionCookie(token,req)});
+ }
  if(m==='GET'&&p==='/api/auth/me')return json(res,200,{user:publicUser(u)});
  if(m==='POST'&&p==='/api/auth/register'){
   if(!limit(req,'register',3))return fail(res,429,'Muitas tentativas.');const x=await body(req);
   if(!validEmail(x.email)||!validNick(x.username)||typeof x.password!=='string'||x.password.length<10||x.password.length>256)return fail(res,400,'Dados inválidos. Use senha de no mínimo 10 caracteres.');
   if(store.users.some(v=>v.email===x.email.toLowerCase()||v.username.toLowerCase()===x.username.toLowerCase()))return fail(res,409,'E-mail ou nome de usuário indisponível.');
-  const account=await transact(()=>addUser(x.email,x.username,x.password));const token=uid();sessions.set(token,{userId:account.id,expires:Date.now()+604800000});return json(res,201,{user:publicUser(account)},{'Set-Cookie':sessionCookie(token,req)});
+  const account=await transact(()=>{
+   if(store.users.some(v=>v.email===x.email.toLowerCase()||v.username.toLowerCase()===x.username.toLowerCase()))throw Object.assign(new Error('E-mail ou nome de usuário indisponível.'),{status:409});
+   return addUser(x.email,x.username,x.password);
+  });const token=uid();sessions.set(token,{userId:account.id,expires:Date.now()+604800000});return json(res,201,{user:publicUser(account)},{'Set-Cookie':sessionCookie(token,req)});
  }
  if(m==='POST'&&p==='/api/auth/login'){
   if(!limit(req,'login',9))return fail(res,429,'Muitas tentativas.');const x=await body(req);const candidate=typeof x.email==='string'?store.users.find(v=>v.email===x.email.toLowerCase()):null;
@@ -79,6 +97,7 @@ async function route(req,res,url){const u=auth(req);const m=req.method;const p=u
  }
  return fail(res,404,'Rota não encontrada.');
 }
+const publicFiles=new Set(['index.html','portal.html','staff.html','public.css','public.js','styles.css','app.js','staff.css','staff.js','chat-live.js','item-policy.js','ranking-categories.js']);
 const mime={'.html':'text/html; charset=utf-8','.css':'text/css; charset=utf-8','.js':'text/javascript; charset=utf-8','.svg':'image/svg+xml','.png':'image/png','.ico':'image/x-icon'};
 const httpServer=http.createServer(async(req,res)=>{try{
  const url=new URL(req.url||'/',`http://${req.headers.host||'localhost'}`);
@@ -89,6 +108,7 @@ const httpServer=http.createServer(async(req,res)=>{try{
  if(loc.includes('..')||loc.includes('\\')||loc.startsWith('/.')){res.writeHead(403);return res.end();}
  const target=path.resolve(ROOT,'.'+loc);
  if(!target.startsWith(ROOT+path.sep)){res.writeHead(403);return res.end();}
+ if(!publicFiles.has(loc.slice(1)))return fail(res,404,'Arquivo não encontrado.');
  const extension=path.extname(target);if(!mime[extension]){res.writeHead(404);return res.end();}
  let bytes;try{bytes=await readFile(target)}catch{res.writeHead(404);return res.end();}
  res.writeHead(200,{'Content-Type':mime[extension],'X-Content-Type-Options':'nosniff','Cache-Control':'no-cache','Content-Security-Policy':"frame-ancestors 'none'"});res.end(req.method==='HEAD'?undefined:bytes);

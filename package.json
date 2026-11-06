@@ -1,0 +1,15 @@
+{
+  "name": "mubanned-editavel",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Portal MuBanneD - Editavel",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test tests/*.mjs",
+    "check": "node --check server.mjs && node --check public.js && node --check app.js && node --check staff.js && node --check chat-live.js"
+  }
+}

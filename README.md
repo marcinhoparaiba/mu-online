@@ -1,11 +1,11 @@
-# MuBanneD - Editavel — site e suporte, sem Lovable
+# MuBanneD - Editavel
 
 Portal original inspirado na **estrutura dos sites clássicos de MU**, sem copiar código, logos, textos nem imagens proprietários do MuAwaY. Projeto desenvolvido diretamente em HTML, CSS, JavaScript e Node.js, sem serviços pagos e sem dependências npm.
 
 ## Telas implementadas
 
 - `index.html`: portal público no estilo de site de MMORPG clássico, home, notícias, cadastro, login, downloads, ranking, eventos, loja, guildas, ajuda e chat.
-- `portal.html`: painel de jogo demonstrativo com personagens, editor +0 a +11, rankings, sorteios +13, premiação +15, carteira e mercado **somente de simulação**.
+- `portal.html`: painel de jogo demonstrativo com personagens, editor +0 a +11, rankings, sorteios +13, premiação +15, prévia de itens **somente de simulação**.
 - `staff.html`: área de **moderador/administrador**, com atendimento de chat e gestão de notícias.
 - `server.mjs`: backend Node nativo para cadastro e login em banco JSON local, sessões HttpOnly, mensagens de suporte e notícias, somente para uma instância de teste.
 
@@ -43,20 +43,32 @@ O GitHub Pages **não executa Node.js**, então cadastro, login e chat humano **
 - A API guarda senhas com scrypt + salt; sessões em cookies HttpOnly SameSite Strict; requisições JSON limitadas; rate limit básico e verificação de origem para POST.
 - O armazenamento JSON é suficiente **somente para protótipos e baixíssimo tráfego em instância única**. Produção pública requer banco transacional, TLS, configuração anti-CSRF mais forte, logs, monitoramento, backup, proteção contra brute force distribuído, recuperação de senha e autenticação aprimorada.
 - Chat web permite conversa real entre visitante e moderador, quando o servidor Node estiver de pé; não há respostas automáticas fingindo ser humano.
-- GameServer, Dark Lord real, inventários reais, Donate, QR Code, Pix, saques e transações entre jogadores **não estão integrados nem operacionais**.
+- GameServer, Dark Lord real, inventários reais, Donate, QR Code, Pix e entregas de recompensas **não estão integrados nem operacionais**.
 - Status de servidor e rankings exibidos na web são claramente marcados como projeto/demonstração.
 - Não há custos de desenvolvimento nem créditos do Lovable. Hospedagem pública dinâmica e parceiros financeiros podem gerar custos ou limites.
 
 ## Regras desejadas para o futuro GameServer
 
 - BK, SM, ME, MG e DL com Command.
-- Edição de itens pertencentes ao jogador +0 a +11; +12..+15 exclusivos de eventos oficiais ou Donate.
+- Edição de itens comuns pertencentes ao jogador de +0 a +15; customs exclusivos de eventos oficiais ou Donate bloqueados no editor comum. Transparência visual de +12 a +15; +0 a +11 normais.
 - Transparência visual nos itens +12..+15, não nos itens +0..+11.
 - Força do mesmo item relativa ao +11=100: +12=102, +13=105, +14=108, +15=111 (hipótese, não fórmula validada).
 - Ranking semanal: duas partes distintas aleatórias de um set +13, cinco coleções em rodízio. Ranking mensal: arma Full +15 conforme classe escolhida.
 - PvP competitivo mesmo para All +11 bem montado frente a +13/+14 incompletos.
-- TradePay com trava no GameServer, auditoria e provedor financeiro autorizado, **não implementado**.
+- Não haverá intermediação de transações em dinheiro real entre jogadores.
 
 ## Direitos
 
 Nenhum cliente comercial de MU, asset do MuAwaY, logomarca oficial ou servidor proprietário está neste projeto. Identidade visual do portal é própria. A publicação de servidores e comercialização de itens depende dos direitos pertinentes.
+
+## Continuação: conta e perfil do servidor
+
+Com Node.js 20+, execute `npm start`. Valide com `npm run check` e `npm test`; não há dependências para instalar. A página Minha conta permite trocar a senha e encerra outras sessões. O chat permite iniciar novo atendimento após o encerramento. Arquivos do backend e de testes não são servidos como conteúdo público.
+
+Base escolhida para avaliação: **DarksTeam 1.0M (0.99.60/62T Beta 15), com Dark Lord**. Consulte `game-server/README.md`. Os arquivos da base ainda precisam ser obtidos e validados: nenhum binário de GameServer está incluído. `GET /api/game/status` e `GET /api/rankings` retornam o estado indisponível real. Os 13 rankings retornam estado vazio, sem nomes fictícios na página pública.
+
+Publicação dinâmica, domínio, cliente de download, GameServer, banco de produção e pagamentos dependem de configuração externa. A referência visual recuperada da Hostinger ainda não foi entregue neste repositório.
+
+## Estado e decisões
+
+Consulte `docs/ESTADO-ATUAL.md`, `docs/DECISOES-DO-PROJETO.md` e `docs/PLANO-MESTRE-MU-BANNED.md`. Esses documentos refletem as decisões recentes; documentos anteriores ficam como histórico e não substituem essas regras.
