@@ -76,3 +76,8 @@ O usuário confirmou que já tem os conjuntos extraídos. Usar as pastas existen
 ## Compilação diagnóstica e configuração — 06/11/2026
 
 Os cinco conjuntos de fontes compilaram para objetos Win32 com v143/SDK 26100 em receitas próprias, sem link ou execução. O gerador main.lab próprio foi testado e a configuração nova foi sincronizada com Client após backup. O motor Main.exe não foi reconstruído e permanece bloqueado/ausente. SQL segue sem schema base validado ou instância de teste. Leia COMPILACAO-DIAGNOSTICA-2026-11-06.md. Não confundir compilação de plugins com jogo funcionando.
+
+
+## Exportação de eventos para agenda — 06/11/2026
+
+Calendário da comunidade permite baixar cada evento como .ics, com horários UTC, identificação estável e status de cancelamento. Não exporta participantes. Arquivo é uma cópia manual, sem sincronização automática. Funciona no backend web local, sem SQL ou GameServer. Veja CALENDARIO-AGENDA.md.

@@ -1,4 +1,5 @@
 import { roles, can, roleName, participationTitle } from './community-policy.js';
+import { exportEvent } from './calendar-export.mjs';
 export function createCommunityService({ store, transact, uid, json, fail, body, limit, revokeSessions = () => {} }) {
   store.community ??= { profiles: {}, notifications: [], messages: [], reports: [], audit: [] };
   const c = store.community;
@@ -36,6 +37,13 @@ export function createCommunityService({ store, transact, uid, json, fail, body,
     }
     if(m==='GET' && p==='/api/community/activity') { json(res,200,paginate(visible().flatMap(t=>t.posts.filter(p=>!p.hidden).map(p=>({topicId:t.id,title:t.title,author:profile(store.users.find(u=>u.id===p.authorId)||{id:p.authorId,username:'Conta indisponível',role:'player'}),at:p.createdAt}))).sort((a,b)=>b.at.localeCompare(a.at)),url));return true; }
     if(m==='GET' && p==='/api/community/events'){json(res,200,paginate(c.events.slice().sort((a,b)=>a.startsAt.localeCompare(b.startsAt)).map(e=>({...e,attendees:undefined,going:e.attendees.length,joined:e.attendees.includes(user?.id)})),url));return true;}
+    const calendar=/^\/api\/community\/events\/([a-f0-9]{32})\/calendar\.ics$/.exec(p);
+    if(m==='GET' && calendar){
+      const event=c.events.find(e=>e.id===calendar[1]);
+      if(!event){fail(res,404,'Evento não encontrado.');return true;}
+      res.writeHead(200,{'Content-Type':'text/calendar; charset=utf-8','Content-Disposition':`attachment; filename="mu-banned-${event.id}.ics"`,'Cache-Control':'no-store','X-Content-Type-Options':'nosniff'});
+      res.end(exportEvent(event));return true;
+    }
     const member=/^\/api\/community\/members\/([a-f0-9]{32})$/.exec(p);
     if(m==='GET' && member) {const u=store.users.find(u=>u.id===member[1]);if(!u)fail(res,404,'Membro não encontrado.');else json(res,200,{member:profile(u)});return true;}
     if(!user){fail(res,401,'Entre na sua conta para continuar.');return true;}

@@ -126,10 +126,17 @@ try{
   const startsAt=new Date(Date.now()+86400000).toISOString(),endsAt=new Date(Date.now()+90000000).toISOString();
   assert.equal((await call('/community/events',{title:'Evento de teste',description:'Descrição local de teste',startsAt,endsAt,reason:'Calendário de teste'},cook)).status,201);
   const event=(await call('/community/events')).json.entries[0];assert.ok(!('attendees' in event));
+  const calendarUrl=url+'/api/community/events/'+event.id+'/calendar.ics';
+  const calendar=await fetch(calendarUrl);assert.equal(calendar.status,200);
+  assert.match(calendar.headers.get('content-type'),/^text\/calendar/);
+  assert.match(calendar.headers.get('content-disposition'),/^attachment;/);
+  const calendarText=await calendar.text();assert.ok(calendarText.includes('STATUS:CONFIRMED\r\n'));assert.ok(!calendarText.includes('ATTENDEE:'));
+  assert.equal((await fetch(url+'/api/community/events/'+'0'.repeat(32)+'/calendar.ics')).status,404);
   assert.equal((await call('/community/events/join',{id:event.id,enabled:true},player)).status,200);
   assert.equal((await call('/community/events/join',{id:event.id,enabled:true},player)).status,200);
   assert.equal((await call('/community/events')).json.entries[0].going,1);
   assert.equal((await call('/community/events/cancel',{id:event.id,reason:'Cancelado para teste'},cook)).status,200);
+  assert.ok((await (await fetch(calendarUrl)).text()).includes('STATUS:CANCELLED\r\n'));
   assert.equal((await call('/community/events/join',{id:event.id,enabled:true},player)).status,409);
   const online=await call('/community/online');assert.ok(online.json.members.some(u=>u.username==='GamerTeste'));assert.ok(!JSON.stringify(online.json).includes('gamer@example.com'));
   assert.equal((await call('/shop/catalog')).json.paymentsEnabled,false);

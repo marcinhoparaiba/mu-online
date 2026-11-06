@@ -29,6 +29,7 @@ try{
  await navigate('shop.html');
  assert.equal((await browserApi('/auth/login',{email:'browser-admin@example.invalid',password:'browser-admin-password-12345'})).status,200);
  const seedProduct=await browserApi('/admin/shop/products',{name:'Cosmético de teste visual',description:'Produto sintético para revisão do navegador.',category:'cosmeticos',priceCents:1590,active:true,reason:'Revisão automatizada'});assert.equal(seedProduct.status,200);
+ assert.equal((await browserApi('/community/events',{title:'Evento de agenda de teste',description:'Evento sintético para conferir o download da agenda.',startsAt:'2027-01-01T18:00:00Z',endsAt:'2027-01-01T19:00:00Z',reason:'Revisão do calendário'})).status,201);
  await browserApi('/auth/logout',{});
  assert.equal((await browserApi('/auth/register',{email:'browser-player@example.invalid',username:'BrowserPlayer',password:'browser-player-password-9876'})).status,201);
  const output=process.env.MU_REVIEW_DIR||path.join(dir,'screenshots');await mkdir(output,{recursive:true});
@@ -65,6 +66,11 @@ try{
   
   for(const route of ['index.html#recuperar','index.html#privacidade','index.html#informacoes','forum.html#members','forum.html#hierarchy','forum.html#leaders/posts','forum.html#calendar','forum.html#messages','forum.html#online','shop.html']){
    await navigate(route);assert.equal(await evaluate('document.documentElement.scrollWidth<=innerWidth'),true,'overflow '+route+' '+label);assert.equal(await evaluate("document.body.textContent.includes('Não foi possível abrir')"),false,'route failure '+route);
+   if(route==='forum.html#calendar'){
+    await waitFor("!!document.querySelector('a[href$=\"/calendar.ics\"]')");
+    assert.equal(await evaluate("document.querySelector('a[href$=\"/calendar.ics\"]').textContent"),'BAIXAR PARA MINHA AGENDA');
+    assert.equal(await evaluate("fetch(document.querySelector('a[href$=\"/calendar.ics\"]').href).then(async r=>r.ok&&(await r.text()).includes('BEGIN:VCALENDAR'))"),true);
+   }
   }
   if(width!==320){const shot=await cdp('Page.captureScreenshot',{format:'png',captureBeyondViewport:false});await writeFile(path.join(output,'shop-'+label+'.png'),Buffer.from(shot.data,'base64'));}
   if(width===1440){

@@ -34,3 +34,6 @@ O FIRETEAM.rar foi localizado e extraído em área privada, mas Main.exe e o cri
 ## Compilação diagnóstica e configuração — 06/11/2026
 
 Os cinco conjuntos de fontes compilaram para objetos Win32 com v143/SDK 26100 em receitas próprias, sem link ou execução. O gerador main.lab próprio foi testado e a configuração nova foi sincronizada com Client após backup. O motor Main.exe não foi reconstruído e permanece bloqueado/ausente. SQL segue sem schema base validado ou instância de teste. Leia COMPILACAO-DIAGNOSTICA-2026-11-06.md. Não confundir compilação de plugins com jogo funcionando.
+
+
+Agenda pessoal: GET /api/community/events/:id/calendar.ics exporta o evento público em iCalendar sem participantes. Snapshot manual, não assinatura de calendário. Ver CALENDARIO-AGENDA.md.

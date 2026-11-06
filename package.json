@@ -10,7 +10,7 @@
   "scripts": {
     "start": "node server.mjs",
     "test": "node --test tests/*.mjs",
-    "check": "node --check server.mjs && node --check public.js && node --check app.js && node --check staff.js && node --check chat-live.js && node --check forum-service.mjs && node --check forum.js && node --check item-policy.js && node --check ranking-categories.js && node --check intro.js && node --check classic-collections.js && node --check scripts/data-backup.mjs && node --check community-policy.js && node --check community-service.mjs && node --check shop-service.mjs && node --check shop.js && node --check recovery-service.mjs && node --check reset.js && node --check forum-format.js",
+    "check": "node --check server.mjs && node --check public.js && node --check app.js && node --check staff.js && node --check chat-live.js && node --check forum-service.mjs && node --check forum.js && node --check item-policy.js && node --check ranking-categories.js && node --check intro.js && node --check classic-collections.js && node --check scripts/data-backup.mjs && node --check community-policy.js && node --check community-service.mjs && node --check calendar-export.mjs && node --check shop-service.mjs && node --check shop.js && node --check recovery-service.mjs && node --check reset.js && node --check forum-format.js",
     "test:browser": "node scripts/browser-check.mjs"
   }
 }
