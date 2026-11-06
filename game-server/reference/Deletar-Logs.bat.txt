@@ -1,0 +1,10 @@
+@echo off
+
+del ConnectServer\Logs\* /q
+del DataServer\Log\* /q
+del EventServer\Log_Error\* /q
+del ExDB\Log\* /q
+del GameServer\Log\* /q
+del JoinServer\Log\* /q
+del RankingServer\Log_Error\* /q
+del RankingServer\Log_Point\* /q

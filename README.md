@@ -84,3 +84,7 @@ Abra `http://localhost:3000/intro.html` para a apresentação original em preto,
 O perfil vigente voltou para **97d+99i+1.0 custom, sem Dark Lord**, por decisão do usuário. `portal.html#colecoes` registra os Sets Especiais 01 a 09 como referência; modelos, atributos e permissão de edição ainda não foram validados. `GET /api/catalog/collections` é somente catálogo de referência, sem inventário real.
 
 Revisão opcional de navegador: `npm run test:browser`, com Node.js 22+ e Chromium. Defina `CHROME_BIN` se o navegador não estiver em `/usr/bin/chromium`; `MU_REVIEW_DIR` define onde guardar capturas. Sem essa variável, as capturas temporárias são removidas ao final.
+
+## Material recebido e referências
+
+`docs/AUDITORIA-ARQUIVOS-RECEBIDOS.md` analisa o inicializador `Configs.ini` e o batch de limpeza, preservados sem execução em `game-server/reference/`. Nenhum pacote completo ou banco do jogo foi recebido. `docs/pesquisa-muaway/REFERENCIA-MUADT.md` documenta a consulta às páginas do MU ADT; o vídeo do YouTube não pôde ser assistido neste ambiente.

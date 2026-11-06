@@ -23,3 +23,11 @@ Domínio, hospedagem, HTTPS, backups, restauração, monitoramento, cliente para
 ## Coleções 01 a 09
 
 Conferir aparência e nomes completos de cada coleção e modelo autorizado. Somente 01 e 02 aparecem identificados na captura; 03–09 vêm da descrição do usuário. Não classificar automaticamente sets antigos como customs exclusivos de Donate; decidir a elegibilidade pelo catálogo real.
+
+## Arquivos recebidos
+
+Foram recebidos somente Configs.ini de inicialização e batch de limpeza. Eles não incluem GameServer, cliente nem schema SQL e não comprovam versão. A limpeza não foi executada. Ver `AUDITORIA-ARQUIVOS-RECEBIDOS.md`.
+
+## Vídeo MU ADT
+
+Link registrado e páginas oficiais pesquisadas. Acesso ao vídeo/transcrição bloqueado no ambiente; zero minutos analisados. Não há inventário completo de tudo que aparece na gravação.
