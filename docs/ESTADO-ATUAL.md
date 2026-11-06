@@ -56,3 +56,8 @@ Loja em `shop.html` com catálogo gerenciado, busca, carrinho, rascunhos idempot
 
 Página de recuperação e redefinição implementadas; adaptador opcional Resend exige remetente, chave e URL HTTPS. Sem configuração retorna indisponível; nenhum envio real foi feito. Tokens ficam somente como hash no armazenamento, expiram em 15 minutos e são consumidos na fila de escrita; redefinição revoga sessões. Troca autenticada invalida links antigos.
 Site ganhou privacidade, informações do projeto, acesso à recuperação e navegação para loja/comunidade. Fórum inclui formatação segura de negrito, itálico, código e citação, com botões de edição; não executa HTML do participante.
+
+
+## Auditoria local do pacote — 06/11/2026
+
+O pacote Windows foi inspecionado estaticamente nesta máquina. Auditoria e bloqueios estão em AUDITORIA-PACOTE-LOCAL-2026-11-06.md. Backup privado parcial do material legível validado por SHA-256; um executável de launcher teve leitura recusada, e Main.exe não estava presente na verificação final. Nenhum binário executado, nenhuma compilação ou restauração SQL efetuada. Web preservada, oito testes Node e três testes Python aprovados.

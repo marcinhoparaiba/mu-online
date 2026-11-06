@@ -25,3 +25,8 @@ Home recuperada da Hostinger não foi entregue. Sets 01 a 09 são coleções; so
 ## Referências audiovisuais
 
 Vídeos informados ficaram sem acesso a reprodução/transcrição neste ambiente; não afirmar que foram assistidos. Ver relatórios em `pesquisa-muaway/`.
+
+
+## Auditoria local do pacote — 06/11/2026
+
+O bloqueio de acesso às pastas foi superado nesta máquina. Permanecem: pacote estável com Main.exe legível; confirmação técnica do par cliente/servidor; licença/proveniência; toolset v141 e SDK 22621 ou retargeting revisado; eventos de build isolados; schema SQL sanitizado, sem dados reais. Ver AUDITORIA-PACOTE-LOCAL-2026-11-06.md. Não executar utilitários para contornar as falhas de leitura.

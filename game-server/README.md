@@ -27,12 +27,16 @@ Inventariar serviços, configurações, bibliotecas, formatos de itens, schema e
 ## Sequência de testes
 
 1. Início dos serviços e conectividade local.
-2. Login e criação das cinco classes.
-3. DL: Command, cavalo, corvo, habilidades e equipamentos.
+2. Login e criação das quatro classes vigentes: BK, SM, ME e MG.
+3. Confirmar que DL está fora do perfil vigente; não implementar suas mecânicas.
 4. Persistência e reconexão; inventário, warehouse, serial e trade.
 5. Níveis +12 a +15: validar armazenamento e protocolo; a documentação consultada lista mixes até +13, portanto +15 não está comprovado.
 6. Implementar transparência no cliente somente depois de localizar a regra de renderização compatível.
-7. Comparar dano, defesa, velocidade, combo, buffs e pets em duelos BK/DL repetíveis. Não há equivalência demonstrada com MuAwaY.
+7. Comparar dano, defesa, velocidade, combo, buffs e pets em duelos repetíveis entre BK, SM, ME e MG. Não há equivalência demonstrada com MuAwaY.
 8. Construir serviço privado de integração com autenticação, auditoria, locks e validação de titularidade. Editor real permanece desativado até passar esses testes.
 
 `GET /api/game/status` informa a escolha e mantém `connected: false`. Não há GameServer executando neste repositório.
+
+## Pacote local recebido — 06/11/2026
+
+Leia `../docs/AUDITORIA-PACOTE-LOCAL-2026-11-06.md`. As instruções de DarksTeam acima são histórico da candidata descartada. Não iniciar seus binários nem aplicar offsets dessa versão ao pacote recebido. A inspeção local não habilitou integração ou editor real.

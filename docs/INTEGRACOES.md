@@ -19,3 +19,8 @@ A conta do site não cria conta de jogo. Nenhuma senha deve ser copiada automati
 Comunidade local: `/api/community/{roles,members,leaders,activity,profile,notifications,messages,reports}`; detalhes em `docs/COMUNIDADE-E-PERMISSOES.md`. Gestão privada em `/api/admin/community/{users,reports,audit}`. Permissões verificadas no backend; cargo enviado pelo navegador não cria privilégios.
 
 Loja: `/api/shop/{catalog,cart,orders}`; catálogo/auditoria privados em `/api/admin/shop/*`. Pagamentos e entrega desativados. Recuperação: `POST /api/auth/forgot`, `POST /api/auth/reset`, envio externo opcional ainda sem configuração. Calendário: `/api/community/events` e ações `/join`, `/cancel`. Presença do site: `/api/community/online`.
+
+
+## Auditoria local do pacote — 06/11/2026
+
+O pacote local foi inventariado; banco do jogo continua sem schema validado, sem conexão e sem importação. Fontes parciais de plugins não habilitam o editor real. Não copiar credenciais da conta web para o jogo. Relatório: AUDITORIA-PACOTE-LOCAL-2026-11-06.md.

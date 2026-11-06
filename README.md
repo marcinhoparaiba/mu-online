@@ -106,3 +106,9 @@ O backup é uma leitura do arquivo JSON substituído atomicamente pelo servidor;
 ## Recuperação de acesso e páginas informativas
 
 `index.html#recuperar` e `reset.html` oferecem o fluxo de recuperação com envio opcional configurado no servidor. Sem provedor, a interface informa indisponibilidade. Veja `docs/RECUPERACAO-DE-CONTA.md`. `#privacidade` descreve o uso de dados no projeto e `#informacoes` registra somente parâmetros confirmados ou explicitamente pendentes.
+
+## Auditoria local do pacote — 06/11/2026
+
+As pastas Source, Client, GetMainLab e MuServer foram acessadas nesta máquina e inventariadas sem execução. Isso supera o bloqueio anterior de acesso aos arquivos, mas não confirma compatibilidade nem permite iniciar o jogo. Leia `docs/AUDITORIA-PACOTE-LOCAL-2026-11-06.md`. O pacote permanece privado, fora do Git. Main.exe estava indisponível na inspeção final; licença, toolset/SDK e SQL continuam pendentes.
+
+Inventário local opcional: `python scripts/audit-game-package.py --root CAMINHO_DO_PACOTE --output CAMINHO_PRIVADO_FORA_DO_PACOTE.json`. O arquivo deve ser novo; contém hashes e caminhos, não conteúdo de configurações, e não deve ser publicado. O script não executa EXE/DLL e registra falhas de leitura. Teste do utilitário: `python -m unittest discover -s tests -p test_package_audit.py -v`.
