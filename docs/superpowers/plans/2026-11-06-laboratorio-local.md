@@ -1,0 +1,8 @@
+# Plano de resolução local — MuBanneD
+
+1. Preservar e conferir Git/arquivos: usar cópias privadas já verificadas; conferir origin/main antes de cada push. Não mudar site/intro/fórum/loja.
+2. Compilação diagnóstica: criar projetos novos mínimos em diretório privado a partir apenas dos CPP/H auditados. Copiar texto de fonte; não copiar EXE/DLL/LIB recebidos nem executar MSBuild dos projetos originais. Usar MSBuild instalado, Win32, v143 e SDK 26100, target ClCompile. Nenhum link, evento de build ou teste executável. Testar o preparador com entradas sintéticas e verificar os cinco resultados separadamente.
+3. Investigar falhas: erros de fonte/dependência ficam identificados por projeto; correções somente em cópia privada e com evidência. Objetos compilados não demonstram segurança, compatibilidade de offsets, protocolo ou funcionamento do jogo.
+4. SQL: examinar DDL recebido estaticamente, sem importar backups ou credenciais. Identificar dependências e o schema mínimo conhecido. Não inventar schema completo. Banco vazio e ambiente de execução só após requisitos atendidos; não instalar SQL 2008 R2 no host Windows moderno.
+5. Cliente/segurança: não restaurar, excluir da varredura, reextrair para driblar ou executar os arquivos detectados. Fontes de plugins não reconstroem automaticamente Main/GameServer originais. Registrar necessidade de cliente base verificável se isso se confirmar.
+6. Testar utilitários e base web independente. Publicar apenas ferramentas próprias, testes e relatório sanitizado em commits descritivos. Nenhum fonte/asset/binário/configuração privada no GitHub. Atualizar decisões/estado/pendências para a próxima conversa.

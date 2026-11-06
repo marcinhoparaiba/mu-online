@@ -40,3 +40,8 @@ O FIRETEAM.rar foi localizado e extraído em área privada, mas Main.exe e o cri
 ## Material extraído e guia SQL — 06/11/2026
 
 O usuário confirmou que já tem os conjuntos extraídos. Usar as pastas existentes; senhas dos RARs alternativos não bloqueiam essa inspeção. O guia do pacote indica SQL Server 2008 R2, dois bancos e cinco DSNs, mas ainda há divergência com os REG e não há schema validado. Consulte REQUISITOS-SQL-DO-PACOTE.md. A detecção do Defender continua sendo um bloqueio real; nenhum serviço ou banco foi iniciado.
+
+
+## Compilação diagnóstica e configuração — 06/11/2026
+
+Os cinco conjuntos de fontes compilaram para objetos Win32 com v143/SDK 26100 em receitas próprias, sem link ou execução. O gerador main.lab próprio foi testado e a configuração nova foi sincronizada com Client após backup. O motor Main.exe não foi reconstruído e permanece bloqueado/ausente. SQL segue sem schema base validado ou instância de teste. Leia COMPILACAO-DIAGNOSTICA-2026-11-06.md. Não confundir compilação de plugins com jogo funcionando.
