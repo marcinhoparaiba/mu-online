@@ -1,0 +1,4 @@
+import Link from "next/link";
+import {Container,Panel,PageHeader} from "@/components/ui";
+export const metadata={title:'Regras e termos'};
+export default function Page(){return <Container><PageHeader title='Regras e termos'/><Panel><p className="leading-7">Respeite os demais jogadores. Não utilize programas de trapaça, explore falhas ou tente acessar contas de terceiros. Não compartilhe sua senha. Compras, downloads e entrega de itens só estarão disponíveis após configuração dos serviços oficiais. Este portal está em desenvolvimento; os rankings são demonstrativos.</p><Link href="/suporte" className="btn btn-gold mt-6">Falar com o suporte</Link></Panel></Container>}
