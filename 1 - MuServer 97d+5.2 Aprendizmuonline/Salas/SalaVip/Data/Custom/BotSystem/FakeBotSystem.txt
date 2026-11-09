@@ -1,0 +1,26 @@
+//=================================================================================================================================
+// Index  = Index do Bot
+
+//SkillID = Index da skill do personagem
+
+//UseBuffs = Use Buffs Max 3 (Use Index do buff)
+
+//GateNumber = Index Gate o Move Map , MapX, MapY : To X,Y
+
+//AttackRange = Alcance máximo de ataque (6)
+
+//MoveRange = Você pode definir o TimeReturn se permitir que o Ranage se mova, você pode definir o TimeReturn mais alto
+
+//TimeReturn = Tempo para voltar ao intervalo de tempo (MapX,MapY) em Minutos
+
+//PVPMode = 1 (Revida automaticamente quando atingido), 2 (Mata todos os jogadores no alcance, limpa automaticamente se PK 10), 0 está desligado
+
+//PartyMode = 1 (aceitar automaticamente as solicitações do grupo), 2 (automaticamente os jogadores ao redor do grupo), 0 está fora do grupo, 3 (somente enviar solicitações do grupo se for BOT)
+
+//FakeMessage = 1 (Post automaticamente quando morto)
+//=================================================================================================================================
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Index   Account      Password      Name        SkillID     UseBuffs[0]      UseBuffs[1]      UseBuffs[2]        GateNumber      MapX      MapY      AttackRange     MoveRange    Timereturn      PickUpItem   AutoReset   PartyMode     PVPMode            FakeMessage 
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+1           teste	  1         MagoX         41             48           -1                   -1               122         217        37          10               10               5		 1             1         2              1                 1  
+end

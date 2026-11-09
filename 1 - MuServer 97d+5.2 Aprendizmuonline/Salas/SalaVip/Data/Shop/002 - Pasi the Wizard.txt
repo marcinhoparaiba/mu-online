@@ -1,0 +1,58 @@
+//==============================================================================================================================================================
+// - [#] Arquivo	 : Configuração dos Itens do Shop dos NPCS
+// - [#] Versão		 : Season IV
+// - [#] Developer 	 : Gabriel Bruno
+// - [#] Todos os Direitos reservados © GBTeam 2022	
+//==============================================================================================================================================================
+//==============================================================================================================================================================
+//Section   Type   	Level   Dur   Skill   Luck   Option   ExcOp	          ItemName
+//==============================================================================================================================================================
+15	     0 		0  	255 	0 	0 	0 	0 		 	//Poison 
+15	     1 		0  	255 	0 	0 	0 	0 		 	//Meteorite 
+15	     2 		0  	255 	0 	0 	0 	0 		 	//Lightning 
+15 	     3 		0  	255 	0 	0 	0 	0 		 	//Fireball 
+15 	     4 		0  	255 	0 	0 	0 	0 		 	//Flame 
+15 	     5 		0  	255 	0 	0 	0 	0 		 	//Teleport 
+15 	     6 		0  	255 	0 	0 	0 	0 		 	//Ice 
+15 	     7 		0  	255 	0 	0 	0 	0 		 	//Twister 
+15 	     8 		0  	255 	0 	0 	0 	0 		 	//Evil Spirits 
+15 	     9 		0  	255 	0 	0 	0 	0 		 	//Hellfire 
+15 	     10 	0 	255 	0 	0 	0 	0 		 	//Power Wave 
+15 	     11 	0 	255 	0 	0 	0 	0 		 	//Aurora 
+15 	     12 	0 	255 	0 	0 	0 	0 		 	//Comet 
+15 	     13  	0 	255 	0 	0 	0 	0 		 	//Inferno 
+15 	     14  	0 	255 	0 	0 	0 	0 		 	//Scroll of Mass Teleport
+15 	     15  	0 	255 	0 	0 	0 	0 		 	//Scroll of Soul Barrier
+
+//15 	     16  	0 	255 	0 	0 	0 	0 		 	//Scroll of Decay
+//15 	     17  	0 	255 	0 	0 	0 	0 		 	//Scroll of Ice Storm
+//15 	     18  	0 	255 	0 	0 	0 	0 		 	//Scroll of Nova
+//15 	     28  	0 	255 	0 	0 	0 	0 		 	//Scroll of Magic Circle
+
+7 	     2  	9 	255 	0 	1 	1 	0 		 	//Pad helm 
+7 	     4  	9 	255 	0 	1 	1 	0 		 	//Bone helm 
+
+5 	     1  	9 	255 	0 	1 	1 	0 		 	//Angelic Staff 
+5 	     2  	9 	255 	0 	1 	1 	0 		 	//Serpentstaff
+
+8 	     2  	9 	255 	0 	1 	1 	0 		 	//Pad armor 
+8 	     4  	9 	255 	0 	1 	1 	0 		 	//Bone armor
+
+5 	     5  	9 	255 	0 	1 	1 	0 		 	//Legendary Staff 
+5 	     6  	9 	255 	0 	1 	1 	0 		 	//Resurrectstaff  
+5 	     8  	9 	255 	0 	1 	1 	0 		 	//Staff Of Destruction  
+
+9 	     2  	9 	255 	0 	1 	1 	0 		 	//Pad pants 
+9 	     4  	9 	255 	0 	1 	1 	0 		 	//Bone pants
+
+10 	     2  	9 	255 	0 	1 	1 	0 		 	//Pad gloves
+10 	     4  	9 	255 	0 	1 	1 	0 		 	//Bone gloves
+
+14 	     3  	0 	50  	0 	0 	0 	0 		 	//Large Healing 
+14 	     6  	0 	50  	0 	0 	0 	0 		 	//Large Mana 
+13 	     0  	0 	255 	0 	0 	0 	0 		 	//Guardian Angel
+13 	     1  	0 	255 	0 	0 	0 	0 		 	//Satan 
+11 	     2  	9 	255 	0 	1 	1 	0 		 	//Pad boots
+11 	     4  	9 	255 	0 	1 	1 	0 		 	//Bone boots
+end
+

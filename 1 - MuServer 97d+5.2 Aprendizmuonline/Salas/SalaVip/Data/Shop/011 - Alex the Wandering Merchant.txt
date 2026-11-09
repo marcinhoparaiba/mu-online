@@ -1,0 +1,47 @@
+//==============================================================================================================================================================
+// - [#] Arquivo	 : Configuração dos Itens do Shop dos NPCS
+// - [#] Versão		 : Season IV
+// - [#] Developer 	 : Gabriel Bruno
+// - [#] Todos os Direitos reservados © GBTeam 2022	
+//==============================================================================================================================================================
+//==============================================================================================================================================================
+//Section   Type   	Level   Dur   Skill   Luck   Option   ExcOp	         ItemName
+//==============================================================================================================================================================
+7	     25		9	0	0	1	1	0 			//Light Plate Mask
+7	     26		9	0	0	1	1	0 			//Adamantine Mask
+14	     3		0	50	0	0	0	0 			//Large Healing Potion
+14	     3		0	50	0	0	0	0 			//Large Healing Potion
+14	     6		0	50	0	0	0	0 			//Large Mana Potion
+14	     6		0	50	0	0	0	0 			//Large Mana Potion
+14	     3		0	50	0	0	0	0 			//Large Healing Potion
+14	     3		0	50	0	0	0	0 			//Large Healing Potion
+14	     6		0	50	0	0	0	0 			//Large Mana Potion
+14	     6		0	50	0	0	0	0 			//Large Mana Potion
+8	     25		9	0	0	1	1	0 			//Light Plate Armor
+8	     26		9	0	0	1	1	0 			//Adamantine Armor
+2	     8		9	0	1	1	1	0 			//Battle Scepter
+2	     9		9	0	1	1	1	0 			//Master Scepter
+14	     3		0	50	0	0	0	0 			//Large Healing Potion
+14	     3		0	50	0	0	0	0 			//Large Healing Potion
+14	     6		0	50	0	0	0	0 			//Large Mana Potion
+14	     6		0	50	0	0	0	0 			//Large Mana Potion
+13	     1		0	0	0	0	0	0 			//Imp
+13	     0		0	0	0	0	0	0 			//Guardian Angel
+9	     25		9	0	0	1	1	0 			//Light Plate Pants
+9	     26		9	0	0	1	1	0 			//Adamantine Pants
+2	     10		9	0	1	1	1	0 			//Great Scepter
+2	     11		9	0	1	1	1	0 			//Lord Scepter
+13	     1		0	0	0	0	0	0 			//Imp
+13	     0		0	0	0	0	0	0 			//Guardian Angel
+13	     1		0	0	0	0	0	0 			//Imp
+13	     0		0	0	0	0	0	0 			//Guardian Angel
+10	     25		9	0	0	1	1	0 			//Light Plate Gloves
+10	     26		9	0	0	1	1	0 			//Adamantine Gloves
+12	     21		0	0	0	1	0	0 			//Scroll of FireBurst
+11	     25		9	0	0	1	1	0 			//Light Plate Boots
+11	     26		9	0	0	1	1	0 			//Adamantine Boots
+12	     35		0	0	0	1	0	0 			//Scroll of FireScreen
+12	     23		0	0	0	1	0	0 			//Scroll of Summon
+12	     22		0	0	0	1	0	0 			//Scroll of Critical Demage
+12	     24		0	0	0	1	0	0 			//Scroll of Eletrick Spark
+end

@@ -1,0 +1,57 @@
+//==============================================================================================================================================================
+// - [#] Arquivo	 : Configuração dos Itens do Shop dos NPCS
+// - [#] Versão		 : Season IV
+// - [#] Developer 	 : Gabriel Bruno
+// - [#] Todos os Direitos reservados © GBTeam 2022	
+//==============================================================================================================================================================
+//==============================================================================================================================================================
+//Section   Type   	Level   Dur   Skill   Luck   Option   ExcOp	      ItemName
+//==============================================================================================================================================================
+7 	     10 	9 	255 	0 	1 	1 	0		     //Vine helm
+7 	     11 	9 	255	0 	1 	1 	0		     //Silk helm 
+7 	     12 	9 	255 	0 	1 	1 	0		     //Wind helm 
+7 	     13 	9 	255 	0 	1 	1 	0		     //Spirit helm
+
+8 	     10 	9 	255 	0 	1 	1 	0		     //Vine armor 
+8 	     11 	9 	255 	0 	1 	1 	0		     //Silk armor 
+8 	     12 	9 	255 	0 	1 	1 	0		     //Wind armor 
+8 	     13 	9 	255 	0 	1 	1 	0		     //Spirit armor 
+
+9 	     10		9 	255 	0 	1 	1 	0		     //Vine pants
+9 	     11 	9 	255 	0 	1 	1 	0		     //Silk pants 
+9 	     12 	9 	255 	0 	1 	1 	0		     //Wind pants
+9 	     13 	9 	255 	0 	1 	1 	0		     //Spirit pants
+
+10 	     10 	9 	255 	0 	1 	1 	0		     //Vine gloves 
+10 	     11 	9 	255 	0 	1 	1 	0		     //Silk gloves 
+10 	     12 	9 	255 	0 	1 	1 	0		     //Wind gloves 
+10 	     13 	9 	255 	0 	1 	1 	0		     //Spirit gloves 
+
+11 	     10 	9 	255 	0 	1 	1 	0		     //Vine boots
+11 	     11 	9 	255 	0 	1 	1 	0		     //Silk boots
+11 	     12 	9 	255 	0 	1 	1 	0		     //Wind boots
+11 	     13 	9 	255 	0 	1 	1 	0		     //Spirit boots
+
+12 	     17 	0       0      	0       0      	0        0		     //Penetration Muse Elf/Elf)
+12 	     18 	0       0      	0       0      	0        0		     //Ice Age (Muse Elf) 
+12 	     45 	0       0      	0       0      	0        0		     //Multi shot
+12 	     46 	0       0      	0       0      	0        0		     //Multi shot
+
+12 	     8  	0       0      	0       0      	0        0		     //Healing Orb 
+12 	     9  	0       0      	0       0      	0        0		     //Advanced Defence 
+12 	     10 	0       0      	0       0      	0        0		     //Advanced Damage
+12 	     11 	0       0      	0       0      	0        0		     //Summon Goblin 
+12 	     11 	1       0      	0       0      	0        0		     //Summon Golem 
+12 	     11 	2       0      	0       0      	0        0		     //Summon Assassin 
+12 	     11 	3       0      	0       0      	0        0		     //Summon Yeti 
+12 	     11 	4       0     	0       0      	0        0		     //Summon DarkKnight 
+12 	     11 	5       0      	0       0      	0        0		     //Summon Bali 
+12 	     11 	6       0      	0       0      	0        0		     //Summon Soilder 
+ 
+14 	     3  	0 	50  	0       0      	0        0		     //Large Healing 
+14 	     6  	0 	50  	0       0     	0        0		     //Large Mana
+13 	     0  	0 	255 	0       0      	0        0		     //Guardian Angel 
+13 	     1  	0	255 	0       0      	0        0		     //Satan 
+
+
+end

@@ -1,0 +1,15 @@
+0
+//Index   MixMoney   MixRate_AL0   MixRate_AL1   MixRate_AL2   MixRate_AL3
+180	    1000        100           100            100          100
+end
+
+1
+//Index	  Group   Count   ItemIndex   ItemLevel   ItemOption1   ItemOption2   ItemOption3   ItemNewOption   ItemSetOption
+180	    0	    1       0       -1            -1           -1             -1             -1            -1	
+180	    0	    1       6159    -1            -1           -1             -1             -1            -1	
+end
+
+2
+//Index   Group   BagSpecial
+180         0        700
+end

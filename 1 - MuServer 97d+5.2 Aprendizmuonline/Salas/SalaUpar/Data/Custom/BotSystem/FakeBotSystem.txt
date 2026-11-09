@@ -1,0 +1,44 @@
+//=================================================================================================================================
+// Index  = Index do Bot
+
+//SkillID = Index da skill do personagem
+
+//UseBuffs = Use Buffs Max 3 (Use Index do buff)
+
+//GateNumber = Index Gate o Move Map , MapX, MapY : To X,Y
+
+//AttackRange = Alcance máximo de ataque (6)
+
+//MoveRange = Você pode definir o TimeReturn se permitir que o Ranage se mova, você pode definir o TimeReturn mais alto
+
+//TimeReturn = Tempo para voltar ao intervalo de tempo (MapX,MapY) em Minutos
+
+//PVPMode = 1 (Revida automaticamente quando atingido), 2 (Mata todos os jogadores no alcance, limpa automaticamente se PK 10), 0 está desligado
+
+//PartyMode = 1 (aceitar automaticamente as solicitações do grupo), 2 (automaticamente os jogadores ao redor do grupo), 0 está fora do grupo, 3 (somente enviar solicitações do grupo se for BOT)
+
+//FakeMessage = 1 (Post automaticamente quando morto)
+//=================================================================================================================================
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Index       ACC       Psw         Name         SkillID     UseBuffs[0]      UseBuffs[1]      UseBuffs[2]        GateNumber      MapX       MapY      AttackRange   MoveRange    Timereturn   PickUpItem   AutoReset   PartyMode     PVPMode            FakeMessage Coment-Class+Skill
+//---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+01           001	  	001          VanuzaX9    24             16           -1                   -1               17          178        126          5               4               1		 1             0         1              1                 1           //elf - tripleshot
+02           002	  	002          Betin       56             48           -1                   -1               17          181        124          5               4               1		 1             0         1              1                 1           //mg - powerSlash
+03           003	  	003          L1z4        23             16           -1                   -1               17          177        122          5               4               1		 1             0         1              1                 1           //elf - slash 
+04           004	  	004          Pedr0       41             48           -1                   -1               17          145        136          5               4               1		 1             0         1              1                 1           //bk -twistSlash
+05           005	  	005          Pirigozin   55             16           -1                   -1               17          139        138          5               4               1		 1             0         1              1                 1           //mg -FireSlash
+06           006	  	006          Caxorrao    2              27           -1                   -1               17          141        125          5               4               1		 1             0         1              1                 1           //dk - meteorite 
+07           007	  	007          AnjuMAU     42             27           -1                   -1               17          124        133          5               4               1		 1             0         1              1                 1           //bk -ragefull
+08           008	  	008          Nefert      235            2            -1                   -1               17          123        129          5               4               1		 1             0         1              1                 1           //high elf - FiveShot
+09           009	  	009          Bifin       47             16           -1                   -1               17          132        139          5               4               1		 1             0         1              1                 1           //dk - impale
+10           010	  	010          D14B1nh4    24             16           -1                   -1               17          118        141          5               4               1		 1             0         1              1                 1           //elf -tripeshot
+11           011	  	011          Faca0       57             2            -1                   -1               17          115        131          5               4               1		 1             0         1              1                 1           //mg -spiral Slash
+12           012	  	012          BeL0        19             16           -1                   -1               17          115        130          5               4               1		 1             0         1              1                 1           //bk Nob - Falling Slash
+13           013	  	013          Breno       7              16           -1                   -1               17          120        113          5               4               1		 1             0         1              1                 1           //dw Nob - Ice
+14           014	  	014          ZeMenor     9              16           -1                   -1               17          140        84           5               4               1		 1             0         1              1                 1           //mg - Evil Spirit
+15           015	  	015          Sophoda     43             16           -1                   -1               17          89         128          5               4               1		 1             0         1              1                 1           //mg - "Death Stab"
+16           016	  	016          SrDeus      41             48           -1                   -1               22          220        67           5               4               1		 1             0         1              1                 1           //bk -twistSlash
+17           017	  	017          StylePK     12             48           -1                   -1               50          63         116          5               4               1		 1             0         1              1                 1           //sm -Evil Spirit
+18           018	  	018          LeoXd       41             48           -1                   -1               17          145        140          5               4               1		 1             0         1              1                 1           //br -twistSlash
+19           019	  	019          SchulTz     41             48           -1                   -1               17          142        133          5               4               1		 1             0         1              1                 1           //br -twistSlash
+end

@@ -1,0 +1,114 @@
+//==============================================================================================================================================================
+// - [#] Arquivo	 : Configuração dos Itens do Shop dos NPCS
+// - [#] Versão		 : Season IV
+// - [#] Developer 	 : Gabriel Bruno
+// - [#] Todos os Direitos reservados © GBTeam 2022	
+//==============================================================================================================================================================
+//==============================================================================================================================================================
+//Section   Type   	Level   Dur   Skill   Luck   Option   ExcOp	          ItemName
+//==============================================================================================================================================================
+14 	     0 		0 	50  	0 	0 	0 	0 		 	   //Apple
+14 	     0 		0 	0  	0 	0 	0 	0 		 	   //Apple 
+14 	     0 		0 	0  	0 	0 	0 	0 		 	   //Apple 
+14 	     0 		0 	0  	0 	0 	0 	0 		 	   //Apple 
+14 	     0 		0 	0  	0 	0 	0 	0 		 	   //Apple 
+14 	     0 		0 	0  	0 	0 	0 	0 		 	   //Apple 
+14 	     0 		0 	0  	0 	0 	0 	0 		 	   //Apple 
+14 	     0 		0 	0  	0 	0 	0 	0 		 	   //Apple  
+14 	     1 		0 	0  	0 	0 	0 	0 		 	   //Small Healing 
+14 	     1 		0 	0  	0 	0 	0 	0 		 	   //Small Healing 
+14 	     1 		0 	0  	0 	0 	0 	0 		 	   //Small Healing 
+14 	     1 		0 	0  	0 	0 	0 	0 		 	   //Small Healing 
+14 	     1 		0 	0  	0 	0 	0 	0 		 	   //Small Healing 
+14 	     1 		0 	0  	0 	0 	0 	0 		 	   //Small Healing 
+14 	     1 		0 	0  	0 	0 	0 	0 		 	   //Small Healing 
+14 	     1 		0 	0  	0 	0 	0 	0 		 	   //Small Healing 
+14 	     2 		0 	0  	0 	0 	0 	0 		 	   //Medium Healing 
+14 	     2 		0 	0  	0 	0 	0 	0 		 	   //Medium Healing 
+14 	     2 		0 	0  	0 	0 	0 	0 		 	   //Medium Healing 
+14 	     2 		0 	0  	0 	0 	0 	0 		 	   //Medium Healing 
+14 	     2 		0 	0  	0 	0 	0 	0 		 	   //Medium Healing 
+14 	     2 		0 	0  	0 	0 	0 	0 		 	   //Medium Healing 
+14 	     2 		0 	0  	0 	0 	0 	0 		 	   //Medium Healing 
+14 	     2 		0 	0  	0 	0 	0 	0 		 	   //Medium Healing 
+14 	     3 		0 	0  	0 	0 	0 	0 		 	   //Large Healing 
+14 	     3 		0 	0  	0 	0 	0 	0 		 	   //Large Healing 
+14 	     3 		0 	0  	0 	0 	0 	0 		 	   //Large Healing 
+14 	     3 		0 	0  	0 	0 	0 	0 		 	   //Large Healing 
+14 	     3 		0 	0  	0 	0 	0 	0 		 	   //Large Healing 
+14 	     3 		0 	0  	0 	0 	0 	0 		 	   //Large Healing 
+14 	     3 		0 	0  	0 	0 	0 	0 		 	   //Large Healing 
+14 	     3 		0 	0  	0 	0 	0 	0 		 	   //Large Healing 
+14 	     4 		0 	0  	0 	0 	0 	0 		 	   //Small Mana 
+14 	     4 		0 	0  	0 	0 	0 	0 		 	   //Small Mana 
+14 	     4 		0 	0  	0 	0 	0 	0 		 	   //Small Mana 
+14 	     4 		0 	0  	0 	0 	0 	0 		 	   //Small Mana 
+14 	     4 		0 	0  	0 	0 	0 	0 		 	   //Small Mana 
+14 	     4 		0 	0  	0 	0 	0 	0 		 	   //Small Mana 
+14 	     4 		0 	0  	0 	0 	0 	0 		 	   //Small Mana 
+14 	     4 		0 	0  	0 	0 	0 	0 		 	   //Small Mana 
+14 	     5 		0 	0  	0 	0 	0 	0 		 	   //Medium Mana 
+14 	     5 		0 	0  	0 	0 	0 	0 		 	   //Medium Mana 
+14 	     5 		0 	0  	0 	0 	0 	0 		 	   //Medium Mana 
+14 	     5 		0 	0  	0 	0 	0 	0 		 	   //Medium Mana 
+14 	     5 		0 	0  	0 	0 	0 	0 		 	   //Medium Mana 
+14 	     5 		0 	0  	0 	0 	0 	0 		 	   //Medium Mana 
+14 	     5 		0 	0  	0 	0 	0 	0 		 	   //Medium Mana 
+14 	     5 		0 	0  	0 	0 	0 	0 		 	   //Medium Mana 
+14 	     6 		0 	0  	0 	0 	0 	0 		 	   //Large Mana 
+14 	     6 		0 	0  	0 	0 	0 	0 		 	   //Large Mana 
+14 	     6 		0 	0  	0 	0 	0 	0 		 	   //Large Mana 
+14 	     6 		0 	0  	0 	0 	0 	0 		 	   //Large Mana 
+14 	     6 		0 	0  	0 	0 	0 	0 		 	   //Large Mana 
+14 	     6 		0 	0  	0 	0 	0 	0 		 	   //Large Mana 
+14 	     6 		0 	0  	0 	0 	0 	0 		 	   //Large Mana 
+14 	     6 		0 	0  	0 	0 	0 	0 		 	   //Large Mana 
+14 	     8 		0 	0  	0 	0 	0 	0 		 	   //Antidote 
+14 	     8 		0 	0  	0 	0 	0 	0 		 	   //Antidote 
+14 	     8 		0 	0  	0 	0 	0 	0 		 	   //Antidote 
+14 	     8 		0 	0  	0 	0 	0 	0 		 	   //Antidote 
+14 	     8 		0 	0  	0 	0 	0 	0 		 	   //Antidote 
+14 	     8 		0 	0  	0 	0 	0 	0 		 	   //Antidote 
+14 	     8 		0 	0  	0 	0 	0 	0 		 	   //Antidote 
+14 	     8 		0 	0  	0 	0 	0 	0 		 	   //Antidote 
+14 	     9 		0 	255  	0 	0 	0 	0 		 	   //Alcohol
+14 	     9 		0 	255  	0 	0 	0 	0 		 	   //Alcohol
+14 	     9 		0 	255  	0 	0 	0 	0 		 	   //Alcohol
+14 	     9 		0 	255  	0 	0 	0 	0 		 	   //Alcohol
+14 	     9 		0 	255  	0 	0 	0 	0 		 	   //Alcohol
+14 	     9 		0 	255  	0 	0 	0 	0 		 	   //Alcohol
+14 	     9 		0 	255  	0 	0 	0 	0 		 	   //Alcohol
+14 	     9 		0 	255  	0 	0 	0 	0 		 	   //Alcohol 
+14 	     10		0 	0  	0 	0 	0 	0 		 	   //Town Teleport
+14 	     10		0 	0  	0 	0 	0 	0 		 	   //Town Teleport 
+14 	     10		0 	0  	0 	0 	0 	0 		 	   //Town Teleport 
+14 	     10		0 	0  	0 	0 	0 	0 		 	   //Town Teleport 
+14 	     10		0 	0  	0 	0 	0 	0 		 	   //Town Teleport 
+14 	     10		0 	0  	0 	0 	0 	0 		 	   //Town Teleport 
+14 	     10		0 	0  	0 	0 	0 	0 		 	   //Town Teleport 
+14 	     10		0 	0  	0 	0 	0 	0 		 	   //Town Teleport  
+13 	     0		0 	255  	0 	0 	0 	0 		 	   //Guardian Angel 
+13 	     0		0 	255  	0 	0 	0 	0 		 	   //Guardian Angel 
+13 	     0		0 	255  	0 	0 	0 	0 		 	   //Guardian Angel 
+13 	     0		0 	255  	0 	0 	0 	0 		 	   //Guardian Angel 
+13 	     0		0 	255  	0 	0 	0 	0 		 	   //Guardian Angel 
+13 	     0		0 	255  	0 	0 	0 	0 		 	   //Guardian Angel 
+13 	     0		0 	255  	0 	0 	0 	0 		 	   //Guardian Angel 
+13 	     0		0 	255  	0 	0 	0 	0 		 	   //Guardian Angel 
+13 	     1		0 	255  	0 	0 	0 	0 		 	   //Satan 
+13 	     1		0 	255  	0 	0 	0 	0 		 	   //Satan 
+13 	     1		0 	255  	0 	0 	0 	0 		 	   //Satan 
+13 	     1		0 	255  	0 	0 	0 	0 		 	   //Satan 
+13 	     1		0 	255  	0 	0 	0 	0 		 	   //Satan 
+13 	     1		0 	255  	0 	0 	0 	0 		 	   //Satan 
+13 	     1		0 	255  	0 	0 	0 	0 		 	   //Satan 
+13 	     1		0 	255  	0 	0 	0 	0 		 	   //Satan 
+13 	     2		0 	255  	0 	0 	0 	0 		 	   //Horn of Unilia 
+13 	     2		0 	255  	0 	0 	0 	0 		 	   //Horn of Unilia 
+13 	     2		0 	255  	0 	0 	0 	0 		 	   //Horn of Unilia 
+13 	     2		0 	255  	0 	0 	0 	0 		 	   //Horn of Unilia 
+13 	     2		0 	255  	0 	0 	0 	0 		 	   //Horn of Unilia 
+13 	     2		0 	255  	0 	0 	0 	0 		 	   //Horn of Unilia 
+13 	     2		0 	255  	0 	0 	0 	0 		 	   //Horn of Unilia 
+13 	     2		0 	255  	0 	0 	0 	0 		 	   //Horn of Unilia 
+end

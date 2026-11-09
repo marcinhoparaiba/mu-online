@@ -1,0 +1,51 @@
+0
+//Monster     Range      PositionX      PositionY      Direction      Comment
+   381            0             195         116         2
+   382            0             140         061         2
+   383            0             139         059         2
+   384            0             192         116         2
+end
+
+1
+//Monster      Range      BeginPosX      BeginPosY      EndPosX      EndPosY      Direction      Quantity      Comment
+end
+
+2
+//Monster      Range      PositionX      PositionY      Direction      Comment
+end
+
+4
+//Monster      Range      PositionX      PositionY      Direction      Comment
+   401            10            131         093         *
+   402            10            131         089         *
+   403            10            131         085         *
+   401            10            168         123         *
+   402            10            164         123         *
+   403            10            160         123         *
+   401            10            169         048         *
+   402            10            169         052         *
+   403            10            169         056         *
+   401            10            206         085         *
+   402            10            206         081         *
+   403            10            206         077         *
+   401            10            158         085         *
+   402            10            168         094         *
+   403            10            169         075         *
+   401            10            179         085         *
+   402            10            157         066         *
+   403            10            162         066         *
+   401            10            150         078         *
+   402            10            150         073         *
+   403            10            176         103         *
+   401            10            181         103         *
+   402            10            187         098         *
+   403            10            187         092         *
+   401            10            197         057         *
+   402            10            141         113         *
+   403            10            193         061         *
+   401            10            145         109         *
+   402            10            189         065         *
+   403            10            149         105         *
+   401            10            167         087         *
+   402            10            171         083         *
+end

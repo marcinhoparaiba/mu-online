@@ -1,0 +1,41 @@
+//==============================================================================================================================================================
+// - [#] Arquivo	 : Configuração dos Itens do Shop dos NPCS
+// - [#] Versão		 : Season IV
+// - [#] Developer 	 : Gabriel Bruno
+// - [#] Todos os Direitos reservados © GBTeam 2022	
+//==============================================================================================================================================================
+//==============================================================================================================================================================
+//Section   Type   	Level   Dur   Skill   Luck   Option   ExcOp	                 ItemName
+//==============================================================================================================================================================
+7	     5		9	255	0	1	1	0       		//Leather Helm
+7	     0		9	255	0	1	1	0       		//Bronze Helm
+7	     6		9	255	0	1	1	0       		//Scale Helm
+7	     9		9	255	0	1	1	0       		//Plate Helm
+8	     5		9	255	0	1	1	0       		//Leather Armor
+8	     0		9	255	0	1	1	0       		//Bronze Armor
+8	     6		9	255	0	1	1	0       		//Scale Armor
+8	     9		9	255	0	1	1	0       		//Plate Armor
+9	     0		9	255	0	1	1	0       		//Bronze Pants
+9	     6		9	255	0	1	1	0       		//Scale Pants
+9	     9		9	255	0	1	1	0       		//Plate Pants
+9	     5		9	255	0	1	1	0       		//Leather Pants
+10	     0		9	255	0	1	1	0       		//Bronze Gloves
+10	     6		9	255	0	1	1	0       		//Scale Gloves
+10	     9		9	255	0	1	1	0       		//Plate Gloves
+10	     5		9	255	0	1	1	0       		//Leather Gloves
+11	     0		9	255	0	1	1	0       		//Bronze Boots
+11	     6		9	255	0	1	1	0       		//Scale Boots
+11	     9		9	255	0	1	1	0       		//Plate Boots
+11	     5		9	255	0	1	1	0       		//Leather Boots
+12	     7		0	255	0	0	0	0       		//Orb of Twisting Slash
+12	     12		0	255	0	0	0	0       		//Orb of Rageful Blow
+12	     13		0	255	0	0	0	0       		//Orb of Impale
+12	     14		0	0	0	0	0	0       		//Orb of Greater Fortitude
+12	     19		0	255	0	0	0	0       		//Orb of Death Stab
+12	     44		0	0	0	0	0	0       		//Crystal of Destruction
+0	     13		9	255	1	1	1	0       		//Double Blade
+0	     11		9	255	1	1	1	0       		//Legendary Sword
+0	     16		9	255	1	1	1	0       		//Sword of Destruction
+13	     0		0	255	0	0	0	0       		//Guardian Angel
+13	     1		0	255	0	0	0	0       		//Imp
+end

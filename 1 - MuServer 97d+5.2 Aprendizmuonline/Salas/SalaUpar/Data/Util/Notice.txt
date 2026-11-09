@@ -1,0 +1,4 @@
+//Message                                                            Type   Count   Opacity   Delay   Red   Green   Blue   Speed   RepeatTime
+"SALA SPOT \ RESET MUSTYLE"                                                  0      0       0         0       0     0       0      0       60
+"GMS e ADMS nao pedem senhas"                                           0      0       0         0       0     0       0      0       60
+end

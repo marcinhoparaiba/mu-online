@@ -1,0 +1,51 @@
+0
+//Monster     Range      PositionX      PositionY      Direction      Comment
+   381            0             195         116         2
+   382            0             140         061         2
+   383            0             139         059         2
+   384            0             192         116         2
+end
+
+1
+//Monster      Range      BeginPosX      BeginPosY      EndPosX      EndPosY      Direction      Quantity      Comment
+end
+
+2
+//Monster      Range      PositionX      PositionY      Direction      Comment
+end
+
+4
+//Monster      Range      PositionX      PositionY      Direction      Comment
+   392            10            131         093         *
+   393            10            131         089         *
+   394            10            131         085         *
+   392            10            168         123         *
+   393            10            164         123         *
+   394            10            160         123         *
+   392            10            169         048         *
+   393            10            169         052         *
+   394            10            169         056         *
+   392            10            206         085         *
+   393            10            206         081         *
+   394            10            206         077         *
+   392            10            158         085         *
+   393            10            168         094         *
+   394            10            169         075         *
+   392            10            179         085         *
+   393            10            157         066         *
+   394            10            162         066         *
+   392            10            150         078         *
+   393            10            150         073         *
+   394            10            176         103         *
+   392            10            181         103         *
+   393            10            187         098         *
+   394            10            187         092         *
+   392            10            197         057         *
+   393            10            141         113         *
+   394            10            193         061         *
+   392            10            145         109         *
+   393            10            189         065         *
+   394            10            149         105         *
+   392            10            167         087         *
+   393            10            171         083         *
+end

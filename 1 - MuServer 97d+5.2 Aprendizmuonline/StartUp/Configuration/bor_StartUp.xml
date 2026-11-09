@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Processes>
+  <Process Run="True" Delay="1000" Path="C:\MuServer Season 5\ConnectServer\ConnectServer.exe" Parameters="" />
+  <Process Run="True" Delay="1000" Path="C:\MuServer Season 5\JoinServer\JoinServer.exe" Parameters="" />
+  <Process Run="True" Delay="1000" Path="C:\MuServer Season 5\DataServer\DataServer.exe" Parameters="" />
+  <Process Run="False" Delay="1000" Path="C:\MuServer Season 5\Salas\SalaVip\GameServer\GameServer-Vip.exe" Parameters="" />
+  <Process Run="True" Delay="1000" Path="C:\MuServer Season 5\Salas\SalaUpar\GameServer\GameServer-Trade.exe" Parameters="" />
+  <Process Run="True" Delay="1000" Path="C:\MuServer Season 5\Salas\SalaTrade\GameServer\GameServer-Upar.exe" Parameters="" />
+</Processes>

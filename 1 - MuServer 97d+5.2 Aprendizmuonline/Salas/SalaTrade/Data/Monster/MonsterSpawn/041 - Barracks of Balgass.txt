@@ -1,0 +1,39 @@
+0
+//Monster     Range      PositionX      PositionY      Direction      Comment
+end
+
+1
+//Monster      Range      BeginPosX      BeginPosY      EndPosX      EndPosY      Direction      Quantity      Comment
+end
+
+2
+//Monster      Range      PositionX      PositionY      Direction      Comment
+   409            30            39          101         *
+   409            30            44          110         *
+   409            30            52          134         *
+   409            30            67          112         *
+   409            30            87          90          *
+   409            30            90          67          *
+   409            30            90          78          *
+   409            30            71          101         *
+   409            30            71          101         *
+   409            30            64          132         *
+   409            30            109         101         *
+   410            30            98          96          *
+   410            30            122         90          *
+   410            30            125         99          *
+   410            30            137         140         *
+   410            30            140         150         *
+   410            30            44          127         *
+   410            30            57          123         *
+   410            30            79          86          *
+   410            30            101         69          *
+   410            30            121         118         *
+   411            30            127         127         *
+   411            30            126         164         *
+   411            30            123         160         *
+   411            30            132         156         *
+   411            30            132         136         *
+   411            30            116         103         *
+   411            30            129         146         *
+end

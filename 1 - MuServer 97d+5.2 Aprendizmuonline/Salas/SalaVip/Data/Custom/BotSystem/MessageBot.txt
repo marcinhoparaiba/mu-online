@@ -1,0 +1,18 @@
+//-----------------------------------------------
+//CustomMessage Bot
+//Max 10 Message
+//-----------------------------------------------
+//index   MessageBot
+//-----------------------------------------------
+1         "Issoa ai......"
+2         "kkkkk Boa, Agr corre!"
+3         "Mata mais!"
+4         "Ta gostando ?"
+5         "zZZZzzzzz"
+6         "Sai kra, pqp."
+7         "So mata pq to fraco ainda"
+8         "One Hit nao vale"
+9         "Eitaaa"
+10        "Vamu x1 Valendo fraco !"
+
+end

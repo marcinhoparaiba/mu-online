@@ -1,0 +1,18 @@
+0
+//Monster     Range      PositionX      PositionY      Direction      Comment
+   217            0             167         195         7
+   218            0             184         195         7
+   216            0             176         212         1
+   220            0             139         101         3
+   224            0             86          61          1
+   224            0             99          61          1
+   223            0             179         214         1
+end
+
+1
+//Monster      Range      BeginPosX      BeginPosY      EndPosX      EndPosY      Direction      Quantity      Comment
+end
+
+2
+//Monster      Range      PositionX      PositionY      Direction      Comment
+end

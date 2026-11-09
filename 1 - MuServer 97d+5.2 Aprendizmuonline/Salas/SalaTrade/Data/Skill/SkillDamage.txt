@@ -1,0 +1,14 @@
+//=========================================================
+// Skill Damage System
+//=========================================================
+// Skill - Skill Number (Index - Skill.txt)
+// DamageRateUser - 
+//		  -1: Disable system
+//		   0: Remove Skill Damage
+//		 > 0: Damage increase  
+//
+//=========================================================
+//	Skill	     DamageRateUser	DamageRateMonster
+	 41	          40                   0
+	 43	          500                  5000
+end
