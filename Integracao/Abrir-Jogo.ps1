@@ -76,7 +76,14 @@ try {
             $mu.Refresh()
             if ($mu.MainWindowHandle -ne [IntPtr]::Zero) {
                 [MuFoco]::keybd_event(0x12, 0, 0, [UIntPtr]::Zero); [MuFoco]::keybd_event(0x12, 0, 2, [UIntPtr]::Zero)
-                if ($espera -eq 6) { [MuFoco]::ShowWindow($mu.MainWindowHandle, 6) | Out-Null; Start-Sleep -Milliseconds 700 }
+                if ($espera -eq 6) {
+                    # Alt+Tab de verdade: Alt segurado, Tab, solta (vai para outra janela), depois volta ao jogo
+                    foreach ($i in 1, 2) {
+                        [MuFoco]::keybd_event(0x12, 0, 0, [UIntPtr]::Zero); [MuFoco]::keybd_event(0x09, 0, 0, [UIntPtr]::Zero)
+                        [MuFoco]::keybd_event(0x09, 0, 2, [UIntPtr]::Zero); [MuFoco]::keybd_event(0x12, 0, 2, [UIntPtr]::Zero)
+                        Start-Sleep -Milliseconds 800
+                    }
+                }
                 [MuFoco]::ShowWindow($mu.MainWindowHandle, 9) | Out-Null
                 [MuFoco]::SetForegroundWindow($mu.MainWindowHandle) | Out-Null
             }
