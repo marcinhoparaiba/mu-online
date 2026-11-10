@@ -66,7 +66,21 @@ try {
         } while ($owners.Count -eq 0 -and [DateTime]::UtcNow -lt $limit)
         if ($owners -notcontains $process.Id) { throw "O processo $($part.File) nao abriu a porta $($part.Port)." }
     }
-    if (-not $SomenteServidor) { Start-Process -FilePath $game -WorkingDirectory $client }
+    if (-not $SomenteServidor) {
+        $mu = Start-Process -FilePath $game -WorkingDirectory $client -PassThru
+        # O driver Intel deixa a tela cheia preta ate o jogo ganhar foco (Alt+Tab). Faz isso automaticamente.
+        Add-Type 'using System;using System.Runtime.InteropServices;public class MuFoco{[DllImport("user32.dll")]public static extern bool SetForegroundWindow(IntPtr h);[DllImport("user32.dll")]public static extern bool ShowWindow(IntPtr h,int c);[DllImport("user32.dll")]public static extern void keybd_event(byte k,byte s,uint f,UIntPtr e);}'
+        foreach ($espera in 3, 5, 5, 5, 6) {
+            Start-Sleep $espera
+            if ($mu.HasExited) { break }
+            $mu.Refresh()
+            if ($mu.MainWindowHandle -ne [IntPtr]::Zero) {
+                [MuFoco]::keybd_event(0x12, 0, 0, [UIntPtr]::Zero); [MuFoco]::keybd_event(0x12, 0, 2, [UIntPtr]::Zero)
+                [MuFoco]::ShowWindow($mu.MainWindowHandle, 9) | Out-Null
+                [MuFoco]::SetForegroundWindow($mu.MainWindowHandle) | Out-Null
+            }
+        }
+    }
 } finally {
     if ($ownsMutex) { $mutex.ReleaseMutex() }
     $mutex.Dispose()
