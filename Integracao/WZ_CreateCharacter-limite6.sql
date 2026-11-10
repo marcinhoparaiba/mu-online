@@ -47,7 +47,7 @@ Begin
 
 
 	-- LIMITE_6_CLASSES: no maximo 6 personagens por conta, classes livres
-	IF (SELECT COUNT(*) FROM Character WHERE AccountID=@AccountID) >= 5
+	IF (SELECT COUNT(*) FROM Character WHERE AccountID=@AccountID) >= 4
 	begin
 		SET @Result = 0x03
 		GOTO ProcEnd
@@ -338,5 +338,5 @@ End
 
 
 GO
-UPDATE AccountCharacter SET MaxCharacter=5;
+UPDATE AccountCharacter SET MaxCharacter=4;
 GO
