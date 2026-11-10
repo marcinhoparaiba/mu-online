@@ -65,27 +65,27 @@ end
 //====================================================================================================================================
 //Monster      Range      BeginPosX      BeginPosY      EndPosX      EndPosY      Direction      Quantity      Comment
 //====================================================================================================================================
-       3		 5	       178	             127           180           130	     -1              7         // LORENCIA ARANHAS BAIXO
-       3		 5	       176	             129           181           133	     -1              10         // LORENCIA ARANHAS BAIXO
-       3		 5	       174	             128           182           136	     -1              15         // LORENCIA ARANHAS BAIXO
-       3		 5	       177	             127           183           132	     -1              15         // LORENCIA ARANHAS BAIXO
+//SPOT        3		 5	       178	             127           180           130	     -1              7         // LORENCIA ARANHAS BAIXO
+//SPOT        3		 5	       176	             129           181           133	     -1              10         // LORENCIA ARANHAS BAIXO
+//SPOT        3		 5	       174	             128           182           136	     -1              15         // LORENCIA ARANHAS BAIXO
+//SPOT        3		 5	       177	             127           183           132	     -1              15         // LORENCIA ARANHAS BAIXO
 
-       2		 5	       177	             125           186           131	     -1              17         // LORENCIA ARANHAS BAIXO
-       4		 5	       177	             121           179           127	     -1              17         // LORENCIA ARANHAS BAIXO
+//SPOT        2		 5	       177	             125           186           131	     -1              17         // LORENCIA ARANHAS BAIXO
+//SPOT        4		 5	       177	             121           179           127	     -1              17         // LORENCIA ARANHAS BAIXO
 	   
-       5		 5	       128	             138           133           177	     -1              23         // LORENCIA CIMA
-	   6		 5	       130	             140           135           179	     -1              23         // LORENCIA CIMA
-	   7		 5	       138	             175           132           181	     -1              23         // LORENCIA CIMA
+//SPOT        5		 5	       128	             138           133           177	     -1              23         // LORENCIA CIMA
+//SPOT 	   6		 5	       130	             140           135           179	     -1              23         // LORENCIA CIMA
+//SPOT 	   7		 5	       138	             175           132           181	     -1              23         // LORENCIA CIMA
 	
-	   8		 5	       93	             123            90           130	     -1              23         // LORENCIA CAMINHO CEMITERIO
-	   9		 5	       93	             125            91           132	     -1              26         // LORENCIA CAMINHO CEMITERIO
-	   10		 5	       90	             128            89           123	     -1              16         // LORENCIA CAMINHO CEMITERIO
+//SPOT 	   8		 5	       93	             123            90           130	     -1              23         // LORENCIA CAMINHO CEMITERIO
+//SPOT 	   9		 5	       93	             125            91           132	     -1              26         // LORENCIA CAMINHO CEMITERIO
+//SPOT 	   10		 5	       90	             128            89           123	     -1              16         // LORENCIA CAMINHO CEMITERIO
 	   
-       3		 5	       132	              86           138            80	     -1              40         // LORENCIA ARANHAS BAIXO	   
-       2		 5	       131	              84           136            79	     -1              40         // LORENCIA ARANHAS BAIXO	   
+//SPOT        3		 5	       132	              86           138            80	     -1              40         // LORENCIA ARANHAS BAIXO	   
+//SPOT        2		 5	       131	              84           136            79	     -1              40         // LORENCIA ARANHAS BAIXO	   
 
-       11		 5	       139	              232           134            211	     -1              80         // LORENCIA ARANHAS BAIXO	   
-       12		 5	       140	              220           141            212	     -1              80         // LORENCIA ARANHAS BAIXO	   
+//SPOT        11		 5	       139	              232           134            211	     -1              80         // LORENCIA ARANHAS BAIXO	   
+//SPOT        12		 5	       140	              220           141            212	     -1              80         // LORENCIA ARANHAS BAIXO	   
 	   
 end
 

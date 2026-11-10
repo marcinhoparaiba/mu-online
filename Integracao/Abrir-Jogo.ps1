@@ -1,4 +1,4 @@
-param([switch]$SomenteServidor)
+﻿param([switch]$SomenteServidor)
 
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
@@ -9,7 +9,8 @@ $parts = @(
     @{ File = 'ConnectServer\ConnectServer.exe'; Port = 44405 },
     @{ File = 'DataServer\DataServer.exe'; Port = 55962 },
     @{ File = 'JoinServer\JoinServer.exe'; Port = 55972 },
-    @{ File = 'Salas\SalaTrade\GameServer\GameServer-Upar.exe'; Port = 55940 }
+    @{ File = 'Salas\SalaTrade\GameServer\GameServer-Upar.exe'; Port = 55940 },
+    @{ File = 'Salas\SalaUpar\GameServer\GameServer-Trade.exe'; Port = 55920 }
 )
 
 function Get-ListenerOwner([int]$port) {
