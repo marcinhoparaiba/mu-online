@@ -44,3 +44,26 @@ Abrir sempre por `Integracao\Abrir-Jogo.ps1` (atalho "MuBanneD 5.2"). Ele sobe S
 - Lobby (CharacterList.lua do cliente): 6 lado a lado (eixo Y, 150), selecionado 1.15x, MOUNT/FLYING_ADD_SIZE 0.10, ação 207 mantida (remover fechava). Original em work\antes-lobby.
 - Até 6 personagens por conta, qualquer classe (proc WZ_CreateCharacter alterada; Integracao\WZ_CreateCharacter-limite6.sql).
 - 16 mapas do servidor sincronizados com o cliente (work\antes-terrain). Skills 75/216 bloqueadas.
+
+## 10/11/2026 (sessão 2)
+- SemBorda testado: ok. print-helper agora acha o mu pelo nome (antes saía se o PID sumisse); falta testar Print.
+- Fenrir no lobby aparece sem montar: é do mu.exe, o Lua não controla.
+- Logo: Integracao\logo\gerar_logo.py -> logo-mubanned.png. Alvos em Data\Object1: notice.OZJ (placa), badge_02/03.OZT (bandeiras). OZJ = 24 bytes de header + JPG; OZT = 4 bytes + TGA.
+- Ferramentas em Downloads\packs mu (senha dos rar: aprendizmuonline). BmdDecoder só trata BMD de texto. Blender instalado (winget). Próximo: conversor BMD<->Blender próprio e set base.
+- Espada Monarch: 0:244 'Monarch Sword' (Integracao\bmd: bmd.py codec 0x0A, glb2bmd.py; work\add_monarch_item.py registra; backup work\antes-MonarchSword).
+- Kit Monarch estático: 2:233 Mace, 2:234 Hammer, 4:226 Bow, 5:242 Staff, 6:250 Shield, 13:430 Ring, 13:431 Pendant. MarcioBK equipado (espada, escudo, pingente, 2 anéis). Falta: asas, capa, águia, sets M/F (precisam esqueleto).
+- Kit completo registrado: 12:332 Wings, 12:333 Cape, set M 7-11:271 (base Hades), set F 7-11:272 (base Nature). Águia: modelo do Icon_Eagle_Hawk (13:420) trocado (original em work\antes-MonarchEagle). BK com set M + asas. Rig: Integracao\bmd\rig.py (pesos/animação copiados do modelo base). Efeitos e Coroa: exigem fonte do mu.exe.
+- Águia Monarch = pet 13:277 (DarkSpirit.lua, voa e fica no braço; base corvolighthawk). Icon_Eagle_Hawk restaurado.
+
+## Checklist para item novo (aprendido 10/11)
+1. Modelo: Integracao\bmd (glb2bmd.py estático; rig.py copia esqueleto/animação de um modelo base; bmd.py lê 0x0A/0x0C).
+2. Registro: work\add_monarch_item.py (Item.txt das 3 salas, item_*.bmd de nomes, LoadItens.lua criptografado). Sets: DEST=Player.
+3. Asa/capa: também CustomWings.lua + Data\Custom\CustomWing.txt (feito pelo script).
+4. Pet voador (águia/corvo): DarkSpirit.lua (work\add_darkspirit.py) + Data\Item\PetItemOption.txt (índice 512*13+id). Sem o PetItemOption o servidor apaga o item.
+5. Reiniciar os GameServers depois de mexer no Item.txt (o atalho só sobe o que está parado).
+6. Mexer em inventário pelo SQL só com o personagem deslogado, porque o servidor grava por cima ao sair.
+7. Item no inventário: 16 bytes; byte0 = id&255, byte7 bit 0x80 = id>=256, byte9 = grupo<<4.
+- 10/11 01:40: mu.exe fecha (código 1) em modo janela/SemBorda; tela cheia abre. Suspeita: GpuPreference=2 (Alto desempenho) para mu.exe em HKCU\Software\Microsoft\DirectX\UserGpuPreferences. Spirit BanneD equipada no DL (slot 1), PetItemOption 6933 nas 3 salas; falta conferir em jogo. Brave com aba de ferramentas MU não é a causa.
+
+## 10/11/2026 (sessão 3)
+- Abrir-Jogo testado nos 3 modos: SemBorda (sem título, 1920x1080), Janela e Cheia abrem; Print salva PNG com imagem; Alt+F4 fecha. A barra de tarefas ficava por cima no SemBorda: agora a janela é TOPMOST. Modo padrão salvo: SemBorda.

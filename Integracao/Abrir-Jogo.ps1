@@ -100,7 +100,7 @@ try {
             if ($Modo -ne 'SemBorda') { break }
             if ($s -band 0x00C00000) {
                 [MuJan]::SetWindowLong($h, -16, ($s -band (-bnot 0x00CF0000))) | Out-Null
-                [MuJan]::SetWindowPos($h, [IntPtr]::Zero, $tela.X, ($tela.Y + 1), $tela.Width, $tela.Height, 0x0060) | Out-Null
+                [MuJan]::SetWindowPos($h, [IntPtr](-1), $tela.X, ($tela.Y + 1), $tela.Width, $tela.Height, 0x0060) | Out-Null
                 [MuJan]::SetForegroundWindow($h) | Out-Null
             }
         }
