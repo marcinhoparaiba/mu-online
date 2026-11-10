@@ -39,3 +39,5 @@
 11:30:00 [AccountInfo] Account connected (Account: teste, IpAddress: 192.168.0.2, GameServerCode: 40)
 11:31:22 [AccountInfo] Account disconnected (Account: teste, IpAddress: 192.168.0.2, GameServerCode: 40)
 11:33:38 [AccountInfo] Account connected (Account: teste, IpAddress: 192.168.0.2, GameServerCode: 40)
+11:40:21 [AccountInfo] Account disconnected (Account: teste, IpAddress: 192.168.0.2, GameServerCode: 40)
+11:41:35 [AccountInfo] Account connected (Account: teste, IpAddress: 192.168.0.2, GameServerCode: 40)
