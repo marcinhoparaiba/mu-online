@@ -45,6 +45,7 @@
   6872	 1 	0	0	0	0	  0	0	0	0	0       0	0	0	0	0	0	0		// Fenrir Holy
   6873	 2 	0	0	0	0	  0	0	0	0	0       0	0	0	0	0	0	0		// Eagle of Abbadon
   6874	 2 	0	0	0	0	  0	0	0	0	0       0	0	0	0	0	0	0		// Eagle of Light Hawk
+  6933	 2 	0	0	0	0	  0	0	0	0	0       0	0	0	0	0	0	0		// Spirit BanneD
   6875	 1 	0	0	0	0	  0	0	0	0	0       0	0	0	0	0	0	0		// Fenrir Hallowen
   6876	 1 	0	0	0	0	  0	0	0	0	0       0	0	0	0	0	0	0		// Horse Hallowen
   6877	 3 	0	0	0	0	  0	0	0	0	0       0	0	0	0	0	0	0		// Mini Fenrir Hallowen
