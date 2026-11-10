@@ -318,6 +318,7 @@
 515       "%s matou %s"
 516       "%s matou %s"
 843	  "[AntiHack] Detectado o uso de SpeedHack!"
+902	  "Bem-vindo ao MuBanneD!"
 912	  "[SISTEMA] AutoPot Ligado"
 913	  "[SISTEMA] AutoPot Desligado"
 915	  "Alguem está tentando acessar sua conta!"

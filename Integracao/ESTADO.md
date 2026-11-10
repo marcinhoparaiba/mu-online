@@ -81,3 +81,6 @@ Abrir sempre por `Integracao\Abrir-Jogo.ps1` (atalho "MuBanneD 5.2"). Ele sobe S
 - Itens Monarch renomeados BanneD (servidor e item_*.bmd). PartyMaxMembers 9->5 (UI do cliente mostra 5).
 - Nao existe sistema de casamento neste servidor. Trade/party/guild nao testados em jogo: o mu.exe so aceita 1 instancia por PC.
 - Teste automatico: config.ini [AutoLogin] (deixar vazio no fim); conta teste/abc123.
+- 2 clientes no mesmo PC: a trava do mu.exe e pelo titulo da janela; renomear a janela da 1a (SetWindowText) permite abrir a 2a (scratchpad dois.ps1). Conta marcio2 senha de teste abc123.
+
+- 10/11: SalaTrade tinha ServerName=SPOT (corrigido p/ PVP). Mensagem 902 faltava no Message.txt (aparecia 'Could not find message 902' ao pedir trade); adicionada. Clique automatizado no MU so funciona com foco via SetForegroundWindow (scratchpad clk.ps1). Teste por bot (work\test_mu52_trade.py adaptado): login e entrada no mapa das 2 contas OK; trade e party sem resposta do servidor ao bot - falta testar com 2 clientes reais.
