@@ -67,3 +67,5 @@ Abrir sempre por `Integracao\Abrir-Jogo.ps1` (atalho "MuBanneD 5.2"). Ele sobe S
 
 ## 10/11/2026 (sessão 3)
 - Abrir-Jogo testado nos 3 modos: SemBorda (sem título, 1920x1080), Janela e Cheia abrem; Print salva PNG com imagem; Alt+F4 fecha. A barra de tarefas ficava por cima no SemBorda: agora a janela é TOPMOST. Modo padrão salvo: SemBorda.
+- Efeitos: dá para pôr pelo Lua (EffectSystem\CharacterEffectItens.lua, CUSTOM_EFFECT_INFOS por osso). Asa 12:332 (ossos 11-30) e capa 12:333 (ossos 2-12) com brilho dourado 32002 (work\add_monarch_effect.py, backup work\antes-efeito-monarch). Falta ver em jogo.
+- MarcioBK conferido no banco: espada 0:244, escudo 6:250, set M 7-11:271, asas 12:332.
