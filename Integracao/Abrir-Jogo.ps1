@@ -76,6 +76,7 @@ try {
             $mu.Refresh()
             if ($mu.MainWindowHandle -ne [IntPtr]::Zero) {
                 [MuFoco]::keybd_event(0x12, 0, 0, [UIntPtr]::Zero); [MuFoco]::keybd_event(0x12, 0, 2, [UIntPtr]::Zero)
+                if ($espera -eq 6) { [MuFoco]::ShowWindow($mu.MainWindowHandle, 6) | Out-Null; Start-Sleep -Milliseconds 700 }
                 [MuFoco]::ShowWindow($mu.MainWindowHandle, 9) | Out-Null
                 [MuFoco]::SetForegroundWindow($mu.MainWindowHandle) | Out-Null
             }
