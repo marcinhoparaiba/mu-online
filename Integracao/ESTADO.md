@@ -1,10 +1,38 @@
-# Estado do MuBanneD
+# Estado do MuBanneD 5.2 (atualizado 09/11/2026, sessão Claude)
 
-- Base local 97d+5.2. Servidor e cliente usam localhost. A SalaTrade foi validada pelo protocolo do jogo.
-- Os 1.800 IDs do 5.2 estão preservados. Entraram 312 itens do 3.0 e 47 do OBBY no lote 2, e 67 asas do grupo 12 no lote 3 (48 do 3.0, 19 do OBBY). Há 2.226 IDs por sala.
-- Login, entrada no mapa e comandos de GM foram verificados com MarcioBK e MarcioDL. Criação de um novo DL pela interface, renderização e persistência dos itens importados ainda precisam de teste.
-- Pendências: 845 IDs sem importação e 972 com nome igual a conferir. A criação via /make não persistiu no teste. Mapas, eventos e sistemas dos doadores seguem pendentes. Use [itens adicionados](itens-adicionados.csv) ou filtre o [mapa de origem](mapa-catalogos.csv).
+Abrir sempre por `Integracao\Abrir-Jogo.ps1` (atalho "MuBanneD 5.2"). Ele sobe SQL, ConnectServer, DataServer, JoinServer e os 2 GameServers, ajusta o IP e dá foco ao jogo.
 
-- Lote 3 (09/11/2026): os modelos dos grupos 12-15 foram extraídos do main.exe dos doadores (work/model_map_12_15.json) e das asas WingNNN do 3.0. O script é work/merge_mu_batch3.py e o backup fica em work/mu-antes-lote3. As asas ainda não foram vistas no jogo. Ficaram de fora as Seed Spheres (sistema de soquetes) e os pets, brincos e amuletos personalizados do 3.0, que não têm modelo identificável.
+## Rede e cliente
+- O cliente recusa 127.0.0.1. `ajustar_ip.py` grava o IP da rede (hoje 192.168.0.2) no `Configs.gbt` (XOR f29554; IP [32:64], porta [64:66]) e no `ConnectServer\ServerList.dat`.
+- O crash SDL2+e1ea8 (c000041d) só acontece no fechamento (SDL_DestroyWindow), é sintoma. O Mesa3D foi removido (lento e não era a causa) e está em work\mesa-removido.
+- O registro `HKCU\Software\Webzen\Mu\Config` usa Resolution=8 (1920x1080) e WindowMode=0. Os índices são 0/1=800x600, 2=1024x768, 3=1280x960, 4=1360x768, 5=1440x900, 6=1600x900, 7=1680x1050, 8=1920x1080.
+- Tela preta em tela cheia (driver Intel HD 2500): o launcher simula Alt+Tab.
+- O Print do Win11 (Ferramenta de Captura) fecha o jogo. O usuário desligou a opção no Windows.
 
-- 09/11/2026: o cliente trava (SDL2.dll 0xc000041d) neste PC até com o cliente original do RAR. A causa é o driver OpenGL do Intel HD (10.18.10.4252, de 2015), que não roda o renderizador GLSL 3.30. A correção é colocar na pasta 2 - Cliente as DLLs x64 do Mesa3D 24.3.4 (opengl32.dll, libgallium_wgl.dll, libglapi.dll, dxil.dll) de github.com/pal1000/mesa-dist-win. Já estão baixadas no scratchpad da sessão, mas a cópia depende de autorização. O Configs.gbt usa o original com 127.0.0.1:44405.
+## Servidores
+- SalaTrade (código 20, porta 55940): servidor normal com PvP e sem monstros nos mapas de caça (linhas `//SPOT` nos spawns). Tem a arena de Lorencia.
+- SalaUpar (código 40, porta 55920): SPOT com monstros e NonPK=1.
+- Arena: Lorencia Degelo (pacote 07). O PvP vale só no cercado x139-148, y123-132 (bit safe limpo no Terrain1.att do servidor e no EncTerrain1.att do cliente). O boneco é o monstro 16 (100M HP, sem ataque), spawn em (144,128). Os arbustos da arena foram tirados do EncTerrain1.obj.
+- PvP: DK e DL com DamageRatePvP=140, as outras classes continuam baixas (`GameServerInfo - Character.dat`, backup em work\Character.dat.antes-pvp).
+- Comandos: ver [COMANDOS.md](COMANDOS.md). O /zen e outros foram ligados, e os personagens do marcio, marcio2 e teste são GM (Data\Util\GameMaster.txt).
+
+## Itens
+- Lotes 1-3 integrados (2.226 IDs por sala). 40 peças nativas do OBBY (ex.: Titan 8:45) foram registradas no LoadItens.lua, porque estavam invisíveis no inventário.
+- 51 asas e capas novas foram registradas no CustomWings.lua (cliente) e no CustomWing.txt (3 salas). Antes o lobby mostrava a asa errada.
+- As cores do LoadItem foram todas padronizadas em -1,-1,-1 (antes eram RGB aleatórias).
+- 15 tamanhos de item servidor x cliente foram igualados. 120 itens de outras seasons sem cadastro no cliente foram desativados com `//REMOVIDO` no Item.txt (lista em work\removidos-119.json).
+- Os Lua do cliente são criptografados: header de 52 bytes + XOR com work\lua-codec-key.bin ^ ((i-0x56)&255). A versão decriptada fica em `3 - Ferramentas\...\Decrypted`.
+
+## Personagens (todos lvl 400, 32767 stats, itens +15 exc)
+- Conta marcio: MarcioBK, MarcioDL (cavalo e corvo equipados, pet info nível 50), MarcioSM, MarcioElf, MarcioMG.
+- Conta marcio2: MarcioSU. Conta teste: TesteDL. A senha da conta teste está em senha-conta-teste.txt (fora do git).
+- O cliente aceita até 10 personagens (MAX_CHARACTER_LIST=10). A tabela AccountCharacter.MaxCharacter=5.
+
+## Pacotes instalados (backup em work\antes-packs)
+- 08 Interface Legends, 10 MenuBar (Versão 2), 07 Lorencia Degelo. O 02 Lorencia Abismo não foi instalado: 224 células do att divergem entre cliente e servidor.
+
+## Pendências e limites
+- Não testado em jogo: o acesso de controle à janela foi negado. Falta conferir trade, skills, M (nomes dos mapas não aparecem; possivelmente a interface Legends) e itens novos.
+- Exigem fonte do mu.exe: lag do Chaotic Diseier (GPU fraca), +15 transparente com opção no menu, logo da intro descentralizada, comemoração no lobby (remover a ação 207 fechou o jogo, revertido), montaria no lobby.
+- Ideias: placa [PVP] e logo MuBanneD em Lorencia (trocar texturas de Sign01/bandeiras), subir MaxCharacter para 10.
+- Arquivos binários (att, obj, bmd, lua criptografado, texturas) não vão para o git (.gitignore). Os backups ficam em ..\..\work.
