@@ -84,6 +84,7 @@ try {
                         Start-Sleep -Milliseconds 800
                     }
                 }
+                [MuFoco]::keybd_event(0x12, 0, 0, [UIntPtr]::Zero); [MuFoco]::keybd_event(0x12, 0, 2, [UIntPtr]::Zero)
                 [MuFoco]::ShowWindow($mu.MainWindowHandle, 9) | Out-Null
                 [MuFoco]::SetForegroundWindow($mu.MainWindowHandle) | Out-Null
             }

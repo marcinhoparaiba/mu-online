@@ -13,3 +13,6 @@
 22:27:44 [AccountInfo] Account connected (Account: marcio, IpAddress: 192.168.0.2, GameServerCode: 20)
 22:32:57 [AccountInfo] Account disconnected (Account: marcio, IpAddress: 192.168.0.2, GameServerCode: 20)
 23:21:10 [AccountInfo] Account connected (Account: marcio, IpAddress: 192.168.0.2, GameServerCode: 40)
+23:22:21 [AccountInfo] Account disconnected (Account: marcio, IpAddress: 192.168.0.2, GameServerCode: 40)
+23:23:55 [AccountInfo] Account connected (Account: marcio, IpAddress: 192.168.0.2, GameServerCode: 40)
+23:24:05 [AccountInfo] Account disconnected (Account: marcio, IpAddress: 192.168.0.2, GameServerCode: 40)
