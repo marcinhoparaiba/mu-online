@@ -3,4 +3,9 @@ biel		  Biel		1
 admin		  Admin		1
 marcio	MarcioBK	2
 marcio	MarcioDL	2
+marcio	MarcioSM	2
+marcio	MarcioElf	2
+marcio	MarcioMG	2
+marcio2	MarcioSU	2
+teste	TesteDL	2
 end
