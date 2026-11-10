@@ -36,3 +36,11 @@ Abrir sempre por `Integracao\Abrir-Jogo.ps1` (atalho "MuBanneD 5.2"). Ele sobe S
 - Exigem fonte do mu.exe: lag do Chaotic Diseier (GPU fraca), +15 transparente com opção no menu, logo da intro descentralizada, comemoração no lobby (remover a ação 207 fechou o jogo, revertido), montaria no lobby.
 - Ideias: placa [PVP] e logo MuBanneD em Lorencia (trocar texturas de Sign01/bandeiras), subir MaxCharacter para 10.
 - Arquivos binários (att, obj, bmd, lua criptografado, texturas) não vão para o git (.gitignore). Os backups ficam em ..\..\work.
+
+## 10/11/2026 (madrugada)
+- mu.exe aceita só 1 instância: abrir outra enquanto uma fecha => sai na hora com código 1 (não é bug do jogo).
+- Atalho: escolha de modo (SemBorda recomendado / Cheia exclusiva / Janela 1600x900), lembra em HKCU\Software\MuBanneD\Modo. SemBorda = janela 1600x900 esticada para a tela, sem borda, 1px deslocada (assim o print captura OpenGL). Não testado após a escolha de modo.
+- print-helper.ps1 (iniciado pelo atalho): intercepta Print (o mu.exe fecha ao receber Print), salva PNG em 2 - Cliente\ScreenShots e copia para a área de transferência; Alt+F4 fecha o jogo. Print testado: funciona.
+- Lobby (CharacterList.lua do cliente): 6 lado a lado (eixo Y, 150), selecionado 1.15x, MOUNT/FLYING_ADD_SIZE 0.10, ação 207 mantida (remover fechava). Original em work\antes-lobby.
+- Até 6 personagens por conta, qualquer classe (proc WZ_CreateCharacter alterada; Integracao\WZ_CreateCharacter-limite6.sql).
+- 16 mapas do servidor sincronizados com o cliente (work\antes-terrain). Skills 75/216 bloqueadas.
