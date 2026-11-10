@@ -74,3 +74,10 @@ Abrir sempre por `Integracao\Abrir-Jogo.ps1` (atalho "MuBanneD 5.2"). Ele sobe S
 - 10/11 ~08h: código 1 em modo janela/SemBorda (qualquer resolução) mesmo com Lua e BMD originais; tela cheia abre (com os BMD soldados também). Não é o kit Monarch. Padrão do atalho trocado para Cheia. Causa da janela ainda aberta (Windows mudou algo ~07:15?).
 - Set Monarch sumia do BK: no Item.txt o set M só aceitava 1 classe (o servidor tirava as peças). Agora M = DW/DK/MG/DL/SU e F = Elf/SU (3 salas). BK re-equipado no banco com 7-11:271 +15 exc full; GameServers reiniciados. Asa/capa voltaram ao modelo original (o weld piorou); set M/F continua soldado. Modo janela: crash às 07:15 e desde então código 1; após o reboot das 07:01 funcionava. Provável: reiniciar o PC resolve. Atalho em Cheia até lá.
 - Itens full (+15, skill, luck, +28, exc completo; asas sem mexer no exc) em inventário e baú de marcio/marcio2/teste: work\full_itens.py (com GameServers parados).
+
+## 10/11/2026 tarde
+- Limite 4 personagens/conta (proc + CharacterList MAX=4); lobby centralizado por quantidade (LobbyPosY 18570, espaco 500, escala 1.15, camera no do meio).
+- Contas: marcio/teste com BK,DL,SM,Elf; marcio2 com MG,SU,TesteMG,TesteSU. Conta teste com kit BanneD (ex-Monarch) +15.
+- Itens Monarch renomeados BanneD (servidor e item_*.bmd). PartyMaxMembers 9->5 (UI do cliente mostra 5).
+- Nao existe sistema de casamento neste servidor. Trade/party/guild nao testados em jogo: o mu.exe so aceita 1 instancia por PC.
+- Teste automatico: config.ini [AutoLogin] (deixar vazio no fim); conta teste/abc123.
