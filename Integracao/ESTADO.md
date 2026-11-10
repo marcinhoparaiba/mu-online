@@ -71,3 +71,4 @@ Abrir sempre por `Integracao\Abrir-Jogo.ps1` (atalho "MuBanneD 5.2"). Ele sobe S
 - MarcioBK conferido no banco: espada 0:244, escudo 6:250, set M 7-11:271, asas 12:332.
 - Kit Monarch invisível no BK (asa quebrada): modelos com ~20 mil vértices. Integracao\bmd\weld.py junta vértices repetidos (3.4k). Originais em work\antes-weld, soldados em work\antes-weld-welded (aplicados). Falta ver em jogo.
 - mu.exe saindo com código 1 = duas aberturas ao mesmo tempo. Abrir só uma.
+- 10/11 ~08h: código 1 em modo janela/SemBorda (qualquer resolução) mesmo com Lua e BMD originais; tela cheia abre (com os BMD soldados também). Não é o kit Monarch. Padrão do atalho trocado para Cheia. Causa da janela ainda aberta (Windows mudou algo ~07:15?).
