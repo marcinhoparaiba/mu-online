@@ -115,7 +115,7 @@
 183       0      22      1       4        1            1            0          "Sword of Snow Black"	4	115	126	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 184       0      22      1       4        1            1            0          "Sword of Frost"	4	115	126	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 185       0      22      1       4        1            1            0          "Sword of Frost Black"	4	115	126	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
-186       0      22      1       4        1            1            0          "Sword of Tail Fox"	4	115	126	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
+//REMOVIDO 186       0      22      1       4        1            1            0          "Sword of Tail Fox"	4	115	126	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 200	0	22	1	3	1	1	0	"Mace of King [E]"	115	153	166	60	90	0	0	0	0	0	0	0	0	0	1	1	0	1	1	1
 201	20	22	1	3	1	1	0	"Morning Star [V]"	148	235	245	120	95	0	0	1	100	35	0	0	0	0	0	1	0	1	1	1
 202	0	22	1	1	1	1	0	"Majestyk Sword [RL]"	115	153	166	60	90	0	0	0	0	0	0	0	0	0	0	1	0	1	1	1
@@ -338,10 +338,10 @@ end
 56     1      24       2       4        1            1            0          "Bow of Dark Raven"	4	10	20	40	88	0	0	0	49	226	0	0	0	0	0	0	2	0	0	0
 57     1      24       2       4        1            1            0          "Bow of Frost"	4	10	20	40	88	0	0	0	49	226	0	0	0	0	0	0	2	0	0	0
 58     1      24       2       4        1            1            0          "Bow of Frost Black"	4	10	20	40	88	0	0	0	49	226	0	0	0	0	0	0	2	0	0	0
-59     1      24       2       4        1            1            0          "Bow of Eternos"	4	10	20	40	88	0	0	0	49	226	0	0	0	0	0	0	2	0	0	0
-60     1      24       4       2        1            1            0          "Bow of Valentines"	4	10	20	40	88	0	0	0	49	226	0	0	0	0	0	0	2	0	0	0
-61     1      24       4       2        1            1            0          "Bow of Haunted"	4	10	20	40	88	0	0	0	49	226	0	0	0	0	0	0	2	0	0	0
-62     1      24       4       2        1            1            0          "Bow of Eternos 2.0"	4	10	20	40	88	0	0	0	49	226	0	0	0	0	0	0	2	0	0	0
+//REMOVIDO 59     1      24       2       4        1            1            0          "Bow of Eternos"	4	10	20	40	88	0	0	0	49	226	0	0	0	0	0	0	2	0	0	0
+//REMOVIDO 60     1      24       4       2        1            1            0          "Bow of Valentines"	4	10	20	40	88	0	0	0	49	226	0	0	0	0	0	0	2	0	0	0
+//REMOVIDO 61     1      24       4       2        1            1            0          "Bow of Haunted"	4	10	20	40	88	0	0	0	49	226	0	0	0	0	0	0	2	0	0	0
+//REMOVIDO 62     1      24       4       2        1            1            0          "Bow of Eternos 2.0"	4	10	20	40	88	0	0	0	49	226	0	0	0	0	0	0	2	0	0	0
 63	1	24	2	4	1	1	0	"Mystic Bow [RL]"	135	240	260	150	86	0	0	0	52	245	0	0	0	2	0	0	1	0	0	1
 218	1	24	2	4	1	1	0	"Bow of Gold [RL]"	135	200	210	50	86	0	0	0	52	245	0	0	0	2	0	0	1	0	0	0
 219	1	24	2	4	1	1	0	"Bow of Diamond [RL]"	135	220	230	50	86	0	0	0	52	245	0	0	0	2	0	0	1	0	0	0
@@ -401,7 +401,7 @@ end
 129       0      0       1       4        1            1            0          "Dark Raven Staff"	4	15	15	40	0	78	120	0	50	16	0	0	0	0	2	0	0	1	0	0
 130       0      0       1       4        1            1            0          "Frost Black Staff"	4	15	15	40	0	78	120	0	50	16	0	0	0	0	2	0	0	1	0	0
 131       0      0       1       4        1            1            0          "Tail Fox Staff"	4	15	15	40	0	78	120	0	50	16	0	0	0	0	2	0	0	1	0	0
-132       0      0       1       4        1            1            0          "Eternos Staff"	4	35	35	40	0	78	120	0	50	16	0	0	0	0	2	0	0	1	0	0
+//REMOVIDO 132       0      0       1       4        1            1            0          "Eternos Staff"	4	35	35	40	0	78	120	0	50	16	0	0	0	0	2	0	0	1	0	0
 218	0	0	1	4	1	1	0	"Staff of Gold [RL]"	135	75	91	40	0	95	99	0	50	16	0	0	0	0	1	0	0	1	0	0
 219	0	0	1	4	1	1	0	"Staff of Diamond [RL]"	135	88	105	40	0	95	99	0	50	16	0	0	0	0	1	0	0	1	0	0
 220	0	0	1	4	1	1	0	"Staff of Snow [C]"	135	85	99	40	0	95	99	0	50	16	0	0	0	0	1	0	0	1	0	0
@@ -1861,8 +1861,8 @@ end
 90       *      0       1       1        1            0            0          "Talisman of Wings of Spirits"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 91       *      0       1       1        1            0            0          "Talisman of Wing of Despair"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 92       *      0       1       1        1            0            0          "Talisman of Wings of Darkness"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-93       *      0       1       1        1            0            0          "Master Seal of Ascension"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-94       *      0       1       1        1            0            0          "Master Seal of Wealth"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 93       *      0       1       1        1            0            0          "Master Seal of Ascension"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 94       *      0       1       1        1            0            0          "Master Seal of Wealth"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 95       *      0       1       1        1            0            0          "Gladiator's Honor"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 96       *      0       1       1        1            0            0          "Seal of Strength"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 103      *      0       1       1        1            0            0          "Party EXP Scroll"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
@@ -1889,23 +1889,23 @@ end
 125      0      0       1       1        1            0            0          "Open Access Ticket to Doppelga"	29285	10	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 126      *      0       1       1        1            0            0          "Open Access Ticket to Varka"	0	10	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 127      *      0       1       1        1            0            0          "Open Access Ticket to Varka Ma"	55	3	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-128      10     0       1       1        1            0            0          "Hawk Figurine"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-129      10     0       1       1        1            0            0          "Goat Figurine"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-130      10     0       1       1        1            0            0          "Oak Charm"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-131      10     0       1       1        1            0            0          "Maple Charm"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-132      10     0       1       2        1            0            0          "Golden Oak Charm"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-133      10     0       1       2        1            0            0          "Golden Maple Charm"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-134      10     0       1       1        1            0            0          "Worn Horseshoe"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-135	 *	0	1	1	 1	      0	           0	      "1st Lucky Armor Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-136	 *	0	1	1	 1	      0	           0	      "1st Lucky Pants Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-137	 *	0	1	1	 1	      0	           0	      "1st Lucky Helm Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-138	 *	0	1	1	 1	      0	           0	      "1st Lucky Gloves Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-139	 *	0	1	1	 1	      0	           0	      "1st Lucky Boots Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-140	 *	0	1	1	 1	      0	           0	      "2sd Lucky Armor Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-141	 *	0	1	1	 1	      0	           0	      "2sd Lucky Pants Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-142	 *	0	1	1	 1	      0	           0	      "2sd Lucky Helm Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-143	 *	0	1	1	 1	      0	           0	      "2sd Lucky Gloves Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-144	 *	0	1	1	 1	      0	           0	      "2sd Lucky Boots Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 128      10     0       1       1        1            0            0          "Hawk Figurine"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 129      10     0       1       1        1            0            0          "Goat Figurine"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 130      10     0       1       1        1            0            0          "Oak Charm"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 131      10     0       1       1        1            0            0          "Maple Charm"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 132      10     0       1       2        1            0            0          "Golden Oak Charm"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 133      10     0       1       2        1            0            0          "Golden Maple Charm"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 134      10     0       1       1        1            0            0          "Worn Horseshoe"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 135	 *	0	1	1	 1	      0	           0	      "1st Lucky Armor Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 136	 *	0	1	1	 1	      0	           0	      "1st Lucky Pants Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 137	 *	0	1	1	 1	      0	           0	      "1st Lucky Helm Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 138	 *	0	1	1	 1	      0	           0	      "1st Lucky Gloves Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 139	 *	0	1	1	 1	      0	           0	      "1st Lucky Boots Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 140	 *	0	1	1	 1	      0	           0	      "2sd Lucky Armor Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 141	 *	0	1	1	 1	      0	           0	      "2sd Lucky Pants Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 142	 *	0	1	1	 1	      0	           0	      "2sd Lucky Helm Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 143	 *	0	1	1	 1	      0	           0	      "2sd Lucky Gloves Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO 144	 *	0	1	1	 1	      0	           0	      "2sd Lucky Boots Ticket"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 200      8      76      2       2        1            0            0          "Fenrir Black"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 201      8      76      2       2        1            0            0          "Fenrir Gold"	218	255	0	0	0	0	0	0	0	0	1	1	1	1	0	0
 202      8      76      2       2        1            0            0          "Fenrir Red"	218	255	0	0	0	0	0	0	0	0	1	1	1	1	0	0
@@ -1985,57 +1985,57 @@ end
 276      8      76      2       2        1            0            0          "Tail Fox"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 
 // Os itens listados abaixo s o apenas a parte visual do inventario,  favor n o mexer , se for adicionar novos pets e montarias adicionem abaixo do numero 300
-400	8	0	2	2	1	1	0	"Horn Fenrir Red"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-401	8	0	2	2	1	1	0	"Horn Fenrir Green"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-402	8	0	2	2	1	1	0	"Horn Fenrir Black"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-403	8	0	2	2	1	1	0	"Horn Fenrir Steel"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-404	8	0	2	2	1	1	0	"Horn Fenrir Blue"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-405	8	0	2	2	1	1	0	"Horn Fenrir Purple"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-406	8	0	1	1	1	1	0	"Dinorant Blue"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-407	8	0	1	1	1	1	0	"Dinorant Black"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-408	8	0	1	1	1	1	0	"Dinorant Red"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-409	8	0	1	1	1	1	0	"Dinorant Red xMax"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-410	8	0	1	1	1	1	0	"Dinorant Green"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-411	8	0	1	1	1	1	0	"Dinorant Steel"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-412	8	0	1	1	1	1	0	"Dinorant Gold"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-413	8	0	1	1	1	1	0	"Dinorant Pink"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-414	8	0	1	1	1	1	0	"Fenrir Ghost"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-415	8	0	2	2	1	1	0	"Horn Fenrir Gold"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-416	8	0	2	2	1	1	0	"Horn Fenrir Ghost skin2"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-417	8	0	2	2	1	1	0	"Horn Fenrir Ghost Skin3"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-418	8	0	2	2	1	1	0	"Horn Horse ghost blue"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-419	8	0	2	2	1	1	0	"Horn Horse ghost red"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-420	8	0	2	2	1	1	0	"Horn Eagle hawk"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-421	8	0	2	2	1	1	0	"Horn Eagle Horus"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-422	8	0	2	2	1	1	0	"Horn Eagle Abbadon"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-423	8	0	2	2	1	1	0	"Hon Fenrir Purple"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-424	8	0	1	1	1	1	0	"Horse of Death"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-425	8	0	1	1	1	1	0	"Horse of War Christmas"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-426	8	0	1	1	1	1	0	"Horse of White"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-426	8	0	1	1	1	1	0	"Eagle of Death"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-427	8	0	1	1	1	1	0	"Dinorant Blue [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-428	8	0	1	1	1	1	0	"Dinorant Black [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-429	8	0	1	1	1	1	0	"Dinorant Red [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-430	8	0	1	1	1	1	0	"Dinorant Red xMax [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-431	8	0	1	1	1	1	0	"Dinorant Green [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-432	8	0	1	1	1	1	0	"Dinorant Steel [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-433	8	0	1	1	1	1	0	"Dinorant Gold [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-434	8	0	1	1	1	1	0	"Dinorant Pink [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-435	8	0	1	1	1	1	0	"Horse of Hallowen"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-436	8	0	1	1	1	1	0	"Ice Dragon Steel"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-437	8	0	1	1	1	1	0	"Horn Fenrir Abbadon"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-438	8	0	1	1	1	1	0	"Horse of Abbadon"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-439	8	0	1	1	1	1	0	"Ice Dragon Blue"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-440	8	0	1	1	1	1	0	"Eagle of Cold"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-441	8	0	1	1	1	1	0	"Eagle of Zeus"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-442	8	0	1	1	1	1	0	"Horn Fenrir Holly"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-443	8	0	1	1	1	1	0	"Horn Fenrir Holly Night"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-444	8	0	1	1	1	1	0	"Horse of Holly"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-445	8	0	1	1	1	1	0	"Horse of Holly Night"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-446	8	0	1	1	1	1	0	"Eagle of Dark Raven"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-447	8	0	1	1	1	1	0	"Griffin"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-448	8	0	1	1	1	1	0	"Griffin Black"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-449	8	0	1	1	1	1	0	"Horn Tail Fox"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 400	8	0	2	2	1	1	0	"Horn Fenrir Red"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 401	8	0	2	2	1	1	0	"Horn Fenrir Green"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 402	8	0	2	2	1	1	0	"Horn Fenrir Black"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 403	8	0	2	2	1	1	0	"Horn Fenrir Steel"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 404	8	0	2	2	1	1	0	"Horn Fenrir Blue"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 405	8	0	2	2	1	1	0	"Horn Fenrir Purple"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 406	8	0	1	1	1	1	0	"Dinorant Blue"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 407	8	0	1	1	1	1	0	"Dinorant Black"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 408	8	0	1	1	1	1	0	"Dinorant Red"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 409	8	0	1	1	1	1	0	"Dinorant Red xMax"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 410	8	0	1	1	1	1	0	"Dinorant Green"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 411	8	0	1	1	1	1	0	"Dinorant Steel"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 412	8	0	1	1	1	1	0	"Dinorant Gold"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 413	8	0	1	1	1	1	0	"Dinorant Pink"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 414	8	0	1	1	1	1	0	"Fenrir Ghost"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 415	8	0	2	2	1	1	0	"Horn Fenrir Gold"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 416	8	0	2	2	1	1	0	"Horn Fenrir Ghost skin2"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 417	8	0	2	2	1	1	0	"Horn Fenrir Ghost Skin3"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 418	8	0	2	2	1	1	0	"Horn Horse ghost blue"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 419	8	0	2	2	1	1	0	"Horn Horse ghost red"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 420	8	0	2	2	1	1	0	"Horn Eagle hawk"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 421	8	0	2	2	1	1	0	"Horn Eagle Horus"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 422	8	0	2	2	1	1	0	"Horn Eagle Abbadon"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 423	8	0	2	2	1	1	0	"Hon Fenrir Purple"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 424	8	0	1	1	1	1	0	"Horse of Death"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 425	8	0	1	1	1	1	0	"Horse of War Christmas"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 426	8	0	1	1	1	1	0	"Horse of White"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 426	8	0	1	1	1	1	0	"Eagle of Death"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 427	8	0	1	1	1	1	0	"Dinorant Blue [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 428	8	0	1	1	1	1	0	"Dinorant Black [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 429	8	0	1	1	1	1	0	"Dinorant Red [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 430	8	0	1	1	1	1	0	"Dinorant Red xMax [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 431	8	0	1	1	1	1	0	"Dinorant Green [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 432	8	0	1	1	1	1	0	"Dinorant Steel [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 433	8	0	1	1	1	1	0	"Dinorant Gold [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 434	8	0	1	1	1	1	0	"Dinorant Pink [Mini]"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 435	8	0	1	1	1	1	0	"Horse of Hallowen"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 436	8	0	1	1	1	1	0	"Ice Dragon Steel"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 437	8	0	1	1	1	1	0	"Horn Fenrir Abbadon"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 438	8	0	1	1	1	1	0	"Horse of Abbadon"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 439	8	0	1	1	1	1	0	"Ice Dragon Blue"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 440	8	0	1	1	1	1	0	"Eagle of Cold"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 441	8	0	1	1	1	1	0	"Eagle of Zeus"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 442	8	0	1	1	1	1	0	"Horn Fenrir Holly"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 443	8	0	1	1	1	1	0	"Horn Fenrir Holly Night"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 444	8	0	1	1	1	1	0	"Horse of Holly"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 445	8	0	1	1	1	1	0	"Horse of Holly Night"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 446	8	0	1	1	1	1	0	"Eagle of Dark Raven"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 447	8	0	1	1	1	1	0	"Griffin"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 448	8	0	1	1	1	1	0	"Griffin Black"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
+//REMOVIDO 449	8	0	1	1	1	1	0	"Horn Tail Fox"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
 end
 
 14
@@ -2188,33 +2188,33 @@ end
 148      *      0       1       1        1            0            0          "Rare Item Ticket 10"	0	0
 149      *      0       1       1        1            0            0          "Rare Item Ticket 11"	0	0
 150      *      0       1       1        1            0            0          "Rare Item Ticket 12"	0	0
-151	 *	0	1	2	 1	      0	           0	      "Lv. 1 Letter of Request"	0	0
-152	 *	0	1	2	 1	      0	           0	      "Lv. 1 Completion Certificate"	0	0
-153	 *	0	1	1	 1	      0	           0	      "Stardust"	60	0
-154	 *	0	1	1	 1	      0	           0	      "Kalt Stone"	60	0
-155	 *	0	2	2	 1	      0	           0	      "Tantalos's Armor"	60	0
-156	 *	0	1	3	 1	      0	           0	      "Burnt Murderer's Club"	60	0
-157	 *	0	1	1	 1	      0	           0	      "Green Box"	190	0
-158	 *	0	1	1	 1	      0	           0	      "Red Box"	190	0
-159	 *	0	1	1	 1	      0	           0	      "Purple Box"	190	0
-160	 *	0	1	1	 1	      0	           0	      "Jewel of Extension"	0	0
-161	 *	0	1	1	 1	      0	           0	      "Jewel of Elevation"	0	0
-162	 *	0	1	1	 1	      0	           0	      "Magic Backpack"	0	0
-163	 *	0	1	1	 1	      0	           0	      "Vault Expansion Certificate"	0	0
-169	 *	0	1	1	 1	      0	           0	      "Rage Fighter Character Card"	0	0
+//REMOVIDO 151	 *	0	1	2	 1	      0	           0	      "Lv. 1 Letter of Request"	0	0
+//REMOVIDO 152	 *	0	1	2	 1	      0	           0	      "Lv. 1 Completion Certificate"	0	0
+//REMOVIDO 153	 *	0	1	1	 1	      0	           0	      "Stardust"	60	0
+//REMOVIDO 154	 *	0	1	1	 1	      0	           0	      "Kalt Stone"	60	0
+//REMOVIDO 155	 *	0	2	2	 1	      0	           0	      "Tantalos's Armor"	60	0
+//REMOVIDO 156	 *	0	1	3	 1	      0	           0	      "Burnt Murderer's Club"	60	0
+//REMOVIDO 157	 *	0	1	1	 1	      0	           0	      "Green Box"	190	0
+//REMOVIDO 158	 *	0	1	1	 1	      0	           0	      "Red Box"	190	0
+//REMOVIDO 159	 *	0	1	1	 1	      0	           0	      "Purple Box"	190	0
+//REMOVIDO 160	 *	0	1	1	 1	      0	           0	      "Jewel of Extension"	0	0
+//REMOVIDO 161	 *	0	1	1	 1	      0	           0	      "Jewel of Elevation"	0	0
+//REMOVIDO 162	 *	0	1	1	 1	      0	           0	      "Magic Backpack"	0	0
+//REMOVIDO 163	 *	0	1	1	 1	      0	           0	      "Vault Expansion Certificate"	0	0
+//REMOVIDO 169	 *	0	1	1	 1	      0	           0	      "Rage Fighter Character Card"	0	0
 200  *      0       1       1        1            0            0          "Box of Master Reset"	0	0
-244	*	0	1	1	 1	      0		   0	      "Jewel Of Level"	0	0
-245	*	0	1	1	 1	      0	  	   0	      "Jewel Of Skill"	0	0
-246	*	0	1	1	 1	      0	   	   0	      "Jewel Of Luck"	0	0
-247	*	0	1	1	 1	      0	  	   0	      "Jewel Of Adicional"	0	0
-248	*	0	1	1	 1	      0	   	   0	      "Jewel Of Excelentt"	0	0
-249	*	0	1	1	 1	      0	   	   0	      "Jewel Of Socket"	0	0
-250	*	0	1	1	 1	      0	   	   0 	      "Jewel Of Ancient 1"	0	0
-251	*	0	1	1	 1	      0	  	   0	      "Jewel Of Ancient 2"	0	0
-252	*	0	1	1	 1	      0		   0	      "Jewel Of full"	0	0
-253	*	0	1	1	 1	      0		   0	      "Jewel of Light Hawk: Evolution"	0	0
-254	*	0	1	1	 1	      0		   0	      "Jewel of Light Hawk"	0	0
-255	*	0	1	1	 1	      0		   0	      "Relic of Light Hawk"	0	0
+//REMOVIDO 244	*	0	1	1	 1	      0		   0	      "Jewel Of Level"	0	0
+//REMOVIDO 245	*	0	1	1	 1	      0	  	   0	      "Jewel Of Skill"	0	0
+//REMOVIDO 246	*	0	1	1	 1	      0	   	   0	      "Jewel Of Luck"	0	0
+//REMOVIDO 247	*	0	1	1	 1	      0	  	   0	      "Jewel Of Adicional"	0	0
+//REMOVIDO 248	*	0	1	1	 1	      0	   	   0	      "Jewel Of Excelentt"	0	0
+//REMOVIDO 249	*	0	1	1	 1	      0	   	   0	      "Jewel Of Socket"	0	0
+//REMOVIDO 250	*	0	1	1	 1	      0	   	   0 	      "Jewel Of Ancient 1"	0	0
+//REMOVIDO 251	*	0	1	1	 1	      0	  	   0	      "Jewel Of Ancient 2"	0	0
+//REMOVIDO 252	*	0	1	1	 1	      0		   0	      "Jewel Of full"	0	0
+//REMOVIDO 253	*	0	1	1	 1	      0		   0	      "Jewel of Light Hawk: Evolution"	0	0
+//REMOVIDO 254	*	0	1	1	 1	      0		   0	      "Jewel of Light Hawk"	0	0
+//REMOVIDO 255	*	0	1	1	 1	      0		   0	      "Relic of Light Hawk"	0	0
 256	*	0	1	1	 1	      0		   0	      "Jewel of Visual"	0	0
 // New Boxs
 300      *      0       1       1        1            0            0          "Yellow Football Box"	0	0
@@ -2241,17 +2241,17 @@ end
 321      *      0       1       1        1            0            0          "Light Hawk Box"	0	0
 322      *      0       1       1        1            0            0          "Dark Raven Box"	0	0
 // Summon boss
-441	*	0	2	2	 1	      0		   0	      "Summon Boss Level 1"	0	0
-442	*	0	2	2	 1	      0	   	   0	      "Summon Boss Level 2"	0	0
-443	*	0	2	2	 1	      0		   0	      "Summon Boss Level 3"	0	0
-444	*	0	2	2	 1	      0		   0	      "Summon Boss Level 4"	0	0
-445	*	0	2	2	 1	      0	 	   0	      "Summon Boss Level 5"	0	0
-446	*	0	2	2	 1	      0		   0	      "Summon Boss Level 6"	0	0
-447	*	0	2	2	 1	      0		   0	      "Summon Boss Level 7"	0	0
-448	*	0	2	2	 1	      0		   0	      "Summon Boss Level 8"	0	0
-449	*	0	2	2	 1	      0		   0	      "Summon Boss Level 9"	0	0
-450	*	0	2	2	 1	      0		   0	      "Summon Boss Level 10"	0	0
-451	*	0	2	2	 1	      0	 	   0	      "Summon Boss Level 11"	0	0
+//REMOVIDO 441	*	0	2	2	 1	      0		   0	      "Summon Boss Level 1"	0	0
+//REMOVIDO 442	*	0	2	2	 1	      0	   	   0	      "Summon Boss Level 2"	0	0
+//REMOVIDO 443	*	0	2	2	 1	      0		   0	      "Summon Boss Level 3"	0	0
+//REMOVIDO 444	*	0	2	2	 1	      0		   0	      "Summon Boss Level 4"	0	0
+//REMOVIDO 445	*	0	2	2	 1	      0	 	   0	      "Summon Boss Level 5"	0	0
+//REMOVIDO 446	*	0	2	2	 1	      0		   0	      "Summon Boss Level 6"	0	0
+//REMOVIDO 447	*	0	2	2	 1	      0		   0	      "Summon Boss Level 7"	0	0
+//REMOVIDO 448	*	0	2	2	 1	      0		   0	      "Summon Boss Level 8"	0	0
+//REMOVIDO 449	*	0	2	2	 1	      0		   0	      "Summon Boss Level 9"	0	0
+//REMOVIDO 450	*	0	2	2	 1	      0		   0	      "Summon Boss Level 10"	0	0
+//REMOVIDO 451	*	0	2	2	 1	      0	 	   0	      "Summon Boss Level 11"	0	0
 end
 
 15
@@ -2285,11 +2285,11 @@ end
 27       *      0       1       2        1            0            0          "Innovation Parchment"	111	0	201	450000	0	0	0	0	0	2
 28       *      0       1       2        1            0            0          "Scroll of Wizardry Enhance"	100	220	118	425000	2	0	0	0	0	0
 29       *      0       1       2        1            0            0          "Scroll of Gigantic Storm"	100	220	118	380000	0	0	0	1	0	0
-30       *      0       1       2        1            0            0          "Chain Driver Parchment"	80	150	0	175000	0	0	0	0	0	0
-31       *      0       1       2        1            0            0          "Dark Side Parchment"	100	180	0	345000	0	0	0	0	0	0
-32       *      0       1       2        1            0            0          "Dragon Lore Parchment"	90	150	0	265000	0	0	0	0	0	0
-33       *      0       1       2        1            0            0          "Dragon Slayer Parchment"	100	200	0	345000	0	0	0	0	0	0
-34       *      0       1       2        1            0            0          "Red Armor Ignore Parchment"	100	120	0	345000	0	0	0	0	0	0
-35       *      0       1       2        1            0            0          "Fitness Parchment"	90	80	0	265000	0	0	0	0	0	0
-36       *      0       1       2        1            0            0          "Defense Rate Parchment"	70	50	0	60000	0	0	0	0	0	0
+//REMOVIDO 30       *      0       1       2        1            0            0          "Chain Driver Parchment"	80	150	0	175000	0	0	0	0	0	0
+//REMOVIDO 31       *      0       1       2        1            0            0          "Dark Side Parchment"	100	180	0	345000	0	0	0	0	0	0
+//REMOVIDO 32       *      0       1       2        1            0            0          "Dragon Lore Parchment"	90	150	0	265000	0	0	0	0	0	0
+//REMOVIDO 33       *      0       1       2        1            0            0          "Dragon Slayer Parchment"	100	200	0	345000	0	0	0	0	0	0
+//REMOVIDO 34       *      0       1       2        1            0            0          "Red Armor Ignore Parchment"	100	120	0	345000	0	0	0	0	0	0
+//REMOVIDO 35       *      0       1       2        1            0            0          "Fitness Parchment"	90	80	0	265000	0	0	0	0	0	0
+//REMOVIDO 36       *      0       1       2        1            0            0          "Defense Rate Parchment"	70	50	0	60000	0	0	0	0	0	0
 end
