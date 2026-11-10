@@ -39,6 +39,12 @@ try {
         $sql.WaitForStatus('Running', [TimeSpan]::FromSeconds(20))
     }
 
+    $ip = (Get-NetIPConfiguration | Where-Object { $_.IPv4DefaultGateway -and $_.NetAdapter.Status -eq 'Up' } | Select-Object -First 1).IPv4Address.IPAddress
+    if ($ip) {
+        $mudou = & python -I (Join-Path $PSScriptRoot 'ajustar_ip.py') $ip
+        if ($mudou -eq 'mudou') { Get-Process ConnectServer -ErrorAction SilentlyContinue | Stop-Process -Force; Start-Sleep 1 }
+    }
+
     foreach ($part in $parts) {
         $path = Join-Path $server $part.File
         $owners = @(Get-ListenerOwner $part.Port)
