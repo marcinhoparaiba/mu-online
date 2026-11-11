@@ -34,8 +34,8 @@
 
 12 	     17 	0       0      	0       0      	0        0		     //Penetration Muse Elf/Elf)
 12 	     18 	0       0      	0       0      	0        0		     //Ice Age (Muse Elf) 
-12 	     45 	0       0      	0       0      	0        0		     //Multi shot
-12 	     46 	0       0      	0       0      	0        0		     //Multi shot
+//REMOVIDO 12 	     45 	0       0      	0       0      	0        0		     //Multi shot
+//REMOVIDO 12 	     46 	0       0      	0       0      	0        0		     //Multi shot
 
 12 	     8  	0       0      	0       0      	0        0		     //Healing Orb 
 12 	     9  	0       0      	0       0      	0        0		     //Advanced Defence 
