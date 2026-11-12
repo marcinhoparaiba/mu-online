@@ -7,10 +7,10 @@
 //==============================================================================================================================================================
 //Section   Type   	Level   Dur   Skill   Luck   Option   ExcOp	          ItemName
 //==============================================================================================================================================================
-5	     14		7	0	0	1	1	0 			//Mystery Stick
-5	     15		7	0	0	1	1	0 			//Violent Wind Stick
-5	     16		7	0	0	1	1	0 			//Red Wing Stick
-5	     17		7	0	0	1	1	0 			//Ancient Stick
+//REMOVIDO 5	     14		7	0	0	1	1	0 			//Mystery Stick
+//REMOVIDO 5	     15		7	0	0	1	1	0 			//Violent Wind Stick
+//REMOVIDO 5	     16		7	0	0	1	1	0 			//Red Wing Stick
+//REMOVIDO 5	     17		7	0	0	1	1	0 			//Ancient Stick
 13	     1		0	0	0	0	0	0 			//Imp
 13	     1		0	0	0	0	0	0 			//Imp
 13	     0		0	0	0	0	0	0 			//Guardian Angel
@@ -19,8 +19,8 @@
 13	     1		0	0	0	0	0	0 			//Imp
 13	     0		0	0	0	0	0	0 			//Guardian Angel
 13	     0		0	0	0	0	0	0 			//Guardian Angel
-5	     21		7	0	1	1	1	0 			//Book of Samut
-5	     22		7	0	1	1	1	0 			//Book of Neil
+//REMOVIDO 5	     21		7	0	1	1	1	0 			//Book of Samut
+//REMOVIDO 5	     22		7	0	1	1	1	0 			//Book of Neil
 14	     3		0	50	0	0	0	0 			//Large Healing Potion
 14	     3		0	50	0	0	0	0 			//Large Healing Potion
 14	     6		0	50	0	0	0	0 			//Large Mana Potion

@@ -32,7 +32,7 @@
 12	     13		0	255	0	0	0	0       		//Orb of Impale
 12	     14		0	0	0	0	0	0       		//Orb of Greater Fortitude
 12	     19		0	255	0	0	0	0       		//Orb of Death Stab
-12	     44		0	0	0	0	0	0       		//Crystal of Destruction
+//REMOVIDO 12	     44		0	0	0	0	0	0       		//Crystal of Destruction
 0	     13		9	255	1	1	1	0       		//Double Blade
 0	     11		9	255	1	1	1	0       		//Legendary Sword
 0	     16		9	255	1	1	1	0       		//Sword of Destruction

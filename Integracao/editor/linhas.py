@@ -20,11 +20,11 @@ if _bk.exists():
         _m = _re.match(r'(\d+)\s+(?:-?\d+|\*)\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+\d+\s+"([^"]*)"', _s)
         if _m and _sec is not None: _ORIG[(_sec, int(_m[1]))] = _m[2]
 for (s, i), it in loja.ITENS.items():
-    if s > 13: continue
+    if s > 13 or (s == 13 and i < 100) or (s == 12 and i < 50): continue  # itens classicos nunca entram em linha
     k = tema(_ORIG.get((s, i), it['n']))
     if k and len(k) > 2: L[k].append((s, i))
 # nome cortado pela marca [EXCLUSIVO]/[LIMITADO] (ex.: "gift chri"): junta na linha que comeca igual
-for _k in [k for k in list(L) if len(L[k]) <= 3]:
+for _k in [k for k in list(L) if len(L[k]) <= 3 and all(len(loja.ITENS[x]['n']) >= 28 for x in L[k])]:  # so nomes cortados pela marca
     _alvo = [k for k in L if k != _k and k.startswith(_k) and len(L[k]) > 3]
     if len(_alvo) == 1: L[_alvo[0]] += L.pop(_k)
 def cats(v): return {('set' if 7 <= s <= 11 else s) for s, i in v}

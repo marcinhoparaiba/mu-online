@@ -25,3 +25,16 @@
 | 17 | — | Asas classicas 5x3 / 5x2 no inventario | NAO APLICAVEL (tamanho original do MU) |
 | 18 | — | 10 itens sem classe (pergaminhos do DL, Cape of Lord, Dark Raven, Spirit) | NAO APLICAVEL (itens especiais) |
 | — | — | Todos os 2193 itens tem nome no cliente; todos os itens novos/donate tem modelo e textura | OK |
+
+## Varredura geral (12/11, 3a rodada) — Integracao/editor/auditoria_geral.py
+| # | Sev. | Achado | Status |
+|---|---|---|---|
+| 19 | Alta | Wizards Ring (13:20) estava comentado no Item.txt, mas todo personagem novo nasce com 2 (DefaultClassType) -> 28 itens invalidos em inventarios | CONFIRMADO E CORRIGIDO (item reativado nas 3 salas) |
+| 20 | Media | 5 itens classicos entraram em linhas por engano (Dark Raven normal do DL, Cape of Lord, Ring of Ice, Scroll of Blood, Orb of Ice Arrow) e ficaram exclusivos | CONFIRMADO E CORRIGIDO (classicos fora das linhas; nome original de volta) |
+| 21 | Media | Pet Frost Black (13:275) sem registro no cliente -> invisivel | CONFIRMADO E CORRIGIDO (CharacterHelper) |
+| 22 | Media | SalaVip: 11 itens inexistentes nas lojas | CONFIRMADO E CORRIGIDO (//REMOVIDO) |
+| 23 | Baixa | CustomWing com asa 12:174 inexistente (3 salas) | CONFIRMADO E CORRIGIDO |
+| 24 | Media | Aneis/pendants novos com modelo de chifre | CONFIRMADO E CORRIGIDO (modelos de anel/colar por tema) |
+| 25 | Media | Horse/Fenrir BanneD duplicados (13:473/474) | CONFIRMADO E CORRIGIDO |
+| — | — | Varredura final: 0 achados (monstros, spawns, lojas, asas, portoes, imagens, inventarios/baus do banco, logs) | OK |
+| — | — | Visual dentro do jogo | NAO TESTADO |

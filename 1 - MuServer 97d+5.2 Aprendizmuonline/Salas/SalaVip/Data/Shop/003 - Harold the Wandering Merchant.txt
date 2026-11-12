@@ -35,7 +35,7 @@
 
 //desativado
 12	     16      	0       0       0       0       0       0 0 			//Fire Slash
-12	     47      	0       0       0       0       0       0 0 			//flame strike
+//REMOVIDO 12	     47      	0       0       0       0       0       0 0 			//flame strike
 15	     29      	0       0       0       0       0       0 0 			//giga storm
 15	     8       	0       0       0       0       0       0 0 			//evil spirits
 end
