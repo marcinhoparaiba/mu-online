@@ -26,10 +26,10 @@ function Commands.Chat(index, text)
 		return 1
 	end
 
-	-- MuBanneD: so a conta ADM cria item por comando; GM cria pelo editor (tecla G)
+	-- MuBanneD: so a conta ADM cria item por comando; GM cria pelo editor (tecla Z)
 	local CRIA_ITEM = {["/make"]=1,["/makeall"]=1,["/makedur"]=1,["/makefull"]=1,["/makemap"]=1,["/makeset"]=1,["/makesetfull"]=1,["/makesetvisual"]=1,["/makevisual"]=1,["/drop"]=1,["/dropall"]=1,["/dropdur"]=1,["/dropmap"]=1,["/addbrinde"]=1}
 	if CRIA_ITEM[command] and User.new(index):getAccountID() ~= (EDITOR_DONO or "admin") then
-		SendMessage("[Sistema] Criar item: use o Editor (tecla G).", index, 1)
+		SendMessage("[Sistema] Criar item: use o Editor (tecla Z).", index, 1)
 		return 1
 	end
 
