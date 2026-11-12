@@ -247,7 +247,7 @@ TradeItemBlockLucky = 0
 ;==================================================
 ; Level Up Settings
 ;==================================================
-MaxLevel = 1000
+MaxLevel = 600
 MaxLevelUp = 0
 MaxLevelUpEvent = 0
 MaxStatPoint_AL0 = 32767
