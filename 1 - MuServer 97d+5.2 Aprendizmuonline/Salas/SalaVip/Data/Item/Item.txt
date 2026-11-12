@@ -152,7 +152,7 @@
 242	0	22	1	4	1	1	0	"Light Griffin Sword [RL]"	115	191	199	82	90	0	0	0	0	0	0	0	0	0	0	1	0	1	1	1
 243	0	22	1	4	1	1	0	"Mace of King [RL]"	115	191	199	82	90	0	0	0	0	0	0	0	0	0	0	1	0	1	1	1
 245	0	22	1	4	1	1	0	"Mystic Sword [RL] [LIMITADO]"	115	228	252	150	90	0	0	0	0	0	0	0	0	0	0	1	0	1	1	1
-244	0	22	1	4	1	1	0	"BanneD Sword [LIMITADO]"	115	240	264	82	90	0	0	0	0	0	0	0	0	0	0	1	0	1	1	1
+244	0	22	1	4	1	1	0	"BanneD Sword [BANNED]"	115	240	264	82	90	0	0	0	0	0	0	0	0	0	0	1	0	1	1	1
 320       0      22      1       4        1            1            0          "Sword of Tail Fox [EXCLUSIVO]"	4	240	264	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 end
 
@@ -262,8 +262,8 @@ end
 230	0	22	1	4	1	1	0	"Sonnar Mace [RL] [EXCLUSIVO]"	135	118	140	60	84	0	67	0	90	20	0	0	0	1	0	1	0	1	1	1
 231	0	22	1	4	1	1	0	"Light Griffin Mace [RL]"	135	118	140	60	84	0	67	0	90	20	0	0	0	1	0	1	0	1	1	1
 232	0	22	1	3	1	1	0	"Mystic Mace [RL] [LIMITADO]"	135	142	170	150	84	0	101	0	90	20	0	0	0	1	0	1	0	1	1	1
-233	0	22	1	4	1	1	0	"BanneD Mace [LIMITADO]"	135	166	204	60	84	0	101	0	90	20	0	0	0	1	0	1	0	1	1	1
-234	0	22	1	3	1	1	0	"BanneD Hammer [LIMITADO]"	135	166	204	150	84	0	101	0	90	20	0	0	0	1	0	1	0	1	1	1
+233	0	22	1	4	1	1	0	"BanneD Mace [BANNED]"	135	166	204	60	84	0	101	0	90	20	0	0	0	1	0	1	0	1	1	1
+234	0	22	1	3	1	1	0	"BanneD Hammer [BANNED]"	135	166	204	150	84	0	101	0	90	20	0	0	0	1	0	1	0	1	1	1
 300	0	66	1	4	1	1	0	"Scepter of Zeus [LIMITADO]"	4	166	204	40	95	0	101	380	80	15	0	0	0	0	0	0	0	0	1	0
 301	0	66	1	4	1	1	0	"Scepter of Horus [LIMITADO]"	4	166	204	40	95	0	101	380	80	15	0	0	0	0	0	0	0	0	1	0
 302	0	66	1	4	1	1	0	"Scepter of Poseidon [LIMITADO]"	4	166	204	40	95	0	101	380	80	15	0	0	0	0	0	0	0	0	1	0
@@ -385,7 +385,7 @@ end
 223	1	24	2	4	1	1	0	"Bow Bright ReD [EXCLUSIVO]"	135	220	230	50	86	0	0	0	52	245	0	0	0	2	0	0	1	0	0	1
 224	1	24	2	4	1	1	0	"Black Bow Christma [EXCLUSIVO]"	135	220	230	50	86	0	0	0	52	245	0	0	0	2	0	0	1	0	0	1
 225	1	24	2	4	1	1	0	"Sonnar Bow [RL] [EXCLUSIVO]"	135	220	230	50	86	0	0	0	52	245	0	0	0	2	0	0	1	0	0	1
-226	1	24	2	4	1	1	0	"BanneD Bow [LIMITADO]"	135	288	312	50	86	0	0	0	52	245	0	0	0	2	0	0	1	0	0	1
+226	1	24	2	4	1	1	0	"BanneD Bow [BANNED]"	135	288	312	50	86	0	0	0	52	245	0	0	0	2	0	0	1	0	0	1
 end
 
 5
@@ -461,7 +461,7 @@ end
 239	0	0	1	4	1	1	0	"Demonic Stick"	100	46	48	30	0	91	92	0	54	15	0	0	0	0	0	0	0	0	0	2
 240	0	0	1	4	1	1	0	"Storm Blitz Stick"	110	51	53	30	0	95	110	380	64	15	0	0	0	0	0	0	0	0	0	2
 241	0	0	1	4	1	1	0	"Eternal Wing Stick"	147	66	74	30	0	100	106	380	57	13	0	0	0	0	0	0	0	0	0	2
-242	0	0	1	4	1	1	0	"BanneD Staff [LIMITADO]"	110	162	180	30	0	95	144	380	64	15	0	0	0	0	0	0	0	0	0	2
+242	0	0	1	4	1	1	0	"BanneD Staff [BANNED]"	110	162	180	30	0	95	144	380	64	15	0	0	0	0	0	0	0	0	0	2
 300       0      0       1       4        1            1            0          "Staff of Death [LIMITADO]"	4	162	180	40	0	78	144	0	50	16	0	0	0	0	2	0	0	1	0	0
 301       0      0       1       4        1            1            0          "Staff of Ghost [LIMITADO]"	4	162	180	40	0	78	144	0	50	16	0	0	0	0	2	0	0	1	0	0
 302       0      0       1       4        1            1            0          "Staff of Light Hawk [LIMITADO]"	4	162	180	40	0	78	144	0	50	16	0	0	0	0	2	0	0	1	0	0
@@ -603,7 +603,7 @@ end
 247	1	18	2	2	1	1	0	"Light Griffin shield [RL]"	60	63	132	101	0	120	40	0	0	0	4	1	1	1	1	1	1
 248	1	18	2	2	1	1	0	"Shield of King [RL]"	60	63	132	101	0	120	40	0	0	0	4	1	1	1	1	1	1
 249	1	18	2	2	1	1	0	"Mystic Shield [RL] [LIMITADO]"	60	84	162	121	0	120	40	0	0	0	4	1	1	1	1	1	1
-250	1	18	2	2	1	1	0	"BanneD Shield [LIMITADO]"	60	100	132	101	0	120	40	0	0	0	4	1	1	1	1	1	1
+250	1	18	2	2	1	1	0	"BanneD Shield [BANNED]"	60	100	132	101	0	120	40	0	0	0	4	1	1	1	1	1	1
 end
 
 7
@@ -797,8 +797,8 @@ end
 268	2	0	2	2	1	1	0	"Light Griffin Helm [RL]"	6	144	0	120	0	300	200	0	0	0	0	1	1	0	0	1	1
 269	2	0	2	2	1	1	0	"Mystic Helm [M][RL] [LIMITADO]"	6	174	0	120	0	300	200	0	0	0	0	1	1	0	0	1	1
 270	2	0	2	2	1	1	0	"Mystic Helm [F][RL] [LIMITADO]"	6	174	0	120	0	300	200	0	0	0	0	0	0	1	0	0	1
-271	2	0	2	2	1	1	0	"BanneD M Helm [LIMITADO]"	109	209	0	86	380	60	15	181	0	0	0	1	1	0	1	1	1
-272       2      0       2       2        1            1            0          "BanneD F Helm [LIMITADO]"	4	209	0	80	0	52	115	0	0	0	0	0	0	1	0	0	1
+271	2	0	2	2	1	1	0	"BanneD M Helm [BANNED]"	109	209	0	86	380	60	15	181	0	0	0	1	1	0	1	1	1
+272       2      0       2       2        1            1            0          "BanneD F Helm [BANNED]"	4	209	0	80	0	52	115	0	0	0	0	0	0	1	0	0	1
 end
 
 8
@@ -997,8 +997,8 @@ end
 268	3	0	2	2	1	1	0	"Light Griffin Armor [RL]"	6	144	0	120	0	300	200	0	0	0	0	1	1	0	0	1	1
 269	3	0	2	2	1	1	0	"Mystic Armor [M][RL [LIMITADO]"	6	174	0	120	0	300	200	0	0	0	0	1	1	0	0	1	1
 270	3	0	2	2	1	1	0	"Mystic Armor [F][RL [LIMITADO]"	6	174	0	120	0	300	200	0	0	0	0	0	0	1	0	0	1
-271	3	0	2	3	1	1	0	"BanneD M Armor [LIMITADO]"	129	209	0	86	380	60	15	181	0	0	0	1	1	0	1	1	1
-272       3      0       2       2        1            1            0          "BanneD F Armor [LIMITADO]"	4	209	0	80	0	52	115	0	0	0	0	0	0	1	0	0	1
+271	3	0	2	3	1	1	0	"BanneD M Armor [BANNED]"	129	209	0	86	380	60	15	181	0	0	0	1	1	0	1	1	1
+272       3      0       2       2        1            1            0          "BanneD F Armor [BANNED]"	4	209	0	80	0	52	115	0	0	0	0	0	0	1	0	0	1
 end
 
 9
@@ -1197,8 +1197,8 @@ end
 268	4	0	2	2	1	1	0	"Light Griffin Pants [RL]"	6	144	0	120	0	300	200	0	0	0	0	1	1	0	0	1	1
 269	4	0	2	2	1	1	0	"Mystic Pants [M][RL [LIMITADO]"	6	174	0	120	0	300	200	0	0	0	0	1	1	0	0	1	1
 270	4	0	2	2	1	1	0	"Mystic Pants [F][RL [LIMITADO]"	6	174	0	120	0	300	200	0	0	0	0	0	0	1	0	0	1
-271	4	0	2	2	1	1	0	"BanneD M Pant [LIMITADO]"	114	209	0	86	380	60	15	181	0	0	0	1	1	0	1	1	1
-272       4      0       2       2        1            1            0          "BanneD F Pant [LIMITADO]"	4	209	0	80	0	52	115	0	0	0	0	0	0	1	0	0	1
+271	4	0	2	2	1	1	0	"BanneD M Pant [BANNED]"	114	209	0	86	380	60	15	181	0	0	0	1	1	0	1	1	1
+272       4      0       2       2        1            1            0          "BanneD F Pant [BANNED]"	4	209	0	80	0	52	115	0	0	0	0	0	0	1	0	0	1
 end
 
 10
@@ -1397,8 +1397,8 @@ end
 268	5	0	2	2	1	1	0	"Light Griffin Gloves [RL]"	6	144	150	120	0	300	200	0	0	0	0	1	1	0	0	1	1
 269	5	0	2	2	1	1	0	"Mystic Gloves [M][R [LIMITADO]"	6	174	150	120	0	300	200	0	0	0	0	1	1	0	0	1	1
 270	5	0	2	2	1	1	0	"Mystic Gloves [F][R [LIMITADO]"	6	174	150	120	0	300	200	0	0	0	0	0	0	1	0	0	1
-271	5	0	2	2	1	1	0	"BanneD M Glove [LIMITADO]"	100	209	7	86	380	60	15	181	0	0	0	1	1	0	1	1	1
-272       5      0       2       2        1            1            0          "BanneD F Glove [LIMITADO]"	4	209	0	80	0	52	115	0	0	0	0	0	0	1	0	0	1
+271	5	0	2	2	1	1	0	"BanneD M Glove [BANNED]"	100	209	7	86	380	60	15	181	0	0	0	1	1	0	1	1	1
+272       5      0       2       2        1            1            0          "BanneD F Glove [BANNED]"	4	209	0	80	0	52	115	0	0	0	0	0	0	1	0	0	1
 end
 
 11
@@ -1597,8 +1597,8 @@ end
 268	6	0	2	2	1	1	0	"Light Griffin Boots [RL]"	6	144	0	120	0	300	200	0	0	0	0	1	1	0	0	1	1
 269	6	0	2	2	1	1	0	"Mystic Boots [M][RL [LIMITADO]"	6	174	0	120	0	300	200	0	0	0	0	1	1	0	0	1	1
 270	6	0	2	2	1	1	0	"Mystic Boots [F][RL [LIMITADO]"	6	174	0	120	0	300	200	0	0	0	0	0	0	1	0	0	1
-271	6	0	2	2	1	1	0	"BanneD M Boot [LIMITADO]"	94	209	0	86	380	60	15	181	0	0	0	1	1	0	1	1	1
-272       6      0       2       2        1            1            0          "BanneD F Boot [LIMITADO]"	4	209	0	80	0	52	115	0	0	0	0	0	0	1	0	0	1
+271	6	0	2	2	1	1	0	"BanneD M Boot [BANNED]"	94	209	0	86	380	60	15	181	0	0	0	1	1	0	1	1	1
+272       6      0       2       2        1            1            0          "BanneD F Boot [BANNED]"	4	209	0	80	0	52	115	0	0	0	0	0	0	1	0	0	1
 end
 
 12
@@ -1820,8 +1820,8 @@ end
 329	*	0	1	1	1	1	0	"Jewel of Chaos Bundle"	12	0	0	0	0	0	0	0	0	1	1	1	1	1	1
 330	*	0	1	1	1	1	0	"Lower Refining Stone Bundle"	25	0	0	0	0	0	0	0	0	1	1	1	1	1	1
 331	*	0	1	1	1	1	0	"Higher Refining Stone Bundle"	25	0	0	0	0	0	0	0	0	1	1	1	1	1	1
-332	7	0	4	3	1	      1	           0	      "BanneD Wings [LIMITADO]"	4	120	250	300	0	0	0	0	0	1	1	1	1	0	0
-333	7	0	2	3	1	      1	           0	      "BanneD Cape [LIMITADO]"	4	120	250	300	0	0	0	0	0	1	1	1	1	0	0
+332	7	0	4	3	1	      1	           0	      "BanneD Wings [BANNED]"	4	120	250	300	0	0	0	0	0	1	1	1	1	0	0
+333	7	0	2	3	1	      1	           0	      "BanneD Cape [BANNED]"	4	120	250	300	0	0	0	0	0	1	1	1	1	0	0
 400	7	0	4	3	1	      1	           0	      "Wing of Mystic [LIMITADO]"	4	120	250	300	0	0	0	0	0	1	1	1	1	0	0
 end
 
@@ -2091,11 +2091,11 @@ end
 //REMOVIDO 447	8	0	1	1	1	1	0	"Griffin"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
 //REMOVIDO 448	8	0	1	1	1	1	0	"Griffin Black"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
 //REMOVIDO 449	8	0	1	1	1	1	0	"Horn Tail Fox"	0	255	0	0	0	0	0	0	0	0	2	2	2	1	0	2
-430        10     0       1       1        1            1            0         "BanneD Ring [LIMITADO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
-431       9      0       1       1        1            1            0          "BanneD Pendant [LIMITADO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
-277      236    0       1       1        1            0            0          "Spirit BanneD [LIMITADO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-450      8      62      1       1        1            0            0          "Horse of BanneD [LIMITADO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-451      8      76      2       2        1            0            0          "Fenrir BanneD [LIMITADO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+430        10     0       1       1        1            1            0         "BanneD Ring [BANNED]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+431       9      0       1       1        1            1            0          "BanneD Pendant [BANNED]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+277      236    0       1       1        1            0            0          "Spirit BanneD [BANNED]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+450      8      62      1       1        1            0            0          "Horse of BanneD [BANNED]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+451      8      76      2       2        1            0            0          "Fenrir BanneD [BANNED]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 452      8      76      2       2        1            0            0          "Fenrir Zeus [LIMITADO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 453      8      62      1       1        1            0            0          "Horse of Zeus [LIMITADO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 454      8      76      2       2        1            0            0          "Fenrir Horus [LIMITADO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
