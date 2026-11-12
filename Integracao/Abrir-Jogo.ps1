@@ -1,4 +1,4 @@
-param([switch]$SomenteServidor, [ValidateSet('','Janela','SemBorda','Cheia')][string]$Modo = '')
+﻿param([switch]$SomenteServidor, [ValidateSet('','Janela','SemBorda','Cheia')][string]$Modo = '')
 
 $ErrorActionPreference = 'Stop'
 $root = Split-Path -Parent $PSScriptRoot
@@ -92,7 +92,7 @@ try {
         else { Set-ItemProperty $cfg WindowMode 1; Set-ItemProperty $cfg Resolution $idx }
         $mu = Start-Process -FilePath $game -WorkingDirectory $client -PassThru
         Start-Process powershell -WindowStyle Hidden -ArgumentList '-NoProfile','-ExecutionPolicy','Bypass','-File',('"' + (Join-Path $PSScriptRoot 'print-helper.ps1') + '"'),$mu.Id,('"' + (Join-Path $client 'ScreenShots') + '"')
-        Add-Type 'using System;using System.Runtime.InteropServices;public class MuJan{[DllImport("user32.dll")]public static extern int GetWindowLong(IntPtr h,int i);[DllImport("user32.dll")]public static extern int SetWindowLong(IntPtr h,int i,int v);[DllImport("user32.dll")]public static extern bool SetWindowPos(IntPtr h,IntPtr a,int x,int y,int w,int c,uint f);[DllImport("user32.dll")]public static extern bool SetForegroundWindow(IntPtr h);}'
+        Add-Type 'using System;using System.Runtime.InteropServices;public class MuJan{[DllImport("user32.dll")]public static extern int GetWindowLong(IntPtr h,int i);[DllImport("user32.dll")]public static extern int SetWindowLong(IntPtr h,int i,int v);[DllImport("user32.dll")]public static extern bool SetWindowPos(IntPtr h,IntPtr a,int x,int y,int w,int c,uint f);[DllImport("user32.dll")]public static extern bool SetForegroundWindow(IntPtr h);[DllImport("user32.dll")]public static extern bool ShowWindow(IntPtr h,int c);}'
         for ($k = 0; $k -lt 60 -and -not $mu.HasExited; $k++) {
             Start-Sleep -Milliseconds 500; $mu.Refresh(); $h = $mu.MainWindowHandle
             if ($mu.HasExited -or $h -eq [IntPtr]::Zero) { continue }
@@ -104,6 +104,9 @@ try {
                 [MuJan]::SetForegroundWindow($h) | Out-Null
             }
         }
+        # A imagem fica parada no logo ate a janela ser minimizada/restaurada (mesmo efeito do Alt+Tab)
+        Start-Sleep -Seconds 6; $mu.Refresh()
+        if (-not $mu.HasExited -and $mu.MainWindowHandle -ne [IntPtr]::Zero) { $h = $mu.MainWindowHandle; [MuJan]::ShowWindow($h, 6) | Out-Null; Start-Sleep -Milliseconds 700; [MuJan]::ShowWindow($h, 9) | Out-Null; [MuJan]::SetForegroundWindow($h) | Out-Null }
     }
 } finally {
     if ($ownsMutex) { $mutex.ReleaseMutex() }
