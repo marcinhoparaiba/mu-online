@@ -69,16 +69,18 @@ setexcl = set(setlin)
 NOMES_LIN = [t.title().replace('Banned', 'BanneD').replace('Lord', 'LorD') for t in ESCOLHA]
 linhas = ['{%d,%d,"%s",%d,L=%d}' % (s, i, nome(s, i), (s, i) in excl, LIN.get((s, i), 0)) for s, i in sorted(loja.ITENS, key=lambda k: ((k not in DEST), k))]
 setids = sorted(setids, key=lambda i: (i not in DSET, i))
-# premios automaticos (ranking PvP e mata-mata): sword, scepter, shield, kit anel+pendant e pet das linhas de EVENTO
-PREMIO = []
+# premios automaticos (ranking PvP e mata-mata): o vencedor escolhe a CATEGORIA; o item sai sorteado dela (linhas de EVENTO)
+PREMIO = []  # (categoria, item1, item2, item3)
 for n, tema_ in enumerate(EVENTOS, len(DONATE) + 1):
     its = [k for k in LN.L[tema_] if LIN.get(k) == n]
-    nm = lambda k: loja.ITENS[k]['n'].lower()
+    nm = lambda k: loja.ITENS[k]['n'].lower(); g = lambda k: k[0] * 512 + k[1]
     for k in its:
-        if k[0] in (0, 6) or (k[0] == 2 and 'scepter' in nm(k)) or (k[0] == 13 and not any(w in nm(k) for w in ('ring', 'pendant'))):
-            PREMIO.append((k[0] * 512 + k[1], 0))
+        cat = {0: 'sword', 1: 'machado', 3: 'lanca', 4: 'arco', 5: 'staff', 6: 'shield', 12: 'asa'}.get(k[0])
+        if k[0] == 2: cat = 'scepter' if 'scepter' in nm(k) else 'mace'
+        if k[0] == 13 and not any(w in nm(k) for w in ('ring', 'pendant')): cat = 'pet'
+        if cat: PREMIO.append((cat, g(k), 0, 0))
     an = [k for k in its if k[0] == 13 and 'ring' in nm(k)]; pe = [k for k in its if k[0] == 13 and 'pendant' in nm(k)]
-    if an and pe: PREMIO.append((an[0][0] * 512 + an[0][1], pe[0][0] * 512 + pe[0][1]))
+    if an and pe: PREMIO.append(('kit', g(pe[0]), g(an[0]), g(an[-1])))
 for i in setids:
     ver = 8 if sets[i] & 2 else next(s for s in range(7, 12) if sets[i] & (1 << (s - 7)))
     linhas.append('{16,%d,"Set %s",%d,%d,%d,L=%d}' % (i, nome(ver, i), i in setexcl, sets[i], ver, setlin.get(i, 0)))
@@ -91,6 +93,6 @@ head = (S / 'Move.lua').read_bytes()[:52]
 (S / 'EditorItens.lua').write_bytes(head + cod(src.encode('cp1252', 'replace')))
 assert cod((S / 'EditorItens.lua').read_bytes()[52:]).decode('cp1252') == src.encode('cp1252', 'replace').decode('cp1252')
 for sala in ('SalaTrade', 'SalaUpar', 'SalaVip'):
-    srv = (A / 'EditorItens.server.lua').read_text('utf-8').replace('--EXCL--', ','.join('[%d]=%d' % (s * 512 + i, 2 if LIN.get((s, i), 99) <= len(DONATE) else 1) for s, i in sorted(excl))).replace('--VALIDOS--', ','.join('[%d]=true' % (s * 512 + i) for s, i in loja.ITENS)).replace('--SETMASK--', ','.join('[%d]=%d' % (i, m) for i, m in sets.items())).replace('--PREMIO--', ','.join('{%d,%d}' % x for x in PREMIO)).replace('--SETEXCL--', ','.join('[%d]=%d' % (i, 2 if setlin.get(i, 99) <= len(DONATE) else 1) for i in sorted(setexcl)))
+    srv = (A / 'EditorItens.server.lua').read_text('utf-8').replace('--EXCL--', ','.join('[%d]=%d' % (s * 512 + i, 2 if LIN.get((s, i), 99) <= len(DONATE) else 1) for s, i in sorted(excl))).replace('--VALIDOS--', ','.join('[%d]=true' % (s * 512 + i) for s, i in loja.ITENS)).replace('--SETMASK--', ','.join('[%d]=%d' % (i, m) for i, m in sets.items())).replace('--PREMIO--', ','.join('{"%s",%d,%d,%d}' % x for x in PREMIO)).replace('--SETEXCL--', ','.join('[%d]=%d' % (i, 2 if setlin.get(i, 99) <= len(DONATE) else 1) for i in sorted(setexcl)))
     (R / f'1 - MuServer 97d+5.2 Aprendizmuonline/Salas/{sala}/Data/Scripts/Commands/EditorItens.lua').write_text(srv, encoding='cp1252')
 print('premios:', len(PREMIO)); print('instalado:', len(loja.ITENS), 'itens,', len(excl), 'exclusivos,', len(setids), 'sets,', len(setexcl), 'sets exclusivos')
