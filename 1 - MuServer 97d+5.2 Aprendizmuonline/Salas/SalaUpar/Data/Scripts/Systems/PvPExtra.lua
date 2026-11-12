@@ -1,32 +1,37 @@
---[[PvP Extra (MuBanneD): kill streak, ranking PvP semanal, cacada ao PK (bounty), anuncios globais.
-    Premio = 1 peca aleatoria das linhas de EVENTO (EDITOR_EXCL valor 1), +11. Offline: guarda na tabela PvPPremio e entrega no login.]]--
+--[[PvP Extra (MuBanneD): sequencia de kills (so titulos), ranking PvP semanal, cacada ao PK (so aviso).
+    Premios so no ranking PvP e no Mata-Mata automatico: sword, scepter, shield, kit anel+pendant e pet das linhas de EVENTO, +11, sem repetir. Offline: guarda na tabela PvPPremio e entrega no login.]]--
 PvPExtra = {}
 PVP_STREAK = {}          -- aIndex -> kills seguidas
-PVP_STREAK_PREMIO = {[10] = true, [25] = true, [50] = true}
 PVP_STREAK_MSG = {[5] = "esta dominando!", [10] = "esta IMPARAVEL!", [25] = "e uma LENDA do PvP!", [50] = "e o DEUS DA GUERRA!"}
 PVP_RANK_DIA, PVP_RANK_HORA = 1, 0   -- domingo(1) 00h: fecha o ranking semanal (top 3 premiados)
 
 local function q(s) return (tostring(s or ""):gsub("'", "''")) end
 
-function PvPExtra.PremioAleatorio()
-    local l = {}
-    for it, v in pairs(EDITOR_EXCL or {}) do if v == 1 then l[#l + 1] = it end end
-    if #l == 0 then return nil end
-    return l[math.random(#l)]
+-- sorteio sem repetir: tira de PvPSorteio; quando acaba, enche de novo com todos os premios (EDITOR_PREMIO)
+function PvPExtra.Sortear()
+    local function tirar()
+        local r = nil
+        if db:exec("SELECT TOP 1 Id, Item, Item2 FROM PvPSorteio ORDER BY NEWID()") ~= 0 and db:fetch() ~= 100 then r = {db:getInt("Id"), db:getInt("Item"), db:getInt("Item2")} end
+        db:clear(); return r
+    end
+    local r = tirar()
+    if not r then
+        for _, p in ipairs(EDITOR_PREMIO or {}) do DataBase.Query(string.format("INSERT INTO PvPSorteio (Item, Item2) VALUES (%d, %d)", p[1], p[2])) end
+        r = tirar()
+    end
+    if not r then return nil end
+    DataBase.Query("DELETE FROM PvPSorteio WHERE Id = " .. r[1])
+    return r[2], r[3]
 end
 
 function PvPExtra.Entregar(nome, motivo)
-    local item = PvPExtra.PremioAleatorio()
-    if not item then return end
-    local idx = -1
-    for n = OBJECT_START_USER, MAX_OBJECT do
-        if gObjIsConnectedGP(n) == 1 and User.new(n):getName() == nome then idx = n break end
+    local a, b = PvPExtra.Sortear()
+    if not a then return end
+    for _, item in ipairs({a, b}) do
+        if item and item > 0 then DataBase.Query(string.format("INSERT INTO PvPPremio (Name, Item, Motivo) VALUES ('%s', %d, '%s')", q(nome), item, q(motivo))) end
     end
-    if idx >= 0 and InventoryCheckSpaceByItem(idx, item) ~= 0 then
-        ItemSerialCreateComplete(idx, 236, 0, 0, item, 11, 255, 1, 1, 7, idx, 63, 0, 0)
-        SendMessage("[PvP] Premio recebido: " .. motivo, idx, 1)
-    else
-        DataBase.Query(string.format("INSERT INTO PvPPremio (Name, Item, Motivo) VALUES ('%s', %d, '%s')", q(nome), item, q(motivo)))
+    for n = OBJECT_START_USER, MAX_OBJECT do  -- online: entrega na hora
+        if gObjIsConnectedGP(n) == 1 and User.new(n):getName() == nome then PvPExtra.Entrar(n) break end
     end
 end
 
@@ -40,13 +45,11 @@ function PvPExtra.Morte(aIndex, TargetIndex)
     PVP_STREAK[aIndex] = 0
     local s = (PVP_STREAK[TargetIndex] or 0) + 1; PVP_STREAK[TargetIndex] = s
     if PVP_STREAK_MSG[s] then SendMessageGlobal(string.format("[PvP] %s %s (%d kills seguidas)", na, PVP_STREAK_MSG[s], s), 0) end
-    if PVP_STREAK_PREMIO[s] then PvPExtra.Entregar(na, s .. " kills seguidas") end
     -- ranking semanal
     DataBase.Query(string.format("UPDATE Character SET KillsSemana = ISNULL(KillsSemana,0) + 1 WHERE Name = '%s'", q(na)))
     -- cacada ao PK: matar o jogador com mais PK online da premio
     if morto:getPKLevel() >= 5 then
-        SendMessageGlobal(string.format("[Cacada] %s abateu o assassino %s e ganhou a recompensa!", na, nm), 0)
-        PvPExtra.Entregar(na, "cacada ao PK " .. nm)
+        SendMessageGlobal(string.format("[Cacada] %s abateu o assassino %s!", na, nm), 0)
     end
 end
 

@@ -7,6 +7,7 @@ EditorItens = {}
 EDITOR_DONO = "admin"            -- conta ADM: acesso a tudo
 EDITOR_EXCL = {--EXCL--}         -- GET_ITEM -> 1 evento / 2 donate
 EDITOR_SETEXCL = {--SETEXCL--}   -- index do set -> 1 evento / 2 donate
+EDITOR_PREMIO = {--PREMIO--} -- premios automaticos {item, item2 do kit (0 = nenhum)}
 EDITOR_VALIDOS = {--VALIDOS--}   -- itens que existem no Item.txt
 EDITOR_SETMASK = {--SETMASK--}   -- pecas que existem em cada set (bits)
 local PENDENTE = {}              -- aIndex -> pedido do GM aguardando justificativa
