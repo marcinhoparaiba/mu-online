@@ -3,7 +3,7 @@ CharFull = {}
 
 function CharFull.Command(aIndex, Arguments)
 	local _p = User.new(aIndex)
-	if _p:getAuthority() < 32 and _p:getAccountID() ~= 'admin' then SendMessage('[Sistema] /full: so GM e ADM.', aIndex, 1) return end -- so GM e ADM
+	if _p:getAuthority() < 32 and _p:getAccountID() ~= 'admin' then SendMessage('[Sistema] /full disponivel apenas para membros da STAFF.', aIndex, 1) return end -- so GM e ADM
 	if CHARFULL_COMMAND_SWITCH ~= 1
 	then
 		return
