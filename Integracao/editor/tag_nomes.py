@@ -4,11 +4,11 @@ import re, sys, struct, shutil
 sys.path.insert(0, 'work'); from mu_merge_common import *
 srv = (server / 'Salas/SalaTrade/Data/Scripts/Commands/EditorItens.lua').read_text('cp1252')
 ex = {int(a): int(b) for a, b in re.findall(r'\[(\d+)\]=([12])', srv.split('EDITOR_EXCL = {')[1].split('}')[0])}
-TAG = {1: '[EXCLUSIVO]', 2: '[LIMITADO]', 3: '[BANNED]'}; LIM = 30
+TAG = {1: '[EXCLUSIVO]', 2: '[LENDARIO]', 3: '[BANNED]'}; LIM = 30
 sys.path[:0] = [str(base / 'Integracao/editor'), str(base / 'Integracao/loja')]; import linhas as _LN
 for _s, _i in _LN.L['banned']:
     if ex.get(_s * 512 + _i) == 2: ex[_s * 512 + _i] = 3  # linha BanneD: [BANNED]
-MARCA = re.compile(r'\s*\[(EXCLUSIVO|LIMITADO|BANNED)\]')
+MARCA = re.compile(r'\s*\[(EXCLUSIVO|LIMITADO|LENDARIO|BANNED)\]')
 def novo(nome, v):
     base = MARCA.sub('', nome).strip(); tg = TAG[v]
     return base[:LIM - len(tg) - 1].rstrip() + ' ' + tg
