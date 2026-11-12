@@ -1,0 +1,111 @@
+ID | Nome | Modelo | Animacao | Pontos de efeito (brilho/particula)
+144 | ? | wingwar | 1 anim/12 quadros | 21
+145 | ? | wing180 | 1 anim/12 quadros | 0
+150 | Wing of War Ed.Christmas [RL] | Wing180 | 1 anim/12 quadros | 0
+151 | Wing of Style [RL] | Wing181 | 1 anim/26 quadros | 21
+152 | Majestyc Wing [RL] | Wing210 | 1 anim/8 quadros | 0
+153 | Wing of War Ed.Cup | Wing211 | 1 anim/12 quadros | 0
+154 | Wing of Fire [C] | wingcold | 1 anim/9 quadros | 0
+155 | New mini Wing [C] | Wing213 | 1 anim/8 quadros | 0
+156 | Wing of Apolo | Wing241 | 1 anim/8 quadros | 0
+157 | Dark Ness Wing [E] | Wing215 | 1 anim/8 quadros | 0
+158 | Wing of War Ed.Black | Wing216 | 1 anim/12 quadros | 26
+159 | Wing of Cup Skin | Wing217 | 1 anim/8 quadros | 10
+160 | Wing of War [RL] | Wing218 | 1 anim/12 quadros | 21
+161 | Green Of Wing [RL] | Wing219 | 1 anim/13 quadros | 0
+162 | Wing of God [RL] | Wing85 | 1 anim/10 quadros | 0
+163 | Dragon Black Wing [E] | Wing221 | 1 anim/8 quadros | 0
+164 | Steel Wing [RL] | Wing222 | 2 anim/8 quadros | 15
+165 | Christmas 2.0 Wing | Wing223 | 1 anim/8 quadros | 0
+166 | Poseidon Wing [E] | Wing224 | 2 anim/8 quadros | 0
+167 | Halloween Wing [C] | Wing225 | 1 anim/8 quadros | 0
+168 | Wings of Love [C] | Wing226 | 1 anim/7 quadros | 0
+169 | Wing Eros [RL] | Wing227 | 1 anim/7 quadros | 0
+170 | Chronus Wing [E] | Wing228 | 1 anim/8 quadros | 0
+171 | Santa Wing [C] | Wing229 | 1 anim/9 quadros | 0
+172 | xMas Wing [C][RL] | Wing230 | 1 anim/8 quadros | 0
+173 | Wing of Black 2.0 | Wing231 | 1 anim/9 quadros | 0
+174 | ? | Wing232 | 1 anim/12 quadros | 0
+175 | Christmas Wing [C] | Wing209 | 1 anim/8 quadros | 0
+176 | Wing of White [C] | Wing600 | 1 anim/10 quadros | 0
+177 | Wing of Death [RL] | Wing42 | 1 anim/8 quadros | 20
+178 | Wing of Purple | wing250 | 1 anim/9 quadros | 0
+179 | Wing of Green | Wing505 | 1 anim/10 quadros | 14
+181 | Cape of Style [RL] | capestyle | parada | 0
+182 | Steel Cape [RL] | capasteel | 1 anim/7 quadros | 0
+183 | Warlock Wing [C] | Wing234 | 1 anim/8 quadros | 0
+184 | Apocalipse Wing [E] | Wing235 | 1 anim/7 quadros | 0
+186 | Wing of Angel | Wing233 | 1 anim/8 quadros | 0
+187 | Love 2.0 Wings [C] | Wing232 | 1 anim/12 quadros | 0
+188 | Cape of God [RL] | capegod | parada | 0
+189 | Wing of Sky | Wing244 | 1 anim/11 quadros | 24
+190 | Cape of Christmas [RL] | capach | 1 anim/6 quadros | 0
+191 | Wing of Death 2.0 | Wing402 | 1 anim/6 quadros | 0
+192 | Wing of War xMas [RL] | wingofwarxmas | 1 anim/12 quadros | 26
+193 | Wing of Ghost [RL] | Wing404 | 2 anim/8 quadros | 0
+194 | Cape of Christmas Black [RL] | capechb | 1 anim/6 quadros | 0
+195 | Wing of Frost | wingmod | 1 anim/10 quadros | 29
+197 | Wing of Divine | wing500 | 1 anim/10 quadros | 18
+198 | Wing of Power | Wing501 | 1 anim/10 quadros | 18
+199 | Wing of Celestial | Wing502 | 1 anim/10 quadros | 13
+200 | Cape of War [RL] | capawar | 1 anim/6 quadros | 0
+201 | Wing of Sunlight | Wing503 | 1 anim/10 quadros | 12
+202 | Wing of Energy | Wing504 | 1 anim/7 quadros | 18
+203 | Wing of Rudolph [C] | wingmsrudolph | 1 anim/10 quadros | 0
+210 | Wing of War 2.0 | Wing300 | 1 anim/30 quadros | 28
+211 | Cape of War 2.0 | Wing301 | 1 anim/10 quadros | 38
+212 | Wing of Dark Raven | Wing302 | 1 anim/30 quadros | 0
+213 | Cape of Dark Raven | Wing303 | parada | 0
+214 | Wing of Light Hawk | Wing304 | 1 anim/10 quadros | 0
+215 | Cape of Light Hawk | Wing305 | 1 anim/8 quadros | 0
+216 | Wing of Snow | Wing306 | 1 anim/10 quadros | 26
+217 | Wing of Majestick 2.0 | Wing307 | 1 anim/15 quadros | 0
+218 | Cape of Majestick 2.0 | Wing308 | parada | 0
+219 | Wing of Apocalipse 2.0 | Wing309 | 1 anim/10 quadros | 0
+220 | Cape of Apocalipse 2.0 | Wing310 | 2 anim/15 quadros | 0
+221 | Wing of Holly | Wing311 | 1 anim/10 quadros | 0
+222 | Cape of Holly | Wing312 | 1 anim/8 quadros | 0
+223 | Wing of Horus [Skin1] | Wing313 | 1 anim/10 quadros | 0
+224 | Cape of Horus | Wing314 | parada | 0
+225 | Wing of Zeus | Wing315 | 1 anim/10 quadros | 0
+226 | Cape of Zeus | Wing316 | parada | 0
+227 | Wing of Horus [Skin2] | Wing317 | 1 anim/10 quadros | 0
+228 | Wing of Armagedom | Wing318 | 1 anim/10 quadros | 0
+229 | Cape of Armagedom | Wing319 | 1 anim/8 quadros | 0
+230 | Wing of Blood Vampire | Wing320 | 1 anim/10 quadros | 34
+231 | Cape of Blood Vampire | Wing321 | 1 anim/8 quadros | 0
+232 | Wing of Halloween | Wing322 | 1 anim/10 quadros | 0
+233 | Cape of Halloween | Wing323 | parada | 0
+234 | Cape of Dark Pirate | Wing324 | parada | 0
+235 | Wing of Rabbit | Wing325 | 1 anim/10 quadros | 0
+236 | Wing of Manticore | Wing326 | 1 anim/16 quadros | 0
+237 | Cape of Manticore | Wing327 | parada | 0
+238 | Wing of Steel 2.0 | Wing328 | 1 anim/10 quadros | 2
+239 | Cape of Steel 2.0 | Wing329 | parada | 0
+240 | Wing of Gift Christmas | Wing330 | 1 anim/10 quadros | 0
+241 | Cape of Gift Christmas | Wing331 | 1 anim/20 quadros | 0
+242 | Wing of Abbadon | Wing332 | 1 anim/10 quadros | 16
+243 | Cape of Abbadon | Wing333 | parada | 4
+244 | Wing of God 2.0 | Wing334 | 1 anim/10 quadros | 0
+245 | Cape of God 2.0 | Wing335 | 1 anim/9 quadros | 0
+246 | Wing of Gold | Wing336 | 1 anim/10 quadros | 0
+247 | Cape of Gold | Wing337 | 1 anim/10 quadros | 0
+248 | Wing of Diamond | Wing338 | 1 anim/10 quadros | 0
+249 | Cape of Diamond | Wing339 | parada | 0
+250 | Wing of Ice Dragon | Wing340 | 1 anim/10 quadros | 0
+251 | Cape of Ice Dragon | Wing341 | parada | 0
+252 | Wing of Necromancer | Wing342 | 1 anim/10 quadros | 0
+253 | Cape of Necromancer | Wing343 | parada | 0
+254 | Wing of Cold | Wing344 | 1 anim/10 quadros | 0
+255 | Cape of Cold | Wing345 | parada | 0
+256 | Wing of Death 3.0 [RL] | Wing346 | 1 anim/10 quadros | 0
+257 | Cape of Death 3.0 [RL] | Wing347 | 1 anim/10 quadros | 0
+258 | Wing of Holly Night | Wing348 | 1 anim/11 quadros | 0
+259 | Cape of Holly Night | Wing349 | 1 anim/11 quadros | 0
+260 | Wing of Snow Black | Wing350 | 1 anim/10 quadros | 0
+261 | Cape of Frost | Wing351 | 1 anim/20 quadros | 0
+262 | Wing of Frost Black | Wing352 | 1 anim/10 quadros | 0
+263 | Cape of Frost Black | Wing353 | 1 anim/20 quadros | 0
+264 | Wing of Tail Fox | Wing354 | 1 anim/8 quadros | 15
+265 | Cape of Tail Fox | Wing355 | parada | 3
+109 asas cadastradas; 25 com efeito lua; 93 animadas; 0 com problema

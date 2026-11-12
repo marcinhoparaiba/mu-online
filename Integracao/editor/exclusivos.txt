@@ -1,0 +1,725 @@
+ITENS EXCLUSIVOS (30% de cada categoria, maior nota: forca + efeitos)
+0:23 Explosion Blade
+0:28 Rune Bastard Sword
+0:103 Devil Sword
+0:108 Death Sword
+0:118 Christmas Sword
+0:119 Chronus Sword
+0:120 Sword of Death
+0:121 Eros Sword [efeito]
+0:129 GO Sword
+0:137 New Sword
+0:138 Poseidon Sword
+0:142 Sword of God
+0:148 Sword of xMas
+0:149 Sword of Warlock
+0:150 Kriss Black
+0:155 Sword of Ghost
+0:156 Sword of Rudolph [efeito]
+0:157 Sword of War 2.0 [efeito]
+0:158 Sword of Dark Raven
+0:159 Sword of Light Hawk
+0:160 Sword of Snow [efeito]
+0:161 Sword of Majestick 2.0
+0:162 Sword of Apocalipse 2.0 [efeito]
+0:163 Sword of Holly [efeito]
+0:164 Sword of Horus [efeito]
+0:165 Sword of Zeus [efeito]
+0:166 Sword of Armagedom [efeito]
+0:167 Sword of Blood Vampire [efeito]
+0:168 Sword of Halloween [efeito]
+0:169 Sword of Dark Pirate
+0:170 Sword of Rabbit [efeito]
+0:171 Sword of Manticore
+0:172 Sword of Steel 2.0 [efeito]
+0:173 Sword of Gift Christmas [efeito]
+0:174 Sword of Abbadon [efeito]
+0:175 Sword of God 2.0
+0:176 Sword of Gold [efeito]
+0:177 Sword of Diamond [efeito]
+0:178 Sword of Ice Dragon [efeito]
+0:179 Sword of Necromancer [efeito]
+0:180 Sword of Cold [efeito]
+0:181 Sword of Death 3.0 [RL]
+0:182 Sword of Holly Night
+0:183 Sword of Snow Black
+0:184 Sword of Frost
+0:185 Sword of Frost Black
+1:7 Larkan Axe
+1:10 Blood Vampire Axe
+1:11 Hammer of Holly
+1:12 Hammer of Holly Night
+1:204 Mystic Axe [RL]
+1:205 Mystic Hammer [RL]
+2:121 Mace of Rudolph [efeito]
+2:122 Mace of War 2.0 [efeito]
+2:124 Mace of Snow [efeito]
+2:125 Mace of Apocalipse 2.0 [efeito]
+2:126 Mace of Holly [efeito]
+2:127 Mace of Horus [efeito]
+2:128 Mace of Zeus [efeito]
+2:129 Mace of Armagedom [efeito]
+2:130 Mace of Blood Vampire [efeito]
+2:131 Mace of Halloween [efeito]
+2:133 Mace of Rabbit [efeito]
+2:135 Mace of Steel 2.0 [efeito]
+2:137 Mace of Abbadon [efeito]
+2:139 Mace of Gold [efeito]
+2:140 Mace of Diamond [efeito]
+2:141 Mace of Ice Dragon [efeito]
+2:142 Mace of Necromancer [efeito]
+2:143 Mace of Death 3.0 [RL]
+2:144 Scepter of Holly
+2:145 Mace of Holly Night
+2:149 Mace of Tail Fox [efeito]
+2:300 Scepter of Zeus
+2:301 Scepter of Horus
+2:302 Scepter of Poseidon
+2:303 Scepter of God 2.0
+2:305 Scepter of Holly Night
+2:307 Scepter of Armagedom
+2:308 Scepter of Apocalipse 2.0
+2:309 Scepter of Death 3.0
+2:310 Scepter of Necromancer
+3:12 Spear of Death 3.0 [RL]
+3:13 Lance of Steel 2.0 [efeito]
+3:15 Spear of Holly
+3:16 Spear of Holly Night
+3:17 Spear of Apocalipse 2.0
+3:103 Lance Bright ReD
+3:105 Lance of Electro
+4:35 Bow of War 2.0 [RL]  [efeito]
+4:38 Bow of Holly [RL]  [efeito]
+4:39 Bow of Horus [RL]  [efeito]
+4:40 Bow of Blood Vampire [RL]  [efeito]
+4:41 Bow of Halloween [RL]  [efeito]
+4:44 Bow of Steel 2.0 [RL]  [efeito]
+4:45 Bow of Gift Christmas [RL]  [efeito]
+4:46 Bow of Abbadon [RL]  [efeito]
+4:47 Bow of God 2.0 [RL] 
+4:48 Bow of Ice Dragon [RL]  [efeito]
+4:49 Bow of Necromancer [RL] 
+4:50 Bow of Cold [RL] [efeito]
+4:51 Bow of Death 3.0 [RL] [efeito]
+4:52 Bow of Rabbit [efeito]
+4:53 Bow of Holly  Night [RL] 
+4:54 Bow of Apocalipse 2.0 
+4:63 Mystic Bow [RL]
+4:226 BanneD Bow
+5:8 Staff of Destruction
+5:12 Grand Viper Staff
+5:105 War 2.0 Staff [efeito]
+5:106 Snow Staff [efeito]
+5:107 Apocalipse 2.0 Staff [efeito]
+5:108 Holly Staff [efeito]
+5:109 Horus Staff [efeito]
+5:110 Zeus Staff [efeito]
+5:111 Armagedom Staff [efeito]
+5:112 Blood Vampire Staff [efeito]
+5:113 Halloween Staff [efeito]
+5:115 Rabbit Staff [efeito]
+5:117 Steel 2.0 Staff [efeito]
+5:118 Gift Christmas Staff [efeito]
+5:119 Abbadon Staff [efeito]
+5:122 Diamond Staff [efeito]
+5:123 Ice Dragon Staff [efeito]
+5:124 Necromancer Staff [efeito]
+5:125 Cold Staff [efeito]
+5:131 Tail Fox Staff [efeito]
+5:240 Storm Blitz Stick
+5:241 Eternal Wing Stick
+5:242 BanneD Staff
+6:100 Alpha Shield
+6:106 Bronze Black Shield
+6:108 Chaos Black Shield
+6:109 Christmas Shield
+6:112 Devil Shield
+6:123 Fly Shield
+6:124 GO Shield
+6:126 God Shield
+6:134 New Shield
+6:135 Poseidon Shield
+6:136 Shield of Death [efeito]
+6:140 Shield of xMas
+6:142 Shield of Warlock
+6:146 Shield of Ghost
+6:147 Shield of Rudolph [efeito]
+6:148 Shield of War 2.0
+6:149 Shield of Dark Raven
+6:150 Shield of Light Hawk
+6:151 Shield of Snow [efeito]
+6:153 Shield of Apocalipse 2.0 [efeito]
+6:154 Shield of Holly [efeito]
+6:155 Shield of Horus [efeito]
+6:156 Shield of Zeus [efeito]
+6:157 Shield of Armagedom [efeito]
+6:158 Shield of Blood Vampire [efeito]
+6:159 Shield of Halloween [efeito]
+6:161 Shield of Rabbit [efeito]
+6:162 Shield of Manticore [efeito]
+6:163 Shield of Steel 2.0 [efeito]
+6:164 Shield of Gift Christmas [efeito]
+6:166 Shield of God 2.0 [efeito]
+6:167 Shield of Gold [efeito]
+6:168 Shield of Diamond [efeito]
+6:169 Shield of Ice Dragon [efeito]
+6:170 Shield of Necromancer
+6:172 Shield of Death 3.0 [RL]
+6:173 Shield of Holly Night
+6:177 Shield of Tail Fox [efeito]
+6:234 Holly Night Shield [RL]
+6:250 BanneD Shield
+7:45 Titan Helm
+7:46 Brave Helm
+7:49 Seraphim Helm
+7:50 Divine Helm
+7:52 Hades Helm
+7:160 of Cup Helm [efeito]
+7:172 Holly Helm
+7:173 Female Holly Helm
+7:174 Horus Helm
+7:176 Zeus Helm
+7:177 Armagedom Helm
+7:194 God 2.0 Helm
+7:195 Female God 2.0 Helm
+7:199 Necromancer Helm
+7:200 Female Necromancer Helm
+7:203 Helm of Death 3.0 [RL]
+7:204 Female Helm of Death 3.0 [RL]
+7:208 Holly Night Helm
+7:209 Female Holly Night Helm
+7:232 Especial 02 Helm [E]
+7:233 Helm of Gold [RL]
+7:234 Helm of Diamond [RL]
+7:235 Helm of Snow [M][C]
+7:236 Helm of Snow [F][C]
+7:237 Helm of LorD [M]
+7:238 Helm of LorD [F]
+7:239 Helm of Angel [E]
+7:240 Helm of Poison [E]
+7:241 Helm of Flame
+7:242 Helm of Blue [RL]
+7:243 Helm of Snow Black[M]
+7:244 Helm of Snow Black[F]
+7:246 Horus Helm [RL]
+7:247 DarkLighT Helm [RL]
+7:248 Imperial Green Helm [RL]
+7:249 Frost Helm [RL]
+7:250 Frost Black Helm [RL]
+7:251 Holly Helm [RL]
+7:252 Holly Night Helm [RL]
+7:253 Heat Helm [M][RL]
+7:254 Heat Helm [F][RL]
+7:256 Lirium Helm [EV]
+7:257 Helm 01-X Renew [M][EX]
+7:258 Helm 01-X Renew [F][EX]
+7:259 Helm Bright ReD [M]
+7:260 Helm Bright ReD [F]
+7:261 Helm Malignat [RL]
+7:262 Helm of Electro
+7:263 Black Helm Christmas [M]
+7:264 Black Helm Christmas [F]
+7:265 Sonnar Helm [M][RL]
+7:266 Sonnar Helm [F][RL]
+7:267 Apollo Helm [RL]
+7:268 Light Griffin Helm [RL]
+7:269 Mystic Helm [M][RL]
+7:270 Mystic Helm [F][RL]
+7:271 BanneD M Helm
+7:272 BanneD F Helm
+8:45 Titan Armor
+8:46 Brave Armor
+8:49 Seraphim Armor
+8:50 Divine Armor
+8:52 Hades Armor
+8:160 of Cup Armor [efeito]
+8:171 Apocalipse 2.0 Armor
+8:172 Holly Armor
+8:173 Female Holly Armor
+8:174 Horus Armor
+8:176 Zeus Armor
+8:177 Armagedom Armor
+8:194 God 2.0 Armor
+8:195 Female God 2.0 Armor
+8:199 Necromancer Armor
+8:200 Female Necromancer Armor
+8:203 Armor of Death 3.0 [RL]
+8:204 Female Armor of Death 3.0 [RL]
+8:208 Holly Night Armor
+8:209 Female Holly Night Armor
+8:232 Especial 02 Armor [E]
+8:233 Armor of Gold [RL]
+8:234 Armor of Diamond [RL]
+8:235 Armor of Snow [M][C]
+8:236 Armor of Snow [F][C]
+8:237 Armor of LorD [M]
+8:238 Armor of LorD [F]
+8:239 Armor of Angel [E]
+8:240 Armor of Poison [E]
+8:241 Armor of Flame
+8:242 Armor of Blue [RL]
+8:243 Armor of Snow Black[M]
+8:244 Armor of Snow Black[F]
+8:246 Horus Armor [RL]
+8:247 DarkLighT Armor [RL]
+8:248 Imperial Green Armor [RL]
+8:249 Frost Armor [RL]
+8:250 Frost Black Armor [RL]
+8:251 Holly Armor [RL]
+8:252 Holly Night Armor [RL]
+8:253 Heat Armor [M][RL]
+8:254 Heat Armor [F][RL]
+8:256 Lirium Armor [EV]
+8:257 Armor 01-X Renew [M][EX]
+8:258 Armor 01-X Renew [F][EX]
+8:259 Armor Bright ReD [M]
+8:260 Armor Bright ReD [F]
+8:261 Armor Malignat [RL]
+8:262 Armor of Electro
+8:263 Black Armor Christmas [M]
+8:264 Black Armor Christmas [F]
+8:265 Sonnar Armor [M][RL]
+8:266 Sonnar Armor [F][RL]
+8:267 Apollo Armor [RL]
+8:268 Light Griffin Armor [RL]
+8:269 Mystic Armor [M][RL]
+8:270 Mystic Armor [F][RL]
+8:271 BanneD M Armor
+8:272 BanneD F Armor
+9:45 Titan Pants
+9:46 Brave Pants
+9:49 Seraphim Pants
+9:50 Divine Pants
+9:52 Hades Pants
+9:160 of Cup Pants [efeito]
+9:171 Apocalipse 2.0 Pants
+9:172 Holly Pants
+9:173 Female Holly Pants
+9:174 Horus Pants
+9:176 Zeus Pants
+9:177 Armagedom Pants
+9:194 God 2.0 Pants
+9:195 Female God 2.0 Pants
+9:199 Necromancer Pants
+9:200 Female Necromancer Pants
+9:203 Pants of Death 3.0 [RL]
+9:204 Female Pants of Death 3.0 [RL]
+9:208 Holly Night Pants
+9:209 Female Holly Night Pants
+9:232 Especial 02 Pants [E]
+9:233 Pants of Gold [RL]
+9:234 Pants of Diamond [RL]
+9:235 Pants of Snow [M][C]
+9:236 Pants of Snow [F][C]
+9:237 Pants of LorD [M]
+9:238 Pants of LorD [F]
+9:239 Pants of Angel [E]
+9:240 Pants of Poison [E]
+9:241 Pants of Flame
+9:242 Pants of Blue [RL]
+9:243 Pants of Snow Black[M]
+9:244 Pants of Snow Black[F]
+9:246 Horus Pants [RL]
+9:247 DarkLighT Pants [RL]
+9:248 Imperial Green Pants [RL]
+9:249 Frost Pants [RL]
+9:250 Frost Black Pants [RL]
+9:251 Holly Pants [RL]
+9:252 Holly Night Pants [RL]
+9:253 Heat Pants [M][RL]
+9:254 Heat Pants [F][RL]
+9:256 Lirium Pants [EV]
+9:257 Pants 01-X Renew [M][EX]
+9:258 Pants 01-X Renew [F][EX]
+9:259 Pants Bright ReD [M]
+9:260 Pants Bright ReD [F]
+9:261 Pants Malignat [RL]
+9:262 Pants of Electro
+9:263 Black Pants Christmas [M]
+9:264 Black Pants Christmas [F]
+9:265 Sonnar Pants [M][RL]
+9:266 Sonnar Pants [F][RL]
+9:267 Apollo Pants [RL]
+9:268 Light Griffin Pants [RL]
+9:269 Mystic Pants [M][RL]
+9:270 Mystic Pants [F][RL]
+9:271 BanneD M Pant
+9:272 BanneD F Pant
+10:45 Titan Gloves
+10:46 Brave Gloves
+10:49 Seraphim Gloves
+10:50 Divine Gloves
+10:52 Hades Gloves
+10:160 of Cup Gloves [efeito]
+10:171 Apocalipse 2.0 Gloves
+10:172 Holly Gloves
+10:173 Female Holly Gloves
+10:174 Horus Gloves
+10:176 Zeus Gloves
+10:177 Armagedom Gloves
+10:194 God 2.0 Gloves
+10:195 Female God 2.0 Gloves
+10:199 Necromancer Gloves
+10:200 Female Necromancer Gloves
+10:203 Gloves of Death 3.0 [RL]
+10:204 Female Gloves of Death 3.0 [RL]
+10:208 Holly Night Gloves
+10:209 Female Holly Night Gloves
+10:232 Especial 02 Gloves [E]
+10:233 Gloves of Gold [RL]
+10:234 Gloves of Diamond [RL]
+10:235 Gloves of Snow [M][C]
+10:236 Gloves of Snow [F][C]
+10:237 Gloves of LorD [M]
+10:238 Gloves of LorD [F]
+10:239 Gloves of Angel [E]
+10:240 Gloves of Poison [E]
+10:241 Gloves of Flame
+10:242 Gloves of Blue [RL]
+10:243 Gloves of Snow Black[M]
+10:244 Gloves of Snow Black[F]
+10:246 Horus Gloves [RL]
+10:247 DarkLighT Gloves [RL]
+10:248 Imperial Green Gloves [RL]
+10:249 Frost Gloves [RL]
+10:250 Frost Black Gloves [RL]
+10:251 Holly Gloves [RL]
+10:252 Holly Night Gloves [RL]
+10:253 Heat Gloves [M][RL]
+10:254 Heat Gloves [F][RL]
+10:256 Lirium Gloves [EV]
+10:257 Gloves 01-X Renew [M][EX]
+10:258 Gloves 01-X Renew [F][EX]
+10:259 Gloves Bright ReD [M]
+10:260 Gloves Bright ReD [F]
+10:261 Gloves Malignat [RL]
+10:262 Gloves of Electro
+10:263 Black Gloves Christmas [M]
+10:264 Black Gloves Christmas [F]
+10:265 Sonnar Gloves [M][RL]
+10:266 Sonnar Gloves [F][RL]
+10:267 Apollo Gloves [RL]
+10:268 Light Griffin Gloves [RL]
+10:269 Mystic Gloves [M][RL]
+10:270 Mystic Gloves [F][RL]
+10:271 BanneD M Glove
+10:272 BanneD F Glove
+11:45 Titan Boots [efeito]
+11:123 Death [Fem] Boots [efeito]
+11:124 Death Boots [efeito]
+11:145 Poseidon Boots [efeito]
+11:160 Of Cup Boots [efeito]
+11:161 Ghost Boots [efeito]
+11:163 War 2.0 Boots [efeito]
+11:164 Female War 2.0 Boots [efeito]
+11:165 Dark Raven Boots [efeito]
+11:166 Light Hawk Boots [efeito]
+11:167 Female Light Hawk Boots [efeito]
+11:171 Apocalipse 2.0 Boots [efeito]
+11:172 Holly Boots [efeito]
+11:173 Female Holly Boots [efeito]
+11:174 Horus Boots [efeito]
+11:176 Zeus Boots [efeito]
+11:177 Armagedom Boots [efeito]
+11:178 Blood Vampire Boots [efeito]
+11:179 Female Blood Vampire Boots [efeito]
+11:186 Manticore Boots [efeito]
+11:187 Female Manticore Boots [efeito]
+11:192 Abbadon Boots [efeito]
+11:193 Female Abbadon Boots [efeito]
+11:194 God 2.0 Boots [efeito]
+11:195 Female God 2.0 Boots [efeito]
+11:196 Gold Boots [efeito]
+11:197 Diamond Boots [efeito]
+11:198 Ice Dragon Boots [efeito]
+11:199 Necromancer Boots [efeito]
+11:200 Female Necromancer Boots [efeito]
+11:202 Female Cold Boots [efeito]
+11:203 Boots of Death 3.0 [RL] [efeito]
+11:204 Female Boots of Death 3.0 [RL] [efeito]
+11:205 Female Ice Dragon Boots [efeito]
+11:208 Holly Night Boots [efeito]
+11:209 Female Holly Night Boots [efeito]
+11:212 Female Dark Raven Boots [efeito]
+11:233 Boots of Gold [RL] [efeito]
+11:234 Boots of Diamond [RL] [efeito]
+11:246 Horus Boots [RL] [efeito]
+11:251 Holly Boots [RL] [efeito]
+11:252 Holly Night Boots [RL] [efeito]
+11:253 Heat Boots [M][RL] [efeito]
+11:254 Heat Boots [F][RL] [efeito]
+11:256 Lirium Boots [EV] [efeito]
+11:257 Boots 01-X Renew [M][EX] [efeito]
+11:258 Boots 01-X Renew [F][EX] [efeito]
+11:261 Boots Malignat [RL] [efeito]
+11:262 Boots of Electro [efeito]
+11:263 Black Boots Christmas [M]
+11:264 Black Boots Christmas [F]
+11:265 Sonnar Boots [M][RL]
+11:266 Sonnar Boots [F][RL]
+11:267 Apollo Boots [RL]
+11:268 Light Griffin Boots [RL]
+11:269 Mystic Boots [M][RL] [efeito]
+11:270 Mystic Boots [F][RL] [efeito]
+11:271 BanneD M Boot [efeito]
+11:272 BanneD F Boot [efeito]
+12:150 Wing of War Ed.Christmas [RL] [efeito]
+12:159 Wing of Cup Skin [efeito]
+12:160 Wing of War [RL] [efeito]
+12:162 Wing of God [RL] [efeito]
+12:172 xMas Wing [C][RL] [efeito]
+12:175 Christmas Wing [C] [efeito]
+12:177 Wing of Death [RL] [efeito]
+12:183 Warlock Wing [C] [efeito]
+12:190 Cape of Christmas [RL] [efeito]
+12:194 Cape of Christmas Black [RL] [efeito]
+12:195 Wing of Frost [efeito]
+12:197 Wing of Divine [efeito]
+12:198 Wing of Power [efeito]
+12:199 Wing of Celestial [efeito]
+12:201 Wing of Sunlight [efeito]
+12:202 Wing of Energy [efeito]
+12:203 Wing of Rudolph [C] [efeito]
+12:210 Wing of War 2.0 [efeito]
+12:211 Cape of War 2.0 [efeito]
+12:212 Wing of Dark Raven [efeito]
+12:214 Wing of Light Hawk [efeito]
+12:215 Cape of Light Hawk [efeito]
+12:216 Wing of Snow [efeito]
+12:219 Wing of Apocalipse 2.0 [efeito]
+12:220 Cape of Apocalipse 2.0 [efeito]
+12:221 Wing of Holly [efeito]
+12:222 Cape of Holly [efeito]
+12:223 Wing of Horus [Skin1] [efeito]
+12:224 Cape of Horus [efeito]
+12:225 Wing of Zeus [efeito]
+12:226 Cape of Zeus [efeito]
+12:227 Wing of Horus [Skin2] [efeito]
+12:228 Wing of Armagedom [efeito]
+12:229 Cape of Armagedom [efeito]
+12:230 Wing of Blood Vampire [efeito]
+12:231 Cape of Blood Vampire [efeito]
+12:232 Wing of Halloween [efeito]
+12:233 Cape of Halloween [efeito]
+12:235 Wing of Rabbit [efeito]
+12:236 Wing of Manticore [efeito]
+12:237 Cape of Manticore [efeito]
+12:238 Wing of Steel 2.0 [efeito]
+12:239 Cape of Steel 2.0 [efeito]
+12:240 Wing of Gift Christmas [efeito]
+12:241 Cape of Gift Christmas [efeito]
+12:242 Wing of Abbadon [efeito]
+12:243 Cape of Abbadon [efeito]
+12:246 Wing of Gold [efeito]
+12:247 Cape of Gold [efeito]
+12:248 Wing of Diamond [efeito]
+12:249 Cape of Diamond [efeito]
+12:250 Wing of Ice Dragon [efeito]
+12:251 Cape of Ice Dragon [efeito]
+12:252 Wing of Necromancer [efeito]
+12:254 Wing of Cold [efeito]
+12:255 Cape of Cold [efeito]
+12:264 Wing of Tail Fox [efeito]
+12:265 Cape of Tail Fox [efeito]
+12:269 Wings of Gold [RL] [efeito]
+12:272 Wings of LorD [efeito]
+12:273 Cape of Flame [efeito]
+12:274 Wings of Blue [RL] [efeito]
+12:275 Cape of Blue [RL] [efeito]
+12:276 Horus Wings [RL] [efeito]
+12:332 BanneD Wings [efeito]
+12:333 BanneD Cape [efeito]
+13:252 Horn of Dinorant Black
+13:253 Horn of Dinorant Gold
+13:254 Horn of Dinorant Pink
+13:255 Horn of Dinorant Red
+13:256 Horn of Dinorant Red Xmas
+13:257 Horn of Dinorant Green
+13:258 Eagle of Death
+13:259 Pet Steel 2.0
+13:260 Ice Dragon - Steel
+13:261 Horse of Abbadon
+13:262 Ice Dragon - Blue
+13:263 Pet Necromancer
+13:264 Eagle of Cold
+13:265 Pet Rabbit Boy
+13:266 Pet Rabbit Girl
+13:267 Pet Rabbit Moon
+13:268 Eagle of Zeus
+13:269 Horse Holly Night
+13:270 Ice Dragon - Steel [V]
+13:271 Pet Light Hawk
+13:272 Eagle of Dark Raven
+13:273 Pet Griffin
+13:274 Pet Griffin Black
+13:275 Pet Frost Black Skin 1
+13:276 Tail Fox
+13:277 Spirit BanneD
+13:430 BanneD Ring
+13:431 BanneD Pendant
+13:450 Horse of BanneD
+13:451 Fenrir BanneD
+13:452 Fenrir Zeus
+13:453 Horse of Zeus
+13:454 Fenrir Horus
+13:455 Horse of Horus
+13:456 Fenrir Poseidon
+13:457 Horse of Poseidon
+13:458 Eagle of Poseidon
+13:459 Fenrir God 2.0
+13:460 Horse of God 2.0
+13:461 Eagle of God 2.0
+13:462 Eagle of Holly
+13:463 Eagle of Holly Night
+13:464 Fenrir Armagedom
+13:465 Horse of Armagedom
+13:466 Eagle of Armagedom
+13:467 Fenrir Apocalipse 2.0
+13:468 Horse of Apocalipse 2.0
+13:469 Eagle of Apocalipse 2.0
+13:470 Fenrir Death 3.0
+13:471 Horse of Death 3.0
+13:472 Eagle of Death 3.0
+13:475 Horse of Necromancer
+13:476 Eagle of Necromancer
+13:477 Fenrir Blood Vampire
+13:478 Horse of Blood Vampire
+13:479 Eagle of Blood Vampire
+13:480 Fenrir Manticore
+13:481 Horse of Manticore
+13:482 Eagle of Manticore
+13:483 Fenrir Mystic
+13:484 Horse of Mystic
+13:485 Eagle of Mystic
+13:486 Fenrir War 2.0
+13:487 Horse of War 2.0
+13:488 Eagle of War 2.0
+13:489 Fenrir Ice Dragon
+13:490 Horse of Ice Dragon
+13:491 Eagle of Ice Dragon
+13:492 Eagle of Ghost
+13:493 Fenrir Dark Raven
+13:494 Horse of Dark Raven
+13:495 Horse of Light Hawk
+14:124 Silver Box
+14:125 Package Box
+14:126 30-Day Pass
+14:127 90-Day Pass
+14:128 30-Day Pass - Points
+14:129 90-Day Pass - Points
+14:130 3-Hour Pass
+14:131 5-Hour Pass
+14:132 10-Hour Pass
+14:133 Elite SD Potion
+14:134 Package Box A
+14:135 Package Box B
+14:136 Package Box C
+14:137 Package Box D
+14:138 Package Box E
+14:139 Package Box F
+14:140 Scroll of Healing
+14:141 Shining Jewelry Case
+14:142 Elegant Jewelry Case
+14:143 Steel Jewelry Case
+14:144 Old Jewelry Case
+14:145 Rare Item Ticket 7
+14:146 Rare Item Ticket 8
+14:147 Rare Item Ticket 9
+14:148 Rare Item Ticket 10
+14:149 Rare Item Ticket 11
+14:150 Rare Item Ticket 12
+14:200 Box of Master Reset
+14:256 Jewel of Visual
+14:300 Yellow Football Box
+14:301 Blue Football Box
+14:302 Green Football Box
+14:303 Black Football Box
+14:304 WorldCup Box
+14:305 Green Candy Box
+14:306 Blue Candy Box
+14:307 Red Candy Box
+14:308 Green Box of Christmas
+14:309 Blue Box of Christmas
+14:310 Red Box of Christmas
+14:311 Silver Box of Christmas
+14:312 Bag of Christmas
+14:313 Abbadon Box
+14:314 Necromancer Box
+14:315 Cold Box
+14:316 Rabbit Box
+14:317 Horus Box
+14:318 Holly Gold Box
+14:319 Holly White Box
+14:320 Apocalipse 2.0 Box
+14:321 Light Hawk Box
+14:322 Dark Raven Box
+15:13 Scroll of Inferno
+15:14 Scroll of Teleport Ally
+15:16 Scroll of Decay
+15:17 Scroll of Ice Storm
+15:18 Scroll of Nova
+15:21 Lightning Shock Parchment
+15:27 Innovation Parchment
+15:28 Scroll of Wizardry Enhance
+15:29 Scroll of Gigantic Storm
+
+SETS EXCLUSIVOS
+45 Titan Armor
+46 Brave Armor
+49 Seraphim Armor
+50 Divine Armor
+52 Hades Armor
+160 of Cup Armor
+171 Apocalipse 2.0 Armor
+172 Holly Armor
+173 Female Holly Armor
+174 Horus Armor
+176 Zeus Armor
+177 Armagedom Armor
+194 God 2.0 Armor
+195 Female God 2.0 Armor
+199 Necromancer Armor
+200 Female Necromancer Armor
+203 Armor of Death 3.0 [RL]
+204 Female Armor of Death 3.0 [RL]
+208 Holly Night Armor
+209 Female Holly Night Armor
+232 Especial 02 Armor [E]
+233 Armor of Gold [RL]
+234 Armor of Diamond [RL]
+235 Armor of Snow [M][C]
+236 Armor of Snow [F][C]
+237 Armor of LorD [M]
+238 Armor of LorD [F]
+239 Armor of Angel [E]
+240 Armor of Poison [E]
+241 Armor of Flame
+242 Armor of Blue [RL]
+243 Armor of Snow Black[M]
+244 Armor of Snow Black[F]
+246 Horus Armor [RL]
+247 DarkLighT Armor [RL]
+248 Imperial Green Armor [RL]
+249 Frost Armor [RL]
+250 Frost Black Armor [RL]
+251 Holly Armor [RL]
+252 Holly Night Armor [RL]
+253 Heat Armor [M][RL]
+254 Heat Armor [F][RL]
+256 Lirium Armor [EV]
+257 Armor 01-X Renew [M][EX]
+258 Armor 01-X Renew [F][EX]
+259 Armor Bright ReD [M]
+260 Armor Bright ReD [F]
+261 Armor Malignat [RL]
+262 Armor of Electro
+263 Black Armor Christmas [M]
+264 Black Armor Christmas [F]
+265 Sonnar Armor [M][RL]
+266 Sonnar Armor [F][RL]
+267 Apollo Armor [RL]
+268 Light Griffin Armor [RL]
+269 Mystic Armor [M][RL]
+270 Mystic Armor [F][RL]
+271 BanneD M Armor
+272 BanneD F Armor
