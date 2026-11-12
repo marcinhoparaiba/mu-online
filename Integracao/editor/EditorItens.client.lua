@@ -1,4 +1,4 @@
--- EDITOR DE ITENS (MuBanneD): tecla D abre. Escolhe categoria, item, [editar], opcoes e COMPRAR (cobra cash no servidor).
+-- EDITOR DE ITENS (MuBanneD): tecla G abre. Escolhe categoria, item, [editar], opcoes e COMPRAR (cobra cash no servidor).
 EditorItens = {}
 EDITOR_ITENS = {--ITENS--}
 EDITOR_LINHAS = {--LINHAS--}
@@ -144,12 +144,8 @@ function EditorItens.UpdateKey()
     if UICustomInterface ~= 0 and UICustomInterface ~= ID then return end
     if CheckWindowOpen(UIChatWindow) ~= 0 then return end
     if CheckPressedKey(Keys.Escape) ~= 0 and EditorItens.IsOpen() then DisableClickClient(); EditorItens.Close(); return end
-    -- G abre/fecha o menu de comandos nativo (Trade, Party, Guild, Duel...); o D ficou para o editor
-    if CheckPressedKey(Keys.G) ~= 0 and not EditorItens.IsOpen() and OpenWindow then
-        if CheckWindowOpen(UICommandWindow) ~= 0 then CloseWindow(UICommandWindow) else OpenWindow(UICommandWindow) end
-    end
-    if CheckPressedKey(Keys.D) ~= 0 then
-        if CloseWindow then CloseWindow(UICommandWindow) end
+    -- G abre o editor; o D fica com o menu de comandos nativo (Trade, Party, Guild, Duel...)
+    if CheckPressedKey(Keys.G) ~= 0 then
         DisableClickClient()
         if EditorItens.IsOpen() then EditorItens.Close() else EditorItens.Open() end
     end
