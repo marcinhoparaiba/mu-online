@@ -1111,7 +1111,7 @@ function MataMata.Finalizar()
         end
     end
 
-    if PvPExtra and vencedor[1].Info then PvPExtra.Entregar(vencedor[1].Info[1], 'Campeao do Mata-Mata') end -- premio exclusivo sem repetir
+    if PvPExtra and vencedor[1].Info then PvPExtra.Entregar(vencedor[1].Info[1], 'Campeao do Mata-Mata', #(MataMata.Participantes or {}) >= (PVP_EVENTO_GRANDE or 30)) end -- premio exclusivo sem repetir
     MataMata.Define()
 end
 

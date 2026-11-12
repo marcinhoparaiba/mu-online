@@ -9,10 +9,22 @@ local function q(s) return (tostring(s or ""):gsub("'", "''")) end
 
 -- O vencedor ganha 1 CREDITO (PvPPremio). Ele escolhe a categoria com /premio <categoria>; o item sai sorteado
 -- daquela categoria, sem repetir ate todos da categoria terem saido (PvPSorteio guarda o que falta).
-function PvPExtra.Categorias()
+PVP_EVENTO_GRANDE = 30   -- evento com 30+ jogadores libera a categoria ASA
+function PvPExtra.Categorias(comAsa)
     local c, l = {}, {}
-    for _, p in ipairs(EDITOR_PREMIO or {}) do if not c[p[1]] then c[p[1]] = true; l[#l + 1] = p[1] end end
-    table.sort(l); return table.concat(l, ", ")
+    for _, p in ipairs(EDITOR_PREMIO or {}) do
+        if not c[p[1]] and (comAsa or p[1] ~= "asa") then c[p[1]] = true; l[#l + 1] = p[1] end
+    end
+    table.sort(l); return l
+end
+
+-- painel na tela do vencedor (pacote 29): lista de categorias
+function PvPExtra.Painel(aIndex, comAsa)
+    local l = PvPExtra.Categorias(comAsa)
+    local p = string.format("PremioR-%d", aIndex)
+    CreatePacket(p, 29); SetBytePacket(p, #l)
+    for _, c in ipairs(l) do SetBytePacket(p, c:len()); SetCharPacketLength(p, c, c:len()) end
+    SendPacket(p, aIndex); ClearPacket(p)
 end
 
 function PvPExtra.Sortear(cat)
@@ -34,8 +46,8 @@ function PvPExtra.Sortear(cat)
     return {r[2], r[3], r[4]}
 end
 
-function PvPExtra.Entregar(nome, motivo)
-    DataBase.Query(string.format("INSERT INTO PvPPremio (Name, Item, Motivo) VALUES ('%s', 0, '%s')", q(nome), q(motivo)))
+function PvPExtra.Entregar(nome, motivo, comAsa)
+    DataBase.Query(string.format("INSERT INTO PvPPremio (Name, Item, Motivo) VALUES ('%s', %d, '%s')", q(nome), comAsa and 1 or 0, q(motivo)))
     for n = OBJECT_START_USER, MAX_OBJECT do
         if gObjIsConnectedGP(n) == 1 and User.new(n):getName() == nome then PvPExtra.Entrar(n) break end
     end
@@ -44,12 +56,13 @@ end
 function PvPExtra.Premio(aIndex, Arguments)
     local nome = User.new(aIndex):getName()
     local cat = string.lower((Arguments:gsub("^%s*/%S+%s*", "")):match("^(%S+)") or "")
-    local id = nil
-    if db:exec(string.format("SELECT TOP 1 Id FROM PvPPremio WHERE Name = '%s'", q(nome))) ~= 0 and db:fetch() ~= 100 then id = db:getInt("Id") end
+    local id, comAsa = nil, false
+    if db:exec(string.format("SELECT TOP 1 Id, Item FROM PvPPremio WHERE Name = '%s' ORDER BY Item DESC", q(nome))) ~= 0 and db:fetch() ~= 100 then id = db:getInt("Id"); comAsa = db:getInt("Item") == 1 end
     db:clear()
     if not id then SendMessage("[Premio] Voce nao tem premio para resgatar.", aIndex, 1) return end
+    if cat == "asa" and not comAsa then cat = "" end
     local itens = cat ~= "" and PvPExtra.Sortear(cat) or nil
-    if not itens then SendMessage("[Premio] Escolha a categoria: /premio " .. PvPExtra.Categorias(), aIndex, 1) return end
+    if not itens then PvPExtra.Painel(aIndex, comAsa) return end
     for _, it in ipairs(itens) do
         if it > 0 and InventoryCheckSpaceByItem(aIndex, it) == 0 then
             DataBase.Query(string.format("INSERT INTO PvPSorteio (Cat, Item, Item2, Item3) VALUES ('%s', %d, %d, %d)", q(cat), itens[1], itens[2], itens[3]))
@@ -61,6 +74,7 @@ function PvPExtra.Premio(aIndex, Arguments)
         if it > 0 then ItemSerialCreateComplete(aIndex, 236, 0, 0, it, 11, 255, 1, 1, 7, aIndex, 63, 0, 0) end
     end
     SendMessage("[Premio] Premio (" .. cat .. ") entregue no seu inventario!", aIndex, 1)
+    PvPExtra.Entrar(aIndex)  -- se tiver mais premios, o painel abre de novo
 end
 
 function PvPExtra.Morte(aIndex, TargetIndex)
@@ -87,7 +101,10 @@ function PvPExtra.Entrar(aIndex)
     local nome, n = User.new(aIndex):getName(), 0
     if db:exec(string.format("SELECT COUNT(*) AS N FROM PvPPremio WHERE Name = '%s'", q(nome))) ~= 0 and db:fetch() ~= 100 then n = db:getInt("N") end
     db:clear()
-    if n > 0 then SendMessage(string.format("[Premio] Voce tem %d premio(s)! Escolha: /premio %s", n, PvPExtra.Categorias()), aIndex, 1) end
+    local comAsa = false
+    if n > 0 and db:exec(string.format("SELECT COUNT(*) AS N FROM PvPPremio WHERE Name = '%s' AND Item = 1", q(nome))) ~= 0 and db:fetch() ~= 100 then comAsa = db:getInt("N") > 0 end
+    db:clear()
+    if n > 0 then SendMessage(string.format("[Premio] Voce tem %d premio(s)! Escolha a categoria no painel.", n), aIndex, 1); PvPExtra.Painel(aIndex, comAsa) end
 end
 
 local fechado = nil
