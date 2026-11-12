@@ -144,9 +144,13 @@ function EditorItens.UpdateKey()
     if UICustomInterface ~= 0 and UICustomInterface ~= ID then return end
     if CheckWindowOpen(UIChatWindow) ~= 0 then return end
     if CheckPressedKey(Keys.Escape) ~= 0 and EditorItens.IsOpen() then DisableClickClient(); EditorItens.Close(); return end
+    -- o G nativo abre a janela de Guild: enquanto o editor estiver aberto (e alguns quadros depois de fechar) ela fica fechada
+    if CloseWindow and CheckWindowOpen(UIGuild) ~= 0 and (EditorItens.IsOpen() or (E.semGuild or 0) > 0) then CloseWindow(UIGuild) end
+    if (E.semGuild or 0) > 0 then E.semGuild = E.semGuild - 1 end
     -- G abre o editor; o D fica com o menu de comandos nativo (Trade, Party, Guild, Duel...)
     if CheckPressedKey(Keys.G) ~= 0 then
         DisableClickClient()
+        E.semGuild = 30
         if EditorItens.IsOpen() then EditorItens.Close() else EditorItens.Open() end
     end
 end
