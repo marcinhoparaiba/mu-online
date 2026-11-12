@@ -1,0 +1,195 @@
+# Itens sem arquivo 3D com o nome padrao (SUSPEITO: conferir no jogo se aparecem)
+
+O mu.exe pode usar outros nomes para esses itens classicos; o cliente original ja vinha assim. Teste: criar 3 ou 4 pelo editor (Z) e ver se aparecem.
+
+- (0, 22) Bone Blade -> Sword23
+- (0, 23) Explosion Blade -> Sword24
+- (0, 24) Daybreak -> Sword25
+- (0, 25) Sword Dancer -> Sword26
+- (0, 26) Flameberge -> Sword27
+- (0, 27) Sword Breaker -> Sword28
+- (0, 28) Rune Bastard Sword -> Sword29
+- (2, 14) Sword of Archangel -> Mace15
+- (3, 11) Brova -> Spear12
+- (4, 7) Bolt -> Bow08
+- (4, 8) Crossbow -> Bow09
+- (4, 9) Golden Crossbow -> Bow10
+- (4, 10) Arquebus -> Bow11
+- (4, 11) Light Crossbow -> Bow12
+- (4, 12) Serpent Crossbow -> Bow13
+- (4, 13) Bluewing Crossbow -> Bow14
+- (4, 14) Aquagold Crossbow -> Bow15
+- (4, 15) Arrow -> Bow16
+- (4, 16) Saint Crossbow -> Bow17
+- (4, 20) Arrow Viper Bow -> Bow21
+- (4, 21) Sylph Wind Bow -> Bow22
+- (4, 22) Albatross Bow -> Bow23
+- (4, 23) Dark Stinger -> Bow24
+- (4, 24) Aileen Bow -> Bow25
+- (5, 12) Grand Viper Staff -> Staff13
+- (5, 13) Platina Staff -> Staff14
+- (6, 17) Crimson Glory -> Shield18
+- (6, 18) Salamander Shield -> Shield19
+- (6, 19) Frost Barrier -> Shield20
+- (6, 20) Guardian Shield -> Shield21
+- (6, 21) Cross Shield -> Shield22
+- (7, 10) Vine Helm -> HelmMale11
+- (7, 11) Silk Helm -> HelmMale12
+- (7, 12) Wind Helm -> HelmMale13
+- (7, 13) Spirit Helm -> HelmMale14
+- (7, 14) Guardian Helm -> HelmMale15
+- (8, 10) Vine Armor -> ArmorMale11
+- (8, 11) Silk Armor -> ArmorMale12
+- (8, 12) Wind Armor -> ArmorMale13
+- (8, 13) Spirit Armor -> ArmorMale14
+- (8, 14) Guardian Armor -> ArmorMale15
+- (9, 10) Vine Pants -> PantMale11
+- (9, 11) Silk Pants -> PantMale12
+- (9, 12) Wind Pants -> PantMale13
+- (9, 13) Spirit Pants -> PantMale14
+- (9, 14) Guardian Pants -> PantMale15
+- (10, 10) Vine Gloves -> GloveMale11
+- (10, 11) Silk Gloves -> GloveMale12
+- (10, 12) Wind Gloves -> GloveMale13
+- (10, 13) Spirit Gloves -> GloveMale14
+- (10, 14) Guardian Gloves -> GloveMale15
+- (11, 10) Vine Boots -> BootMale11
+- (11, 11) Silk Boots -> BootMale12
+- (11, 12) Wind Boots -> BootMale13
+- (11, 13) Spirit Boots -> BootMale14
+- (11, 14) Guardian Boots -> BootMale15
+- (12, 11) Orb of Summoning -> Wing12
+- (12, 12) Orb of Rageful Blow -> Wing13
+- (12, 13) Orb of Impale -> Wing14
+- (12, 14) Orb of Greater Fortitude -> Wing15
+- (12, 15) Jewel of Chaos -> Wing16
+- (12, 16) Orb of Fire Slash -> Wing17
+- (12, 17) Orb of Penetration -> Wing18
+- (12, 18) Orb of Ice Arrow -> Wing19
+- (12, 19) Orb of Death Stab -> Wing20
+- (12, 21) Scroll of FireBurst -> Wing22
+- (12, 22) Scroll of Summon -> Wing23
+- (12, 23) Scroll of Critical Damage -> Wing24
+- (12, 24) Scroll of Electric Spark -> Wing25
+- (12, 26) Gem of Secret -> Wing27
+- (12, 30) Bundled Jewel of Bless -> Wing31
+- (12, 31) Bundled Jewel of Soul -> Wing32
+- (12, 32) Box of Red Ribbon -> Wing33
+- (12, 33) Box of Green Ribbon -> Wing34
+- (12, 34) Box of Blue Ribbon -> Wing35
+- (12, 35) Scroll of Fire Scream -> Wing36
+- (12, 36) Wing of Storm -> Wing37
+- (12, 37) Wing of Eternal -> Wing38
+- (12, 38) Wing of Illusion -> Wing39
+- (12, 39) Wing of Ruin -> Wing40
+- (12, 40) Cape of Emperor -> Wing41
+- (12, 136) Bundled Jewel of Life -> Wing137
+- (12, 137) Bundled Jewel of Creation -> Wing138
+- (12, 138) Bundled Jewel of Guardian -> Wing139
+- (12, 139) Bundled Gemstone -> Wing140
+- (12, 140) Bundled Jewel of Harmony -> Wing141
+- (12, 141) Bundled Jewel of Chaos -> Wing142
+- (12, 142) Bundled Lower Refining Stone -> Wing143
+- (12, 143) Bundled Higer Refining Stone -> Wing144
+- (13, 4) Dark Horse -> Helper05
+- (13, 5) Dark Raven -> Helper06
+- (13, 7) Contract (Summon) -> Helper08
+- (13, 8) Ring of Ice -> Helper09
+- (13, 9) Ring of Poison -> Helper10
+- (13, 10) Transformation Ring -> Helper11
+- (13, 11) Order (Guardian/Life Stone) -> Helper12
+- (13, 12) Pendant of Lighting -> Helper13
+- (13, 13) Pendant of Fire -> Helper14
+- (13, 14) Loch's Feather -> Helper15
+- (13, 24) Ring of Magic -> Helper25
+- (13, 30) Cape of Lord -> Helper31
+- (13, 31) Spirit -> Helper32
+- (13, 32) Splinter of Armor -> Helper33
+- (13, 33) Bless of Guardian -> Helper34
+- (13, 34) Claw of Beast -> Helper35
+- (13, 35) Fragment of Horn -> Helper36
+- (13, 36) Broken Horn -> Helper37
+- (13, 37) Horn of Fenrir -> Helper38
+- (13, 38) Moonstone Pendant -> Helper39
+- (13, 39) Eilte Transfer Skeleton Ring -> Helper40
+- (13, 40) Jack Olantern Ring -> Helper41
+- (13, 41) Transfer Christmas Ring -> Helper42
+- (13, 42) Ring of GM -> Helper43
+- (13, 43) Seal of Ascension -> Helper44
+- (13, 44) Seal of Wealth -> Helper45
+- (13, 45) Seal of Sustenance -> Helper46
+- (13, 46) Devil Square Ticket -> Helper47
+- (13, 47) Blood Castle Ticket -> Helper48
+- (13, 48) Kalima Ticket -> Helper49
+- (13, 49) Old Scroll -> Helper50
+- (13, 50) Illusion Sorcerer Covenant -> Helper51
+- (13, 51) Scroll of Blood -> Helper52
+- (13, 52) Condor Flame -> Helper53
+- (13, 53) Condor Feather -> Helper54
+- (13, 54) Reset Fruit Strength -> Helper55
+- (13, 55) Reset Fruit Quickness -> Helper56
+- (13, 56) Reset Fruit Health -> Helper57
+- (13, 57) Reset Fruit Energy -> Helper58
+- (13, 58) Reset Fruit Control -> Helper59
+- (13, 59) Seal of Mobility -> Helper60
+- (13, 60) Indulgence -> Helper61
+- (13, 61) Illusion Temple Ticket -> Helper62
+- (13, 62) Seal of Healing -> Helper63
+- (13, 63) Seal of Divinity -> Helper64
+- (13, 64) Demon -> Helper65
+- (13, 65) Spirit of Guardian -> Helper66
+- (13, 66) Invitation to Santa Village -> Helper67
+- (13, 67) Pet Rudolf -> Helper68
+- (13, 68) Snowman Transformation Ring -> Helper69
+- (13, 69) Talisman of Resurrection -> Helper70
+- (13, 70) Talisman of Mobility -> Helper71
+- (13, 71) Sword/Mace/Spear -> Helper72
+- (13, 72) Staff -> Helper73
+- (13, 73) Bow/Crossbow -> Helper74
+- (13, 74) Scepter -> Helper75
+- (13, 75) Stick -> Helper76
+- (13, 76) Panda Ring -> Helper77
+- (13, 80) Pet Panda -> Helper81
+- (13, 81) Talisman of Guardian -> Helper82
+- (13, 82) Talisman of Item Protection -> Helper83
+- (13, 83) Talisman of Wings of Satan -> Helper84
+- (13, 84) Talisman of Wings of Heaven -> Helper85
+- (13, 85) Talisman of Wings of Elf -> Helper86
+- (13, 86) Talisman of Wing of Curse -> Helper87
+- (13, 87) Talisman of Cape of Emperor -> Helper88
+- (13, 88) Talisman of Wings of Dragon -> Helper89
+- (13, 89) Talisman of Wings of Soul -> Helper90
+- (13, 90) Talisman of Wings of Spirits -> Helper91
+- (13, 91) Talisman of Wing of Despair -> Helper92
+- (13, 92) Talisman of Wings of Darkness -> Helper93
+- (13, 95) Gladiator's Honor -> Helper96
+- (13, 96) Seal of Strength -> Helper97
+- (13, 103) Party EXP Scroll -> Helper104
+- (13, 104) Max AG Boost Aura -> Helper105
+- (13, 105) Max SD Boost Aura -> Helper106
+- (13, 106) Pet Unicorn -> Helper107
+- (13, 107) Lethal Wizard's Ring -> Helper108
+- (13, 109) Sapphire Ring -> Helper110
+- (13, 110) Ruby Ring -> Helper111
+- (13, 111) Topaz Ring -> Helper112
+- (13, 112) Amethyst Ring -> Helper113
+- (13, 113) Ruby Necklace -> Helper114
+- (13, 114) Emerald Necklace -> Helper115
+- (13, 115) Sapphire Necklace -> Helper116
+- (13, 116) Seal of Wealth -> Helper117
+- (13, 117) Minimum Vitality Potion -> Helper118
+- (13, 118) Low Vitality Potion -> Helper119
+- (13, 119) Medium Vitality Potion -> Helper120
+- (13, 120) High Vitality Potion -> Helper121
+- (13, 121) Open Access Ticket to Chaos Ca -> Helper122
+- (13, 122) Skeleton Transformation Ring -> Helper123
+- (13, 123) Pet Skeleton -> Helper124
+- (13, 124) Paid Channel Access Ticket -> Helper125
+- (13, 125) Open Access Ticket to Doppelga -> Helper126
+- (13, 126) Open Access Ticket to Varka -> Helper127
+- (13, 127) Open Access Ticket to Varka Ma -> Helper128
+- (13, 210) Pet Panda -> Helper211
+- (13, 211) Pet Pirate -> Helper212
+- (13, 212) Pet Archangel -> Helper213
+- (13, 213) Pet Mummy -> Helper214
+- (13, 275) Pet Frost Black Skin 1 -> Helper276

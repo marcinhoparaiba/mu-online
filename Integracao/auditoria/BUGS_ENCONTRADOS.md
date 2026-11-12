@@ -16,3 +16,12 @@
 | 12 | Baixa | 7 Lua do cliente (GiroDaSorte, Options, Move, InterfaceInfos, CharacterHelper, CharacterCreateCape) | Parênteses desequilibrados já no original; o jogo roda com eles | SUSPEITO |
 | 13 | Baixa | Arte original de algumas linhas (ex.: Holly Night) | Cores misturadas na própria arte | SUSPEITO (escolha artística, não alterado) |
 | 14 | Info | Logs | "CheckSumTime Error" vem dos bots de teste | NÃO APLICÁVEL |
+
+## Auditoria de itens (12/11, 2a rodada) — work/audita_itens.py
+| # | Sev. | Achado | Status |
+|---|---|---|---|
+| 15 | ? | 191 itens classicos (ex.: Bone Blade, Crossbow, Golden Crossbow, sets 3a classe) sem arquivo 3D com o nome padrao -> podem estar invisiveis | SUSPEITO / NAO TESTADO (lista em ITENS_SUSPEITOS.md; cliente original igual) |
+| 16 | — | Angel Helm usa skin_Class305 (pele do personagem, trocada pelo jogo em tempo real) | NAO APLICAVEL |
+| 17 | — | Asas classicas 5x3 / 5x2 no inventario | NAO APLICAVEL (tamanho original do MU) |
+| 18 | — | 10 itens sem classe (pergaminhos do DL, Cape of Lord, Dark Raven, Spirit) | NAO APLICAVEL (itens especiais) |
+| — | — | Todos os 2193 itens tem nome no cliente; todos os itens novos/donate tem modelo e textura | OK |
