@@ -35,14 +35,14 @@
 102       0      22      1       4        1            1            0          "Dark Sword"	4	7	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 103       0      22      1       4        1            1            0          "Devil Sword"	4	37	37	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 104       0      22      1       4        1            1            0          "Satanic Sword"	4	7	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
-105       0      22      1       4        1            1            0          "Apocalipse Sword"	4	7	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
+105       0      22      1       4        1            1            0          "Apocalipse Sword [LIMITADO]"	4	7	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 106       0      22      1       4        1            1            0          "Blood Angel Sword"	4	7	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 107       0      22      1       4        1            1            0          "Hero Sword"	4	7	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 108       0      22      1       4        1            1            0          "Death Sword [LIMITADO]"	4	228	252	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 109       0      22      1       4        1            1            0          "Ilussion Hammer"	4	7	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 110       0      22      1       4        1            1            0          "GMDC Sword"	4	7	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 111       0      22      1       4        1            1            0          "Imperium Sword"	4	7	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
-112       0      22      1       4        1            1            0          "Tail Sword"	4	7	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
+112       0      22      1       4        1            1            0          "Tail Sword [EXCLUSIVO]"	4	7	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 113       0      22      1       4        1            1            0          "Bersek Axe"	4	7	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 114       0      22      1       4        1            1            0          "Alpha Sword"	4	36	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 115       0      22      1       4        1            1            0          "Apolo Sword"	4	10	20	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
@@ -153,6 +153,7 @@
 243	0	22	1	4	1	1	0	"Mace of King [RL]"	115	191	199	82	90	0	0	0	0	0	0	0	0	0	0	1	0	1	1	1
 245	0	22	1	4	1	1	0	"Mystic Sword [RL] [LIMITADO]"	115	228	252	150	90	0	0	0	0	0	0	0	0	0	0	1	0	1	1	1
 244	0	22	1	4	1	1	0	"BanneD Sword [LIMITADO]"	115	240	264	82	90	0	0	0	0	0	0	0	0	0	0	1	0	1	1	1
+320       0      22      1       4        1            1            0          "Sword of Tail Fox [EXCLUSIVO]"	4	240	264	40	90	0	0	380	193	53	0	0	0	0	0	2	0	1	0	0
 end
 
 1
@@ -280,6 +281,19 @@ end
 315       0      66      1       4        1            1            0          "Scepter of Ghost [LIMITADO]"	4	142	168	40	95	0	101	380	80	15	0	0	0	0	0	0	0	0	1	0
 316       0      66      1       4        1            1            0          "Scepter of Dark Rav [LIMITADO]"	4	142	168	40	95	0	101	380	80	15	0	0	0	0	0	0	0	0	1	0
 317       0      66      1       4        1            1            0          "Scepter of Light Ha [LIMITADO]"	4	142	168	40	95	0	101	380	80	15	0	0	0	0	0	0	0	0	1	0
+318       0      66      1       4        1            1            0          "Scepter of Gold [EXCLUSIVO]"	4	1	10	40	95	0	84	380	80	15	0	0	0	0	0	0	0	0	1	0
+319       0      66      1       4        1            1            0          "Scepter of Diamond [EXCLUSIVO]"	4	1	10	40	95	0	84	380	80	15	0	0	0	0	0	0	0	0	1	0
+320       0      66      1       4        1            1            0          "Scepter of Frost B [EXCLUSIVO]"	4	1	10	40	95	0	84	380	80	15	0	0	0	0	0	0	0	0	1	0
+321       0      66      1       4        1            1            0          "Scepter of Steel 2 [EXCLUSIVO]"	4	1	10	40	95	0	84	380	80	15	0	0	0	0	0	0	0	0	1	0
+322       0      66      1       4        1            1            0          "Scepter of Hallowe [EXCLUSIVO]"	4	1	10	40	95	0	84	380	80	15	0	0	0	0	0	0	0	0	1	0
+323       0      66      1       4        1            1            0          "Scepter of Gift Ch [EXCLUSIVO]"	4	1	10	40	95	0	84	380	80	15	0	0	0	0	0	0	0	0	1	0
+324       0      66      1       4        1            1            0          "Scepter of Tail Fo [EXCLUSIVO]"	4	1	10	40	95	0	84	380	80	15	0	0	0	0	0	0	0	0	1	0
+325       0      66      1       4        1            1            0          "Scepter of Snow [EXCLUSIVO]"	4	1	10	40	95	0	84	380	80	15	0	0	0	0	0	0	0	0	1	0
+326       0      66      1       4        1            1            0          "Scepter of Santa [EXCLUSIVO]"	4	1	10	40	95	0	84	380	80	15	0	0	0	0	0	0	0	0	1	0
+327       0      66      1      4        1            1           0          "Scepter of Dark Pi [EXCLUSIVO]"	4	1	10	40	95	0	84	380	80	15	0	0	0	0	0	0	0	0	1	0
+328       0      66      1       4        1            1            0          "Scepter of Frost [EXCLUSIVO]"	4	1	10	40	95	0	84	380	80	15	0	0	0	0	0	0	0	0	1	0
+329       0      66      1       4        1            1            0          "Scepter of Steel [EXCLUSIVO]"	4	1	10	40	95	0	84	380	80	15	0	0	0	0	0	0	0	0	1	0
+330       0      66      1       4        1            1            0          "Scepter of Cold [EXCLUSIVO]"	4	166	204	40	95	0	101	380	80	15	0	0	0	0	0	0	0	0	1	0
 end
 
 3
@@ -451,6 +465,8 @@ end
 300       0      0       1       4        1            1            0          "Staff of Death [LIMITADO]"	4	162	180	40	0	78	144	0	50	16	0	0	0	0	2	0	0	1	0	0
 301       0      0       1       4        1            1            0          "Staff of Ghost [LIMITADO]"	4	162	180	40	0	78	144	0	50	16	0	0	0	0	2	0	0	1	0	0
 302       0      0       1       4        1            1            0          "Staff of Light Hawk [LIMITADO]"	4	162	180	40	0	78	144	0	50	16	0	0	0	0	2	0	0	1	0	0
+303       0      0       1       4        1            1            0          "Staff of Frost [EXCLUSIVO]"	4	162	180	40	0	78	144	0	50	16	0	0	0	0	2	0	0	1	0	0
+304       0      0       1       4        1            1            0          "Staff of Steel [EXCLUSIVO]"	4	162	180	40	0	78	144	0	50	16	0	0	0	0	2	0	0	1	0	0
 end
 
 6
@@ -478,7 +494,7 @@ end
 20       1      18      2       2        1            1            0          "Guardian Shield"	4	10	10	51	380	54	18	0	0	0	0	2	0	0	0	0	0
 21       1      18      2       2        1            1            0          "Cross Shield"	4	10	10	65	0	140	55	0	0	0	0	0	0	0	0	0	0
 100       1      18      2       2        1            1            0          "Alpha Shield"	4	36	10	51	380	95	48	0	0	0	0	1	1	1	1	0	0
-101       1      18      2       2        1            1            0          "Apocalipse Shield"	4	19	10	51	380	95	48	0	0	0	0	1	1	1	1	0	0
+101       1      18      2       2        1            1            0          "Apocalipse Shield [LIMITADO]"	4	19	10	51	380	95	48	0	0	0	0	1	1	1	1	0	0
 102       1      18      2       2        1            1            0          "Apolo Shield"	4	22	10	51	380	95	48	0	0	0	0	1	1	1	1	0	0
 103       1      18      2       2        1            1            0          "Ares Shield"	4	19	10	51	380	95	48	0	0	0	0	1	1	1	1	0	0
 104       1      18      2       2        1            1            0          "Armaggedom Shield"	4	19	10	51	380	95	48	0	0	0	0	1	1	1	1	0	0
@@ -1605,7 +1621,7 @@ end
 15       *      0       1       1        1            0            0          "Jewel of Chaos"	12	0	0	0	0	0	0	0	0	1	1	1	1	0	0
 16       *      0       1       1        1            0            0          "Orb of Fire Slash"	60	0	0	0	0	320	0	0	51000	0	0	0	1	0	0
 17       *      0       1       1        1            0            0          "Orb of Penetration"	64	0	0	130	0	0	0	0	72000	0	0	1	0	0	0
-18       *      0       1       1        1            0            0          "Orb of Ice Arrow"	81	0	0	0	0	0	258	0	195000	0	0	2	0	0	0
+18       *      0       1       1        1            0            0          "Orb of Ice Arrow [LIMITADO]"	81	0	0	0	0	0	258	0	195000	0	0	2	0	0	0
 19       *      0       1       1        1            0            0          "Orb of Death Stab"	72	0	0	160	0	0	0	0	85000	0	2	0	0	0	0
 21       *      0       1       2        1            0            0          "Scroll of FireBurst"	74	0	0	0	20	0	0	0	115000	0	0	0	0	0	0
 22       *      0       1       2        1            0            0          "Scroll of Summon"	98	0	0	0	34	0	0	400	375000	0	0	0	0	0	0
@@ -1663,7 +1679,7 @@ end
 181	7	0	2	3	1	      1	           0	      "Cape of Style [RL]"	4	30	250	300	0	0	0	0	0	1	1	1	1	0	0
 182	7	0	2	3	1	      1	           0	      "Steel Cape [RL] [EXCLUSIVO]"	4	30	250	300	0	0	0	0	0	1	1	1	1	0	0
 183	7	0	4	3	1	      1	           0	      "Warlock Wing [C]"	4	34	250	300	0	0	0	0	0	1	1	1	1	0	0
-184	7	0	4	3	1	      1	           0	      "Apocalipse Wing [E]"	4	30	250	300	0	0	0	0	0	1	1	1	1	0	0
+184	7	0	4	3	1	      1	           0	      "Apocalipse Wing [E] [LIMITADO]"	4	30	250	300	0	0	0	0	0	1	1	1	1	0	0
 186	7	0	4	3	1	      1	           0	      "Wing of Angel"	4	30	250	300	0	0	0	0	0	1	1	1	1	0	0
 187	7	0	4	3	1	      1	           0	      "Love 2.0 Wings [C]"	4	29	250	300	0	0	0	0	0	1	1	1	1	0	0
 188	7	0	2	3	1	      1	           0	      "Cape of God [RL]"	4	34	250	300	0	0	0	0	0	1	1	1	1	0	0
@@ -1818,7 +1834,7 @@ end
 4        8      62      1       1        1            0            0          "Dark Horse"	218	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 5        1      0       1       1        1            0            0          "Dark Raven [LIMITADO]"	0	255	0	0	0	0	0	0	0	0	0	0	0	0	0	0
 7        *      0       1       1        1            0            0          "Contract (Summon)"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-8        10     0       1       1        1            1            0         "Ring of Ice"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+8        10     0       1       1        1            1            0         "Ring of Ice [LIMITADO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
 9        10     0       1       1        1            1            0          "Ring of Poison"	17	50	0	1	0	0	0	0	0	0	1	1	1	1	0	1
 10       10     0       1       1        1            0            0          "Transformation Ring"	0	200	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 11       *      0       1       1        1            0            0          "Order (Guardian/Life Stone)"	0	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
@@ -1835,7 +1851,7 @@ end
 22       10     0       1       1        1            1            0          "Ring of Earth"	38	50	0	0	0	0	1	0	0	0	1	1	1	1	0	1
 23       10     0       1       1        1            1            0          "Ring of Wind"	44	50	0	0	0	0	0	1	0	0	1	1	1	1	0	1
 24       10     0       1       1        1            1            0          "Ring of Magic"	47	50	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-25       9      0       1       1        1            1            0          "Pendant of Ice"	34	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+25       9      0       1       1        1            1            0          "Pendant of Ice [LIMITADO]"	34	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
 26       9      0       1       1        1            1            0          "Pendant of Wind"	42	50	0	0	0	0	0	1	0	0	1	1	1	1	0	1
 27       9      0       1       1        1            1            0          "Pendant of Water"	46	50	0	0	0	0	0	0	1	0	1	1	1	1	0	1
 28       9      0       1       1        1            1            0          "Pendant of Ability"	50	50	0	0	0	0	0	0	0	0	1	1	1	1	0	1
@@ -1861,7 +1877,7 @@ end
 48       *      0       1       1        1            0            0          "Kalima Ticket"	0	10	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 49       *      0       1       1        1            0            0          "Old Scroll"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 50       *      0       1       2        1            0            0          "Illusion Sorcerer Covenant"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-51       *      0       2       2        1            0            0          "Scroll of Blood"	0	1	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+51       *      0       2       2        1            0            0          "Scroll of Blood [LIMITADO]"	0	1	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 52       *      0       1       2        1            0            0          "Condor Flame"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 53       *      0       1       2        1            0            0          "Condor Feather"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 54       *      0       1       1        1            0            0          "Reset Fruit Strength"	0	0	0	0	0	0	0	0	0	0	1	1	1	1	0	1
@@ -1966,7 +1982,7 @@ end
 218      236    0       1       1        1            0            0          "Eagle of Light Hawk [LIMITADO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 219      8      76      2       2        1            0            0          "Fenrir Halloween [EXCLUSIVO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 220      8      62      1       1        1            0            0          "Horse Halloween [EXCLUSIVO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
-221      237    0       1       1        1            0            0          "Mini Fenrir Hallow"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+221      237    0       1       1        1            0            0          "Mini Fenrir Hallow [EXCLUSIVO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 222      237    0       1       1        1            0            0          "Pet Halloween 2021"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 223      8      76      2       2        1            0            0          "Fenrir Abbadon [EXCLUSIVO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 224      8      62      1       1        1            0            0          "Horse Ghost Skin 1 [LIMITADO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
@@ -2122,6 +2138,48 @@ end
 493      8      76      2       2        1            0            0          "Fenrir Dark Raven [LIMITADO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 494      8      62      1       1        1            0            0          "Horse of Dark Raven [LIMITADO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
 495      8      62      1       1        1            0            0          "Horse of Light Hawk [LIMITADO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO duplicado 473      8      62      1       1        1            0            0          "Horse of BanneD [LIMITADO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+//REMOVIDO duplicado 474      8      76      2       2        1            0            0          "Fenrir BanneD [LIMITADO]"	28	255	0	0	0	0	0	0	0	0	1	1	1	1	0	1
+128        10     0       1       1        1            1            0         "Ring of Gold [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+129       9      0       1       1        1            1            0          "Pendant of Gold [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+130        10     0       1       1        1            1            0         "Ring of Diamond [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+131       9      0       1       1        1            1            0          "Pendant of Diamond [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+132        10     0       1       1        1            1            0         "Ring of Snow Black [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+133       9      0       1       1        1            1            0          "Pendant of Snow Bl [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+134        10     0       1       1        1            1            0         "Ring of Frost Blac [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+135       9      0       1       1        1            1            0          "Pendant of Frost B [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+136        10     0       1       1        1            1            0         "Ring of Steel 2.0 [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+137       9      0       1       1        1            1            0          "Pendant of Steel 2 [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+138        10     0       1       1        1            1            0         "Ring of Lord [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+139       9      0       1       1        1            1            0          "Pendant of Lord [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+140        10     0       1       1        1            1            0         "Ring of Halloween [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+141       9      0       1       1        1            1            0          "Pendant of Hallowe [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+142        10     0       1       1        1            1            0         "Ring of Gift Chris [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+143       9      0       1       1        1            1            0          "Pendant of Gift Ch [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+144        10     0       1       1        1            1            0         "Ring of Abbadon [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+145       9      0       1       1        1            1            0          "Pendant of Abbadon [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+146        10     0       1       1        1            1            0         "Ring of Bright Red [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+147       9      0       1       1        1            1            0          "Pendant of Bright [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+148        10     0       1       1        1            1            0         "Ring of Black Chri [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+149       9      0       1       1        1            1            0          "Pendant of Black C [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+150        10     0       1       1        1            1            0         "Ring of Sonnar [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+151       9      0       1       1        1            1            0          "Pendant of Sonnar [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+152        10     0       1       1        1            1            0         "Ring of Cold [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+153       9      0       1       1        1            1            0          "Pendant of Cold [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+154        10     0       1       1        1            1            0         "Ring of Tail Fox [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+155       9      0       1       1        1            1            0          "Pendant of Tail Fo [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+156        10     0       1       1        1            1            0         "Ring of Snow [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+157       9      0       1       1        1            1            0          "Pendant of Snow [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+158        10     0       1       1        1            1            0         "Ring of Santa [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+159       9      0       1       1        1            1            0          "Pendant of Santa [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+160        10     0       1       1        1            1            0         "Ring of Dark Pirat [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+161       9      0       1       1        1            1            0          "Pendant of Dark Pi [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+162        10     0       1       1        1            1            0         "Ring of Frost [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+163       9      0       1       1        1            1            0          "Pendant of Frost [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+164        10     0       1       1        1            1            0         "Ring of 01 X Renew [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+165       9      0       1       1        1            1            0          "Pendant of 01 X Re [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
+166        10     0       1       1        1            1            0         "Ring of Steel [EXCLUSIVO]"	20	50	1	0	0	0	0	0	0	0	1	1	1	1	0	1
+167       9      0       1       1        1            1            0          "Pendant of Steel [EXCLUSIVO]"	21	50	0	0	1	0	0	0	0	0	1	1	1	1	0	1
 end
 
 14
