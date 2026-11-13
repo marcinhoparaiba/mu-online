@@ -54,7 +54,7 @@ function LobbyPosY(index)
 	local sel = GetSelectedHero()
 	local ps, pi = nil, nil
 	for k, i in ipairs(v) do
-		if i == sel then ps = k end
+		-- fixo: selecionar nao gira o carrossel
 		if i == index then pi = k end
 	end
 	if pi == nil then return 18570.0 end
@@ -128,8 +128,9 @@ function UpdateProc(maxCharacter)
 	local frame_cx = (2 * GetWideX())
 
 	for i = 0, (maxCharacter - 1) do
-		if (MousePosX() >= 470 + frame_cx and MousePosX() <= 470 + 150 + frame_cx)
-			and (MousePosY() >= (50 + addY) and MousePosY() <= (50 + addY + 35))
+		local hx = WindowGetWidth() / 2 - 93 + (((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0) * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
+		if CharacterGetIsLive(i) == 1 and MousePosX() >= hx - 45 and MousePosX() <= hx + 45
+			and MousePosY() >= 100 and MousePosY() <= 340
 		then
 			SelectedButton = i
 
@@ -297,13 +298,17 @@ function LobbyOverlay()
 			local nome = CharacterGetName(i)
 			local c = LOBBY_INFO[nome]
 			local xx = cx + (((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0) * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
-			if c and xx + 50 < 490 + 2 * GetWideX() and xx > 57 then
+			if c and xx + 50 < WindowGetWidth() and xx > 57 then
 				local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0
 				local x = cx + rel * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
 				local y = LOBBY_SLOT_Y
+				if MousePosX() >= x - 50 and MousePosX() <= x + 50 and MousePosY() >= 100 and MousePosY() <= 420 and CheckClickClient() == 1 then
+					SetCharacterAction(i, 207); SetSelectedHero(i); SetTargetCharacter(i); DisableClickClient()
+				end
 				local sel = (GetSelectedHero() == i)
 				local pt = Patente(c)
 				-- estilo foto: simbolo pequeno e textos sem caixa logo acima da cabeca
+				if sel then SetTextColor(255, 210, 60, 255); RenderText3(x - 53, y - 22, "> SELECIONADO <", 106, 3) end
 				if c.guild ~= "" then RenderMark(x - 16, y - 8, c.mark, 4) end
 				local by = y + 26
 				local h = 36
@@ -377,16 +382,16 @@ function RenderProc(maxCharacter)
 	for i = 0, (maxCharacter - 1) do
 		if (CharacterGetIsLive(i) == 1)
 		then
-			RenderImage2(Button1Index, 470 + frame_cx, 50 + addY, 150, 35, 0, 0, 0.878, 0.82, 1, 1, 0)
+			local _ = LOBBY_LISTA and RenderImage2(Button1Index, 470 + frame_cx, 50 + addY, 150, 35, 0, 0, 0.878, 0.82, 1, 1, 0)
 
 			if SelectedButton == i
 			then
-				RenderImage2(Button2Index, 470 + frame_cx, 50 + addY, 150, 35, 0, 0, 0.878, 0.82, 1, 1, 0)
+				local _ = LOBBY_LISTA and RenderImage2(Button2Index, 470 + frame_cx, 50 + addY, 150, 35, 0, 0, 0.878, 0.82, 1, 1, 0)
 			end
 
 			if ClickedButton == i or (GetSelectedHero() == i)
 			then
-				RenderImage2(Button3Index, 470 + frame_cx, 50 + addY, 150, 35, 0, 0, 0.878, 0.82, 1, 1, 0)
+				local _ = LOBBY_LISTA and RenderImage2(Button3Index, 470 + frame_cx, 50 + addY, 150, 35, 0, 0, 0.878, 0.82, 1, 1, 0)
 			end
 
 			if ClickedButton == i
@@ -398,22 +403,22 @@ function RenderProc(maxCharacter)
 			SetCharacterScale(i)
 
 			--Render Status
-			RenderCharacterStatus(470 + frame_cx, 50 + 10 + addY, i)
+			local _ = LOBBY_LISTA and RenderCharacterStatus(470 + frame_cx, 50 + 10 + addY, i)
 		else
 			--Render Empty character
-			RenderImage2(Button1Index, 470 + frame_cx, 50 + addY, 150, 35, 0, 0, 0.878, 0.82, 1, 1, 0)
+			local _ = LOBBY_LISTA and RenderImage2(Button1Index, 470 + frame_cx, 50 + addY, 150, 35, 0, 0, 0.878, 0.82, 1, 1, 0)
 			Console(string.format("%d - %d", SelectedButton, ClickedButton))
 			if SelectedButton == i
 			then
-				RenderImage2(Button2Index, 470 + frame_cx, 50 + addY, 150, 35, 0, 0, 0.878, 0.82, 1, 1, 0)
+				local _ = LOBBY_LISTA and RenderImage2(Button2Index, 470 + frame_cx, 50 + addY, 150, 35, 0, 0, 0.878, 0.82, 1, 1, 0)
 			end
 
 			if ClickedButton == i
 			then
-				RenderImage2(Button3Index, 470 + frame_cx, 50 + addY, 150, 35, 0, 0, 0.878, 0.82, 1, 1, 0)
+				local _ = LOBBY_LISTA and RenderImage2(Button3Index, 470 + frame_cx, 50 + addY, 150, 35, 0, 0, 0.878, 0.82, 1, 1, 0)
 			end
 
-			RenderText3(470 + frame_cx, 50 + 10 + addY, CHARACTER_LIST_MESSAGES[GetLanguage()][1], 150, 3)
+			local _ = LOBBY_LISTA and RenderText3(470 + frame_cx, 50 + 10 + addY, CHARACTER_LIST_MESSAGES[GetLanguage()][1], 150, 3)
 		end
 
 		addY = addY + 37.0
