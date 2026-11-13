@@ -1,3 +1,4 @@
+LOBBY_Z = 200.0 -- altura dos personagens no lobby
 OpenFolder("Definitions")
 
 local MAX_CHARACTER_LIST = 4  -- max character list if you want 5 set 5, i not recommend minus 5, the max of the system is 10 if you try put more you can't
@@ -91,7 +92,7 @@ end
 function SetCharacterPosition(index)
 	CharacterSetPositionX(index, LobbyPosX(index))
 	CharacterSetPositionY(index, LobbyPosY(index))
-	CharacterSetPositionZ(index, 75.0)
+	CharacterSetPositionZ(index, LOBBY_Z)
 	CharacterSetAngleZ(index, 75.0)
 	CharacterSetScale(index, 1.0)
 end
@@ -184,20 +185,21 @@ local MARK_COR = {[1]={0,0,0},[2]={128,128,128},[3]={255,255,255},[4]={255,0,0},
 local FUNCAO = {[0]="Membro", [32]="Battle Master", [64]="Assistente", [128]="Guild Master"}
 
 local function RenderMark(x, y, hex, px)
-	if hex == nil or hex:len() < 64 then return end
-	SetBlend(1)
-	for p = 0, 63 do
-		local byte = tonumber(hex:sub(math.floor(p / 2) * 2 + 1, math.floor(p / 2) * 2 + 2), 16) or 0
-		local c = (p % 2 == 0) and math.floor(byte / 16) or (byte % 16)
-		local cor = MARK_COR[c]
-		if cor then
-			glColor4f(cor[1] / 255, cor[2] / 255, cor[3] / 255, 1.0)
-			DrawBar(x + (p % 8) * px, y + math.floor(p / 8) * px, px, px)
+	-- desenha o simbolo 8x8 com o fundo do texto (DrawBar fechava o jogo no lobby)
+	if type(hex) ~= "string" or hex:len() < 64 then return end
+	for row = 0, 7 do
+		for col = 0, 7 do
+			local p = row * 8 + col
+			local byte = tonumber(hex:sub(math.floor(p / 2) * 2 + 1, math.floor(p / 2) * 2 + 2), 16) or 0
+			local c = (p % 2 == 0) and math.floor(byte / 16) or (byte % 16)
+			local cor = MARK_COR[c]
+			if cor then
+				SetTextBg(cor[1], cor[2], cor[3], 255)
+				RenderText3(x + col * px, y + row * px, " ", px, 0)
+			end
 		end
 	end
-	EndDrawBar()
-	EnableAlphaTest()
-	glColor3f(1.0, 1.0, 1.0)
+	SetTextBg(0, 0, 0, 0)
 end
 
 -- PATENTE pelo total de resets (master reset vale 100): titulo e cor da faixa
@@ -243,6 +245,21 @@ local function Caixa(x, y, w, h, r, g, bl, a)
 	SetBlend(1); glColor4f(r, g, bl, a); DrawBar(x, y, w, h); EndDrawBar(); EnableAlphaTest(); glColor3f(1, 1, 1)
 end
 
+local function SafeCall(fn, ...) if type(fn) ~= "function" then return nil end local ok, r = pcall(fn, ...) if ok then return r end return nil end
+function LobbyGuildNativa()
+	local cx = WindowGetWidth() / 2
+	for i = 0, (MAX_CHARACTER_LIST - 1) do
+		if CharacterGetIsLive(i) == 1 then
+			local g = SafeCall(CharacterGuildGetName, i) or SafeCall(CharacterGetGuild, i)
+			local st = SafeCall(CharacterGetGuildStatus, i)
+			local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0) / 500.0
+			local x = cx + rel * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
+			SetTextBg(0, 0, 0, 150); SetTextColor(255, 200, 60, 255)
+			RenderText3(x, LOBBY_SLOT_Y - 18, "G:" .. tostring(g) .. " S:" .. tostring(st), 160, 3)
+			SetTextBg(0, 0, 0, 0)
+		end
+	end
+end
 function LobbyOverlay()
 	if LOBBY_INFO == nil then return end
 	local cx = WindowGetWidth() / 2
@@ -397,7 +414,7 @@ function RenderProc(maxCharacter)
 			SetTargetCharacter(ClickedButton)
 
 			for i = 0, (MAX_CHARACTER_LIST - 1) do
-				ChangeCharacterView(i, LobbyPosX(i), LOBBY_CUR[i] or LobbyPosY(i), 75.0)
+				ChangeCharacterView(i, LobbyPosX(i), LOBBY_CUR[i] or LobbyPosY(i), LOBBY_Z)
 			end
 		end
 	end
@@ -409,3 +426,29 @@ end
 
 SetMaxCharacter(MAX_CHARACTER_LIST)
 SetPetSize(MOUNT_ADD_SIZE, FLYING_ADD_SIZE, FLYING_ADD_HEIGHT)
+
+-- recebe os dados do lobby aqui tambem (os scripts de Manager so carregam dentro do jogo)
+LobbyInfo = LobbyInfo or {}
+function LobbyInfo.Protocol(Packet, PacketName)
+    if Packet ~= 27 or type(PacketName) ~= "string" or PacketName:sub(1, 10) ~= "LobbyInfoR" then return end
+    local function s() local n = GetBytePacket(PacketName, -1) or 0; if n == 0 then return "" end; return GetCharPacketLength(PacketName, -1, n) or "" end
+    local function b() return GetBytePacket(PacketName, -1) or 0 end
+    local function d() return GetDwordPacket(PacketName, -1) or 0 end
+    local t = {}
+    t._vip = b(); t._horas = d(); t._motd = s()
+    local n = b()
+    for _ = 1, n do
+        local c = {}
+        c.nome = s(); c.guild = s(); c.status = b(); c.mark = s()
+        c.pk = d(); c.pklevel = b(); c.resets = d(); c.mresets = d()
+        c.duelos = d(); c.warkill = d(); c.honra = d(); c.eventos = d(); c.rank = d(); c.dias = d()
+        t[c.nome] = c
+    end
+    ClearPacket(PacketName)
+    LOBBY_INFO = t
+end
+if InterfaceController ~= nil and InterfaceController.ClientProtocol ~= nil then InterfaceController.ClientProtocol(LobbyInfo.Protocol)
+elseif ClientProtocol == nil then
+	-- no lobby o Controller/Interface ainda nao carregou: o mu.exe chama esta funcao global ao receber pacote Lua
+	function ClientProtocol(Packet, PacketName) LobbyInfo.Protocol(Packet, PacketName) end
+end

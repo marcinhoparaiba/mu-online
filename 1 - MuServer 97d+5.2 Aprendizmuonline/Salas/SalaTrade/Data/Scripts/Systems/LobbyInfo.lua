@@ -15,6 +15,12 @@ end
 function LobbyInfo.Protocol(aIndex, Packet, PacketName)
     if Packet ~= 27 or PacketName ~= "LobbyInfo" then return false end
     ClearPacket(PacketName)
+    LobbyInfo.Enviar(aIndex)
+    return true
+end
+
+-- monta e manda os dados do lobby (chamado no login da conta, antes da tela de personagens)
+function LobbyInfo.Enviar(aIndex)
     local acc = User.new(aIndex):getAccountID()
     if acc == nil or acc == "" or acc:find("'") then return true end
     local q = string.format([[SELECT c.Name AS N, ISNULL(c.PkCount,0) AS P, ISNULL(c.PkLevel,3) AS PL, ISNULL(c.ResetCount,0) AS R, ISNULL(c.MasterResetCount,0) AS MR,
@@ -56,5 +62,11 @@ function LobbyInfo.Protocol(aIndex, Packet, PacketName)
 end
 
 GameServerFunctions.GameServerProtocol(LobbyInfo.Protocol)
+-- o servidor nao repassa pacotes Lua na tela de personagens: manda os dados assim que a conta loga
+GameServerFunctions.MacAddressPlayer(function(aIndex, HWID)
+    for _, seg in ipairs({2, 4, 7, 12}) do
+        Timer.TimeOut(seg, function(i) pcall(LobbyInfo.Enviar, i) end, aIndex)
+    end
+end)
 
 return LobbyInfo
