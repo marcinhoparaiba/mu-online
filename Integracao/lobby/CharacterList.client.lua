@@ -260,7 +260,30 @@ function LobbyGuildNativa()
 		end
 	end
 end
+
+-- le os dados salvos da ultima vez que entrou no jogo
+function LobbyCacheCarregar()
+    local ok, f = pcall(io.open, "Data/Custom/LobbyCache.txt", "r")
+    if not ok or not f then return nil end
+    local t = {_vip = 0, _horas = 0, _motd = ""}
+    for l in f:lines() do
+        if l:sub(1, 1) == "#" then t._motd = l:sub(2)
+        else
+            local v = {} for p in (l .. "|"):gmatch("(.-)|") do v[#v + 1] = p end
+            if #v >= 14 then
+                local c = {}
+                local F = {"nome", "guild", "status", "mark", "pk", "pklevel", "resets", "mresets", "duelos", "warkill", "honra", "eventos", "rank", "dias"}
+                for i, k in ipairs(F) do c[k] = v[i] end
+                for _, k in ipairs({"status","pk","pklevel","resets","mresets","duelos","warkill","honra","eventos","rank","dias"}) do c[k] = math.floor(tonumber(c[k]) or 0) end
+                t[c.nome] = c
+            end
+        end
+    end
+    f:close()
+    return t
+end
 function LobbyOverlay()
+	if LOBBY_INFO == nil and not LOBBY_CACHE_LIDO then LOBBY_CACHE_LIDO = true; LOBBY_INFO = LobbyCacheCarregar() end
 	if LOBBY_INFO == nil then return end
 	local cx = WindowGetWidth() / 2
 	if LOBBY_INFO._motd ~= "" then

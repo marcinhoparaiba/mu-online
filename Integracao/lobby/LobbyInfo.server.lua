@@ -69,4 +69,9 @@ GameServerFunctions.MacAddressPlayer(function(aIndex, HWID)
     end
 end)
 
+-- ao entrar no jogo manda de novo (o cliente salva em arquivo para o lobby)
+GameServerFunctions.EnterCharacter(function(aIndex)
+    for _, seg in ipairs({3, 15}) do Timer.TimeOut(seg, function(i) pcall(LobbyInfo.Enviar, i) end, aIndex) end
+end)
+
 return LobbyInfo
