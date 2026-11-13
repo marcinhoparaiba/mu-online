@@ -63,7 +63,7 @@ function LobbyPosY(index)
 	local meio = math.floor(n / 2)
 	if rel > meio then rel = rel - n end
 	if rel < -(n - 1 - meio) then rel = rel + n end
-	return 18570.0 + rel * 260.0 + LOBBY_OFF
+	return 18570.0 + rel * 275.0 + LOBBY_OFF
 end
 
 -- desliza suave ate a posicao do carrossel
@@ -238,7 +238,7 @@ function RenderCharacterStatus(posX, posY, index)
 end
 
 -- AJUSTE DE TELA das caixas em cima dos personagens (calibrar com print)
-LOBBY_SLOT_DX = 179     -- distancia em pixels entre um personagem e outro na tela
+LOBBY_SLOT_DX = 189     -- distancia em pixels entre um personagem e outro na tela
 LOBBY_SLOT_SINAL = 1    -- troque para -1 se as caixas ficarem na ordem invertida
 LOBBY_SLOT_Y = 125       -- altura (pixels do topo) da faixa da patente
 
@@ -253,7 +253,7 @@ function LobbyGuildNativa()
 		if CharacterGetIsLive(i) == 1 then
 			local g = SafeCall(CharacterGuildGetName, i) or SafeCall(CharacterGetGuild, i)
 			local st = SafeCall(CharacterGetGuildStatus, i)
-			local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 260.0
+			local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0
 			local x = cx + rel * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
 			SetTextBg(0, 0, 0, 150); SetTextColor(255, 200, 60, 255)
 			RenderText3(x, LOBBY_SLOT_Y - 18, "G:" .. tostring(g) .. " S:" .. tostring(st), 160, 3)
@@ -296,9 +296,9 @@ function LobbyOverlay()
 		if CharacterGetIsLive(i) == 1 then
 			local nome = CharacterGetName(i)
 			local c = LOBBY_INFO[nome]
-			local xx = cx + (((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 260.0) * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
-			if c and xx + 50 < 475 + 2 * GetWideX() and xx > 57 then
-				local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 260.0
+			local xx = cx + (((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0) * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
+			if c and xx + 50 < 490 + 2 * GetWideX() and xx > 57 then
+				local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0
 				local x = cx + rel * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
 				local y = LOBBY_SLOT_Y
 				local sel = (GetSelectedHero() == i)
