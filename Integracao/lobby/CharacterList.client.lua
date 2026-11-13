@@ -1,3 +1,4 @@
+LOBBY_OFF = 200.0
 LOBBY_Z = 200.0 -- altura dos personagens no lobby
 OpenFolder("Definitions")
 
@@ -62,7 +63,7 @@ function LobbyPosY(index)
 	local meio = math.floor(n / 2)
 	if rel > meio then rel = rel - n end
 	if rel < -(n - 1 - meio) then rel = rel + n end
-	return 18570.0 + rel * 290.0
+	return 18570.0 + rel * 260.0 + LOBBY_OFF
 end
 
 -- desliza suave ate a posicao do carrossel
@@ -192,7 +193,7 @@ local function RenderMark(x, y, hex, px)
 			local p = row * 8 + col
 			local byte = tonumber(hex:sub(math.floor(p / 2) * 2 + 1, math.floor(p / 2) * 2 + 2), 16) or 0
 			local c = (p % 2 == 0) and math.floor(byte / 16) or (byte % 16)
-			local cor = MARK_COR[c]
+			local cor = MARK_COR[c]; if row == 0 or row == 7 or col == 0 or col == 7 then cor = nil end
 			if cor then
 				SetTextBg(cor[1], cor[2], cor[3], 255)
 				RenderText3(x + col * px, y + row * px, " ", px, 0)
@@ -237,7 +238,7 @@ function RenderCharacterStatus(posX, posY, index)
 end
 
 -- AJUSTE DE TELA das caixas em cima dos personagens (calibrar com print)
-LOBBY_SLOT_DX = 200     -- distancia em pixels entre um personagem e outro na tela
+LOBBY_SLOT_DX = 179     -- distancia em pixels entre um personagem e outro na tela
 LOBBY_SLOT_SINAL = 1    -- troque para -1 se as caixas ficarem na ordem invertida
 LOBBY_SLOT_Y = 125       -- altura (pixels do topo) da faixa da patente
 
@@ -247,12 +248,12 @@ end
 
 local function SafeCall(fn, ...) if type(fn) ~= "function" then return nil end local ok, r = pcall(fn, ...) if ok then return r end return nil end
 function LobbyGuildNativa()
-	local cx = WindowGetWidth() / 2 - 233
+	local cx = WindowGetWidth() / 2 - 93
 	for i = 0, (MAX_CHARACTER_LIST - 1) do
 		if CharacterGetIsLive(i) == 1 then
 			local g = SafeCall(CharacterGuildGetName, i) or SafeCall(CharacterGetGuild, i)
 			local st = SafeCall(CharacterGetGuildStatus, i)
-			local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0) / 290.0
+			local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 260.0
 			local x = cx + rel * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
 			SetTextBg(0, 0, 0, 150); SetTextColor(255, 200, 60, 255)
 			RenderText3(x, LOBBY_SLOT_Y - 18, "G:" .. tostring(g) .. " S:" .. tostring(st), 160, 3)
@@ -285,7 +286,7 @@ end
 function LobbyOverlay()
 	if LOBBY_INFO == nil and not LOBBY_CACHE_LIDO then LOBBY_CACHE_LIDO = true; LOBBY_INFO = LobbyCacheCarregar() end
 	if LOBBY_INFO == nil then return end
-	local cx = WindowGetWidth() / 2 - 233
+	local cx = WindowGetWidth() / 2 - 93
 	if LOBBY_INFO._motd ~= "" then
 		Caixa(cx - 220, 18, 440, 18, 0, 0, 0, 0.55)
 		SetTextColor(237, 214, 161, 255)
@@ -295,9 +296,9 @@ function LobbyOverlay()
 		if CharacterGetIsLive(i) == 1 then
 			local nome = CharacterGetName(i)
 			local c = LOBBY_INFO[nome]
-			local xx = cx + (((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0) / 290.0) * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
-			if c and xx + 57 < 470 + 2 * GetWideX() and xx > 57 then
-				local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0) / 290.0
+			local xx = cx + (((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 260.0) * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
+			if c and xx + 50 < 475 + 2 * GetWideX() and xx > 57 then
+				local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 260.0
 				local x = cx + rel * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
 				local y = LOBBY_SLOT_Y
 				local sel = (GetSelectedHero() == i)
