@@ -62,7 +62,7 @@ function LobbyPosY(index)
 	local meio = math.floor(n / 2)
 	if rel > meio then rel = rel - n end
 	if rel < -(n - 1 - meio) then rel = rel + n end
-	return 18570.0 + rel * 500.0
+	return 18570.0 + rel * 170.0
 end
 
 -- desliza suave ate a posicao do carrossel
@@ -237,7 +237,7 @@ function RenderCharacterStatus(posX, posY, index)
 end
 
 -- AJUSTE DE TELA das caixas em cima dos personagens (calibrar com print)
-LOBBY_SLOT_DX = 200     -- distancia em pixels entre um personagem e outro na tela
+LOBBY_SLOT_DX = 117     -- distancia em pixels entre um personagem e outro na tela
 LOBBY_SLOT_SINAL = 1    -- troque para -1 se as caixas ficarem na ordem invertida
 LOBBY_SLOT_Y = 70       -- altura (pixels do topo) da faixa da patente
 
@@ -247,12 +247,12 @@ end
 
 local function SafeCall(fn, ...) if type(fn) ~= "function" then return nil end local ok, r = pcall(fn, ...) if ok then return r end return nil end
 function LobbyGuildNativa()
-	local cx = WindowGetWidth() / 2
+	local cx = WindowGetWidth() / 2 - 227
 	for i = 0, (MAX_CHARACTER_LIST - 1) do
 		if CharacterGetIsLive(i) == 1 then
 			local g = SafeCall(CharacterGuildGetName, i) or SafeCall(CharacterGetGuild, i)
 			local st = SafeCall(CharacterGetGuildStatus, i)
-			local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0) / 500.0
+			local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0) / 170.0
 			local x = cx + rel * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
 			SetTextBg(0, 0, 0, 150); SetTextColor(255, 200, 60, 255)
 			RenderText3(x, LOBBY_SLOT_Y - 18, "G:" .. tostring(g) .. " S:" .. tostring(st), 160, 3)
@@ -285,7 +285,7 @@ end
 function LobbyOverlay()
 	if LOBBY_INFO == nil and not LOBBY_CACHE_LIDO then LOBBY_CACHE_LIDO = true; LOBBY_INFO = LobbyCacheCarregar() end
 	if LOBBY_INFO == nil then return end
-	local cx = WindowGetWidth() / 2
+	local cx = WindowGetWidth() / 2 - 227
 	if LOBBY_INFO._motd ~= "" then
 		Caixa(cx - 220, 18, 440, 18, 0, 0, 0, 0.55)
 		SetTextColor(237, 214, 161, 255)
@@ -295,8 +295,9 @@ function LobbyOverlay()
 		if CharacterGetIsLive(i) == 1 then
 			local nome = CharacterGetName(i)
 			local c = LOBBY_INFO[nome]
-			if c then
-				local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0) / 500.0
+			local xx = cx + (((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0) / 170.0) * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
+			if c and xx + 57 < 470 + 2 * GetWideX() and xx > 57 then
+				local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0) / 170.0
 				local x = cx + rel * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
 				local y = LOBBY_SLOT_Y
 				local sel = (GetSelectedHero() == i)
@@ -316,17 +317,17 @@ function LobbyOverlay()
 				if c.honra > 0 or c.eventos > 0 then extra = string.format("Honra %d  Eventos %d", c.honra, c.eventos); linhas = linhas + 1 end
 				if c.pk > 0 then linhas = linhas + 1 end
 				local h = 6 + linhas * 12
-				if LOBBY_INFO._vip > 0 then Caixa(x - 74, by - 2, 148, h + 4, 0.85, 0.65, 0.1, 0.9) end
-				Caixa(x - 72, by, 144, h, 0.03, 0.03, 0.04, sel and 0.92 or 0.75)
+				if LOBBY_INFO._vip > 0 then Caixa(x - 55, by - 2, 110, h + 4, 0.85, 0.65, 0.1, 0.9) end
+				Caixa(x - 72, by, 106, h, 0.03, 0.03, 0.04, sel and 0.92 or 0.75)
 				local ly = by + 4
-				SetTextColor(CorPk(c)); RenderText3(x, ly, nome .. (LOBBY_INFO._vip > 0 and " [VIP]" or ""), 144, 3); ly = ly + 12
+				SetTextColor(CorPk(c)); RenderText3(x, ly, nome .. (LOBBY_INFO._vip > 0 and " [VIP]" or ""), 106, 3); ly = ly + 12
 				SetTextColor(235, 235, 235, 255)
-				RenderText3(x, ly, c.guild ~= "" and (c.guild .. " - " .. (FUNCAO[c.status] or "Membro")) or "Sem guild", 144, 3); ly = ly + 12
+				RenderText3(x, ly, c.guild ~= "" and (c.guild .. " - " .. (FUNCAO[c.status] or "Membro")) or "Sem guild", 106, 3); ly = ly + 12
 				SetTextColor(200, 200, 200, 255)
-				RenderText3(x, ly, string.format("Resets %d | MR %d", c.resets, c.mresets), 144, 3); ly = ly + 12
-				if pvp ~= "" then SetTextColor(150, 220, 255, 255); RenderText3(x, ly, pvp, 144, 3); ly = ly + 12 end
-				if extra ~= "" then SetTextColor(180, 255, 160, 255); RenderText3(x, ly, extra, 144, 3); ly = ly + 12 end
-				if c.pk > 0 then SetTextColor(255, 90, 90, 255); RenderText3(x, ly, "PK: " .. c.pk, 144, 3); ly = ly + 12 end
+				RenderText3(x, ly, string.format("Resets %d | MR %d", c.resets, c.mresets), 106, 3); ly = ly + 12
+				if pvp ~= "" then SetTextColor(150, 220, 255, 255); RenderText3(x, ly, pvp, 106, 3); ly = ly + 12 end
+				if extra ~= "" then SetTextColor(180, 255, 160, 255); RenderText3(x, ly, extra, 106, 3); ly = ly + 12 end
+				if c.pk > 0 then SetTextColor(255, 90, 90, 255); RenderText3(x, ly, "PK: " .. c.pk, 106, 3); ly = ly + 12 end
 				if sel then
 					SetTextColor(160, 160, 170, 255)
 					local visto = (c.dias == 0) and "jogou hoje" or ("visto ha " .. c.dias .. " dias")
