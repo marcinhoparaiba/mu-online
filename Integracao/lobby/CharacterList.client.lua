@@ -114,7 +114,9 @@ end
 local SelectedButton = -1
 local ClickedButton = -1
 
+LOBBY_DBG = false
 function UpdateProc(maxCharacter)
+	LOBBY_UPN = (LOBBY_UPN or 0) + 1
 	if CheckCreateCharacterWindow() ~= 0
 	then
 		return
@@ -122,6 +124,7 @@ function UpdateProc(maxCharacter)
 
 	SelectedButton = -1
 	ClickedButton = -1
+	if LOBBY_PEND and CharacterGetIsLive(LOBBY_PEND) == 1 then ClickedButton = LOBBY_PEND; SetSelectedHero(LOBBY_PEND); SetTargetCharacter(LOBBY_PEND) end
 
 	addY = 0.0
 
@@ -194,7 +197,7 @@ local function RenderMark(x, y, hex, px)
 			local p = row * 8 + col
 			local byte = tonumber(hex:sub(math.floor(p / 2) * 2 + 1, math.floor(p / 2) * 2 + 2), 16) or 0
 			local c = (p % 2 == 0) and math.floor(byte / 16) or (byte % 16)
-			local cor = MARK_COR[c]; if row == 0 or row == 7 or col == 0 or col == 7 then cor = nil end
+			local cor = MARK_COR[c]; -- bordas mantidas (simbolo inteiro)
 			if cor then
 				SetTextBg(cor[1], cor[2], cor[3], 255)
 				RenderText3(x + col * px, y + row * px, " ", px, 0)
@@ -303,7 +306,7 @@ function LobbyOverlay()
 				local x = cx + rel * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
 				local y = LOBBY_SLOT_Y
 				if MousePosX() >= x - 50 and MousePosX() <= x + 50 and MousePosY() >= 100 and MousePosY() <= 420 and CheckClickClient() == 1 then
-					SetCharacterAction(i, 207); SetSelectedHero(i); SetTargetCharacter(i); DisableClickClient()
+					LOBBY_PEND = i; SetCharacterAction(i, 207); SetSelectedHero(i); SetTargetCharacter(i)
 				end
 				local sel = (GetSelectedHero() == i)
 				local pt = Patente(c)
@@ -438,6 +441,7 @@ function RenderProc(maxCharacter)
 	end
 
 	LobbyOverlay()
+	if LOBBY_DBG then SetTextColor(255,255,0,255); RenderText3(10, 10, string.format('m %d %d c %d sel %d pend %s up %d', MousePosX(), MousePosY(), CheckClickClient(), GetSelectedHero(), tostring(LOBBY_PEND), LOBBY_UPN or 0), 300, 1) end
 
 	DisableAlphaBlend()
 end
