@@ -124,6 +124,7 @@ function UpdateProc(maxCharacter)
 
 	SelectedButton = -1
 	ClickedButton = -1
+	if LOBBY_PEND == nil and GetSelectedHero() < 0 then for k = 0, maxCharacter - 1 do if CharacterGetIsLive(k) == 1 then LOBBY_PEND = k break end end end
 	if LOBBY_PEND and CharacterGetIsLive(LOBBY_PEND) == 1 then ClickedButton = LOBBY_PEND; SetSelectedHero(LOBBY_PEND); SetTargetCharacter(LOBBY_PEND) end
 
 	addY = 0.0
@@ -441,7 +442,8 @@ function RenderProc(maxCharacter)
 	end
 
 	LobbyOverlay()
-	if LOBBY_DBG then SetTextColor(255,255,0,255); RenderText3(10, 10, string.format('m %d %d c %d sel %d pend %s up %d', MousePosX(), MousePosY(), CheckClickClient(), GetSelectedHero(), tostring(LOBBY_PEND), LOBBY_UPN or 0), 300, 1) end
+	LOBBY_FN = (LOBBY_FN or 0) + 1; local okc, tc = pcall(os.time); if okc and tc then if not LOBBY_FT or tc - LOBBY_FT >= 5 then if LOBBY_FT then LOBBY_FPS = LOBBY_FN / (tc - LOBBY_FT) end LOBBY_FT = tc; LOBBY_FN = 0 end end
+	if LOBBY_DBG then SetTextColor(255,255,0,255); RenderText3(10, 10, string.format('fps %.1f w %d h %d r %d wx %d m %d %d c %d sel %d pend %s up %d', LOBBY_FPS or 0, WindowGetWidth(), WindowGetHeight(), GetResolution(), GetWideX(), MousePosX(), MousePosY(), CheckClickClient(), GetSelectedHero(), tostring(LOBBY_PEND), LOBBY_UPN or 0), 300, 1) end
 
 	DisableAlphaBlend()
 end
