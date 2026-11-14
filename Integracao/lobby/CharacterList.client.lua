@@ -114,7 +114,7 @@ end
 local SelectedButton = -1
 local ClickedButton = -1
 
-LOBBY_DBG = false
+LOBBY_DBG = true
 function UpdateProc(maxCharacter)
 	LOBBY_UPN = (LOBBY_UPN or 0) + 1
 	if CheckCreateCharacterWindow() ~= 0
