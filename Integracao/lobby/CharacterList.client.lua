@@ -1,4 +1,5 @@
 LOBBY_OFF = 200.0
+function LobbyEscala() local h = tonumber(WindowGetHeight()) or 0 if h <= 0 then return 1 end return math.floor(h / 562 * 1000 + 0.5) / 1000 end
 LOBBY_Z = 200.0 -- altura dos personagens no lobby
 OpenFolder("Definitions")
 
@@ -132,9 +133,9 @@ function UpdateProc(maxCharacter)
 	local frame_cx = (2 * GetWideX())
 
 	for i = 0, (maxCharacter - 1) do
-		local hx = WindowGetWidth() / 2 - 93 + (((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0) * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
+		local hx = WindowGetWidth() / 2 - 93 * LobbyEscala() + (((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0) * LOBBY_SLOT_DX * LobbyEscala() * LOBBY_SLOT_SINAL
 		if CharacterGetIsLive(i) == 1 and MousePosX() >= hx - 45 and MousePosX() <= hx + 45
-			and MousePosY() >= 100 and MousePosY() <= 340
+			and MousePosY() >= 100 * LobbyEscala() and MousePosY() <= 340 * LobbyEscala()
 		then
 			SelectedButton = i
 
@@ -253,13 +254,13 @@ end
 
 local function SafeCall(fn, ...) if type(fn) ~= "function" then return nil end local ok, r = pcall(fn, ...) if ok then return r end return nil end
 function LobbyGuildNativa()
-	local cx = WindowGetWidth() / 2 - 93
+	local cx = math.floor(WindowGetWidth() / 2 - 93 * LobbyEscala())
 	for i = 0, (MAX_CHARACTER_LIST - 1) do
 		if CharacterGetIsLive(i) == 1 then
 			local g = SafeCall(CharacterGuildGetName, i) or SafeCall(CharacterGetGuild, i)
 			local st = SafeCall(CharacterGetGuildStatus, i)
 			local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0
-			local x = cx + rel * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
+			local x = math.floor(cx + rel * LOBBY_SLOT_DX * LobbyEscala() * LOBBY_SLOT_SINAL)
 			SetTextBg(0, 0, 0, 150); SetTextColor(255, 200, 60, 255)
 			RenderText3(x, LOBBY_SLOT_Y - 18, "G:" .. tostring(g) .. " S:" .. tostring(st), 160, 3)
 			SetTextBg(0, 0, 0, 0)
@@ -291,7 +292,7 @@ end
 function LobbyOverlay()
 	if LOBBY_INFO == nil and not LOBBY_CACHE_LIDO then LOBBY_CACHE_LIDO = true; LOBBY_INFO = LobbyCacheCarregar() end
 	if LOBBY_INFO == nil then return end
-	local cx = WindowGetWidth() / 2 - 93
+	local cx = math.floor(WindowGetWidth() / 2 - 93 * LobbyEscala())
 	if LOBBY_INFO._motd ~= "" then
 		Caixa(cx - 220, 18, 440, 18, 0, 0, 0, 0.55)
 		SetTextColor(237, 214, 161, 255)
@@ -301,12 +302,12 @@ function LobbyOverlay()
 		if CharacterGetIsLive(i) == 1 then
 			local nome = CharacterGetName(i)
 			local c = LOBBY_INFO[nome]
-			local xx = cx + (((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0) * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
-			if c and xx + 50 < WindowGetWidth() and xx > 57 then
+			local xx = cx + (((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0) * LOBBY_SLOT_DX * LobbyEscala() * LOBBY_SLOT_SINAL
+			if c and xx + 30 < WindowGetWidth() and xx > 30 then
 				local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0
-				local x = cx + rel * LOBBY_SLOT_DX * LOBBY_SLOT_SINAL
-				local y = LOBBY_SLOT_Y
-				if MousePosX() >= x - 50 and MousePosX() <= x + 50 and MousePosY() >= 100 and MousePosY() <= 420 and CheckClickClient() == 1 then
+				local x = math.floor(cx + rel * LOBBY_SLOT_DX * LobbyEscala() * LOBBY_SLOT_SINAL)
+				local y = math.floor(LOBBY_SLOT_Y * LobbyEscala())
+				if MousePosX() >= x - 50 and MousePosX() <= x + 50 and MousePosY() >= 100 * LobbyEscala() and MousePosY() <= 420 * LobbyEscala() and CheckClickClient() == 1 then
 					LOBBY_PEND = i; SetCharacterAction(i, 207); SetSelectedHero(i); SetTargetCharacter(i)
 				end
 				local sel = (GetSelectedHero() == i)
