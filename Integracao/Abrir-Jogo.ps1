@@ -84,18 +84,25 @@ try {
         $pref = 'HKCU:\Software\MuBanneD'
         if (-not $Modo) {
             $ultimo = (Get-ItemProperty $pref -Name Modo -ErrorAction SilentlyContinue).Modo; if (-not $ultimo) { $ultimo = 'SemBorda' }
-            $f = New-Object System.Windows.Forms.Form; $f.Text = 'MuBanneD - Modo de tela'; $f.Size = '360,190'; $f.StartPosition = 'CenterScreen'; $f.TopMost = $true; $f.FormBorderStyle = 'FixedDialog'; $f.MaximizeBox = $false
-            $y = 15
-            foreach ($op in @(@('SemBorda','Tela inteira sem borda (recomendado, print funciona)'), @('Cheia','Tela cheia exclusiva (print sai preto)'), @('Janela','Modo janela 1600x900'))) {
+            $f = New-Object System.Windows.Forms.Form; $f.Text = 'MuBanneD - Modo de tela'; $f.Size = '360,240'; $f.StartPosition = 'CenterScreen'; $f.TopMost = $true; $f.FormBorderStyle = 'FixedDialog'; $f.MaximizeBox = $false
+            $ultRes = (Get-ItemProperty $pref -Name Res -ErrorAction SilentlyContinue).Res; if (-not $ultRes) { $ultRes = '1024x768' }
+            $lb = New-Object System.Windows.Forms.Label; $lb.Text = 'Resolucao:'; $lb.Location = '10,14'; $lb.Size = '70,20'; $f.Controls.Add($lb)
+            $cb = New-Object System.Windows.Forms.ComboBox; $cb.DropDownStyle = 'DropDownList'; $cb.Location = '85,10'; $cb.Size = '245,24'
+            foreach ($r in @('800x600','1024x768','1280x960','1366x768','1600x900','1920x1080')) { [void]$cb.Items.Add($(if ($r -eq '1024x768') { "$r (recomendado, mais FPS)" } else { $r })) }
+            $cb.SelectedIndex = [Math]::Max(0, [array]::IndexOf(@('800x600','1024x768','1280x960','1366x768','1600x900','1920x1080'), $ultRes)); $f.Controls.Add($cb)
+            $y = 45
+            foreach ($op in @(@('SemBorda','Tela inteira sem borda (recomendado, print funciona)'), @('Cheia','Tela cheia exclusiva (print sai preto)'), @('Janela','Modo janela'))) {
                 $b = New-Object System.Windows.Forms.Button; $b.Text = $op[1]; $b.Tag = $op[0]; $b.Size = '320,35'; $b.Location = "10,$y"; $y += 42
                 if ($op[0] -eq $ultimo) { $b.Font = New-Object System.Drawing.Font($b.Font, [System.Drawing.FontStyle]::Bold) }
-                $b.Add_Click({ $script:Modo = $this.Tag; $f.Close() }); $f.Controls.Add($b)
+                $b.Add_Click({ $script:Modo = $this.Tag; $script:ResEsc = ($cb.SelectedItem -split ' ')[0]; $f.Close() }); $f.Controls.Add($b)
             }
             $f.ShowDialog() | Out-Null
             if (-not $Modo) { return }
         }
         if (-not (Test-Path $pref)) { New-Item $pref -Force | Out-Null }; Set-ItemProperty $pref Modo $Modo
-        if ($Modo -eq 'Cheia') { Set-ItemProperty $cfg WindowMode 0; Set-ItemProperty $cfg Resolution $res["$($tela.Width)x$($tela.Height)"] }
+        if (-not $script:ResEsc) { $script:ResEsc = (Get-ItemProperty $pref -Name Res -ErrorAction SilentlyContinue).Res; if (-not $script:ResEsc) { $script:ResEsc = '1024x768' } }
+        Set-ItemProperty $pref Res $script:ResEsc; if ($res.ContainsKey($script:ResEsc)) { $idx = $res[$script:ResEsc] }
+        if ($Modo -eq 'Cheia') { Set-ItemProperty $cfg WindowMode 0; Set-ItemProperty $cfg Resolution $idx }
         else { Set-ItemProperty $cfg WindowMode 1; Set-ItemProperty $cfg Resolution $idx }
         $mu = Start-Process -FilePath $game -WorkingDirectory $client -PassThru
         Start-Process powershell -WindowStyle Hidden -ArgumentList '-NoProfile','-ExecutionPolicy','Bypass','-File',('"' + (Join-Path $PSScriptRoot 'print-helper.ps1') + '"'),$mu.Id,('"' + (Join-Path $client 'ScreenShots') + '"')
