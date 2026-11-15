@@ -5,6 +5,13 @@ $root = Split-Path -Parent $PSScriptRoot
 $server = Join-Path $root '1 - MuServer 97d+5.2 Aprendizmuonline'
 $client = Join-Path $root '2 - Cliente'
 $game = Join-Path $client 'mu.exe'
+function Get-LauncherPowerShell {
+    foreach ($name in @('pwsh.exe', 'powershell.exe')) {
+        $candidate = Join-Path $PSHOME $name
+        if (Test-Path -LiteralPath $candidate -PathType Leaf) { return $candidate }
+    }
+    throw 'Nao foi encontrado um executavel PowerShell nesta instalacao.'
+}
 $parts = @(
     @{ File = 'ConnectServer\ConnectServer.exe'; Port = 44405 },
     @{ File = 'DataServer\DataServer.exe'; Port = 55962 },
@@ -35,7 +42,7 @@ try {
     if ($sql.Status -ne 'Running') {
         $script = '$ErrorActionPreference = "Stop"; Start-Service -Name ''MSSQL$MUBANNEDTEST'''
         $encoded = [Convert]::ToBase64String([Text.Encoding]::Unicode.GetBytes($script))
-        $process = Start-Process -FilePath (Join-Path $PSHOME 'powershell.exe') -ArgumentList '-NoProfile','-EncodedCommand',$encoded -Verb RunAs -WindowStyle Hidden -Wait -PassThru
+        $process = Start-Process -FilePath (Get-LauncherPowerShell) -ArgumentList '-NoProfile','-EncodedCommand',$encoded -Verb RunAs -WindowStyle Hidden -Wait -PassThru
         if ($process.ExitCode -ne 0) { throw 'Falha ao iniciar o SQL Server.' }
         $sql.WaitForStatus('Running', [TimeSpan]::FromSeconds(20))
     }
