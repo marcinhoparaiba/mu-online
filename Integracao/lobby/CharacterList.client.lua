@@ -115,7 +115,7 @@ end
 local SelectedButton = -1
 local ClickedButton = -1
 
-LOBBY_DBG = true
+LOBBY_DBG = false
 function UpdateProc(maxCharacter)
 	LOBBY_UPN = (LOBBY_UPN or 0) + 1
 	if CheckCreateCharacterWindow() ~= 0
@@ -125,8 +125,18 @@ function UpdateProc(maxCharacter)
 
 	SelectedButton = -1
 	ClickedButton = -1
-	if LOBBY_PEND == nil and GetSelectedHero() < 0 then for k = 0, maxCharacter - 1 do if CharacterGetIsLive(k) == 1 then LOBBY_PEND = k break end end end
-	if LOBBY_PEND and CharacterGetIsLive(LOBBY_PEND) == 1 then ClickedButton = LOBBY_PEND; SetSelectedHero(LOBBY_PEND); SetTargetCharacter(LOBBY_PEND) end
+	-- Pre-selecao acontece uma vez; quadros ociosos preservam a escolha do jogador.
+	if GetSelectedHero() < 0 then
+		for k = 0, maxCharacter - 1 do
+			if CharacterGetIsLive(k) == 1 then
+				ClickedButton = k
+				SetCharacterAction(k, 207)
+				SetSelectedHero(k)
+				SetTargetCharacter(k)
+				break
+			end
+		end
+	end
 
 	addY = 0.0
 
@@ -135,7 +145,7 @@ function UpdateProc(maxCharacter)
 	for i = 0, (maxCharacter - 1) do
 		local hx = WindowGetWidth() / 2 - 93 * LobbyEscala() + (((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0) * LOBBY_SLOT_DX * LobbyEscala() * LOBBY_SLOT_SINAL
 		if CharacterGetIsLive(i) == 1 and MousePosX() >= hx - 45 and MousePosX() <= hx + 45
-			and MousePosY() >= 100 * LobbyEscala() and MousePosY() <= 340 * LobbyEscala()
+			and MousePosY() >= 100 * LobbyEscala() and MousePosY() <= 420 * LobbyEscala()
 		then
 			SelectedButton = i
 
@@ -307,9 +317,6 @@ function LobbyOverlay()
 				local rel = ((LOBBY_CUR[i] or LobbyPosY(i)) - 18570.0 - LOBBY_OFF) / 275.0
 				local x = math.floor(cx + rel * LOBBY_SLOT_DX * LobbyEscala() * LOBBY_SLOT_SINAL)
 				local y = math.floor(LOBBY_SLOT_Y * LobbyEscala())
-				if MousePosX() >= x - 50 and MousePosX() <= x + 50 and MousePosY() >= 100 * LobbyEscala() and MousePosY() <= 420 * LobbyEscala() and CheckClickClient() == 1 then
-					LOBBY_PEND = i; SetCharacterAction(i, 207); SetSelectedHero(i); SetTargetCharacter(i)
-				end
 				local sel = (GetSelectedHero() == i)
 				local pt = Patente(c)
 				-- estilo foto: simbolo pequeno e textos sem caixa logo acima da cabeca
