@@ -65,8 +65,8 @@ $cbM = New-Object Windows.Forms.ComboBox; $cbM.DropDownStyle = 'DropDownList'; $
 $listaModo | % { [void]$cbM.Items.Add($_[1]) }
 $uMod = (Get-ItemProperty $pref -Name Modo -EA 0).Modo; if (-not $uMod) { $uMod = 'SemBorda' }
 $cbM.SelectedIndex = [Math]::Max(0, [array]::IndexOf(@($listaModo | % { $_[0] }), $uMod)); $f.Controls.Add($cbM)
-$ck = New-Object Windows.Forms.CheckBox; $ck.Text = 'Efeito transparente em itens +15'; $ck.SetBounds(470, 334, 390, 22); $ck.BackColor = 'Transparent'; $ck.ForeColor = $OURO; $ck.Font = New-Object Drawing.Font('Segoe UI', 9)
-$tr = (Get-ItemProperty 'HKCU:\Software\Webzen\Mu\Config' -Name BanneDTransp15 -EA 0).BanneDTransp15; $ck.Checked = ($tr -ne '0'); $f.Controls.Add($ck)
+$ck = New-Object Windows.Forms.CheckBox; $ck.Text = 'Itens +15 brilhantes'; $ck.SetBounds(470, 334, 390, 22); $ck.BackColor = 'Transparent'; $ck.ForeColor = $OURO; $ck.Font = New-Object Drawing.Font('Segoe UI', 9)
+$tr = (Get-ItemProperty 'HKCU:\Software\Webzen\Mu\Config' -Name BanneDBrilho15 -EA 0).BanneDBrilho15; $ck.Checked = ($tr -ne '0'); $f.Controls.Add($ck)
 
 # barra de progresso
 $st = Novo-Texto 'Pronto para jogar' 470 362 390 20 9 ([Drawing.Color]::FromArgb(235, 220, 200))
@@ -102,7 +102,7 @@ $go.Add_Click({
     $go.Enabled = $false; $cbR.Enabled = $false; $cbM.Enabled = $false
     $modo = $listaModo[$cbM.SelectedIndex][0]
     Set-ItemProperty $pref Res $listaRes[$cbR.SelectedIndex]; Set-ItemProperty $pref Modo $modo
-    Set-ItemProperty 'HKCU:\Software\Webzen\Mu\Config' BanneDTransp15 $(if ($ck.Checked) { '1' } else { '0' })
+    Set-ItemProperty 'HKCU:\Software\Webzen\Mu\Config' BanneDBrilho15 $(if ($ck.Checked) { '1' } else { '0' })
     $script:proc = Start-Process powershell -WindowStyle Hidden -PassThru -ArgumentList '-NoProfile', '-ExecutionPolicy', 'Bypass', '-File', ('"' + (Join-Path $I 'Abrir-Jogo.ps1') + '"'), '-Modo', $modo
     $script:t0 = Get-Date
     $script:tp = New-Object Windows.Forms.Timer; $script:tp.Interval = 700
